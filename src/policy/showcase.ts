@@ -39,7 +39,7 @@ export interface ShowcaseResult {
 }
 
 export function crowdBrain(simEnv: SimEnv, o: Pick<ShowcaseOptions, "claude" | "onLlmCall"> = {}): CrowdBrainPolicy {
-  return new CrowdBrainPolicy(o.claude ?? new ClaudeClient(o.onLlmCall ? { sink: o.onLlmCall } : {}), env("PERSONA_HAIKU_MODEL") ?? "claude-haiku-5-5", { timeoutMs: simEnv.runtime.persona.deadlineMs * 2, maxCalls: 400, refreshTicks: Math.round(30 / simEnv.runtime.sim.dtSec), maxInFlight: 8 });
+  return new CrowdBrainPolicy(o.claude ?? new ClaudeClient(o.onLlmCall ? { sink: o.onLlmCall } : {}), env("PERSONA_HAIKU_MODEL") ?? "claude-haiku-5-5", { timeoutMs: simEnv.runtime.persona.deadlineMs * 2, maxCalls: 400, refreshTicks: Math.round(60 / simEnv.runtime.sim.dtSec), maxInFlight: 8 });
 }
 
 export function personaPolicy(backend: Exclude<Backend, "replay" | "crowd">, simEnv: SimEnv, o: Pick<ShowcaseOptions, "claude" | "typesafe" | "onLlmCall"> = {}): HaikuPersona | JevPersona {
