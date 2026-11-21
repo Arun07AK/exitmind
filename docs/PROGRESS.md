@@ -48,7 +48,7 @@ If a persona replay reports MISMATCH after a simulator change, re-collect (needs
 | O4 | Live personas per showcase run | 12 (`config/runtime.json`), chosen by the builder at Arun's request. |
 | — | Three real phones | Not done. Steps: `npm run demo`, open three different `/sign?mount=…` URLs, Start fire, Approve, toggle one phone's Wi-Fi. |
 | — | Drawing sheets | Stay git-ignored (ownership notice) unless Arun confirms the event allows committing them. |
-| — | Parameter sources | All 64 behaviour parameters and 16 hazard parameters are `verified: false`. Nothing has been checked against a paper. |
+| — | Parameter sources | All 94 behaviour parameters and 16 hazard parameters are `verified: false`. Nothing has been checked against a paper. |
 
 ---
 
