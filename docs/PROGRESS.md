@@ -39,6 +39,25 @@ for f in data/fixtures/showcase_*.jsonl data/fixtures/table_hybrid_*.jsonl; do n
 
 If a persona replay reports MISMATCH after a simulator change, re-collect (needs the Anthropic key, roughly 1,000 short Haiku calls): `npm run personas:collect -- --runs 6 --personas 24 && npm run personas:collect -- --instructed && npm run personas:collect -- --table && npm run distill`.
 
+## In progress: plan upload, then the architectural optimisation engine (started 2026-11-21)
+
+Arun's decisions: PDF and image plans, traced by Opus 5.5 with a full editor; plan upload first, then the optimisation engine; build all phases straight through, commit at each phase.
+
+| Phase | Builds | Verified by | Status |
+|---|---|---|---|
+| U1 | upload PDF/PNG/JPG, render, scale (two clicks or Opus suggestion), stored in git-ignored `data/uploads/` | API tests | in progress (venue registry + image input done) |
+| U2 | Opus 5.5 traces outline, walls, doors, exits, obstacles -> twin; validator feedback, one repair pass | stub tests; one live trace | pending |
+| U3 | editor over the plan (drag/add/delete), live validation, save as a venue | Playwright | pending |
+| U4 | accuracy benchmark: Opus traces Rinker A107, compared with the hand-traced F1 | area, exit positions, clearance | pending |
+| A1 | diagnosis: per-cell queue/density, delay attribution per element, hotspots + catchments, geometry analytics | known-bottleneck test building; Rinker agrees with bottleneck finder | pending |
+| A2 | geometric generators (exit, external stair, corridor/passage, partition removal/second door, ramp, widen) + structural, code and accessibility rules | every generated twin validates; known effects reproduce | pending |
+| A3 | paired evaluation on common seeds, hydraulic estimate, learned surrogate, successive halving, safe-capacity bisection | rank correlation and runs saved reported | pending |
+| A4 | combination (beam) search, Pareto ranking, Opus concepts compiled by the generators | rejected concepts carry reasons; with/without-Opus ablation | pending |
+| A5 | Optimise UI: diagnosis map, ranked alternatives, 2D/3D change plan, before/after/difference heatmaps, quantification | Playwright | pending |
+| A6 | BLUEPRINT, README, PROGRESS | full `npm test` | pending |
+
+Resume: `git log --oneline | head`, then continue with the first phase above that is not done. Nothing runs in the background.
+
 ## Custom Emergency Scenario Generator (2026-11-21): done
 
 Arun's decisions: venue = Thapar **Fete Area**, map source = **OpenStreetMap** (ODbL), crowd brain = **Haiku group decisions**, all four phases built without stopping.

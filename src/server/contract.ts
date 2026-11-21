@@ -116,7 +116,7 @@ export interface SimRunRequest {
   scenario: Scenario;
   mode: "rule" | "distilled" | "showcase" | "crowd";
   /** venue id; defaults to rinker-hall */
-  venue?: "rinker-hall" | "thapar-fete";
+  venue?: string;
   /** playback speed relative to real time; 0 = as fast as possible */
   speed: number;
 }
@@ -492,7 +492,7 @@ export interface ScenarioChatReply {
   source: "llm" | "lexicon";
   model: string | null;
   note?: string;
-  venue: "rinker-hall" | "thapar-fete";
+  venue: string;
   venueLabel: string;
   attribution: string | null;
   /** present when status = ready: run it with POST /api/sim/run { scenario, mode: "crowd", venue, speed } */

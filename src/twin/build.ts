@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { canonicalJSON, sha256Hex } from "../shared/hash.ts";
 import { repoPath } from "../shared/paths.ts";
 import type { Twin, TwinSource, Zone } from "./schema.ts";
@@ -22,11 +22,27 @@ export function finalizeTwin(src: TwinSource): Twin {
   return { ...body, hash: sha256Hex(canonicalJSON(body)) };
 }
 
-export const VENUES = { "rinker-hall": "rinker.twin.json", "thapar-fete": "thapar-fete.twin.json" } as const;
-export type VenueId = keyof typeof VENUES;
+export const VENUES: Readonly<Record<string, string>> = { "rinker-hall": "rinker.twin.json", "thapar-fete": "thapar-fete.twin.json" };
+export type VenueId = string;
+export const PLAN_PREFIX = "plan-";
+export const uploadsDir = (...p: string[]): string => repoPath("data", "uploads", ...p);
+
+/** Built-in venues plus every uploaded plan that has been saved as a twin. */
+export function listVenues(): string[] {
+  const out = Object.keys(VENUES);
+  if (existsSync(uploadsDir())) for (const d of readdirSync(uploadsDir()).sort()) if (existsSync(uploadsDir(d, "twin.json"))) out.push(PLAN_PREFIX + d);
+  return out;
+}
+
+export function isVenue(id: unknown): id is string {
+  return typeof id === "string" && listVenues().includes(id);
+}
 
 export function loadVenue(id: VenueId): Twin {
-  return loadTwin(repoPath("data", "twin", VENUES[id]));
+  if (id.startsWith(PLAN_PREFIX)) return loadTwin(uploadsDir(id.slice(PLAN_PREFIX.length), "twin.json"));
+  const f = VENUES[id];
+  if (!f) throw new Error(`unknown venue ${id}`);
+  return loadTwin(repoPath("data", "twin", f));
 }
 
 export function loadTwin(path = repoPath("data", "twin", "rinker.twin.json")): Twin {

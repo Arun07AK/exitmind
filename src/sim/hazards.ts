@@ -121,7 +121,7 @@ export class HazardState {
       }
       for (const u of vertical.get(g) ?? []) if (d + rise < dist[u]!) { dist[u] = d + rise; heap.push(d + rise, u); }
     }
-    const plumeFt = m.twin.venue ? this.hp("fire.outdoorPlumeM") / 0.3048 : Infinity;
+    const plumeFt = m.twin.venue?.kind === "outdoor" ? this.hp("fire.outdoorPlumeM") / 0.3048 : Infinity;
     m.floors.forEach((fm, fi) => {
       const a = this.arrival[fi]!, cap = this.#cap[fi]!;
       for (let i = 0; i < fm.n; i++) {

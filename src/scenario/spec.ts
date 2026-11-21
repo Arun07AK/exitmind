@@ -1,10 +1,8 @@
 import { z } from "zod";
 import type { Twin } from "../twin/schema.ts";
-import type { VenueId } from "../twin/build.ts";
 
 export const EVENT_TYPES = ["concert", "fest", "lecture", "exam", "sports", "conference", "exhibition", "other"] as const;
 export const EMERGENCIES = ["none", "fire", "crush", "quake", "threat", "medical"] as const;
-export const VENUE_IDS = ["rinker-hall", "thapar-fete"] as const satisfies readonly VenueId[];
 export const REQUIRED = ["crowd_size", "age_groups", "event_type"] as const;
 export type Required = (typeof REQUIRED)[number];
 
@@ -12,7 +10,7 @@ const share = z.number().min(0).max(1);
 export const SpecSchema = z.object({
   eventType: z.enum(EVENT_TYPES).nullable(),
   eventLabel: z.string().max(120),
-  venue: z.enum(VENUE_IDS).nullable(),
+  venue: z.string().max(80).nullable(),
   crowdSize: z.number().int().nullable(),
   ages: z.object({ child: share, young_adult: share, adult: share, older_adult: share }).nullable(),
   ageText: z.string().max(80).nullable(),
@@ -42,7 +40,7 @@ const nullable = (s: Record<string, unknown>) => ({ anyOf: [s, { type: "null" }]
 const obj = (props: Record<string, unknown>) => ({ type: "object", properties: props, required: Object.keys(props), additionalProperties: false });
 const shareObj = (keys: string[]) => obj(Object.fromEntries(keys.map((k) => [k, { type: "number" }])));
 
-export const AGENT_JSON_SCHEMA = obj({
+export const agentJsonSchema = (venueIds: readonly string[]) => obj({
   status: { type: "string", enum: ["needs_info", "ready"] },
   missing: { type: "array", items: { type: "string", enum: [...REQUIRED] } },
   questions: { type: "array", items: { type: "string" } },
@@ -51,7 +49,7 @@ export const AGENT_JSON_SCHEMA = obj({
   spec: obj({
     eventType: nullable({ type: "string", enum: [...EVENT_TYPES] }),
     eventLabel: { type: "string" },
-    venue: nullable({ type: "string", enum: [...VENUE_IDS] }),
+    venue: nullable({ type: "string", enum: [...venueIds] }),
     crowdSize: nullable({ type: "integer" }),
     ages: nullable(shareObj(["child", "young_adult", "adult", "older_adult"])),
     ageText: nullable({ type: "string" }),

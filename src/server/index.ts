@@ -12,11 +12,14 @@ import { recommend } from "../design/recommend.ts";
 import { env, isOffline } from "../shared/env.ts";
 import { repoPath } from "../shared/paths.ts";
 import { BADNESS_FORMULA, loadEnv, type SimEnv } from "../sim/run.ts";
-import { VENUES, loadVenue, type VenueId } from "../twin/build.ts";
+import { isVenue, listVenues, loadVenue, type VenueId } from "../twin/build.ts";
 import { scenarioAgent } from "../scenario/agent.ts";
 import { buildScenario } from "../scenario/build.ts";
 import { venueInfo } from "../scenario/spec.ts";
 import { ClaudeClient } from "../llm/claude.ts";
+import { DraftSchema, draftToTwin } from "../plans/draft.ts";
+import { MAX_UPLOAD_BYTES, listPlans, planDir, readDraft, readMeta, storePlan, writeDraft } from "../plans/store.ts";
+import { checkDraft, tracePlan } from "../plans/trace.ts";
 import type { Scenario } from "../sim/types.ts";
 import { parseScenario } from "../sim/scenario.ts";
 import { loadCandidates } from "../twin/candidates.ts";
@@ -52,13 +55,58 @@ export function createApp(opts: { port: number; demo?: boolean }) {
   });
   const envs = new Map<string, SimEnv>([["rinker-hall", simEnv]]);
   const grids = new Map<string, ReturnType<typeof gridInfo>>([["rinker-hall", grid]]);
-  const venueOf = (v: unknown): VenueId => (typeof v === "string" && v in VENUES ? (v as VenueId) : "rinker-hall");
+  const venueOf = (v: unknown): VenueId => (isVenue(v) ? v : "rinker-hall");
   const envFor = (v: VenueId): SimEnv => { let e = envs.get(v); if (!e) { e = loadEnv(loadVenue(v)); envs.set(v, e); } return e; };
   const gridFor = (v: VenueId) => { let g = grids.get(v); if (!g) { g = gridInfo({ m: envFor(v).model }); grids.set(v, g); } return g; };
-  const venueList = () => (Object.keys(VENUES) as VenueId[]).map((v) => venueInfo(v, envFor(v).twin));
+  const venueList = () => listVenues().map((v) => venueInfo(v, envFor(v).twin));
   app.get("/api/twin", (req, res) => res.json(envFor(venueOf(req.query.venue)).twin));
   app.get("/api/grid", (req, res) => res.json(gridFor(venueOf(req.query.venue))));
   app.get("/api/venues", (_req, res) => res.json(venueList()));
+  app.post("/api/plans", express.raw({ type: ["application/pdf", "image/png", "image/jpeg"], limit: MAX_UPLOAD_BYTES }), (req, res) => {
+    try {
+      if (!Buffer.isBuffer(req.body) || !req.body.length) throw new Error("send the plan file as the request body (PDF, PNG or JPEG)");
+      const meta = storePlan(req.body, String(req.headers["content-type"] ?? ""), String(req.query.name ?? "Uploaded plan"), Math.max(1, Number(req.query.page ?? 1) || 1));
+      res.json({ ...meta, draft: readDraft(meta.id) });
+    } catch (e) { res.status(400).json({ error: String(e instanceof Error ? e.message : e) }); }
+  });
+  app.get("/api/plans", (_req, res) => res.json(listPlans()));
+  app.get("/api/plans/:id", (req, res) => {
+    try { const id = String(req.params.id); res.json({ ...readMeta(id), draft: readDraft(id) }); } catch (e) { res.status(404).json({ error: String(e) }); }
+  });
+  app.get("/api/plans/:id/image", (req, res) => {
+    try { res.type("png").send(readFileSync(planDir(String(req.params.id), "plan.png"))); } catch { res.status(404).end(); }
+  });
+  app.post("/api/plans/:id/trace", async (req, res) => {
+    try {
+      const meta = readMeta(String(req.params.id));
+      const r = await tracePlan(meta, scenarioClaude, { scaleFtPerPx: (req.body as { ftPerPx?: number } | undefined)?.ftPerPx ?? null });
+      writeDraft(meta.id, r.draft);
+      res.json(r);
+    } catch (e) { res.status(400).json({ error: String(e instanceof Error ? e.message : e) }); }
+  });
+  app.post("/api/plans/:id/check", (req, res) => {
+    try {
+      const meta = readMeta(String(req.params.id));
+      const d = DraftSchema.parse((req.body as { draft: unknown }).draft);
+      res.json(checkDraft(d, meta));
+    } catch (e) { res.status(400).json({ error: String(e instanceof Error ? e.message : e) }); }
+  });
+  app.post("/api/plans/:id/save", (req, res) => {
+    try {
+      const body = req.body as { draft: unknown; name?: string };
+      const meta0 = readMeta(String(req.params.id));
+      const meta = { ...meta0, name: (body.name ?? meta0.name).trim().slice(0, 80) || meta0.name };
+      const d = DraftSchema.parse(body.draft);
+      const check = checkDraft(d, meta);
+      if (check.errors.length) return void res.status(400).json({ error: "the plan does not pass the checks yet", ...check });
+      const twin = draftToTwin(d, meta);
+      writeDraft(meta.id, d);
+      writeFileSync(planDir(meta.id, "meta.json"), JSON.stringify(meta, null, 1));
+      writeFileSync(planDir(meta.id, "twin.json"), `${JSON.stringify(twin, null, 1)}\n`);
+      envs.delete(twin.id); grids.delete(twin.id);
+      res.json({ venue: twin.id, hash: twin.hash, ...check });
+    } catch (e) { res.status(400).json({ error: String(e instanceof Error ? e.message : e) }); }
+  });
   app.post("/api/scenario/chat", async (req, res) => {
     try {
       const turns = ((req.body as { messages?: ScenarioTurn[] }).messages ?? []).filter((t) => (t.role === "user" || t.role === "assistant") && typeof t.text === "string").slice(-20).map((t) => ({ role: t.role, text: t.text.slice(0, 4000) }));

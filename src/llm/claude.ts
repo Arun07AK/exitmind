@@ -13,6 +13,7 @@ export interface ClaudeJsonRequest<T> {
   maxTokens: number;
   timeoutMs: number;
   effort?: "low" | "medium" | "high";
+  images?: { mediaType: "image/png" | "image/jpeg"; data: string }[];
 }
 
 export interface ClaudeLike {
@@ -35,7 +36,7 @@ export class ClaudeClient implements ClaudeLike {
   available(): boolean { return this.#client !== null; }
 
   async json<T>(req: ClaudeJsonRequest<T>): Promise<T> {
-    const input = { system: req.system, user: req.user };
+    const input = { system: req.system, user: req.user, ...(req.images?.length ? { images: req.images.map((i) => `${i.mediaType} ${Math.round((i.data.length * 0.75) / 1024)} KB`) } : {}) };
     const started = performance.now();
     const rec = (outcome: LlmCallRecord["outcome"], output: unknown, error?: string) =>
       this.#sink?.({ provider: "anthropic", role: req.role, model: req.model, input, output, outcome, latencyMs: Math.round(performance.now() - started), ...(error ? { error } : {}) });
@@ -51,7 +52,7 @@ export class ClaudeClient implements ClaudeLike {
         model: req.model,
         max_tokens: req.maxTokens,
         system: req.system,
-        messages: [{ role: "user", content: req.user }],
+        messages: [{ role: "user", content: req.images?.length ? [...req.images.map((i) => ({ type: "image" as const, source: { type: "base64" as const, media_type: i.mediaType, data: i.data } })), { type: "text" as const, text: req.user }] : req.user }],
         output_config: { format: { type: "json_schema", schema: req.schema }, ...(req.effort ? { effort: req.effort } : {}) },
       }, { signal: ctrl.signal, timeout: req.timeoutMs }), req.timeoutMs, ctrl);
       for (const b of msg.content) if (b.type === "text") text += b.text;

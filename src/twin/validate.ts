@@ -8,7 +8,7 @@ export interface TwinReport {
   stats: Record<string, number>;
 }
 
-const sheetSet: ReadonlySet<string> = new Set([...SHEET_IDS, "OSM"]);
+const sheetSet: ReadonlySet<string> = new Set([...SHEET_IDS, "OSM", "UPLOAD"]);
 
 export function reachableCells(raster: TwinRaster): Uint8Array[] {
   const reached = raster.floors.map((f) => new Uint8Array(f.w * f.h));

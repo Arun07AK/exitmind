@@ -1,7 +1,7 @@
 import type { ClaudeLike } from "../llm/claude.ts";
 import { env } from "../shared/env.ts";
 import { parseLexicon } from "./lexicon.ts";
-import { AGENT_JSON_SCHEMA, AgentReplySchema, QUESTION, missingRequired, type AgentReply, type VenueInfo } from "./spec.ts";
+import { agentJsonSchema, AgentReplySchema, QUESTION, missingRequired, type AgentReply, type VenueInfo } from "./spec.ts";
 
 export interface ChatTurn { role: "user" | "assistant"; text: string }
 export interface AgentResult extends AgentReply { source: "llm" | "lexicon"; model: string | null; note?: string }
@@ -40,7 +40,7 @@ export async function scenarioAgent(turns: ChatTurn[], venues: VenueInfo[], clau
   if (claude.available()) {
     try {
       const reply = await claude.json({
-        role: "parser", model: SCENARIO_MODEL(), system: systemPrompt(venues), user: transcript.slice(-12000), schema: AGENT_JSON_SCHEMA,
+        role: "parser", model: SCENARIO_MODEL(), system: systemPrompt(venues), user: transcript.slice(-12000), schema: agentJsonSchema(venues.map((v) => v.id)),
         parse: AgentReplySchema, maxTokens: 16000, timeoutMs: 120000, effort: "medium",
       });
       return finalise(reply, venues, "llm", SCENARIO_MODEL());
