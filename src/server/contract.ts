@@ -114,7 +114,9 @@ export type ClientMsg = { type: "subscribe"; channel: string } | { type: "unsubs
 /** POST /api/sim/run  body: SimRunRequest -> { channel } ; frames stream on that channel, then a SummaryMsg */
 export interface SimRunRequest {
   scenario: Scenario;
-  mode: "rule" | "distilled" | "showcase";
+  mode: "rule" | "distilled" | "showcase" | "crowd";
+  /** venue id; defaults to rinker-hall */
+  venue?: "rinker-hall" | "thapar-fete";
   /** playback speed relative to real time; 0 = as fast as possible */
   speed: number;
 }
@@ -476,4 +478,24 @@ export interface ScenarioPreset {
   hazard: HazardKind;
   description: string;
   scenario: Scenario;
+}
+
+// ---------- custom scenario generator ----------
+/** POST /api/scenario/chat { messages: ScenarioTurn[] } -> ScenarioChatReply */
+export interface ScenarioTurn { role: "user" | "assistant"; text: string }
+export interface ScenarioChatReply {
+  status: "needs_info" | "ready";
+  missing: string[];
+  questions: string[];
+  assumptions: string[];
+  summary: string;
+  source: "llm" | "lexicon";
+  model: string | null;
+  note?: string;
+  venue: "rinker-hall" | "thapar-fete";
+  venueLabel: string;
+  attribution: string | null;
+  /** present when status = ready: run it with POST /api/sim/run { scenario, mode: "crowd", venue, speed } */
+  scenario: Scenario | null;
+  crowd: { size: number; ages: Record<string, number>; roles: Record<string, number> } | null;
 }

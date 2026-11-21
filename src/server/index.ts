@@ -11,11 +11,17 @@ import { setExitCandidates } from "../design/prepare.ts";
 import { recommend } from "../design/recommend.ts";
 import { env, isOffline } from "../shared/env.ts";
 import { repoPath } from "../shared/paths.ts";
-import { BADNESS_FORMULA, loadEnv } from "../sim/run.ts";
+import { BADNESS_FORMULA, loadEnv, type SimEnv } from "../sim/run.ts";
+import { VENUES, loadVenue, type VenueId } from "../twin/build.ts";
+import { scenarioAgent } from "../scenario/agent.ts";
+import { buildScenario } from "../scenario/build.ts";
+import { venueInfo } from "../scenario/spec.ts";
+import { ClaudeClient } from "../llm/claude.ts";
+import type { Scenario } from "../sim/types.ts";
 import { parseScenario } from "../sim/scenario.ts";
 import { loadCandidates } from "../twin/candidates.ts";
 import { Channels } from "./channels.ts";
-import type { ClientMsg, SimRunRequest } from "./contract.ts";
+import type { ClientMsg, ScenarioChatReply, ScenarioTurn, SimRunRequest } from "./contract.ts";
 import { gridInfo } from "./frames.ts";
 import { runInfo, startSimRun } from "./simrunner.ts";
 import { mountLive } from "./live.ts";
@@ -37,21 +43,51 @@ export function createApp(opts: { port: number; demo?: boolean }) {
   app.use(express.json({ limit: "1mb" }));
   const grid = gridInfo({ m: simEnv.model });
   let code: ReturnType<typeof codeCheck> | null = null;
+  const scenarioClaude = new ClaudeClient();
   let pool: Pool | null = null;
   let recommending = false;
 
   app.get("/api/meta", (_req, res) => {
     res.json({ offline: isOffline(), personaBackend: env("PERSONA_BACKEND") ?? "haiku", anthropicKey: !!env("ANTHROPIC_API_KEY"), typesafeKey: !!env("TYPESAFE_API_KEY"), twinHash: simEnv.twin.hash, lan: `http://${lanAddress()}:${opts.port}`, badnessFormula: BADNESS_FORMULA, targets: simEnv.runtime.design.targets, libraries: LIBRARIES });
   });
-  app.get("/api/twin", (_req, res) => res.json(simEnv.twin));
-  app.get("/api/grid", (_req, res) => res.json(grid));
+  const envs = new Map<string, SimEnv>([["rinker-hall", simEnv]]);
+  const grids = new Map<string, ReturnType<typeof gridInfo>>([["rinker-hall", grid]]);
+  const venueOf = (v: unknown): VenueId => (typeof v === "string" && v in VENUES ? (v as VenueId) : "rinker-hall");
+  const envFor = (v: VenueId): SimEnv => { let e = envs.get(v); if (!e) { e = loadEnv(loadVenue(v)); envs.set(v, e); } return e; };
+  const gridFor = (v: VenueId) => { let g = grids.get(v); if (!g) { g = gridInfo({ m: envFor(v).model }); grids.set(v, g); } return g; };
+  const venueList = () => (Object.keys(VENUES) as VenueId[]).map((v) => venueInfo(v, envFor(v).twin));
+  app.get("/api/twin", (req, res) => res.json(envFor(venueOf(req.query.venue)).twin));
+  app.get("/api/grid", (req, res) => res.json(gridFor(venueOf(req.query.venue))));
+  app.get("/api/venues", (_req, res) => res.json(venueList()));
+  app.post("/api/scenario/chat", async (req, res) => {
+    try {
+      const turns = ((req.body as { messages?: ScenarioTurn[] }).messages ?? []).filter((t) => (t.role === "user" || t.role === "assistant") && typeof t.text === "string").slice(-20).map((t) => ({ role: t.role, text: t.text.slice(0, 4000) }));
+      const r = await scenarioAgent(turns, venueList(), scenarioClaude);
+      const venue = venueOf(r.spec.venue ?? "rinker-hall");
+      const e = envFor(venue);
+      let scenario: Scenario | null = null, crowd: ScenarioChatReply["crowd"] = null;
+      const assumptions = [...r.assumptions];
+      if (r.status === "ready") {
+        const b = buildScenario(r.spec, e.model, e.params, e.profiles, 1);
+        scenario = parseScenario(b.scenario);
+        crowd = { size: b.crowd.size, ages: b.crowd.ages as Record<string, number>, roles: b.crowd.roles as Record<string, number> };
+        for (const a of b.assumptions) if (!assumptions.some((x) => x.slice(0, 40) === a.slice(0, 40))) assumptions.push(a);
+        if (e.twin.venue) for (const a of e.twin.venue.assumptions) assumptions.push(`Venue: ${a}`);
+      }
+      const reply: ScenarioChatReply = { status: r.status, missing: r.missing, questions: r.questions, assumptions, summary: r.summary, source: r.source, model: r.model, ...(r.note ? { note: r.note } : {}), venue, venueLabel: e.twin.venue?.label ?? e.twin.name, attribution: e.twin.venue?.attribution ?? null, scenario, crowd };
+      res.json(reply);
+    } catch (e) {
+      res.status(400).json({ error: String(e) });
+    }
+  });
   app.get("/api/codecheck", (_req, res) => res.json((code ??= codeCheck(simEnv.twin, simEnv.model))));
   app.post("/api/sim/run", (req, res) => {
     try {
       const body = req.body as SimRunRequest;
       const scenario = parseScenario(body.scenario);
-      const { channel } = startSimRun(simEnv, channels, { scenario, mode: body.mode ?? "rule", speed: Number(body.speed ?? 4) });
-      res.json({ channel });
+      const venue = venueOf(body.venue);
+      const { channel } = startSimRun(envFor(venue), channels, { scenario, mode: body.mode ?? "rule", speed: Number(body.speed ?? 4), venue });
+      res.json({ channel, venue });
     } catch (e) {
       res.status(400).json({ error: String(e) });
     }

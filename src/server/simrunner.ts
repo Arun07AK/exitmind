@@ -1,6 +1,6 @@
 import { DistilledPolicy } from "../policy/distilled.ts";
 import { PERSONA_LABEL } from "../policy/personas.ts";
-import { personaPolicy } from "../policy/showcase.ts";
+import { crowdBrain, personaPolicy } from "../policy/showcase.ts";
 import { env } from "../shared/env.ts";
 import { badness, BADNESS_FORMULA, makeWorld, type SimEnv } from "../sim/run.ts";
 import type { Scenario } from "../sim/types.ts";
@@ -13,7 +13,7 @@ import { prepareScenario } from "../design/prepare.ts";
 let counter = 0;
 
 /** What each simulation channel is running, so a page opened from a link can describe it. Only the most recent runs are kept. */
-export const runInfo = new Map<string, { scenario: Scenario; mode: SimRunRequest["mode"] }>();
+export const runInfo = new Map<string, { scenario: Scenario; mode: SimRunRequest["mode"]; venue: string }>();
 
 export function loadDistilled(): DistilledPolicy | undefined {
   try { return DistilledPolicy.load(); } catch { return undefined; }
@@ -21,21 +21,22 @@ export function loadDistilled(): DistilledPolicy | undefined {
 
 export function startSimRun(simEnv: SimEnv, channels: Channels, req: SimRunRequest): { channel: string; world: World } {
   const channel = `sim:${++counter}`;
-  runInfo.set(channel, { scenario: req.scenario as Scenario, mode: req.mode });
+  runInfo.set(channel, { scenario: req.scenario as Scenario, mode: req.mode, venue: req.venue ?? "rinker-hall" });
   if (runInfo.size > 32) runInfo.delete(runInfo.keys().next().value!);
   const { scenario, model } = prepareScenario(simEnv, req.scenario as Scenario);
   const distilled = loadDistilled();
   const backend = (env("PERSONA_BACKEND") ?? "haiku") as "haiku" | "jev";
-  const llm = req.mode === "showcase" ? personaPolicy(backend === "jev" ? "jev" : "haiku", simEnv) : undefined;
+  const llm = req.mode === "showcase" ? personaPolicy(backend === "jev" ? "jev" : "haiku", simEnv) : req.mode === "crowd" ? crowdBrain(simEnv) : undefined;
   let w!: World;
   w = makeWorld(simEnv, scenario, {
     model,
     ...(distilled ? { distilled } : {}),
     bulkPolicy: req.mode === "distilled" && distilled ? "distilled" : "rule",
-    ...(llm ? { llm, llmAgents: simEnv.runtime.showcase.livePersonas } : {}),
+    ...(llm ? { llm, llmAgents: req.mode === "crowd" ? 1_000_000 : simEnv.runtime.showcase.livePersonas } : {}),
     hooks: {
       onDecision: (ctx, d) => {
         if (w.policyKind[ctx.agent] !== POLICY.LLM) return;
+        if (req.mode === "crowd" && ctx.agent % 25 !== 0) return;
         const o = ctx.options.find((x) => x.id === d.optionId);
         channels.publish(channel, { type: "persona", channel, tick: ctx.tick, agent: ctx.agent, point: ctx.point, persona: ctx.persona, chosen: o?.desc ?? d.optionId, source: d.source, ...(d.note ? { note: d.note } : {}), label: PERSONA_LABEL });
       },
