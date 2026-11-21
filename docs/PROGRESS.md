@@ -6,12 +6,12 @@ Updated at every phase boundary. Newest phase on top of the log. Design: `docs/B
 
 | Phase | Scope | Status |
 |---|---|---|
-| 0 Foundations | repo, configs, RNG, units, params loader, hash-chained event log | done (`07eb645`) |
-| 1 Twin, 2D, code check | Rinker F1–F3 traced, overlays, code check, 2D view | done (`c829e6e`); F1 area is 4.9% off the printed GSF (target ±3%) |
-| 2 Simulator, hazards, profiles, 3D | crowd model, 5 hazard kinds, 4 profiles, synced 2D/3D | done (`ab3d6ec`) |
-| 3 Personas | Haiku and Jev adapters, showcase, replay, distillation, bake-off | done for Haiku with the live API (`6678e7d`, `b026ffe`); **Jev never ran live (no TypeSafe key)** |
-| 4 Design mode | bottlenecks, adversary, optimiser, rating, playbook, NL input | done (`fb99364`); results below |
-| 5 Live core | sensors, Sentinel, Planner, Verifier, gate, console | done (`e44e32d`) |
+| 0 Foundations | repo, configs, RNG, units, params loader, hash-chained event log | done (`1d8c3ac`) |
+| 1 Twin, 2D, code check | Rinker F1–F3 traced, overlays, code check, 2D view | done (`c916d06`); F1 area is 4.9% off the printed GSF (target ±3%) |
+| 2 Simulator, hazards, profiles, 3D | crowd model, 5 hazard kinds, 4 profiles, synced 2D/3D | done (`f0c72fa`) |
+| 3 Personas | Haiku and Jev adapters, showcase, replay, distillation, bake-off | done for Haiku with the live API (`0f70775`, `b033f7a`); **Jev never ran live (no TypeSafe key)** |
+| 4 Design mode | bottlenecks, adversary, optimiser, rating, playbook, NL input | done (`e9164f3`); results below |
+| 5 Live core | sensors, Sentinel, Planner, Verifier, gate, console | done (`bb16831`) |
 | 6 Phones, brief, report | sign page, Liaison, Historian | done; **the three-real-phone check has not been done** (simulated phones pass) |
 | 7 Demo and hardening | demo command, offline mode, README | done; evidence below |
 | 8 Stretch | open-ground event layout | not started; parked by Arun |
@@ -45,15 +45,15 @@ Arun's decisions: PDF and image plans, traced by Opus 5.5 with a full editor; pl
 
 | Phase | Builds | Verified by | Status |
 |---|---|---|---|
-| U1 | upload PDF/PNG/JPG, render, scale (two clicks or Opus suggestion), stored in git-ignored `data/uploads/` | API tests | done (`da118cd`) |
-| U2 | Opus 5.5 traces outline, walls, doors, exits, obstacles -> twin; validator feedback, one repair pass | stub tests; one live trace | done (`da118cd`) |
-| U3 | editor over the plan (drag/add/delete), live validation, save as a venue | Playwright | done (`e6f9e69`) |
-| U4 | accuracy benchmark: Opus traces Rinker A102 (first floor), compared with the hand-traced F1 | `docs/verification/plan-benchmark.md` | done (`3ab1aa9`) |
-| A1 | diagnosis: per-cell queue/density, delay attribution per element, hotspots + catchments, geometry analytics | known-bottleneck test building; Rinker agrees with bottleneck finder | done (`ccdfc69`) |
-| A2 | geometric generators (exit, external stair, corridor/passage, partition removal/second door, ramp, widen) + structural, code and accessibility rules | every generated twin validates; known effects reproduce | done (`7ac86dd`, `4fe0c9d`) |
-| A3 | paired evaluation on common seeds, learned predictor for combinations (validated against simulation), successive halving, safe-capacity bisection | rank correlation and runs saved reported | done (`af65b1d`); hydraulic estimate dropped (a simulation is 0.1-0.4 s here) |
-| A4 | combination search, Pareto ranking, Opus concepts compiled by the generators | rejected concepts carry reasons; ablation in the report | done (`af65b1d`) |
-| A5 | Optimise UI: diagnosis map, ranked alternatives, 2D/3D change plan, before/after/difference heatmaps, quantification | Playwright | done (`a5d40c0`) |
+| U1 | upload PDF/PNG/JPG, render, scale (two clicks or Opus suggestion), stored in git-ignored `data/uploads/` | API tests | done (`e60ca60`) |
+| U2 | Opus 5.5 traces outline, walls, doors, exits, obstacles -> twin; validator feedback, one repair pass | stub tests; one live trace | done (`e60ca60`) |
+| U3 | editor over the plan (drag/add/delete), live validation, save as a venue | Playwright | done (`3381d90`) |
+| U4 | accuracy benchmark: Opus traces Rinker A102 (first floor), compared with the hand-traced F1 | `docs/verification/plan-benchmark.md` | done (`7764e7f`) |
+| A1 | diagnosis: per-cell queue/density, delay attribution per element, hotspots + catchments, geometry analytics | known-bottleneck test building; Rinker agrees with bottleneck finder | done (`7e7476e`) |
+| A2 | geometric generators (exit, external stair, corridor/passage, partition removal/second door, ramp, widen) + structural, code and accessibility rules | every generated twin validates; known effects reproduce | done (`8b1ad21`, `0ccbaab`) |
+| A3 | paired evaluation on common seeds, learned predictor for combinations (validated against simulation), successive halving, safe-capacity bisection | rank correlation and runs saved reported | done (`e97ae57`); hydraulic estimate dropped (a simulation is 0.1-0.4 s here) |
+| A4 | combination search, Pareto ranking, Opus concepts compiled by the generators | rejected concepts carry reasons; ablation in the report | done (`e97ae57`) |
+| A5 | Optimise UI: diagnosis map, ranked alternatives, 2D/3D change plan, before/after/difference heatmaps, quantification | Playwright | done (`c40df62`) |
 | A6 | BLUEPRINT (sections 9A, 9B), README, PROGRESS, AGENTS | full `npm test` | done |
 
 **Evidence**
