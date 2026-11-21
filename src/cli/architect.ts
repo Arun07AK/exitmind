@@ -1,0 +1,28 @@
+import { existsSync, writeFileSync } from "node:fs";
+import { ClaudeClient } from "../llm/claude.ts";
+import { architect } from "../optimise/architect.ts";
+import { repoPath } from "../shared/paths.ts";
+import { loadEnv } from "../sim/run.ts";
+import { isVenue, loadVenue } from "../twin/build.ts";
+import { makeEvaluator } from "../design/pool.ts";
+import { args } from "./common.ts";
+
+const a = args();
+const venue = a.venue && isVenue(a.venue) ? a.venue : "rinker-hall";
+const twin = loadVenue(venue);
+const env = loadEnv(twin);
+const ev = makeEvaluator({ twin, mode: existsSync(repoPath("data", "policy", "distilled.policy.json")) && a.policy !== "rule" ? "distilled" : "rule", ...(a.workers ? { workers: Number(a.workers) } : {}) });
+const t0 = Date.now();
+const r = await architect(env, ev, new ClaudeClient(), { useOpus: !process.argv.includes("--no-opus"), log: (s) => console.log(`[${Math.round((Date.now() - t0) / 1000)}s] ${s}`) });
+const file = repoPath("data", "design", venue === "rinker-hall" ? "architect.json" : `architect-${venue}.json`);
+writeFileSync(file, JSON.stringify(r));
+console.log(r.diagnosis.summary.join("\n"));
+console.log(`\nTop alternatives (${r.search.simulations} simulations, ${r.search.runs} paired runs each):`);
+for (const x of r.search.alternatives.filter((y) => y.source === "simulated").slice(0, 6)) console.log(`${x.id} score ${x.score} | badness ${x.dBadness.mean} ± ${x.dBadness.ci95} | +${x.dProtected.mean} ± ${x.dProtected.ci95} people out by target | ${x.dClearance95.mean} ± ${x.dClearance95.ci95} s for 95% out | effort ${x.effort} | structural ${x.structuralChanges}${x.pareto ? " | Pareto" : ""} | ${x.title}`);
+console.log(`\nsurrogate: ${r.search.surrogate.note}`);
+for (const x of r.search.safeCapacity.checked) console.log(`  ${x.alternative}: ${r.search.alternatives.find((y) => y.id === x.alternative)?.title}`);
+console.log(`safe capacity (${r.search.safeCapacity.runs} runs, everyone out by the target, no gridlock): baseline ${r.search.safeCapacity.baseline.people} people; ${r.search.safeCapacity.checked.map((x) => `${x.alternative} ${x.people}`).join(", ")}; extra ${r.search.safeCapacity.extraPeople ?? "-"}`);
+console.log(`Opus: ${r.concepts.proposed} concepts, ${r.concepts.built.length} built, ${r.concepts.rejected.length} rejected; in top 3: ${r.ablation.opusInTop3}; best ${r.ablation.bestSource}`);
+for (const x of r.concepts.rejected) console.log(`  rejected ${x.concept.kind} ${x.concept.spaces.join(">")}: ${x.reason}`);
+console.log(`wrote ${file} in ${Math.round((Date.now() - t0) / 1000)} s`);
+await ev.close();

@@ -1,0 +1,27 @@
+{
+  "_note": "Weights for EXITMIND's architectural optimiser. Effort units are relative and illustrative, NOT cost estimates; edit them to match local construction practice.",
+  "effort": {
+    "doorsAdded": 3,
+    "wallOpeningM2": 1,
+    "partitionRemovedM": 0.8,
+    "newFloorM2": 0.6,
+    "stairFlights": 15,
+    "rampM": 0.8,
+    "widenedIn": 0.05,
+    "roomsCrossed": 2
+  },
+  "structuralMultiplier": 1.5,
+  "rankWeights": {
+    "safety": 0.6,
+    "effort": 0.25,
+    "structural": 0.15
+  },
+  "search": {
+    "maxSingles": 16,
+    "screenRuns": 4,
+    "topSingles": 6,
+    "triplesSimulated": 5,
+    "validateSurrogate": true,
+    "safeCapacityRuns": 8
+  }
+}

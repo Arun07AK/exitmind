@@ -35,7 +35,8 @@
     "replay": "node src/cli/replay.ts",
     "llm:check": "node src/cli/llm-check.ts",
     "venue:osm": "node src/cli/venue-osm.ts",
-    "plans:benchmark": "node src/cli/plan-benchmark.ts"
+    "plans:benchmark": "node src/cli/plan-benchmark.ts",
+    "architect": "node src/cli/architect.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.8.0",
