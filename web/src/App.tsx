@@ -4,6 +4,7 @@ import { lazy, Suspense, type MouseEvent } from "react";
 import { useApi } from "./api.ts";
 import { cx, EvidenceChip, Pop } from "./components/ui.tsx";
 import { navigate, routeOf, usePath, type Route } from "./router.ts";
+const PlanEditor = lazy(() => import("./pages/PlanEditor.tsx"));
 import { useStore } from "./store.ts";
 
 const Simulate = lazy(() => import("./pages/Simulate.tsx"));
@@ -67,7 +68,7 @@ export default function App() {
         </header>
         <main className="relative min-h-0 flex-1 overflow-hidden">
           <Suspense fallback={<div className="grid h-full place-items-center text-ink-3">Loading</div>}>
-            {route === "live" ? <Live /> : route === "report" ? <Report /> : route === "optimise" ? <Optimise /> : <Simulate />}
+            {route === "live" ? <Live /> : route === "report" ? <Report /> : route === "optimise" ? <Optimise /> : route === "plans" ? <Suspense fallback={null}><PlanEditor /></Suspense> : <Simulate />}
           </Suspense>
         </main>
       </div>

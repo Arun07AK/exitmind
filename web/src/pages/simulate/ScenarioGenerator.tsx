@@ -3,6 +3,10 @@ import type { ScenarioChatReply, ScenarioTurn } from "../../../../src/server/con
 import { postJSON } from "../../api.ts";
 import { Button, cx } from "../../components/ui.tsx";
 import { useScenario } from "../../sim/scenario.ts";
+import { navigate } from "../../router.ts";
+
+const PREF_KEY = "exitmind:preferred-venue";
+const readPref = (): { id: string; label: string } | null => { try { return JSON.parse(localStorage.getItem(PREF_KEY) ?? "null") as { id: string; label: string } | null; } catch { return null; } };
 
 export const SATURNALIA_DEMO = "Simulate an evacuation during a Saturnalia concert at Thapar, with students aged 18–21 and the real venue mapped using Google Maps or OpenStreetMap.";
 
@@ -15,13 +19,14 @@ export function ScenarioGenerator({ onStarted }: { onStarted?: () => void }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const run = useScenario((s) => s.run);
+  const [pref, setPref] = useState(readPref);
 
   const send = async () => {
     if (!text.trim() || busy) return;
     const next: ScenarioTurn[] = [...turns, { role: "user", text: text.trim() }];
     setBusy(true); setError(null);
     try {
-      const r = await postJSON<ScenarioChatReply>("/api/scenario/chat", { messages: next });
+      const r = await postJSON<ScenarioChatReply>("/api/scenario/chat", { messages: next, ...(pref ? { venue: pref.id } : {}) });
       const withAgent: ScenarioTurn[] = r.status === "needs_info" ? [...next, { role: "assistant", text: r.questions.join(" ") }] : next;
       setTurns(withAgent); setReply(r); setText("");
     } catch (e) {
@@ -60,6 +65,11 @@ export function ScenarioGenerator({ onStarted }: { onStarted?: () => void }) {
         <Button tone="primary" onClick={() => void send()} disabled={busy || !text.trim()} data-testid="scenario-send">{busy ? "Opus is setting it up…" : turns.length ? "Send" : "Set up scenario"}</Button>
         {turns.length ? <Button onClick={reset} data-testid="scenario-reset">Start over</Button> : null}
       </div>
+      {pref ? (
+        <p className="flex items-center gap-2 text-[12px] text-ink-2" data-testid="preferred-venue">Venue: <span className="font-medium">{pref.label}</span> (your plan)
+          <button type="button" className="underline" onClick={() => { localStorage.removeItem(PREF_KEY); setPref(null); }}>use the venue named in the text instead</button></p>
+      ) : null}
+      <p className="text-[12px] text-ink-2">For better accuracy, <a href="/plans" onClick={(e) => { e.preventDefault(); navigate("/plans"); }} className="font-medium text-sky-700 underline" data-testid="upload-plan-link">upload your own architectural plan</a>; Opus 5.5 traces it and you check it before it is used.</p>
       {!turns.length ? (
         <div className="rounded-md border border-dashed border-sky-300 bg-sky-50/60 p-2.5" data-testid="saturnalia-suggestion">
           <div className="text-[13px] font-medium">Try the Saturnalia demo</div>

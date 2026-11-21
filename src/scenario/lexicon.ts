@@ -46,7 +46,7 @@ export function parseLexicon(transcript: string, venues: VenueInfo[]): AgentRepl
     compliance: /\b(drunk|rowdy|ignore)/i.test(t) ? "low" : null, urgency: /\b(panic|chaos)/i.test(t) ? "high" : null, conditions: [],
   };
   const missing = missingRequired(spec);
-  if (!venue) assumptions.push("No venue named: using Rinker Hall.");
+  if (!venue && !/\b(my|our|uploaded) (plan|venue|building|hall)\b/i.test(t)) assumptions.push("No venue named: using Rinker Hall.");
   if (!emergency) assumptions.push("No emergency type given: simulating a fire near the middle of the venue.");
   return { status: missing.length ? "needs_info" : "ready", missing, questions: missing.map((k) => QUESTION[k]), assumptions, summary: "", spec };
 }

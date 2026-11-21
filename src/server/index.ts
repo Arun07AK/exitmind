@@ -109,8 +109,9 @@ export function createApp(opts: { port: number; demo?: boolean }) {
   });
   app.post("/api/scenario/chat", async (req, res) => {
     try {
+      const prefer = (req.body as { venue?: unknown }).venue;
       const turns = ((req.body as { messages?: ScenarioTurn[] }).messages ?? []).filter((t) => (t.role === "user" || t.role === "assistant") && typeof t.text === "string").slice(-20).map((t) => ({ role: t.role, text: t.text.slice(0, 4000) }));
-      const r = await scenarioAgent(turns, venueList(), scenarioClaude);
+      const r = await scenarioAgent(turns, venueList(), scenarioClaude, isVenue(prefer) ? prefer : null);
       const venue = venueOf(r.spec.venue ?? "rinker-hall");
       const e = envFor(venue);
       let scenario: Scenario | null = null, crowd: ScenarioChatReply["crowd"] = null;
@@ -177,7 +178,7 @@ export function createApp(opts: { port: number; demo?: boolean }) {
   if (existsSync(web)) {
     app.get("/sign", (_req, res) => res.sendFile(`${web}/sign.html`));
     app.use(express.static(web));
-    app.get(/^\/(live|report|simulate|optimise)?(\/[\w-]+)?$/, (_req, res) => res.sendFile(`${web}/index.html`));
+    app.get(/^\/(live|report|simulate|optimise|plans)?(\/[\w-]+)?$/, (_req, res) => res.sendFile(`${web}/index.html`));
   }
 
   const server = createServer(app);

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export type Route = "simulate" | "optimise" | "live" | "report";
+export type Route = "simulate" | "optimise" | "live" | "report" | "plans";
 
 function current(): string {
   return location.hash.startsWith("#/") ? location.hash.slice(1) : location.pathname;
@@ -10,6 +10,7 @@ export function routeOf(path: string): Route {
   if (path.startsWith("/live")) return "live";
   if (path.startsWith("/report")) return "report";
   if (path.startsWith("/optimise")) return "optimise";
+  if (path.startsWith("/plans")) return "plans";
   return "simulate";
 }
 

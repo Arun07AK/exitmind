@@ -34,13 +34,19 @@ export function finalise(reply: AgentReply, venues: VenueInfo[], source: AgentRe
   return { ...reply, spec, missing, questions: missing.length ? questions : [], assumptions, status: missing.length ? "needs_info" : "ready", source, model };
 }
 
-export async function scenarioAgent(turns: ChatTurn[], venues: VenueInfo[], claude: ClaudeLike): Promise<AgentResult> {
+export async function scenarioAgent(turns: ChatTurn[], venues: VenueInfo[], claude: ClaudeLike, preferVenue: string | null = null): Promise<AgentResult> {
+  const r = await runAgent(turns, venues, claude, preferVenue);
+  if (preferVenue && !r.spec.venue) { r.spec.venue = preferVenue; r.assumptions = r.assumptions.filter((a) => !a.startsWith("No venue named")); r.assumptions.push(`Venue: the plan you uploaded (${venues.find((v) => v.id === preferVenue)?.label ?? preferVenue}).`); }
+  return r;
+}
+
+async function runAgent(turns: ChatTurn[], venues: VenueInfo[], claude: ClaudeLike, preferVenue: string | null): Promise<AgentResult> {
   const transcript = turns.map((t) => `${t.role === "user" ? "Manager" : "Agent"}: ${t.text}`).join("\n");
   if (!turns.some((t) => t.role === "user" && t.text.trim())) throw new Error("describe the scenario first");
   if (claude.available()) {
     try {
       const reply = await claude.json({
-        role: "parser", model: SCENARIO_MODEL(), system: systemPrompt(venues), user: transcript.slice(-12000), schema: agentJsonSchema(venues.map((v) => v.id)),
+        role: "parser", model: SCENARIO_MODEL(), system: systemPrompt(venues) + (preferVenue ? `\n\nThe manager has selected venue ${preferVenue} (their own uploaded plan). Use it unless they clearly name a different venue.` : ""), user: transcript.slice(-12000), schema: agentJsonSchema(venues.map((v) => v.id)),
         parse: AgentReplySchema, maxTokens: 16000, timeoutMs: 120000, effort: "medium",
       });
       return finalise(reply, venues, "llm", SCENARIO_MODEL());
