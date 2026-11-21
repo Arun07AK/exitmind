@@ -3,9 +3,10 @@ import { useMemo, useRef, useState, type KeyboardEvent } from "react";
 import type { BottleneckResult, RecommendResult } from "../../../src/server/contract.ts";
 import type { Pt } from "../../../src/twin/schema.ts";
 import { ApiError, isNotFound, postJSON, useApi } from "../api.ts";
-import { Button, cx, Empty, EvidenceChip, HazardTag } from "../components/ui.tsx";
+import { Button, cx, Empty, EvidenceChip, HazardTag, Segmented } from "../components/ui.tsx";
 import { useGeometry, type Geometry } from "../geometry.ts";
 import { Analyses } from "./optimise/Analyses.tsx";
+import { Architect } from "./optimise/Architect.tsx";
 import { CompareSheet } from "./optimise/CompareSheet.tsx";
 import { DangerCompare } from "./optimise/DangerCompare.tsx";
 import { DotPlot, FigureRow, VariantTable } from "./optimise/Figures.tsx";
@@ -127,7 +128,7 @@ function RecList({ recs, sel, onSelect, targetSec }: { recs: Rec[]; sel: Rec | n
   );
 }
 
-export default function Optimise() {
+function QuickRecommendations() {
   const api = useApi<RecommendResult>("/api/design/recommend");
   const [fresh, setFresh] = useState<RecommendResult | null>(null);
   const result = fresh ?? api.data;
@@ -236,6 +237,18 @@ export default function Optimise() {
       </div>
 
       {sel && tested && geo && watch ? <CompareSheet open={watch} onOpenChange={setWatch} geo={geo} result={result} rec={sel} /> : null}
+    </div>
+  );
+}
+
+export default function Optimise() {
+  const [mode, setMode] = useState<"architect" | "quick">("architect");
+  return (
+    <div className="h-full overflow-y-auto" data-testid="optimise-root">
+      <div className="flex items-center gap-3 border-b border-line px-4 py-2 min-[700px]:px-6">
+        <Segmented label="Optimise mode" value={mode} onChange={setMode} options={[{ value: "architect", label: "Architectural changes" }, { value: "quick", label: "Quick recommendations" }]} size="sm" testId="optimise-mode" />
+      </div>
+      {mode === "architect" ? <Architect /> : <div className="h-[calc(100%-49px)]"><QuickRecommendations /></div>}
     </div>
   );
 }

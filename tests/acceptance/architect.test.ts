@@ -8,7 +8,7 @@ import type { Scenario } from "../../src/sim/types.ts";
 import { hallTwin } from "../helpers/halls.ts";
 
 const env = loadEnv(hallTwin());
-export const hallScenario = (seed: number): Scenario => ({ id: `hall-${seed}`, profile: "college", crowd: { size: 300, ages: { adult: 1 }, roles: { visitor: 1 }, familiar: { visitor: 0 } }, hazard: { kind: "none" }, behaviour: {}, loadFactor: 1, occupancy: "uniform", protocol: "EVACUATE", seed, maxSec: 900 });
+export const hallScenario = (seed: number): Scenario => ({ id: `hall-${seed}`, profile: "college", crowd: { size: 600, ages: { adult: 1 }, roles: { visitor: 1 }, familiar: { visitor: 0 } }, hazard: { kind: "none" }, behaviour: {}, loadFactor: 1, occupancy: "uniform", protocol: "EVACUATE", seed, maxSec: 900 });
 
 describe("architectural optimisation: diagnosis", () => {
   it("names the narrow exit as the main bottleneck, with its capacity, saturation, catchment and spare capacity elsewhere", () => {
@@ -21,7 +21,8 @@ describe("architectural optimisation: diagnosis", () => {
     expect(h1.fedBy[0]!.space).toBe("FLOOR");
     expect(h1.spare[0]!.exit).toBe("EX-E2");
     expect(h1.why).toMatch(/queues behind Main: West door/);
-    expect(d.exits.find((e) => e.id === "EX-E1")!.verdict).toBe("overloaded");
+    const west = d.exits.find((e) => e.id === "EX-E1")!;
+    expect(west.usedShare).toBeGreaterThan(west.capacityShare * 1.3);
     expect(d.summary[0]).toMatch(/people out or protected/);
   });
 });
@@ -48,4 +49,51 @@ describe("architectural optimisation: generators", () => {
     expect(t.stairs.length).toBe(rinker.twin.stairs.length + 1);
     expect(validateTwin(t).stats.walkableCells).toBeGreaterThan(validateTwin(rinker.twin).stats.walkableCells);
   }, 120_000);
+});
+
+import { InlineEvaluator } from "../../src/design/pool.ts";
+import { compile, opusConcepts } from "../../src/optimise/concepts.ts";
+import { search, loadArchitectConfig } from "../../src/optimise/search.ts";
+import { StubClaude } from "../helpers/stubs.ts";
+
+describe("architectural optimisation: evaluation, search and quantification", () => {
+  it("on the test hall: proposals are simulated on paired runs, the best cuts evacuation time, and safe capacity rises", async () => {
+    const sc = [hallScenario(1), hallScenario(2)];
+    const d = diagnose(env, sc);
+    const mods = generate({ twin: env.twin, model: env.model, diagnosis: d });
+    expect(mods.some((m) => m.kind === "new_exit")).toBe(true);
+    const cfg = { ...loadArchitectConfig(), search: { maxSingles: 4, screenRuns: 2, topSingles: 3, triplesSimulated: 1, validateSurrogate: true, safeCapacityRuns: 2 } };
+    const r = await search(env, new InlineEvaluator(env), sc, mods, { config: cfg });
+    const best = r.alternatives.filter((a) => a.source === "simulated").sort((a, b) => a.dClearance95.mean - b.dClearance95.mean)[0]!;
+    expect(best.dClearance95.mean).toBeLessThan(-10);
+    expect(best.runs).toBe(2);
+    expect(r.alternatives.some((a) => a.pareto)).toBe(true);
+    expect(r.safeCapacity.extraPeople!).toBeGreaterThan(0);
+    expect(r.surrogate.triplesTotal).toBe(1);
+    expect(r.simulations).toBeGreaterThan(10);
+  }, 180_000);
+});
+
+describe("architectural optimisation: Opus concepts are rebuilt by code or rejected with a reason", () => {
+  const rinker = loadEnv();
+  const d = diagnose(rinker, [{ id: "r", profile: "college", hazard: { kind: "none" }, behaviour: {}, loadFactor: 1.2, occupancy: "classes_full", protocol: "EVACUATE", seed: 1, maxSec: 900 }]);
+  const g = { twin: rinker.twin, model: rinker.model, diagnosis: d };
+  const c = (over: Partial<Parameters<typeof compile>[0]>) => compile({ kind: "new_exit", hotspot: "H1", floor: "F1", spaces: [], element: null, rationale: "test", ...over }, g);
+  it("builds valid concepts and refuses impossible ones", () => {
+    const exit = c({ kind: "new_exit", spaces: ["C199A"] });
+    expect(exit.mod?.source).toBe("opus");
+    expect(validateTwin(applyEdits(rinker.twin, [exit.mod!.edit])).errors).toEqual([]);
+    expect(c({ kind: "new_exit", spaces: ["NOPE"] }).reason).toMatch(/unknown space/);
+    const men = rinker.twin.floors[0]!.spaces.find((s) => s.use === "restroom")!;
+    const corridor = rinker.twin.floors[0]!.spaces.find((s) => s.kind === "corridor")!;
+    expect(c({ kind: "connecting_passage", spaces: [corridor.id, men.id] }).reason).toMatch(/restroom/);
+    expect(c({ kind: "widen_door", element: null }).reason).toMatch(/no element/);
+  });
+  it("an interpretation quoting numbers that are not in the diagnosis is dropped", async () => {
+    const claude = new StubClaude("sensible", () => ({ interpretation: "People wait 98765 seconds at H1.", concepts: [{ kind: "new_exit", hotspot: "H1", floor: "F1", spaces: ["C199A"], element: null, rationale: "second way out" }] }));
+    const r = await opusConcepts(d, g, claude);
+    expect(r.interpretation).toBeNull();
+    expect(r.note).toMatch(/98765/);
+    expect(r.built).toHaveLength(1);
+  });
 });

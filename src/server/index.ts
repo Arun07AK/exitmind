@@ -6,7 +6,7 @@ import { WebSocketServer } from "ws";
 import { z } from "zod";
 import { codeCheck } from "../design/codecheck.ts";
 import { nl2params } from "../design/nl2params.ts";
-import { Pool } from "../design/pool.ts";
+import { Pool, makeEvaluator } from "../design/pool.ts";
 import { setExitCandidates } from "../design/prepare.ts";
 import { recommend } from "../design/recommend.ts";
 import { env, isOffline } from "../shared/env.ts";
@@ -17,6 +17,7 @@ import { scenarioAgent } from "../scenario/agent.ts";
 import { buildScenario } from "../scenario/build.ts";
 import { venueInfo } from "../scenario/spec.ts";
 import { ClaudeClient } from "../llm/claude.ts";
+import { architect } from "../optimise/architect.ts";
 import { DraftSchema, draftToTwin, suggestDoors } from "../plans/draft.ts";
 import { MAX_UPLOAD_BYTES, listPlans, planDir, readDraft, readMeta, storePlan, writeDraft } from "../plans/store.ts";
 import { checkDraft, tracePlan } from "../plans/trace.ts";
@@ -62,6 +63,27 @@ export function createApp(opts: { port: number; demo?: boolean }) {
   app.get("/api/twin", (req, res) => res.json(envFor(venueOf(req.query.venue)).twin));
   app.get("/api/grid", (req, res) => res.json(gridFor(venueOf(req.query.venue))));
   app.get("/api/venues", (_req, res) => res.json(venueList()));
+  const architectFile = (v: string) => repoPath("data", "design", v === "rinker-hall" ? "architect.json" : `architect-${v}.json`);
+  const job: { running: boolean; venue: string | null; log: string[]; error: string | null; finishedAt: string | null } = { running: false, venue: null, log: [], error: null, finishedAt: null };
+  app.get("/api/architect/report", (req, res) => {
+    const f = architectFile(venueOf(req.query.venue));
+    if (!existsSync(f)) return void res.status(404).json({ error: "no architectural analysis for this venue yet" });
+    res.type("json").send(readFileSync(f, "utf8"));
+  });
+  app.get("/api/architect/status", (_req, res) => res.json({ ...job, log: job.log.slice(-40) }));
+  app.post("/api/architect/run", (req, res) => {
+    if (job.running) return void res.status(409).json({ error: `an analysis is already running for ${job.venue}` });
+    const v = venueOf((req.body as { venue?: unknown } | undefined)?.venue);
+    Object.assign(job, { running: true, venue: v, log: [], error: null, finishedAt: null });
+    const t0 = Date.now();
+    const e = envFor(v);
+    const ev = makeEvaluator({ twin: e.twin, mode: existsSync(repoPath("data", "policy", "distilled.policy.json")) ? "distilled" : "rule" });
+    void architect(e, ev, scenarioClaude, { log: (l) => job.log.push(`[${Math.round((Date.now() - t0) / 1000)} s] ${l}`) })
+      .then((r) => { writeFileSync(architectFile(v), JSON.stringify(r)); job.log.push(`done in ${Math.round((Date.now() - t0) / 1000)} s`); })
+      .catch((err: unknown) => { job.error = String(err instanceof Error ? err.message : err); })
+      .finally(() => { job.running = false; job.finishedAt = new Date().toISOString(); void ev.close(); });
+    res.json({ started: true, venue: v });
+  });
   app.post("/api/plans", express.raw({ type: ["application/pdf", "image/png", "image/jpeg"], limit: MAX_UPLOAD_BYTES }), (req, res) => {
     try {
       if (!Buffer.isBuffer(req.body) || !req.body.length) throw new Error("send the plan file as the request body (PDF, PNG or JPEG)");
