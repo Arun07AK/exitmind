@@ -8,13 +8,15 @@ import type { Scenario } from "../sim/types.ts";
 import { POLICY, type RunMetrics, type World } from "../sim/world.ts";
 import { DistilledPolicy } from "./distilled.ts";
 import { HaikuPersona, JevPersona, PERSONA_LABEL } from "./personas.ts";
+import { CrowdBrainPolicy } from "./crowdbrain.ts";
 import { ReplayPolicy, decisionRecord, type PersonaDecisionRecord } from "./replay.ts";
 import type { DecisionPolicy } from "./types.ts";
 
-export type Backend = "haiku" | "jev" | "replay";
+export type Backend = "haiku" | "jev" | "replay" | "crowd";
 
 export interface ShowcaseOptions {
   backend: Backend;
+  model?: import("../sim/model.ts").Model;
   livePersonas: number;
   records?: readonly PersonaDecisionRecord[];
   distilled?: DistilledPolicy;
@@ -36,7 +38,11 @@ export interface ShowcaseResult {
   personaAgents: number[];
 }
 
-export function personaPolicy(backend: Exclude<Backend, "replay">, simEnv: SimEnv, o: Pick<ShowcaseOptions, "claude" | "typesafe" | "onLlmCall"> = {}): HaikuPersona | JevPersona {
+export function crowdBrain(simEnv: SimEnv, o: Pick<ShowcaseOptions, "claude" | "onLlmCall"> = {}): CrowdBrainPolicy {
+  return new CrowdBrainPolicy(o.claude ?? new ClaudeClient(o.onLlmCall ? { sink: o.onLlmCall } : {}), env("PERSONA_HAIKU_MODEL") ?? "claude-haiku-5-5", { timeoutMs: simEnv.runtime.persona.deadlineMs * 2, maxCalls: 400, refreshTicks: Math.round(30 / simEnv.runtime.sim.dtSec), maxInFlight: 8 });
+}
+
+export function personaPolicy(backend: Exclude<Backend, "replay" | "crowd">, simEnv: SimEnv, o: Pick<ShowcaseOptions, "claude" | "typesafe" | "onLlmCall"> = {}): HaikuPersona | JevPersona {
   const rt = simEnv.runtime;
   if (backend === "haiku") return new HaikuPersona(o.claude ?? new ClaudeClient(o.onLlmCall ? { sink: o.onLlmCall } : {}), env("PERSONA_HAIKU_MODEL") ?? "claude-haiku-5-5", rt.persona.deadlineMs, rt.showcase.maxInFlight);
   return new JevPersona(o.typesafe ?? new TypeSafeAdapter(o.onLlmCall ? { sink: o.onLlmCall } : {}), env("JEV_MODEL") ?? "jev-1.14.0", rt.persona.jevTimeoutMs, rt.showcase.maxInFlight);
@@ -47,6 +53,7 @@ export async function runShowcase(simEnv: SimEnv, sc: Scenario, o: ShowcaseOptio
   let llm: DecisionPolicy;
   let calls = () => 0;
   if (o.backend === "replay") llm = new ReplayPolicy(o.records ?? []);
+  else if (o.backend === "crowd") { const c = crowdBrain(simEnv, o); llm = c; calls = () => c.stats.calls; }
   else {
     const p = personaPolicy(o.backend, simEnv, o);
     llm = p;
@@ -55,6 +62,7 @@ export async function runShowcase(simEnv: SimEnv, sc: Scenario, o: ShowcaseOptio
   let w!: World;
   let fallbacks = 0, rejected = 0;
   w = makeWorld(simEnv, sc, {
+    ...(o.model ? { model: o.model } : {}),
     llm, llmAgents: o.livePersonas,
     ...(o.distilled ? { distilled: o.distilled } : {}),
     hooks: {
