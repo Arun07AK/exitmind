@@ -372,6 +372,28 @@
     "locator": "horizontal speed, manual wheelchair, relative to unimpaired",
     "verified": false
   },
+  "perception.discoverBlockedM": {
+    "value": 15,
+    "min": 5,
+    "max": 40,
+    "unit": "m",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "distance at which a person heading for a blocked exit notices it is blocked and reroutes",
+    "verified": false
+  },
+  "perception.openGroundSightM": {
+    "value": 60,
+    "min": 30,
+    "max": 150,
+    "unit": "m",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "on an open event ground, the distance within which a person notices a gate they did not come in through (night, crowd and stage lighting limit sight lines)",
+    "verified": false
+  },
   "perception.signRadiusM": {
     "value": 15,
     "min": 8,

@@ -92,10 +92,13 @@ export class World {
   readonly familiar: Uint8Array;
   readonly knownMask: Uint32Array;
   readonly familiarMask: Uint32Array;
+  readonly entryEl: Int16Array;
+  readonly hiddenClosed: Uint8Array;
   readonly closedMask: Uint32Array;
   readonly avoidMask: Uint32Array;
   readonly group: Int32Array;
   readonly groupLeader: Int32Array;
+  readonly groupMembers: Map<number, number[]> = new Map();
   readonly followGroup: Uint8Array;
   readonly target: Int32Array;
   readonly prevTarget: Int32Array;
@@ -178,7 +181,7 @@ export class World {
     const I8 = () => new Int8Array(n), U8 = () => new Uint8Array(n), I32 = (f = 0) => new Int32Array(n).fill(f), F32 = () => new Float32Array(n), U32 = () => new Uint32Array(n);
     this.floor = I8(); this.cell = I32(); this.state = U8(); this.credit = F32(); this.vFree = F32(); this.stress = F32();
     this.age = U8(); this.role = U8(); this.mobility = U8(); this.familiar = U8();
-    this.knownMask = U32(); this.familiarMask = U32(); this.closedMask = U32(); this.avoidMask = U32();
+    this.knownMask = U32(); this.familiarMask = U32(); this.entryEl = new Int16Array(n).fill(-1); this.closedMask = U32(); this.avoidMask = U32();
     this.group = I32(-1); this.groupLeader = I32(-1); this.followGroup = U8(); this.target = I32(-1); this.prevTarget = I32(-1); this.targetSetZone = new Int16Array(n).fill(-1);
     this.policyKind = U8(); this.premoveEnd = I32(); this.waitUntil = I32(); this.blockedTicks = I32();
     this.instrKind = U8(); this.instrTarget = I32(-1); this.instrUntil = I32(); this.instrVersion = I32(-1);
@@ -211,22 +214,28 @@ export class World {
       this.state[a] = ST.PREMOVE;
       const fm = m.floors[q.floor]!;
       let known = 0, fam = 0;
+      const entryEl = q.entry ? resolveElement(m, q.entry, q.floor) : -1;
+      this.entryEl[a] = entryEl;
+      const sightFt = this.p.get("perception.openGroundSightM") / 0.3048;
       for (const ei of m.elementsByFloor[q.floor]!) {
         const e = m.elements[ei]!;
-        if (e.spaces.has(q.space)) known |= 1 << ei;
-        if (q.familiar || e.kind === "stair" || e.id === "EX-N1" || e.id === "EX-S1") fam |= 1 << ei;
+        const seen = m.twin.venue ? [...e.cells].some((c) => Math.hypot(fm.cx[c]! - fm.cx[q.cell]!, fm.cy[c]! - fm.cy[q.cell]!) <= sightFt) : e.spaces.has(q.space);
+        if (seen) known |= 1 << ei;
+        if (q.familiar || e.kind === "stair") fam |= 1 << ei;
       }
-      if (q.familiar) known |= fam;
-      this.knownMask[a] = known | fam; this.familiarMask[a] = q.familiar ? fam : 0;
+      if (entryEl >= 0) fam |= 1 << entryEl;
+      this.knownMask[a] = known | fam; this.familiarMask[a] = q.familiar ? fam : entryEl >= 0 ? 1 << entryEl : 0;
       void fm;
     });
+    const firstOf = new Map<number, number>();
     for (let a = 0; a < n; a++) {
       const g = this.group[a]!;
       if (g < 0) continue;
-      let leader = a;
-      for (let b = 0; b < n; b++) if (this.group[b] === g) { leader = b; break; }
+      if (!firstOf.has(g)) firstOf.set(g, a);
+      const leader = firstOf.get(g)!;
       this.groupLeader[a] = leader;
       this.followGroup[a] = leader !== a ? 1 : 0;
+      if (leader !== a) { const l = this.groupMembers.get(leader) ?? []; l.push(a); this.groupMembers.set(leader, l); }
     }
     if (!opts.idle) this.soundAlarm(Math.round((sc.hazard.startSec ?? 0) / dtSec));
     const bulk = opts.bulkPolicy === "distilled" && opts.policies.distilled ? POLICY.DISTILLED : POLICY.RULE;
@@ -252,6 +261,8 @@ export class World {
       if (e.kind === "refuge") this.refugeAt.add(e.target);
     }
     const E = m.elements.length;
+    this.hiddenClosed = new Uint8Array(E);
+    for (const id of sc.blockedExits ?? []) m.elements.forEach((e, ei) => { if (e.id === id || e.exitId === id || e.stairId === id) this.hiddenClosed[ei] = 1; });
     this.targetCount = new Int32Array(E);
     this.lastFlow = new Int32Array(E);
     this.fields = m.elements.map((e) => new Float32Array(m.floors[e.floor]!.n));
@@ -376,6 +387,11 @@ export class World {
   }
 
   elementOpen(ei: number): boolean {
+    if (this.hiddenClosed[ei]) return false;
+    return this.#fieldOpen(ei);
+  }
+
+  #fieldOpen(ei: number): boolean {
     const e = this.m.elements[ei]!;
     if (e.portal >= 0) return !this.portalClosed[e.portal] && !this.hz.closedPortal[e.portal];
     return !this.flightClosedExtra[e.flight] && !this.hz.closedFlight[e.flight];
@@ -403,7 +419,7 @@ export class World {
     this.m.elements.forEach((e, ei) => {
       if (!changed[e.floor]) return;
       const fm = this.m.floors[e.floor]!;
-      distanceField(fm, this.elementOpen(ei) ? e.cells : [], this.fields[ei]!, { extraCost: costs[e.floor], blocked: this.hz.blocked[e.floor], closedPortal: closed });
+      distanceField(fm, this.#fieldOpen(ei) ? e.cells : [], this.fields[ei]!, { extraCost: costs[e.floor], blocked: this.hz.blocked[e.floor], closedPortal: closed });
     });
     const lockNeeded = this.zoneInstr.some((z) => z?.instruction === "LOCKDOWN");
     if (lockNeeded) this.m.floors.forEach((fm, fi) => {
@@ -587,8 +603,8 @@ export class World {
       const best = this.nearestOpenElement(a);
       if (best >= 0) this.setTarget(a, best);
     }
-    if (!this.followGroup[a]) for (let b = 0; b < this.n; b++) {
-      if (b !== a && this.groupLeader[b] === a && this.followGroup[b] && this.target[a]! >= 0 && this.floor[b] === this.floor[a] && this.state[b] !== ST.PROTECTED && this.state[b] !== ST.ON_STAIR) this.setTarget(b, this.target[a]!);
+    if (!this.followGroup[a]) for (const b of this.groupMembers.get(a) ?? []) {
+      if (this.followGroup[b] && this.target[a]! >= 0 && this.floor[b] === this.floor[a] && this.state[b] !== ST.PROTECTED && this.state[b] !== ST.ON_STAIR) this.setTarget(b, this.target[a]!);
     }
   }
 
@@ -632,7 +648,19 @@ export class World {
     this.metrics.lastProgress = this.tick;
   }
 
+  #discoverBlocked(): void {
+    const discover = this.p.get("perception.discoverBlockedM");
+    for (let a = 0; a < this.n; a++) {
+      const t = this.target[a]!;
+      if (t < 0 || !this.hiddenClosed[t] || this.state[a] !== ST.MOVING || (this.closedMask[a]! >> t) & 1) continue;
+      if (this.m.elements[t]!.floor !== this.floor[a] || this.fields[t]![this.cell[a]!]! > discover) continue;
+      this.closedMask[a] = this.closedMask[a]! | (1 << t);
+      this.raise(a, "BLOCKED");
+    }
+  }
+
   #perceive(): void {
+    if (this.hiddenClosed.some((x) => x)) this.#discoverBlocked();
     const m = this.m, rng = this.rngs.perception;
     const radius = this.p.get("perception.signRadiusM") / CELL_M;
     const pDyn = this.p.get("sign.detect.dynamic"), pStat = this.p.get("sign.detect.static");
@@ -728,8 +756,7 @@ export class World {
       if (this.tick - this.lastMissing[a]! < 80) continue;
       const fi = this.floor[a]!, fm = this.m.floors[fi]!, c = this.cell[a]!;
       const ax = c % fm.w, ay = (c - ax) / fm.w;
-      for (let b = 0; b < this.n; b++) {
-        if (b === a || this.groupLeader[b] !== a) continue;
+      for (const b of this.groupMembers.get(a) ?? []) {
         const sb = this.state[b];
         if (sb === ST.PROTECTED || sb === ST.ON_STAIR || this.floor[b] !== fi) continue;
         const cb = this.cell[b]!, bx = cb % fm.w, by = (cb - bx) / fm.w;
@@ -940,7 +967,7 @@ export class World {
     if (e.portal >= 0) {
       if (fm.exitPortal[c] !== e.portal) return false;
       const lvl = this.mobility[a]! >= 3;
-      if (!this.elementOpen(t) || (lvl && !this.m.portals[e.portal]!.accessible)) { this.closedMask[a] = this.closedMask[a]! | (1 << t); this.raise(a, "BLOCKED"); return false; }
+      if (!this.elementOpen(t) || (lvl && !this.m.portals[e.portal]!.accessible)) { if (!((this.closedMask[a]! >> t) & 1)) { this.closedMask[a] = this.closedMask[a]! | (1 << t); this.raise(a, "BLOCKED"); } return false; }
       if (this.tokens[e.portal]! < 1) { this.metrics.queuePS[e.portal] = this.metrics.queuePS[e.portal]! + this.dt; return false; }
       const doorDelay = this.mobility[a]! >= 2 ? this.p.get("mobility.door.delaySec") * this.portalCap[e.portal]! : 0;
       this.tokens[e.portal] = this.tokens[e.portal]! - 1 - doorDelay;
@@ -952,7 +979,7 @@ export class World {
     }
     if (fm.headFlight[c] !== e.flight) return false;
     const k = e.flight;
-    if (!this.elementOpen(t)) { this.closedMask[a] = this.closedMask[a]! | (1 << t); this.raise(a, "BLOCKED"); return false; }
+    if (!this.elementOpen(t)) { if (!((this.closedMask[a]! >> t) & 1)) { this.closedMask[a] = this.closedMask[a]! | (1 << t); this.raise(a, "BLOCKED"); } return false; }
     const mob = MOBILITY[this.mobility[a]!];
     const stairId = e.stairId!;
     const chairKey = stairId;

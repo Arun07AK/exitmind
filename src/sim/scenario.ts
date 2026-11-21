@@ -15,8 +15,21 @@ export const RoutePolicySchema = z.strictObject({
   closedRoutes: z.array(z.string()),
   inflowClosed: z.array(z.string()),
 });
+const Share = z.number().min(0).max(1);
+const RoleShares = z.strictObject({ student: Share.optional(), visitor: Share.optional(), staff: Share.optional(), teacher: Share.optional(), nurse: Share.optional(), patient: Share.optional(), shopper: Share.optional() });
+export const CrowdSchema = z.strictObject({
+  size: z.number().int().min(1).max(8000),
+  ages: z.strictObject({ child: Share.optional(), young_adult: Share.optional(), adult: Share.optional(), older_adult: Share.optional() }),
+  roles: RoleShares,
+  familiar: RoleShares.optional(),
+  mobility: z.strictObject({ slow: z.number().min(0).max(0.3).optional(), crutches: z.number().min(0).max(0.1).optional(), wheelchair: z.number().min(0).max(0.1).optional() }).optional(),
+  groupFraction: z.number().min(0).max(0.9).optional(),
+  placement: z.enum(["uniform", "stage_front"]).optional(),
+});
 export const ScenarioSchema = z.strictObject({
   id: z.string().min(1).max(120),
+  crowd: CrowdSchema.optional(),
+  blockedExits: z.array(z.string()).max(32).optional(),
   profile: z.enum(PROFILES),
   hazard: z.strictObject({
     kind: z.enum(HAZARD_KINDS),

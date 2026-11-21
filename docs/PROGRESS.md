@@ -39,6 +39,17 @@ for f in data/fixtures/showcase_*.jsonl data/fixtures/table_hybrid_*.jsonl; do n
 
 If a persona replay reports MISMATCH after a simulator change, re-collect (needs the Anthropic key, roughly 1,000 short Haiku calls): `npm run personas:collect -- --runs 6 --personas 24 && npm run personas:collect -- --instructed && npm run personas:collect -- --table && npm run distill`.
 
+## In progress: Custom Emergency Scenario Generator (started 2026-11-21)
+
+Arun's decisions: venue = Thapar **Fete Area** (Saturnalia 2026 concert venue), map source = **OpenStreetMap** (ODbL), crowd brain = **Haiku group decisions**, build all four phases without stopping.
+
+| Phase | Builds | Verified by | Status |
+|---|---|---|---|
+| A | `npm run venue:osm` imports the Fete Area from OSM into `data/twin/thapar-fete.twin.json`; gates/stage not in OSM are labelled assumptions | twin validates, area matches OSM, drill runs | in progress |
+| B | Opus 5.5 scenario agent: one text box, asks for missing crowd size / age groups / event type, lists assumptions; offline keyword parser | tests with a stub; one live Opus check | pending |
+| C | Haiku crowd brain: profiles with entry gate and familiarity; one Haiku decision per group of people in the same situation; rerouting | staff vs first-time visitor test; replay identical; live Haiku run | pending |
+| D | Scenario box, Opus conversation, assumptions panel, Run; "Try the Saturnalia demo" card that preloads the box | Playwright e2e | pending |
+
 ## Open items (Arun)
 
 | # | Item | State |

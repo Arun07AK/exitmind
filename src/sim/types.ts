@@ -55,8 +55,20 @@ export interface Edit {
   protocol?: Protocol;
 }
 
+export interface CrowdSpec {
+  size: number;
+  ages: Partial<Record<"child" | "young_adult" | "adult" | "older_adult", number>>;
+  roles: Partial<Record<"student" | "visitor" | "staff" | "teacher" | "nurse" | "patient" | "shopper", number>>;
+  familiar?: Partial<Record<"student" | "visitor" | "staff" | "teacher" | "nurse" | "patient" | "shopper", number>>;
+  mobility?: { slow?: number; crutches?: number; wheelchair?: number };
+  groupFraction?: number;
+  placement?: "uniform" | "stage_front";
+}
+
 export interface Scenario {
   id: string;
+  crowd?: CrowdSpec;
+  blockedExits?: string[];
   profile: ProfileId;
   hazard: HazardSpec;
   behaviour: Record<string, number>;

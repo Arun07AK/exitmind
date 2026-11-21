@@ -2,7 +2,7 @@ export const DECISION_POINTS = ["ALARM_NOTICED", "JUNCTION", "SIGN_SEEN", "BLOCK
 export type DecisionPoint = (typeof DECISION_POINTS)[number];
 export const ACTIONS = ["MOVE_TO", "WAIT", "FOLLOW_GROUP", "GO_BACK", "FOLLOW_SIGN", "HELP"] as const;
 export type Action = (typeof ACTIONS)[number];
-export const ROLE_TAGS = ["NEAREST", "FAMILIAR", "SIGNED", "LEAST_CROWDED", "MAJORITY", "HAZARD_ON_ROUTE", "STAIR", "LEVEL"] as const;
+export const ROLE_TAGS = ["NEAREST", "FAMILIAR", "ENTRY", "SIGNED", "LEAST_CROWDED", "MAJORITY", "HAZARD_ON_ROUTE", "STAIR", "LEVEL"] as const;
 export type RoleTag = (typeof ROLE_TAGS)[number];
 
 export interface OptionNumbers {
@@ -69,7 +69,7 @@ export interface DecisionPolicy {
   decide(ctx: DecisionContext, rng: import("../shared/rng.ts").Rng): Decision | Promise<Decision>;
 }
 
-const PRIMARY: readonly RoleTag[] = ["SIGNED", "NEAREST", "FAMILIAR", "MAJORITY", "LEAST_CROWDED"];
+const PRIMARY: readonly RoleTag[] = ["SIGNED", "ENTRY", "NEAREST", "FAMILIAR", "MAJORITY", "LEAST_CROWDED"];
 
 /** Coarse, reusable description of an option: its action, its most salient role, and whether the hazard is on the way. */
 export function signature(o: Pick<DecisionOption, "action" | "roles">): string {

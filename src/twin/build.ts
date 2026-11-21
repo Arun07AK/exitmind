@@ -10,7 +10,7 @@ export const ZONE_BANDS: readonly { suffix: string; name: string; x: [number, nu
 ];
 
 export function zonesFor(src: TwinSource): Zone[] {
-  return src.floors.flatMap((f) => ZONE_BANDS.map((b) => ({ id: `Z${f.id.slice(1)}${b.suffix}`, floor: f.id, name: `${f.name} ${b.name}`, xRangeFt: b.x })));
+  return src.floors.flatMap((f) => (src.zoneBands ?? ZONE_BANDS).map((b) => ({ id: `Z${f.id.slice(1)}${b.suffix}`, floor: f.id, name: `${f.name} ${b.name}`, xRangeFt: b.x })));
 }
 
 export function zoneOf(twin: Pick<Twin, "zones">, floor: string, x: number): string {
@@ -20,6 +20,13 @@ export function zoneOf(twin: Pick<Twin, "zones">, floor: string, x: number): str
 export function finalizeTwin(src: TwinSource): Twin {
   const body = { ...src, zones: zonesFor(src) };
   return { ...body, hash: sha256Hex(canonicalJSON(body)) };
+}
+
+export const VENUES = { "rinker-hall": "rinker.twin.json", "thapar-fete": "thapar-fete.twin.json" } as const;
+export type VenueId = keyof typeof VENUES;
+
+export function loadVenue(id: VenueId): Twin {
+  return loadTwin(repoPath("data", "twin", VENUES[id]));
 }
 
 export function loadTwin(path = repoPath("data", "twin", "rinker.twin.json")): Twin {

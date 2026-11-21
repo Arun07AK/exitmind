@@ -5,7 +5,8 @@ export const SHEET_IDS = ["A102", "A103", "A107", "A108", "A602", "A603"] as con
 export type SheetId = (typeof SHEET_IDS)[number];
 
 export interface SourceRef {
-  sheet: SheetId;
+  sheet: SheetId | "OSM";
+  osm?: string;
   detail?: string;
   grid?: string;
   basis: "dimensioned" | "printed" | "scaled" | "assumed";
@@ -134,7 +135,9 @@ export interface SheetMeta {
 export interface Twin {
   id: string;
   name: string;
-  frame: { gridX: Record<string, number>; gridY: Record<string, number>; north: "-x" };
+  frame: { gridX: Record<string, number>; gridY: Record<string, number>; north: "-x" | "-y" };
+  venue?: VenueMeta;
+  zoneBands?: { suffix: string; name: string; x: [number, number] }[];
   floors: Floor[];
   stairs: Stair[];
   exits: Exit[];
@@ -146,3 +149,15 @@ export interface Twin {
 }
 
 export type TwinSource = Omit<Twin, "hash" | "zones">;
+
+export interface VenueMeta {
+  kind: "outdoor";
+  label: string;
+  origin: { lat: number; lon: number };
+  attribution: string;
+  osmWays: string[];
+  stage: Pt[] | null;
+  mainGates: string[];
+  staffGates: string[];
+  assumptions: string[];
+}

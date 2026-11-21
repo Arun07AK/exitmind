@@ -1,0 +1,547 @@
+{
+ "id": "thapar-fete",
+ "name": "Fete Area, Thapar Institute of Engineering & Technology, Patiala (from OpenStreetMap)",
+ "frame": {
+  "gridX": {},
+  "gridY": {},
+  "north": "-y"
+ },
+ "floors": [
+  {
+   "id": "F1",
+   "name": "Fete Area (ground level)",
+   "elevationFt": 0,
+   "outline": [
+    [
+     -308.7,
+     4.5
+    ],
+    [
+     -323.8,
+     -198.3
+    ],
+    [
+     -9.3,
+     -223.9
+    ],
+    [
+     16.9,
+     -44.2
+    ],
+    [
+     61,
+     -50.5
+    ],
+    [
+     130,
+     -60.1
+    ],
+    [
+     199.3,
+     -69.7
+    ],
+    [
+     234.5,
+     -74.3
+    ],
+    [
+     279.9,
+     326.5
+    ],
+    [
+     -279.7,
+     390
+    ]
+   ],
+   "voids": [
+    [
+     [
+      -211.55,
+      -193.10000000000002
+     ],
+     [
+      -121.55000000000001,
+      -193.10000000000002
+     ],
+     [
+      -121.55000000000001,
+      -153.10000000000002
+     ],
+     [
+      -211.55,
+      -153.10000000000002
+     ]
+    ]
+   ],
+   "spaces": [
+    {
+     "id": "FETE",
+     "name": "Fete Area",
+     "floor": "F1",
+     "kind": "room",
+     "use": "assembly",
+     "polygon": [
+      [
+       -308.7,
+       4.5
+      ],
+      [
+       -323.8,
+       -198.3
+      ],
+      [
+       -9.3,
+       -223.9
+      ],
+      [
+       16.9,
+       -44.2
+      ],
+      [
+       61,
+       -50.5
+      ],
+      [
+       130,
+       -60.1
+      ],
+      [
+       199.3,
+       -69.7
+      ],
+      [
+       234.5,
+       -74.3
+      ],
+      [
+       279.9,
+       326.5
+      ],
+      [
+       -279.7,
+       390
+      ]
+     ],
+     "occupiable": true,
+     "lockable": false,
+     "src": {
+      "sheet": "OSM",
+      "basis": "scaled",
+      "osm": "way/396666360",
+      "note": "OSM leisure=pitch name=Fete Area"
+     }
+    }
+   ],
+   "portals": [
+    {
+     "id": "X-G1",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      -57.78053727549001,
+      364.81793087382704
+     ],
+     "b": [
+      -77.6530042973759,
+      367.0729374068681
+     ],
+     "clearWidthIn": 240,
+     "connects": [
+      "FETE",
+      "OUTSIDE"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "OSM",
+      "basis": "assumed",
+      "osm": "way/395235694",
+      "note": "gate position where OSM way 395235694, 395235700 meets the Fete Area boundary; width 20 ft is an assumption"
+     }
+    },
+    {
+     "id": "X-G2",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      -287.85565825042227,
+      281.5859911883523
+     ],
+     "b": [
+      -288.7558384750986,
+      269.61980233963766
+     ],
+     "clearWidthIn": 144,
+     "connects": [
+      "FETE",
+      "OUTSIDE"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "OSM",
+      "basis": "assumed",
+      "osm": "way/395236964",
+      "note": "gate position where OSM way 395236964 meets the Fete Area boundary; width 12 ft is an assumption"
+     }
+    },
+    {
+     "id": "X-G3",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      278.7744632648246,
+      316.56354353616086
+     ],
+     "b": [
+      281.02553673517536,
+      336.43645646383914
+     ],
+     "clearWidthIn": 240,
+     "connects": [
+      "FETE",
+      "OUTSIDE"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "OSM",
+      "basis": "assumed",
+      "osm": "way/395256504",
+      "note": "gate position where OSM way 395256504, 1327271446, 1582636907 meets the Fete Area boundary; width 20 ft is an assumption"
+     }
+    },
+    {
+     "id": "X-G4",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      228.55058620367373,
+      -73.52251978798009
+     ],
+     "b": [
+      240.44941379632627,
+      -75.0774802120199
+     ],
+     "clearWidthIn": 144,
+     "connects": [
+      "FETE",
+      "OUTSIDE"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "OSM",
+      "basis": "assumed",
+      "osm": "way/1327271446",
+      "note": "gate position where OSM way 1327271446, 1582722151 meets the Fete Area boundary; width 12 ft is an assumption"
+     }
+    }
+   ]
+  }
+ ],
+ "stairs": [],
+ "exits": [
+  {
+   "id": "EX-G1",
+   "name": "Main gate (south, where service/service way 395235694, 395235700 meets the ground)",
+   "floor": "F1",
+   "kind": "exterior",
+   "portal": "X-G1",
+   "src": {
+    "sheet": "OSM",
+    "basis": "assumed",
+    "osm": "way/395235694",
+    "note": "gate position where OSM way 395235694, 395235700 meets the Fete Area boundary; width 20 ft is an assumption"
+   }
+  },
+  {
+   "id": "EX-G2",
+   "name": "Side gate (west, where footway way 395236964 meets the ground)",
+   "floor": "F1",
+   "kind": "exterior",
+   "portal": "X-G2",
+   "src": {
+    "sheet": "OSM",
+    "basis": "assumed",
+    "osm": "way/395236964",
+    "note": "gate position where OSM way 395236964 meets the Fete Area boundary; width 12 ft is an assumption"
+   }
+  },
+  {
+   "id": "EX-G3",
+   "name": "Main gate (east, where service/footway/service way 395256504, 1327271446, 1582636907 meets the ground)",
+   "floor": "F1",
+   "kind": "exterior",
+   "portal": "X-G3",
+   "src": {
+    "sheet": "OSM",
+    "basis": "assumed",
+    "osm": "way/395256504",
+    "note": "gate position where OSM way 395256504, 1327271446, 1582636907 meets the Fete Area boundary; width 20 ft is an assumption"
+   }
+  },
+  {
+   "id": "EX-G4",
+   "name": "Backstage gate (north, where footway/path way 1327271446, 1582722151 meets the ground)",
+   "floor": "F1",
+   "kind": "exterior",
+   "portal": "X-G4",
+   "src": {
+    "sheet": "OSM",
+    "basis": "assumed",
+    "osm": "way/1327271446",
+    "note": "gate position where OSM way 1327271446, 1582722151 meets the Fete Area boundary; width 12 ft is an assumption"
+   }
+  }
+ ],
+ "signMounts": [
+  {
+   "id": "SM-G1",
+   "floor": "F1",
+   "at": [
+    -63.2,
+    341.4
+   ],
+   "facing": [
+    1,
+    0
+   ],
+   "space": "FETE",
+   "staticDefaultToward": "EX-G1",
+   "src": {
+    "sheet": "OSM",
+    "basis": "assumed",
+    "note": "sign mount placed 25 ft inside the gate (assumption)"
+   }
+  },
+  {
+   "id": "SM-G2",
+   "floor": "F1",
+   "at": [
+    -270.2,
+    258.3
+   ],
+   "facing": [
+    1,
+    0
+   ],
+   "space": "FETE",
+   "staticDefaultToward": "EX-G2",
+   "src": {
+    "sheet": "OSM",
+    "basis": "assumed",
+    "note": "sign mount placed 25 ft inside the gate (assumption)"
+   }
+  },
+  {
+   "id": "SM-G3",
+   "floor": "F1",
+   "at": [
+    263.6,
+    307.5
+   ],
+   "facing": [
+    -1,
+    0
+   ],
+   "space": "FETE",
+   "staticDefaultToward": "EX-G3",
+   "src": {
+    "sheet": "OSM",
+    "basis": "assumed",
+    "note": "sign mount placed 25 ft inside the gate (assumption)"
+   }
+  },
+  {
+   "id": "SM-G4",
+   "floor": "F1",
+   "at": [
+    210.7,
+    -66.7
+   ],
+   "facing": [
+    -1,
+    0
+   ],
+   "space": "FETE",
+   "staticDefaultToward": "EX-G4",
+   "src": {
+    "sheet": "OSM",
+    "basis": "assumed",
+    "note": "sign mount placed 25 ft inside the gate (assumption)"
+   }
+  },
+  {
+   "id": "SM-C1",
+   "floor": "F1",
+   "at": [
+    -119.99,
+    39.999999999999986
+   ],
+   "facing": [
+    -1,
+    0
+   ],
+   "space": "FETE",
+   "staticDefaultToward": "EX-G2",
+   "src": {
+    "sheet": "OSM",
+    "basis": "assumed",
+    "note": "free-standing sign in the crowd area (assumption)"
+   }
+  },
+  {
+   "id": "SM-C2",
+   "floor": "F1",
+   "at": [
+    120.01,
+    39.999999999999986
+   ],
+   "facing": [
+    1,
+    0
+   ],
+   "space": "FETE",
+   "staticDefaultToward": "EX-G4",
+   "src": {
+    "sheet": "OSM",
+    "basis": "assumed",
+    "note": "free-standing sign in the crowd area (assumption)"
+   }
+  }
+ ],
+ "codeBasis": {
+  "occupantLoadSqftPerPerson": 5,
+  "egressInPerPerson": {
+   "corridorsDoors": 0.2,
+   "stairs": 0.3
+  },
+  "minDoorClearIn": 32,
+  "minCorridorIn": 44,
+  "minCorridorSmallLoadIn": 36,
+  "minExits": 2,
+  "travelDistanceFt": {
+   "nfpa101": 200,
+   "sbc": 250
+  },
+  "commonPathFt": 100,
+  "deadEndFt": 20,
+  "twoDoorRoomLoad": 50,
+  "twoDoorTravelFt": 75,
+  "grossAreaSqft": {
+   "F1": 281848,
+   "F2": 0,
+   "F3": 0
+  },
+  "src": {
+   "sheet": "OSM",
+   "basis": "assumed",
+   "note": "outdoor event ground: no code summary exists for it; these values are placeholders and the code check is not run for this venue"
+  }
+ },
+ "sheets": [],
+ "zoneBands": [
+  {
+   "suffix": "W",
+   "name": "west third",
+   "x": [
+    -100000,
+    -122.56666666666666
+   ]
+  },
+  {
+   "suffix": "C",
+   "name": "centre third",
+   "x": [
+    -122.56666666666666,
+    78.66666666666669
+   ]
+  },
+  {
+   "suffix": "E",
+   "name": "east third",
+   "x": [
+    78.66666666666669,
+    100000
+   ]
+  }
+ ],
+ "venue": {
+  "kind": "outdoor",
+  "label": "Saturnalia concert ground (Fete Area), TIET Patiala",
+  "origin": {
+   "lat": 30.3546383,
+   "lon": 76.364002
+  },
+  "attribution": "Venue outline and surrounding paths © OpenStreetMap contributors, available under the Open Database License (ODbL), openstreetmap.org/copyright",
+  "osmWays": [
+   "396666360",
+   "395235694",
+   "395235700",
+   "395236964",
+   "395256504",
+   "1327271446",
+   "1582636907",
+   "1582722151"
+  ],
+  "stage": [
+   [
+    -211.55,
+    -193.10000000000002
+   ],
+   [
+    -121.55000000000001,
+    -193.10000000000002
+   ],
+   [
+    -121.55000000000001,
+    -153.10000000000002
+   ],
+   [
+    -211.55,
+    -153.10000000000002
+   ]
+  ],
+  "mainGates": [
+   "EX-G1",
+   "EX-G3"
+  ],
+  "staffGates": [
+   "EX-G4"
+  ],
+  "assumptions": [
+   "Outline is the OSM \"Fete Area\" polygon (way 396666360, 281848 sq ft); the event perimeter is assumed to follow it.",
+   "Stage position is not in OSM: a 90 ft x 40 ft stage is assumed at the middle of the north edge, facing south.",
+   "Gates are placed where OSM paths and service roads meet the boundary (4 gates); their widths (20 ft main, 12 ft others) are assumptions.",
+   "Main gates (where attendees entered): G1, G3; the gate nearest the stage (G4) is assumed to be the backstage/staff gate.",
+   "Ground is treated as flat and open, with no fixed seating, barriers or stalls inside the perimeter."
+  ]
+ },
+ "zones": [
+  {
+   "id": "Z1W",
+   "floor": "F1",
+   "name": "Fete Area (ground level) west third",
+   "xRangeFt": [
+    -100000,
+    -122.56666666666666
+   ]
+  },
+  {
+   "id": "Z1C",
+   "floor": "F1",
+   "name": "Fete Area (ground level) centre third",
+   "xRangeFt": [
+    -122.56666666666666,
+    78.66666666666669
+   ]
+  },
+  {
+   "id": "Z1E",
+   "floor": "F1",
+   "name": "Fete Area (ground level) east third",
+   "xRangeFt": [
+    78.66666666666669,
+    100000
+   ]
+  }
+ ],
+ "hash": "37c18031b9287713edaff08f5ec516e40e3538c4aec8d2638a87927afed7991f"
+}

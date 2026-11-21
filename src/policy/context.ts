@@ -51,7 +51,8 @@ export function buildContext(w: World, a: number, point: DecisionPoint): Decisio
   const m = w.m, fi = w.floor[a]!, fm = m.floors[fi]!, c = w.cell[a]!;
   const space = fm.space[c]!;
   let known = w.knownMask[a]!;
-  for (const ei of m.elementsByFloor[fi]!) if (m.elements[ei]!.spaces.has(space)) known |= 1 << ei;
+  const sightM = w.p.get("perception.openGroundSightM");
+  for (const ei of m.elementsByFloor[fi]!) if (m.twin.venue ? w.fields[ei]![c]! <= sightM : m.elements[ei]!.spaces.has(space)) known |= 1 << ei;
   w.knownMask[a] = known;
   const herd = herdShares(w, a);
   const instr = w.instrKind[a]!;
@@ -80,6 +81,7 @@ export function buildContext(w: World, a: number, point: DecisionPoint): Decisio
   const rolesFor = (ei: number): RoleTag[] => {
     const nn = nums.get(ei)!, e = m.elements[ei]!, r: RoleTag[] = [];
     if (nn.distM === minDist) r.push("NEAREST");
+    if (ei === w.entryEl[a]) r.push("ENTRY");
     if (nn.familiar) r.push("FAMILIAR");
     if (nn.signed) r.push("SIGNED");
     if (cand.length > 1 && nn.queueSec === minQueue) r.push("LEAST_CROWDED");
@@ -91,7 +93,8 @@ export function buildContext(w: World, a: number, point: DecisionPoint): Decisio
   const describe = (ei: number, verb: string): string => {
     const nn = nums.get(ei)!;
     const bits = [distWord(nn.distM), queueWord(nn.queueSec)];
-    if (nn.familiar) bits.push("a way you know");
+    if (ei === w.entryEl[a]) bits.push("the gate you came in through");
+    else if (nn.familiar) bits.push("a way you know");
     if (nn.herd >= 0.3) bits.push("others nearby are heading there");
     if (nn.hazard >= 0.2) bits.push("hazard on the way");
     return `${verb} ${m.elements[ei]!.label} (${bits.join(", ")})`;

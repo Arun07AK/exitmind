@@ -38,6 +38,7 @@ export interface Person {
   mobility: number;
   familiar: boolean;
   group: number;
+  entry: string | null;
 }
 
 function pickMix(rng: Rng, mix: Record<string, number>, names: readonly string[]): number {
@@ -70,7 +71,55 @@ export function floorLoads(m: Model, sc: Scenario, profile: Profile, params: Par
   });
 }
 
+const ROLE_FAMILIAR: Record<string, number> = { staff: 1, teacher: 1, nurse: 1, student: 0.8, visitor: 0.1, patient: 0.5, shopper: 0.3 };
+
+function crowdPopulation(m: Model, sc: Scenario, rng: Rng): Person[] {
+  const c = sc.crowd!;
+  const venue = m.twin.venue;
+  const stage = venue?.stage ?? null;
+  const sx = stage ? stage.reduce((a, p) => a + p[0], 0) / stage.length : 0, sy = stage ? stage.reduce((a, p) => a + p[1], 0) / stage.length : 0;
+  const keys: { k: number; f: number; c: number }[] = [];
+  m.floors.forEach((fm, fi) => {
+    for (let i = 0; i < fm.n; i++) {
+      if (!fm.walkable[i] || fm.headFlight[i] >= 0 || fm.exitPortal[i] >= 0) continue;
+      const si = fm.space[i]!;
+      if (si < 0 || !m.spaceInfo[fi]![si]!.occupiable) continue;
+      const w = c.placement === "stage_front" && stage && fi === 0 ? Math.exp(-Math.hypot(fm.cx[i]! - sx, fm.cy[i]! - sy) / 90) + 0.03 : 1;
+      keys.push({ k: -Math.log(1 - rng.next()) / w, f: fi, c: i });
+    }
+  });
+  keys.sort((a, b) => a.k - b.k || a.f - b.f || a.c - b.c);
+  const n = Math.min(c.size, Math.floor(keys.length * 0.6));
+  const chosen = keys.slice(0, n).sort((a, b) => a.f - b.f || a.c - b.c);
+  const roles = Object.keys(c.roles).length ? c.roles : { student: 1 };
+  const ages = Object.keys(c.ages).length ? c.ages : { young_adult: 1 };
+  const mob = { slow: c.mobility?.slow ?? 0.02, crutches: c.mobility?.crutches ?? 0.005, wheelchair: c.mobility?.wheelchair ?? 0.005 };
+  const mains = venue?.mainGates.length ? venue.mainGates : null, staffG = venue?.staffGates.length ? venue.staffGates : null;
+  const people: Person[] = chosen.map(({ f, c: cell }) => {
+    const role = pickMix(rng, roles as Record<string, number>, ROLES);
+    const rn = ROLES[role] as string;
+    const staff = STAFF_ROLES.has(rn);
+    const u = rng.next();
+    const mobility = staff ? 0 : u < mob.wheelchair ? 3 : u < mob.wheelchair + mob.crutches ? 2 : u < mob.wheelchair + mob.crutches + mob.slow ? 1 : 0;
+    const familiar = rng.bool(c.familiar?.[rn as "student"] ?? ROLE_FAMILIAR[rn] ?? 0.5);
+    const entry = staff && staffG ? rng.pick(staffG) : mains ? rng.pick(mains) : null;
+    return { floor: f, cell, space: m.floors[f]!.space[cell]!, age: pickMix(rng, ages as Record<string, number>, AGES), role, mobility, familiar, group: -1, entry };
+  });
+  const gf = c.groupFraction ?? 0.45;
+  let gid = 0;
+  for (let k = 0; k < people.length;) {
+    if (!rng.bool(gf)) { k++; continue; }
+    const size = Math.min(people.length - k, 2 + rng.int(3));
+    if (size < 2) break;
+    for (let j = 0; j < size; j++) people[k + j]!.group = gid;
+    gid++;
+    k += size;
+  }
+  return people;
+}
+
 export function buildPopulation(m: Model, sc: Scenario, profile: Profile, params: Params, rng: Rng): Person[] {
+  if (sc.crowd) return crowdPopulation(m, sc, rng);
   const people: Person[] = [];
   const loads = floorLoads(m, sc, profile, params);
   const pk = (k: string) => params.get(`profile.${sc.profile}.${k}`);
@@ -104,7 +153,7 @@ export function buildPopulation(m: Model, sc: Scenario, profile: Profile, params
         for (let k = 0; k < Math.min(count, order.length); k++) {
           const c = order[k] as number;
           used[c] = 1;
-          people.push({ floor: fi, cell: c, space: fm.space[c] as number, age: 0, role: 0, mobility: 0, familiar: false, group: -1 });
+          people.push({ floor: fi, cell: c, space: fm.space[c] as number, age: 0, role: 0, mobility: 0, familiar: false, group: -1, entry: null });
         }
       }
       return;
@@ -115,7 +164,7 @@ export function buildPopulation(m: Model, sc: Scenario, profile: Profile, params
       const si = rng.weightedIndex(weights);
       const c = place(si);
       if (c < 0) { weights[si] = 0; k--; continue; }
-      people.push({ floor: fi, cell: c, space: si, age: 0, role: 0, mobility: 0, familiar: false, group: -1 });
+      people.push({ floor: fi, cell: c, space: si, age: 0, role: 0, mobility: 0, familiar: false, group: -1, entry: null });
     }
   });
   const shares = { slow: pk("share.slow"), crutches: pk("share.crutches"), wheelchair: pk("share.wheelchair"), patient: sc.profile === "hospital" ? pk("share.assistedPatient") : 0 };
