@@ -137,6 +137,15 @@ export default function PlanEditor() {
     edit((d) => ({ ...d, scale: { ftPerPx: Math.round((ft / px) * 1e5) / 1e5, evidence: `two points ${Math.round(px)} px apart = ${scaleLen} ${scaleUnit} (set by the user)` } }));
     setScalePts([]);
   };
+  const suggest = async () => {
+    if (!meta || !draft) return;
+    setBusy("Looking for sealed rooms…");
+    try {
+      const r2 = await postJSON<{ doors: { a: Pt; b: Pt }[] }>(`/api/plans/${meta.id}/suggest-doors`, { draft });
+      if (r2.doors.length) edit((d) => ({ ...d, doors: [...d.doors, ...r2.doors] }));
+      setNotes((n) => [...n, r2.doors.length ? `Added ${r2.doors.length} door(s) where an area was sealed off; check each one against the plan.` : "No sealed areas found."]);
+    } catch (e) { setError(e instanceof Error ? e.message : String(e)); } finally { setBusy(null); }
+  };
   const r = meta ? Math.max(meta.width, meta.height) / 260 : 3;
   const selExit = sel?.kind === "exits" ? draft?.exits[sel.i] : undefined;
   const status = useMemo(() => !check ? null : check.errors.length ? "error" : check.warnings.length ? "warn" : "ok", [check]);
@@ -221,6 +230,7 @@ export default function PlanEditor() {
               </section>
             ) : null}
             {sel ? <Button onClick={del} data-testid="plan-delete">Delete selected</Button> : null}
+            {check?.errors.some((e) => e.includes("cannot reach an exit")) ? <Button onClick={() => void suggest()} disabled={!!busy} data-testid="plan-suggest-doors">Add doors to sealed rooms</Button> : null}
             <section className={cx("rounded-lg border p-3", status === "error" ? "border-red-300 bg-red-50" : status === "warn" ? "border-amber-300 bg-amber-50" : "border-emerald-300 bg-emerald-50")} data-testid="plan-checks" data-status={status ?? ""}>
               <h2 className="font-medium">Checks</h2>
               {check ? <>

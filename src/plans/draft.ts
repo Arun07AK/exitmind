@@ -17,7 +17,7 @@ export const DraftSchema = z.object({
 });
 export type PlanDraft = z.infer<typeof DraftSchema>;
 
-const pt = { type: "array", items: { type: "number" }, minItems: 2, maxItems: 2 };
+const pt = { type: "object", additionalProperties: false, required: ["x", "y"], properties: { x: { type: "number" }, y: { type: "number" } } };
 const seg = { type: "object", additionalProperties: false, required: ["a", "b"], properties: { a: pt, b: pt } };
 export const DRAFT_JSON_SCHEMA = {
   type: "object", additionalProperties: false, required: ["outline", "walls", "doors", "exits", "obstacles", "labels", "stage", "scale", "notes"],
@@ -33,6 +33,18 @@ export const DRAFT_JSON_SCHEMA = {
     notes: { type: "array", items: { type: "string" } },
   },
 };
+
+/** The tracer's output uses {x, y} points (the API's structured output cannot fix an array length); convert them to [x, y]. */
+export function fromXY(v: unknown): unknown {
+  if (Array.isArray(v)) return v.map(fromXY);
+  if (v && typeof v === "object") {
+    const o = v as Record<string, unknown>;
+    const keys = Object.keys(o);
+    if (keys.length === 2 && typeof o.x === "number" && typeof o.y === "number") return [o.x, o.y];
+    return Object.fromEntries(keys.map((k) => [k, fromXY(o[k])]));
+  }
+  return v;
+}
 
 export const WALL_FT = 2;
 const r1 = (v: number) => Math.round(v * 10) / 10;
@@ -141,4 +153,53 @@ export function draftToTwin(d: PlanDraft, meta: PlanMeta): Twin {
   };
   if (!twinSrc.venue!.mainGates.length && exits.length) twinSrc.venue!.mainGates = ["EX-E1"];
   return finalizeTwin(twinSrc);
+}
+
+/**
+ * Areas the draft seals off (no traced door): for each one, propose a 3 ft door through the nearest traced wall
+ * that separates it from the part of the floor that reaches an exit. Returns doors in image pixels.
+ */
+export function suggestDoors(d: PlanDraft, meta: PlanMeta, model: import("../sim/model.ts").Model): { a: Pt; b: Pt }[] {
+  const k = d.scale.ftPerPx;
+  if (!k || !d.exits.length) return [];
+  const cx = d.outline.reduce((s, p) => s + p[0], 0) / d.outline.length, cy = d.outline.reduce((s, p) => s + p[1], 0) / d.outline.length;
+  const F = (p: readonly number[]): Pt => [(p[0]! - cx) * k, (p[1]! - cy) * k];
+  const B = (p: Pt): Pt => [r1(p[0] / k + cx), r1(p[1] / k + cy)];
+  const fm = model.floors[0]!;
+  const reached = new Uint8Array(fm.n), q: number[] = [];
+  for (let i = 0; i < fm.n; i++) if (fm.walkable[i] && fm.exitPortal[i] >= 0) { reached[i] = 1; q.push(i); }
+  for (let h = 0; h < q.length; h++) for (let dir = 0; dir < 8; dir++) { const j = fm.nbr[q[h]! * 8 + dir]!; if (j >= 0 && !reached[j]) { reached[j] = 1; q.push(j); } }
+  const comp = new Int32Array(fm.n).fill(-1), comps: number[][] = [];
+  for (let i = 0; i < fm.n; i++) {
+    if (!fm.walkable[i] || reached[i] || comp[i]! >= 0) continue;
+    const c: number[] = [i]; comp[i] = comps.length;
+    for (let h = 0; h < c.length; h++) for (let dir = 0; dir < 8; dir++) { const j = fm.nbr[c[h]! * 8 + dir]!; if (j >= 0 && comp[j]! < 0 && !reached[j]) { comp[j] = comps.length; c.push(j); } }
+    comps.push(c);
+  }
+  const walls = d.walls.map((w) => [F(w.a), F(w.b)] as [Pt, Pt]);
+  const out: { a: Pt; b: Pt }[] = [];
+  for (const c of comps) {
+    if (c.length < 6) continue;
+    let best: { u: number; v: number; dd: number } | null = null;
+    const R = Math.ceil(8 / 1.3123);
+    for (const u of c) {
+      const ux = u % fm.w, uy = (u - ux) / fm.w;
+      for (let dy = -R; dy <= R; dy++) for (let dx = -R; dx <= R; dx++) {
+        const x = ux + dx, y = uy + dy;
+        if (x < 0 || y < 0 || x >= fm.w || y >= fm.h) continue;
+        const v = y * fm.w + x;
+        if (!reached[v]) continue;
+        const dd = dx * dx + dy * dy;
+        if (!best || dd < best.dd) best = { u, v, dd };
+      }
+    }
+    if (!best || !walls.length) continue;
+    const m: Pt = [(fm.cx[best.u]! + fm.cx[best.v]!) / 2, (fm.cy[best.u]! + fm.cy[best.v]!) / 2];
+    let wb = walls[0]!, wd = Infinity, wt = 0;
+    for (const w of walls) { const p = project(m, w[0], w[1]); const t = Math.max(0, Math.min(1, p.t)); const q2: Pt = [w[0][0] + (w[1][0] - w[0][0]) * t, w[0][1] + (w[1][1] - w[0][1]) * t]; const dist = len(m, q2); if (dist < wd) { wd = dist; wb = w; wt = t; } }
+    const L = len(wb[0], wb[1]) || 1, ux = (wb[1][0] - wb[0][0]) / L, uy = (wb[1][1] - wb[0][1]) / L;
+    const c0: Pt = [wb[0][0] + (wb[1][0] - wb[0][0]) * wt, wb[0][1] + (wb[1][1] - wb[0][1]) * wt];
+    out.push({ a: B([c0[0] - ux * 1.75, c0[1] - uy * 1.75]), b: B([c0[0] + ux * 1.75, c0[1] + uy * 1.75]) });
+  }
+  return out;
 }

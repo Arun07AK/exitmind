@@ -17,7 +17,7 @@ import { scenarioAgent } from "../scenario/agent.ts";
 import { buildScenario } from "../scenario/build.ts";
 import { venueInfo } from "../scenario/spec.ts";
 import { ClaudeClient } from "../llm/claude.ts";
-import { DraftSchema, draftToTwin } from "../plans/draft.ts";
+import { DraftSchema, draftToTwin, suggestDoors } from "../plans/draft.ts";
 import { MAX_UPLOAD_BYTES, listPlans, planDir, readDraft, readMeta, storePlan, writeDraft } from "../plans/store.ts";
 import { checkDraft, tracePlan } from "../plans/trace.ts";
 import type { Scenario } from "../sim/types.ts";
@@ -89,6 +89,13 @@ export function createApp(opts: { port: number; demo?: boolean }) {
       const meta = readMeta(String(req.params.id));
       const d = DraftSchema.parse((req.body as { draft: unknown }).draft);
       res.json(checkDraft(d, meta));
+    } catch (e) { res.status(400).json({ error: String(e instanceof Error ? e.message : e) }); }
+  });
+  app.post("/api/plans/:id/suggest-doors", (req, res) => {
+    try {
+      const meta = readMeta(String(req.params.id));
+      const d = DraftSchema.parse((req.body as { draft: unknown }).draft);
+      res.json({ doors: suggestDoors(d, meta, loadEnv(draftToTwin(d, meta)).model) });
     } catch (e) { res.status(400).json({ error: String(e instanceof Error ? e.message : e) }); }
   });
   app.post("/api/plans/:id/save", (req, res) => {

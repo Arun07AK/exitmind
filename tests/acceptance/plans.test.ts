@@ -3,7 +3,7 @@ import { mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterAll, describe, expect, it } from "vitest";
-import { cutWall, draftToTwin, type PlanDraft } from "../../src/plans/draft.ts";
+import { cutWall, draftToTwin, suggestDoors, type PlanDraft } from "../../src/plans/draft.ts";
 import { planDir, storePlan } from "../../src/plans/store.ts";
 import { checkDraft, tracePlan } from "../../src/plans/trace.ts";
 import { loadEnv, makeWorld, runSync } from "../../src/sim/run.ts";
@@ -46,6 +46,17 @@ describe("uploaded plans", () => {
     const closed = draftToTwin(hall({ doors: [], exits: [hall().exits[0]!] }), meta);
     const w2 = makeWorld(loadEnv(closed), scenario({ crowd: { size: 200, ages: { adult: 1 }, roles: { visitor: 1 } }, hazard: { kind: "none" }, seed: 3 }));
     expect(runSync(w2).remaining).toBeGreaterThan(0);
+  });
+
+  it("'Add doors to sealed rooms' finds an area with no traced door and opens it, so everyone can get out", () => {
+    const sealed = hall({ doors: [], exits: [hall().exits[0]!] });
+    const before = draftToTwin(sealed, meta);
+    const doors = suggestDoors(sealed, meta, loadEnv(before).model);
+    expect(doors).toHaveLength(1);
+    expect(Math.abs(doors[0]!.a[0] - 200)).toBeLessThan(3);
+    const after = draftToTwin({ ...sealed, doors }, meta);
+    const w = makeWorld(loadEnv(after), scenario({ crowd: { size: 200, ages: { adult: 1 }, roles: { visitor: 1 } }, hazard: { kind: "none" }, seed: 3 }));
+    expect(runSync(w).remaining).toBe(0);
   });
 
   it("checks report missing scale and missing exits in plain words", () => {

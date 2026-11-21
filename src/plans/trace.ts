@@ -3,15 +3,15 @@ import { z } from "zod";
 import type { ClaudeLike } from "../llm/claude.ts";
 import { env } from "../shared/env.ts";
 import { validateTwin } from "../twin/validate.ts";
-import { DRAFT_JSON_SCHEMA, DraftSchema, draftToTwin, type PlanDraft, type PlanMeta } from "./draft.ts";
+import { DRAFT_JSON_SCHEMA, DraftSchema, draftToTwin, fromXY, type PlanDraft, type PlanMeta } from "./draft.ts";
 import { planDir } from "./store.ts";
 
 export const TRACE_MODEL = (): string => env("TRACE_MODEL") ?? env("SCENARIO_MODEL") ?? "claude-opus-5-5";
-const Reply = DraftSchema.omit({ edited: true }).extend({ notes: z.array(z.string()) });
+const Reply = z.preprocess(fromXY, DraftSchema.omit({ edited: true }).extend({ notes: z.array(z.string()) }));
 
 function prompt(meta: PlanMeta, feedback?: string): string {
   return [
-    `This image is an architectural floor plan (${meta.width} x ${meta.height} pixels). Trace it for an evacuation simulation. Give every coordinate in image pixels: x to the right, y downwards, origin at the top-left corner.`,
+    `This image is an architectural floor plan (${meta.width} x ${meta.height} pixels). Trace it for an evacuation simulation. Give every point as {x, y} in image pixels: x to the right, y downwards, origin at the top-left corner.`,
     "outline: the outer boundary of the usable floor, as a simple polygon (no self-intersections), following the inside face of the exterior walls.",
     "walls: interior walls and partitions as straight segments (centre lines). Leave out furniture, dimension lines, hatching, text and grid lines.",
     "doors: openings in interior walls (a door leaf or a gap), as a segment across the opening along the wall line, as wide as the clear opening.",
