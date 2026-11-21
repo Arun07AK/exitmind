@@ -18,7 +18,7 @@ export function StatusPanel({ onStats, className }: { onStats: () => void; class
   }
   const n = counts.occupants || 1;
   const pct = (v: number) => `${(v / n) * 100}%`;
-  const smokeFloors = cover.map((c, i) => ({ id: geo.twin.floors[i]!.id, c })).filter((x) => x.c > 0.005);
+  const smokeFloors = cover.flatMap((c, i) => (geo.twin.floors[i] ? [{ id: geo.twin.floors[i]!.id, c }] : [])).filter((x) => x.c > 0.005);
   const c95 = frame.metrics.clearance95Sec;
   return (
     <aside aria-label="Evacuation status" data-testid="status-panel" className={cx("flex flex-col gap-3.5 rounded-xl border border-line bg-panel p-4 shadow-[0_8px_24px_rgba(16,24,40,0.06)]", className)}>
