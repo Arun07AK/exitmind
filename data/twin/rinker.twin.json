@@ -1,0 +1,7645 @@
+{
+ "id": "rinker-hall",
+ "name": "Rinker Hall, University of Florida (as drawn, 11/21/01 construction documents)",
+ "frame": {
+  "gridX": {
+   "A": 0,
+   "A.8": 15,
+   "B": 20,
+   "C": 40,
+   "D": 60,
+   "D.5": 70,
+   "E": 80,
+   "F": 100,
+   "G": 120,
+   "H": 140,
+   "I": 160,
+   "J": 180,
+   "K": 200,
+   "K.5": 211.16666666666666,
+   "L": 223.5,
+   "M": 238.5
+  },
+  "gridY": {
+   "1": 0,
+   "2": 28,
+   "3": 44,
+   "4": 82,
+   "3.4": 56.916666666666664,
+   "3.5": 61,
+   "4.2": 88
+  },
+  "north": "-x"
+ },
+ "floors": [
+  {
+   "id": "F1",
+   "name": "First floor",
+   "elevationFt": 155,
+   "outline": [
+    [
+     39.5,
+     -0.5
+    ],
+    [
+     202,
+     -0.5
+    ],
+    [
+     202,
+     25.7
+    ],
+    [
+     210.5,
+     25.7
+    ],
+    [
+     210.5,
+     59.7
+    ],
+    [
+     201,
+     59.7
+    ],
+    [
+     201,
+     44.2
+    ],
+    [
+     190.5,
+     44.2
+    ],
+    [
+     190.5,
+     82.8
+    ],
+    [
+     19.2,
+     82.8
+    ],
+    [
+     19.2,
+     43.9
+    ],
+    [
+     39.5,
+     43.9
+    ]
+   ],
+   "voids": [],
+   "spaces": [
+    {
+     "id": "C199A",
+     "name": "Lobby",
+     "floor": "F1",
+     "kind": "lobby",
+     "use": "circulation",
+     "polygon": [
+      [
+       40,
+       0
+      ],
+      [
+       60,
+       0
+      ],
+      [
+       60,
+       9.1
+      ],
+      [
+       70.3,
+       9.1
+      ],
+      [
+       70.3,
+       45.2
+      ],
+      [
+       46,
+       45.2
+      ],
+      [
+       46,
+       44.4
+      ],
+      [
+       40,
+       44.4
+      ]
+     ],
+     "occupiable": true,
+     "lockable": false,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "E197A",
+     "name": "Elevator",
+     "floor": "F1",
+     "kind": "elevator",
+     "use": "service",
+     "polygon": [
+      [
+       60,
+       0
+      ],
+      [
+       70.3,
+       0
+      ],
+      [
+       70.3,
+       9.1
+      ],
+      [
+       60,
+       9.1
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "S198A",
+     "name": "Central stair",
+     "floor": "F1",
+     "kind": "stair",
+     "use": "circulation",
+     "polygon": [
+      [
+       70.3,
+       0
+      ],
+      [
+       80,
+       0
+      ],
+      [
+       80,
+       19.9
+      ],
+      [
+       70.3,
+       19.9
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0146A",
+     "name": "Mech. room",
+     "floor": "F1",
+     "kind": "service",
+     "use": "service",
+     "polygon": [
+      [
+       70.3,
+       19.9
+      ],
+      [
+       80,
+       19.9
+      ],
+      [
+       80,
+       28.2
+      ],
+      [
+       70.3,
+       28.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0146",
+     "name": "Women",
+     "floor": "F1",
+     "kind": "service",
+     "use": "restroom",
+     "polygon": [
+      [
+       80,
+       0
+      ],
+      [
+       90.3,
+       0
+      ],
+      [
+       90.3,
+       28.2
+      ],
+      [
+       80,
+       28.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0145",
+     "name": "Men",
+     "floor": "F1",
+     "kind": "service",
+     "use": "restroom",
+     "polygon": [
+      [
+       90.3,
+       0
+      ],
+      [
+       100.2,
+       0
+      ],
+      [
+       100.2,
+       28.2
+      ],
+      [
+       90.3,
+       28.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0140A",
+     "name": "Storage",
+     "floor": "F1",
+     "kind": "room",
+     "use": "storage",
+     "polygon": [
+      [
+       100.2,
+       0
+      ],
+      [
+       120,
+       0
+      ],
+      [
+       120,
+       22.6
+      ],
+      [
+       100.2,
+       22.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0143",
+     "name": "Interview",
+     "floor": "F1",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       100.2,
+       22.6
+      ],
+      [
+       110.2,
+       22.6
+      ],
+      [
+       110.2,
+       33.3
+      ],
+      [
+       100.2,
+       33.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0141",
+     "name": "Interview",
+     "floor": "F1",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       110.2,
+       22.6
+      ],
+      [
+       120,
+       22.6
+      ],
+      [
+       120,
+       33.3
+      ],
+      [
+       110.2,
+       33.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0140",
+     "name": "Structures studio",
+     "floor": "F1",
+     "kind": "room",
+     "use": "lab",
+     "polygon": [
+      [
+       120,
+       0
+      ],
+      [
+       160,
+       0
+      ],
+      [
+       160,
+       33.3
+      ],
+      [
+       120,
+       33.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0138",
+     "name": "Soils & concrete lab",
+     "floor": "F1",
+     "kind": "room",
+     "use": "lab",
+     "polygon": [
+      [
+       160,
+       0
+      ],
+      [
+       186,
+       0
+      ],
+      [
+       186,
+       28.3
+      ],
+      [
+       160,
+       28.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0136",
+     "name": "Shop",
+     "floor": "F1",
+     "kind": "room",
+     "use": "lab",
+     "polygon": [
+      [
+       186,
+       0
+      ],
+      [
+       201.5,
+       0
+      ],
+      [
+       201.5,
+       19.3
+      ],
+      [
+       186,
+       19.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0134",
+     "name": "Shower",
+     "floor": "F1",
+     "kind": "service",
+     "use": "restroom",
+     "polygon": [
+      [
+       191.5,
+       19.3
+      ],
+      [
+       201.3,
+       19.3
+      ],
+      [
+       201.3,
+       28.4
+      ],
+      [
+       191.5,
+       28.4
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "S198B",
+     "name": "South stair",
+     "floor": "F1",
+     "kind": "stair",
+     "use": "circulation",
+     "polygon": [
+      [
+       201.3,
+       26.2
+      ],
+      [
+       210,
+       26.2
+      ],
+      [
+       210,
+       59.2
+      ],
+      [
+       201.6,
+       59.2
+      ],
+      [
+       201.6,
+       42.6
+      ],
+      [
+       200.3,
+       42.6
+      ],
+      [
+       200.3,
+       28.4
+      ],
+      [
+       201.3,
+       28.4
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "C199D",
+     "name": "Corridor",
+     "floor": "F1",
+     "kind": "corridor",
+     "use": "circulation",
+     "polygon": [
+      [
+       70.3,
+       33.1
+      ],
+      [
+       81,
+       33.1
+      ],
+      [
+       81,
+       28.2
+      ],
+      [
+       100.2,
+       28.2
+      ],
+      [
+       100.2,
+       33.3
+      ],
+      [
+       160,
+       33.3
+      ],
+      [
+       160,
+       28.3
+      ],
+      [
+       186,
+       28.3
+      ],
+      [
+       186,
+       19.3
+      ],
+      [
+       191.5,
+       19.3
+      ],
+      [
+       191.5,
+       28.4
+      ],
+      [
+       200.3,
+       28.4
+      ],
+      [
+       200.3,
+       42.6
+      ],
+      [
+       201.6,
+       42.6
+      ],
+      [
+       201.6,
+       43.7
+      ],
+      [
+       190,
+       43.7
+      ],
+      [
+       190,
+       45.2
+      ],
+      [
+       70.3,
+       45.2
+      ]
+     ],
+     "occupiable": true,
+     "lockable": false,
+     "axis": [
+      [
+       71,
+       39.2
+      ],
+      [
+       200,
+       39.2
+      ]
+     ],
+     "clearWidthFt": 10.4,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "C199B",
+     "name": "Corridor",
+     "floor": "F1",
+     "kind": "corridor",
+     "use": "circulation",
+     "polygon": [
+      [
+       46,
+       45.2
+      ],
+      [
+       52.5,
+       45.2
+      ],
+      [
+       52.5,
+       58.8
+      ],
+      [
+       46,
+       58.8
+      ]
+     ],
+     "occupiable": true,
+     "lockable": false,
+     "axis": [
+      [
+       49.25,
+       45.2
+      ],
+      [
+       49.25,
+       58.8
+      ]
+     ],
+     "clearWidthFt": 6.5,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0110A",
+     "name": "Elec.",
+     "floor": "F1",
+     "kind": "service",
+     "use": "service",
+     "polygon": [
+      [
+       52.5,
+       45.2
+      ],
+      [
+       60.2,
+       45.2
+      ],
+      [
+       60.2,
+       58.8
+      ],
+      [
+       52.5,
+       58.8
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0106",
+     "name": "Medium classroom",
+     "floor": "F1",
+     "kind": "room",
+     "use": "classroom",
+     "polygon": [
+      [
+       19.7,
+       44.4
+      ],
+      [
+       46,
+       44.4
+      ],
+      [
+       46,
+       82.3
+      ],
+      [
+       19.7,
+       82.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0110",
+     "name": "Large classroom",
+     "floor": "F1",
+     "kind": "room",
+     "use": "assembly",
+     "polygon": [
+      [
+       46,
+       58.8
+      ],
+      [
+       60.2,
+       58.8
+      ],
+      [
+       60.2,
+       45.2
+      ],
+      [
+       100.2,
+       45.2
+      ],
+      [
+       100.2,
+       82.3
+      ],
+      [
+       46,
+       82.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "C199C",
+     "name": "Entry / exhibit",
+     "floor": "F1",
+     "kind": "lobby",
+     "use": "circulation",
+     "polygon": [
+      [
+       100.2,
+       45.2
+      ],
+      [
+       120.2,
+       45.2
+      ],
+      [
+       120.2,
+       82.3
+      ],
+      [
+       100.2,
+       82.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": false,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0115",
+     "name": "Student org. / lounge",
+     "floor": "F1",
+     "kind": "room",
+     "use": "assembly",
+     "polygon": [
+      [
+       120.2,
+       45.2
+      ],
+      [
+       134.2,
+       45.2
+      ],
+      [
+       134.2,
+       82.3
+      ],
+      [
+       120.2,
+       82.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    },
+    {
+     "id": "0125",
+     "name": "M.E.P. studio",
+     "floor": "F1",
+     "kind": "room",
+     "use": "lab",
+     "polygon": [
+      [
+       134.2,
+       45.2
+      ],
+      [
+       190,
+       45.2
+      ],
+      [
+       190,
+       82.3
+      ],
+      [
+       134.2,
+       82.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "traced on A107 egress plan, cross-checked on A102"
+     }
+    }
+   ],
+   "portals": [
+    {
+     "id": "D-F1-001",
+     "floor": "F1",
+     "kind": "opening",
+     "a": [
+      70.3,
+      33.1
+     ],
+     "b": [
+      70.3,
+      45.2
+     ],
+     "clearWidthIn": 145,
+     "connects": [
+      "C199A",
+      "C199D"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "no wall drawn; width = full shared boundary"
+     }
+    },
+    {
+     "id": "D-F1-002",
+     "floor": "F1",
+     "kind": "opening",
+     "a": [
+      46,
+      45.2
+     ],
+     "b": [
+      52.5,
+      45.2
+     ],
+     "clearWidthIn": 78,
+     "connects": [
+      "C199A",
+      "C199B"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "no wall drawn; width = full shared boundary"
+     }
+    },
+    {
+     "id": "D-F1-003",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      70.3,
+      16.8
+     ],
+     "b": [
+      70.3,
+      19.8
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199A",
+      "S198A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-004",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      70.3,
+      24.4
+     ],
+     "b": [
+      70.3,
+      27.4
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199A",
+      "0146A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-005",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      83.3,
+      28.2
+     ],
+     "b": [
+      86.3,
+      28.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0146"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-006",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      96,
+      28.2
+     ],
+     "b": [
+      99.1,
+      28.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0145"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-007",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      100.6,
+      33.3
+     ],
+     "b": [
+      103.6,
+      33.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0143"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-008",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      116.8,
+      33.3
+     ],
+     "b": [
+      119.8,
+      33.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0141"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-009",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      120,
+      1.5
+     ],
+     "b": [
+      120,
+      9.5
+     ],
+     "clearWidthIn": 68,
+     "connects": [
+      "0140A",
+      "0140"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-010",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      120.8,
+      33.3
+     ],
+     "b": [
+      123.8,
+      33.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0140"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-011",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      160,
+      28.8
+     ],
+     "b": [
+      160,
+      31.8
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0140"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-012",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      160,
+      0.8
+     ],
+     "b": [
+      160,
+      4.8
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0140",
+      "0138"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-013",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      181.6,
+      28.3
+     ],
+     "b": [
+      185.6,
+      28.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0138"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-014",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      186,
+      0.8
+     ],
+     "b": [
+      186,
+      4.8
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0138",
+      "0136"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-015",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      186.6,
+      19.3
+     ],
+     "b": [
+      189.5,
+      19.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0136"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-016",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      191.5,
+      19.8
+     ],
+     "b": [
+      191.5,
+      22.8
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0134"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-017",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      200.3,
+      37.3
+     ],
+     "b": [
+      200.3,
+      40.4
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "S198B"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-018",
+     "floor": "F1",
+     "kind": "opening",
+     "a": [
+      100.2,
+      45.2
+     ],
+     "b": [
+      120.2,
+      45.2
+     ],
+     "clearWidthIn": 240,
+     "connects": [
+      "C199D",
+      "C199C"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "scaled",
+      "note": "no wall drawn; width = full shared boundary"
+     }
+    },
+    {
+     "id": "D-F1-019",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      120.8,
+      45.2
+     ],
+     "b": [
+      123.8,
+      45.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0115"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-020",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      134.6,
+      45.2
+     ],
+     "b": [
+      137.6,
+      45.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0125"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-021",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      185.7,
+      45.2
+     ],
+     "b": [
+      188.7,
+      45.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C199D",
+      "0125"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-022",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      46,
+      46.8
+     ],
+     "b": [
+      46,
+      52.2
+     ],
+     "clearWidthIn": 68,
+     "connects": [
+      "C199B",
+      "0106"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-023",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      46.4,
+      58.8
+     ],
+     "b": [
+      52.4,
+      58.8
+     ],
+     "clearWidthIn": 68,
+     "connects": [
+      "C199B",
+      "0110"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-024",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      52.5,
+      46.5
+     ],
+     "b": [
+      52.5,
+      57.5
+     ],
+     "clearWidthIn": 68,
+     "connects": [
+      "C199B",
+      "0110A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "D-F1-025",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      100.2,
+      71.2
+     ],
+     "b": [
+      100.2,
+      74.4
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0110",
+      "C199C"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A102",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A102/A107"
+     }
+    },
+    {
+     "id": "X-F1-1",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      40,
+      29.8
+     ],
+     "b": [
+      40,
+      42.2
+     ],
+     "clearWidthIn": 136,
+     "connects": [
+      "C199A",
+      "OUTSIDE"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "printed",
+      "note": "PROVIDED width printed on egress plan; position scaled"
+     }
+    },
+    {
+     "id": "X-F1-2",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      107.2,
+      82.3
+     ],
+     "b": [
+      112.8,
+      82.3
+     ],
+     "clearWidthIn": 68,
+     "connects": [
+      "C199C",
+      "OUTSIDE"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "printed",
+      "note": "PROVIDED width printed on egress plan; position scaled"
+     }
+    },
+    {
+     "id": "X-F1-3",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      210,
+      37.6
+     ],
+     "b": [
+      210,
+      40.4
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "S198B",
+      "OUTSIDE"
+     ],
+     "accessible": false,
+     "src": {
+      "sheet": "A107",
+      "basis": "printed",
+      "note": "PROVIDED width printed on egress plan; position scaled"
+     }
+    },
+    {
+     "id": "X-F1-4",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      106.2,
+      0
+     ],
+     "b": [
+      114,
+      0
+     ],
+     "clearWidthIn": 68,
+     "connects": [
+      "0140A",
+      "OUTSIDE"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "printed",
+      "note": "PROVIDED width printed on egress plan; position scaled"
+     }
+    },
+    {
+     "id": "X-F1-5",
+     "floor": "F1",
+     "kind": "door",
+     "a": [
+      166,
+      0
+     ],
+     "b": [
+      173.8,
+      0
+     ],
+     "clearWidthIn": 68,
+     "connects": [
+      "0138",
+      "OUTSIDE"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A107",
+      "basis": "printed",
+      "note": "PROVIDED width printed on egress plan; position scaled"
+     }
+    }
+   ]
+  },
+  {
+   "id": "F2",
+   "name": "Second floor",
+   "elevationFt": 169,
+   "outline": [
+    [
+     17.8,
+     -2.3
+    ],
+    [
+     202,
+     -2.3
+    ],
+    [
+     202,
+     25.5
+    ],
+    [
+     210.5,
+     25.5
+    ],
+    [
+     210.5,
+     59.7
+    ],
+    [
+     202.2,
+     59.7
+    ],
+    [
+     202.2,
+     83.9
+    ],
+    [
+     18.1,
+     83.9
+    ],
+    [
+     18.1,
+     43.6
+    ],
+    [
+     18.8,
+     43.6
+    ],
+    [
+     18.8,
+     30.1
+    ],
+    [
+     -5.4,
+     30.1
+    ]
+   ],
+   "voids": [
+    [
+     [
+      40.4,
+      28.3
+     ],
+     [
+      60,
+      28.3
+     ],
+     [
+      60,
+      38.9
+     ],
+     [
+      40.4,
+      38.9
+     ]
+    ],
+    [
+     [
+      70.3,
+      28.2
+     ],
+     [
+      98.1,
+      28.2
+     ],
+     [
+      98.1,
+      33.1
+     ],
+     [
+      100,
+      33.1
+     ],
+     [
+      100,
+      38.9
+     ],
+     [
+      70.3,
+      38.9
+     ]
+    ],
+    [
+     [
+      110.1,
+      33.1
+     ],
+     [
+      116.5,
+      33.1
+     ],
+     [
+      116.5,
+      28.3
+     ],
+     [
+      134.2,
+      28.3
+     ],
+     [
+      134.2,
+      33.2
+     ],
+     [
+      160.2,
+      33.2
+     ],
+     [
+      160.2,
+      28.2
+     ],
+     [
+      180.2,
+      28.2
+     ],
+     [
+      180.2,
+      38.8
+     ],
+     [
+      110.1,
+      38.8
+     ]
+    ]
+   ],
+   "spaces": [
+    {
+     "id": "0203",
+     "name": "C.F.A.H.",
+     "floor": "F2",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       18,
+       -1.8
+      ],
+      [
+       30,
+       -1.8
+      ],
+      [
+       30,
+       28.3
+      ],
+      [
+       40.4,
+       28.3
+      ],
+      [
+       40.4,
+       43.6
+      ],
+      [
+       19.3,
+       43.6
+      ],
+      [
+       19.3,
+       29.6
+      ],
+      [
+       -4.6,
+       29.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0202",
+     "name": "D.E.S.",
+     "floor": "F2",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       30,
+       -1.8
+      ],
+      [
+       50.1,
+       -1.8
+      ],
+      [
+       50.1,
+       28.3
+      ],
+      [
+       30,
+       28.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0201",
+     "name": "Tech. services",
+     "floor": "F2",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       50.1,
+       -1.8
+      ],
+      [
+       60.2,
+       -1.8
+      ],
+      [
+       60.2,
+       22.7
+      ],
+      [
+       50.1,
+       22.7
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "E297A",
+     "name": "Elevator",
+     "floor": "F2",
+     "kind": "elevator",
+     "use": "service",
+     "polygon": [
+      [
+       60.2,
+       -1.8
+      ],
+      [
+       70.3,
+       -1.8
+      ],
+      [
+       70.3,
+       8.9
+      ],
+      [
+       60.2,
+       8.9
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "S298A",
+     "name": "Central stair",
+     "floor": "F2",
+     "kind": "stair",
+     "use": "circulation",
+     "polygon": [
+      [
+       70.3,
+       -1.8
+      ],
+      [
+       80.1,
+       -1.8
+      ],
+      [
+       80.1,
+       20.1
+      ],
+      [
+       70.3,
+       20.1
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0246",
+     "name": "Women",
+     "floor": "F2",
+     "kind": "service",
+     "use": "restroom",
+     "polygon": [
+      [
+       80.1,
+       -1.8
+      ],
+      [
+       90.1,
+       -1.8
+      ],
+      [
+       90.1,
+       23.3
+      ],
+      [
+       84.5,
+       23.3
+      ],
+      [
+       84.5,
+       28.2
+      ],
+      [
+       80.1,
+       28.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0245",
+     "name": "Men",
+     "floor": "F2",
+     "kind": "service",
+     "use": "restroom",
+     "polygon": [
+      [
+       90.1,
+       -1.8
+      ],
+      [
+       100.2,
+       -1.8
+      ],
+      [
+       100.2,
+       22.8
+      ],
+      [
+       90.1,
+       22.8
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0205",
+     "name": "Janitor",
+     "floor": "F2",
+     "kind": "service",
+     "use": "service",
+     "polygon": [
+      [
+       90.1,
+       22.8
+      ],
+      [
+       95,
+       22.8
+      ],
+      [
+       95,
+       28.2
+      ],
+      [
+       90.1,
+       28.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0240",
+     "name": "Estimating / drawing / scheduling",
+     "floor": "F2",
+     "kind": "room",
+     "use": "lab",
+     "polygon": [
+      [
+       100.2,
+       -1.8
+      ],
+      [
+       150.1,
+       -1.8
+      ],
+      [
+       150.1,
+       28.3
+      ],
+      [
+       110.1,
+       28.3
+      ],
+      [
+       110.1,
+       22.8
+      ],
+      [
+       100.2,
+       22.8
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0240A",
+     "name": "Storage",
+     "floor": "F2",
+     "kind": "service",
+     "use": "storage",
+     "polygon": [
+      [
+       134.2,
+       28.3
+      ],
+      [
+       150.1,
+       28.3
+      ],
+      [
+       150.1,
+       33.2
+      ],
+      [
+       134.2,
+       33.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0238",
+     "name": "Construction lab",
+     "floor": "F2",
+     "kind": "room",
+     "use": "lab",
+     "polygon": [
+      [
+       150.1,
+       -1.8
+      ],
+      [
+       190.1,
+       -1.8
+      ],
+      [
+       190.1,
+       28.2
+      ],
+      [
+       160.2,
+       28.2
+      ],
+      [
+       160.2,
+       33.2
+      ],
+      [
+       150.1,
+       33.2
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0235",
+     "name": "Storage",
+     "floor": "F2",
+     "kind": "service",
+     "use": "storage",
+     "polygon": [
+      [
+       190.1,
+       -1.8
+      ],
+      [
+       201.5,
+       -1.8
+      ],
+      [
+       201.5,
+       11.2
+      ],
+      [
+       196.6,
+       11.2
+      ],
+      [
+       196.6,
+       23.7
+      ],
+      [
+       190.1,
+       23.7
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0235A",
+     "name": "Elec.",
+     "floor": "F2",
+     "kind": "service",
+     "use": "service",
+     "polygon": [
+      [
+       196.6,
+       11.2
+      ],
+      [
+       201.5,
+       11.2
+      ],
+      [
+       201.5,
+       28.2
+      ],
+      [
+       196.6,
+       28.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "S298B",
+     "name": "South stair",
+     "floor": "F2",
+     "kind": "stair",
+     "use": "circulation",
+     "polygon": [
+      [
+       201.5,
+       26
+      ],
+      [
+       210,
+       26
+      ],
+      [
+       210,
+       59.2
+      ],
+      [
+       201.7,
+       59.2
+      ],
+      [
+       201.7,
+       42.4
+      ],
+      [
+       200.5,
+       42.4
+      ],
+      [
+       200.5,
+       28.2
+      ],
+      [
+       201.5,
+       28.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "C299A",
+     "name": "Corridor",
+     "floor": "F2",
+     "kind": "corridor",
+     "use": "circulation",
+     "polygon": [
+      [
+       60.2,
+       8.9
+      ],
+      [
+       70.3,
+       8.9
+      ],
+      [
+       70.3,
+       20.1
+      ],
+      [
+       80.1,
+       20.1
+      ],
+      [
+       80.1,
+       28.2
+      ],
+      [
+       70.3,
+       28.2
+      ],
+      [
+       70.3,
+       38.9
+      ],
+      [
+       100,
+       38.9
+      ],
+      [
+       100,
+       33.1
+      ],
+      [
+       98.1,
+       33.1
+      ],
+      [
+       98.1,
+       28.2
+      ],
+      [
+       95,
+       28.2
+      ],
+      [
+       95,
+       22.8
+      ],
+      [
+       110.1,
+       22.8
+      ],
+      [
+       110.1,
+       28.3
+      ],
+      [
+       116.5,
+       28.3
+      ],
+      [
+       116.5,
+       33.1
+      ],
+      [
+       110.1,
+       33.1
+      ],
+      [
+       110.1,
+       38.8
+      ],
+      [
+       180.2,
+       38.8
+      ],
+      [
+       180.2,
+       28.2
+      ],
+      [
+       190.1,
+       28.2
+      ],
+      [
+       190.1,
+       23.7
+      ],
+      [
+       196.6,
+       23.7
+      ],
+      [
+       196.6,
+       28.2
+      ],
+      [
+       200.5,
+       28.2
+      ],
+      [
+       200.5,
+       42.4
+      ],
+      [
+       201.7,
+       42.4
+      ],
+      [
+       201.7,
+       45.2
+      ],
+      [
+       78.1,
+       45.2
+      ],
+      [
+       67.6,
+       45.2
+      ],
+      [
+       67.6,
+       59.2
+      ],
+      [
+       60.2,
+       59.2
+      ],
+      [
+       60.2,
+       54.1
+      ],
+      [
+       62.5,
+       54.1
+      ],
+      [
+       62.5,
+       43.6
+      ],
+      [
+       40.4,
+       43.6
+      ],
+      [
+       40.4,
+       38.9
+      ],
+      [
+       60,
+       38.9
+      ],
+      [
+       60,
+       28.3
+      ],
+      [
+       50.1,
+       28.3
+      ],
+      [
+       50.1,
+       22.7
+      ],
+      [
+       60.2,
+       22.7
+      ]
+     ],
+     "occupiable": true,
+     "lockable": false,
+     "axis": [
+      [
+       41,
+       41.8
+      ],
+      [
+       200,
+       41.8
+      ]
+     ],
+     "clearWidthFt": 6,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0207A",
+     "name": "Storage",
+     "floor": "F2",
+     "kind": "service",
+     "use": "storage",
+     "polygon": [
+      [
+       19.3,
+       43.6
+      ],
+      [
+       26.7,
+       43.6
+      ],
+      [
+       26.7,
+       54.1
+      ],
+      [
+       19.3,
+       54.1
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0204",
+     "name": "Plan room",
+     "floor": "F2",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       26.7,
+       43.6
+      ],
+      [
+       48.2,
+       43.6
+      ],
+      [
+       48.2,
+       54.1
+      ],
+      [
+       26.7,
+       54.1
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0209",
+     "name": "MCE / SW room",
+     "floor": "F2",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       48.2,
+       43.6
+      ],
+      [
+       62.5,
+       43.6
+      ],
+      [
+       62.5,
+       54.1
+      ],
+      [
+       48.2,
+       54.1
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0206",
+     "name": "Computer lab",
+     "floor": "F2",
+     "kind": "room",
+     "use": "lab",
+     "polygon": [
+      [
+       18.6,
+       54.1
+      ],
+      [
+       60.2,
+       54.1
+      ],
+      [
+       60.2,
+       83.4
+      ],
+      [
+       18.6,
+       83.4
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0203A",
+     "name": "Server room",
+     "floor": "F2",
+     "kind": "service",
+     "use": "service",
+     "polygon": [
+      [
+       67.6,
+       45.2
+      ],
+      [
+       78.1,
+       45.2
+      ],
+      [
+       78.1,
+       59.2
+      ],
+      [
+       67.6,
+       59.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0208",
+     "name": "Information technology",
+     "floor": "F2",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       60.2,
+       59.2
+      ],
+      [
+       78.1,
+       59.2
+      ],
+      [
+       78.1,
+       83.4
+      ],
+      [
+       60.2,
+       83.4
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0210",
+     "name": "Medium classroom",
+     "floor": "F2",
+     "kind": "room",
+     "use": "classroom",
+     "polygon": [
+      [
+       78.1,
+       45.2
+      ],
+      [
+       101.8,
+       45.2
+      ],
+      [
+       101.8,
+       83.4
+      ],
+      [
+       78.1,
+       83.4
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0215",
+     "name": "Medium classroom",
+     "floor": "F2",
+     "kind": "room",
+     "use": "classroom",
+     "polygon": [
+      [
+       101.8,
+       45.2
+      ],
+      [
+       126,
+       45.2
+      ],
+      [
+       126,
+       83.4
+      ],
+      [
+       101.8,
+       83.4
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0220",
+     "name": "Medium classroom",
+     "floor": "F2",
+     "kind": "room",
+     "use": "classroom",
+     "polygon": [
+      [
+       126,
+       45.2
+      ],
+      [
+       150,
+       45.2
+      ],
+      [
+       150,
+       83.4
+      ],
+      [
+       126,
+       83.4
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0225",
+     "name": "Medium classroom",
+     "floor": "F2",
+     "kind": "room",
+     "use": "classroom",
+     "polygon": [
+      [
+       150,
+       45.2
+      ],
+      [
+       174,
+       45.2
+      ],
+      [
+       174,
+       83.4
+      ],
+      [
+       150,
+       83.4
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0230",
+     "name": "Medium classroom",
+     "floor": "F2",
+     "kind": "room",
+     "use": "classroom",
+     "polygon": [
+      [
+       174,
+       45.2
+      ],
+      [
+       196.8,
+       45.2
+      ],
+      [
+       196.8,
+       56
+      ],
+      [
+       201.7,
+       56
+      ],
+      [
+       201.7,
+       83.4
+      ],
+      [
+       174,
+       83.4
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    }
+   ],
+   "portals": [
+    {
+     "id": "D-F2-001",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      40.4,
+      39.5
+     ],
+     "b": [
+      40.4,
+      43.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0203",
+      "C299A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-002",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      23.7,
+      43.6
+     ],
+     "b": [
+      26.5,
+      43.6
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0203",
+      "0207A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-003",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      50.1,
+      24.9
+     ],
+     "b": [
+      50.1,
+      27.9
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0202",
+      "C299A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-004",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      50.6,
+      22.7
+     ],
+     "b": [
+      53.6,
+      22.7
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0201",
+      "C299A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-005",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      70.3,
+      16.8
+     ],
+     "b": [
+      70.3,
+      19.9
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "S298A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-006",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      80.1,
+      24.4
+     ],
+     "b": [
+      80.1,
+      27.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0246"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-007",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      96.8,
+      22.8
+     ],
+     "b": [
+      99.7,
+      22.8
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0245"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-008",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      95,
+      24
+     ],
+     "b": [
+      95,
+      27
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0205"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-009",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      110.1,
+      23.2
+     ],
+     "b": [
+      110.1,
+      26.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0240"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-010",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      146.5,
+      28.3
+     ],
+     "b": [
+      149.5,
+      28.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0240",
+      "0240A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-011",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      150.1,
+      24.1
+     ],
+     "b": [
+      150.1,
+      27.1
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0240",
+      "0238"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-012",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      183.5,
+      28.2
+     ],
+     "b": [
+      186.8,
+      28.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0238"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-013",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      190.7,
+      23.7
+     ],
+     "b": [
+      193.7,
+      23.7
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0235"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-014",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      196.6,
+      24.2
+     ],
+     "b": [
+      196.6,
+      27.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0235A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-015",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      200.5,
+      37.3
+     ],
+     "b": [
+      200.5,
+      40.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "S298B"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-016",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      43.8,
+      43.6
+     ],
+     "b": [
+      47.8,
+      43.6
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0204"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-017",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      62.5,
+      50.4
+     ],
+     "b": [
+      62.5,
+      53.5
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0209"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-018",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      60.2,
+      54.4
+     ],
+     "b": [
+      60.2,
+      57.4
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0206"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-019",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      67.6,
+      55.8
+     ],
+     "b": [
+      67.6,
+      58.8
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0203A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-020",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      60.6,
+      59.2
+     ],
+     "b": [
+      63.6,
+      59.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0208"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-021",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      80.6,
+      45.2
+     ],
+     "b": [
+      83.6,
+      45.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0210"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-022",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      102.4,
+      45.2
+     ],
+     "b": [
+      105.4,
+      45.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0215"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-023",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      126.6,
+      45.2
+     ],
+     "b": [
+      129.6,
+      45.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0220"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-024",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      150.6,
+      45.2
+     ],
+     "b": [
+      153.6,
+      45.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0225"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F2-025",
+     "floor": "F2",
+     "kind": "door",
+     "a": [
+      174.6,
+      45.2
+     ],
+     "b": [
+      177.6,
+      45.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C299A",
+      "0230"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    }
+   ]
+  },
+  {
+   "id": "F3",
+   "name": "Third floor",
+   "elevationFt": 181.5,
+   "outline": [
+    [
+     17.6,
+     -2.2
+    ],
+    [
+     202,
+     -2.2
+    ],
+    [
+     202,
+     25.5
+    ],
+    [
+     210.5,
+     25.5
+    ],
+    [
+     210.5,
+     59.7
+    ],
+    [
+     202.2,
+     59.7
+    ],
+    [
+     202.2,
+     84.1
+    ],
+    [
+     18,
+     84.1
+    ],
+    [
+     18,
+     43.7
+    ],
+    [
+     18.8,
+     43.7
+    ],
+    [
+     18.8,
+     30
+    ],
+    [
+     -5.4,
+     30
+    ]
+   ],
+   "voids": [
+    [
+     [
+      40.3,
+      28.4
+     ],
+     [
+      60,
+      28.4
+     ],
+     [
+      60,
+      38.6
+     ],
+     [
+      40.3,
+      38.6
+     ]
+    ],
+    [
+     [
+      70.2,
+      28.2
+     ],
+     [
+      100,
+      28.2
+     ],
+     [
+      100,
+      38.6
+     ],
+     [
+      70.2,
+      38.6
+     ]
+    ],
+    [
+     [
+      110.2,
+      28.2
+     ],
+     [
+      145.9,
+      28.2
+     ],
+     [
+      145.9,
+      33.2
+     ],
+     [
+      149.8,
+      33.2
+     ],
+     [
+      149.8,
+      38.6
+     ],
+     [
+      110.2,
+      38.6
+     ]
+    ],
+    [
+     [
+      160,
+      28.2
+     ],
+     [
+      180.1,
+      28.2
+     ],
+     [
+      180.1,
+      38.6
+     ],
+     [
+      160,
+      38.6
+     ]
+    ]
+   ],
+   "spaces": [
+    {
+     "id": "0303",
+     "name": "Conference room",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       17.8,
+       -1.7
+      ],
+      [
+       30.1,
+       -1.7
+      ],
+      [
+       30.1,
+       28.4
+      ],
+      [
+       19.4,
+       28.4
+      ],
+      [
+       19.4,
+       29.5
+      ],
+      [
+       -4.6,
+       29.5
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0302",
+     "name": "Director grad. / D.E.",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       30.1,
+       -1.7
+      ],
+      [
+       50.1,
+       -1.7
+      ],
+      [
+       50.1,
+       11.2
+      ],
+      [
+       30.1,
+       11.2
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0301",
+     "name": "Admin. / registrar",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       50.1,
+       -1.7
+      ],
+      [
+       60,
+       -1.7
+      ],
+      [
+       60,
+       15.2
+      ],
+      [
+       50.1,
+       15.2
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0301A",
+     "name": "Career office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       30.1,
+       11.2
+      ],
+      [
+       50.1,
+       11.2
+      ],
+      [
+       50.1,
+       15.2
+      ],
+      [
+       60,
+       15.2
+      ],
+      [
+       60,
+       28.4
+      ],
+      [
+       30.1,
+       28.4
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0304",
+     "name": "Reception",
+     "floor": "F3",
+     "kind": "lobby",
+     "use": "office",
+     "polygon": [
+      [
+       19.4,
+       28.4
+      ],
+      [
+       40.3,
+       28.4
+      ],
+      [
+       40.3,
+       43.7
+      ],
+      [
+       19.4,
+       43.7
+      ]
+     ],
+     "occupiable": true,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0305",
+     "name": "Open office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       19.3,
+       43.7
+      ],
+      [
+       50.2,
+       43.7
+      ],
+      [
+       50.2,
+       70.5
+      ],
+      [
+       19.3,
+       70.5
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0306",
+     "name": "Director",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       19.3,
+       70.5
+      ],
+      [
+       41.5,
+       70.5
+      ],
+      [
+       41.5,
+       83.6
+      ],
+      [
+       19.3,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0307",
+     "name": "Associate director",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       41.5,
+       70.5
+      ],
+      [
+       50.2,
+       70.5
+      ],
+      [
+       50.2,
+       68
+      ],
+      [
+       60,
+       68
+      ],
+      [
+       60,
+       83.6
+      ],
+      [
+       41.5,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0308",
+     "name": "Storage / supply",
+     "floor": "F3",
+     "kind": "service",
+     "use": "storage",
+     "polygon": [
+      [
+       50.2,
+       43.7
+      ],
+      [
+       57.3,
+       43.7
+      ],
+      [
+       57.3,
+       56.2
+      ],
+      [
+       63,
+       56.2
+      ],
+      [
+       63,
+       62.7
+      ],
+      [
+       50.2,
+       62.7
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0308A",
+     "name": "Telephone",
+     "floor": "F3",
+     "kind": "service",
+     "use": "service",
+     "polygon": [
+      [
+       57.3,
+       43.7
+      ],
+      [
+       63,
+       43.7
+      ],
+      [
+       63,
+       56.2
+      ],
+      [
+       57.3,
+       56.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0310",
+     "name": "Mail / kitchen / copy",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       67.2,
+       43.7
+      ],
+      [
+       80,
+       43.7
+      ],
+      [
+       80,
+       63.8
+      ],
+      [
+       67.2,
+       63.8
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0312",
+     "name": "Faculty work room",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       80,
+       43.7
+      ],
+      [
+       102.3,
+       43.7
+      ],
+      [
+       102.3,
+       56.3
+      ],
+      [
+       80,
+       56.3
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0313",
+     "name": "Resource center",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       80,
+       56.3
+      ],
+      [
+       102.3,
+       56.3
+      ],
+      [
+       102.3,
+       63.8
+      ],
+      [
+       80,
+       63.8
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0320",
+     "name": "Grad. studio",
+     "floor": "F3",
+     "kind": "room",
+     "use": "lab",
+     "polygon": [
+      [
+       107.6,
+       43.7
+      ],
+      [
+       126.1,
+       43.7
+      ],
+      [
+       126.1,
+       63.6
+      ],
+      [
+       107.6,
+       63.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0324",
+     "name": "Grad. studio",
+     "floor": "F3",
+     "kind": "room",
+     "use": "lab",
+     "polygon": [
+      [
+       126.1,
+       43.7
+      ],
+      [
+       142.2,
+       43.7
+      ],
+      [
+       142.2,
+       63.6
+      ],
+      [
+       126.1,
+       63.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0326",
+     "name": "Grad. studio",
+     "floor": "F3",
+     "kind": "room",
+     "use": "lab",
+     "polygon": [
+      [
+       142.2,
+       43.7
+      ],
+      [
+       158,
+       43.7
+      ],
+      [
+       158,
+       63.6
+      ],
+      [
+       142.2,
+       63.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0328",
+     "name": "Grad. studio",
+     "floor": "F3",
+     "kind": "room",
+     "use": "lab",
+     "polygon": [
+      [
+       158,
+       43.7
+      ],
+      [
+       180,
+       43.7
+      ],
+      [
+       180,
+       63.6
+      ],
+      [
+       158,
+       63.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0334",
+     "name": "Center storage",
+     "floor": "F3",
+     "kind": "service",
+     "use": "storage",
+     "polygon": [
+      [
+       185.9,
+       43.7
+      ],
+      [
+       197.2,
+       43.7
+      ],
+      [
+       197.2,
+       63.6
+      ],
+      [
+       185.9,
+       63.6
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0309",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       60,
+       68
+      ],
+      [
+       70,
+       68
+      ],
+      [
+       70,
+       83.6
+      ],
+      [
+       60,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0311",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       70,
+       68
+      ],
+      [
+       80,
+       68
+      ],
+      [
+       80,
+       83.6
+      ],
+      [
+       70,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0314",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       80,
+       68
+      ],
+      [
+       90,
+       68
+      ],
+      [
+       90,
+       83.6
+      ],
+      [
+       80,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0315",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       90,
+       68
+      ],
+      [
+       100,
+       68
+      ],
+      [
+       100,
+       83.6
+      ],
+      [
+       90,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0316",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       100,
+       68
+      ],
+      [
+       110,
+       68
+      ],
+      [
+       110,
+       83.6
+      ],
+      [
+       100,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0319",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       110,
+       68
+      ],
+      [
+       120,
+       68
+      ],
+      [
+       120,
+       83.6
+      ],
+      [
+       110,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0321",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       120,
+       68
+      ],
+      [
+       130.1,
+       68
+      ],
+      [
+       130.1,
+       83.6
+      ],
+      [
+       120,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0322",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       130.1,
+       68
+      ],
+      [
+       140.1,
+       68
+      ],
+      [
+       140.1,
+       83.6
+      ],
+      [
+       130.1,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0323",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       140.1,
+       68
+      ],
+      [
+       150.1,
+       68
+      ],
+      [
+       150.1,
+       83.6
+      ],
+      [
+       140.1,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0325",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       150.1,
+       68
+      ],
+      [
+       160.1,
+       68
+      ],
+      [
+       160.1,
+       83.6
+      ],
+      [
+       150.1,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0327",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       160.1,
+       68
+      ],
+      [
+       170.1,
+       68
+      ],
+      [
+       170.1,
+       83.6
+      ],
+      [
+       160.1,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0329",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       170.1,
+       68
+      ],
+      [
+       180,
+       68
+      ],
+      [
+       180,
+       83.6
+      ],
+      [
+       170.1,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0331",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       180,
+       68
+      ],
+      [
+       190.2,
+       68
+      ],
+      [
+       190.2,
+       83.6
+      ],
+      [
+       180,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0332",
+     "name": "Faculty office",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       190.2,
+       68
+      ],
+      [
+       201.5,
+       68
+      ],
+      [
+       201.5,
+       83.6
+      ],
+      [
+       190.2,
+       83.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "E397A",
+     "name": "Elevator",
+     "floor": "F3",
+     "kind": "elevator",
+     "use": "service",
+     "polygon": [
+      [
+       60,
+       -1.7
+      ],
+      [
+       70.2,
+       -1.7
+      ],
+      [
+       70.2,
+       9
+      ],
+      [
+       60,
+       9
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "S398A",
+     "name": "Central stair",
+     "floor": "F3",
+     "kind": "stair",
+     "use": "circulation",
+     "polygon": [
+      [
+       70.2,
+       -1.7
+      ],
+      [
+       80,
+       -1.7
+      ],
+      [
+       80,
+       20.1
+      ],
+      [
+       70.2,
+       20.1
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0346",
+     "name": "Women",
+     "floor": "F3",
+     "kind": "service",
+     "use": "restroom",
+     "polygon": [
+      [
+       80,
+       -1.7
+      ],
+      [
+       90.1,
+       -1.7
+      ],
+      [
+       90.1,
+       23.2
+      ],
+      [
+       84.7,
+       23.2
+      ],
+      [
+       84.7,
+       28.2
+      ],
+      [
+       80,
+       28.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0345A",
+     "name": "Janitor",
+     "floor": "F3",
+     "kind": "service",
+     "use": "service",
+     "polygon": [
+      [
+       84.7,
+       23.2
+      ],
+      [
+       94.6,
+       23.2
+      ],
+      [
+       94.6,
+       28.2
+      ],
+      [
+       84.7,
+       28.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0345",
+     "name": "Men",
+     "floor": "F3",
+     "kind": "service",
+     "use": "restroom",
+     "polygon": [
+      [
+       90.1,
+       -1.7
+      ],
+      [
+       100,
+       -1.7
+      ],
+      [
+       100,
+       23.2
+      ],
+      [
+       90.1,
+       23.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0344",
+     "name": "E-journal editor",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       100,
+       -1.7
+      ],
+      [
+       110.1,
+       -1.7
+      ],
+      [
+       110.1,
+       14
+      ],
+      [
+       100,
+       14
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0342",
+     "name": "Endowed chair",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       110.1,
+       -1.7
+      ],
+      [
+       120.2,
+       -1.7
+      ],
+      [
+       120.2,
+       14
+      ],
+      [
+       110.1,
+       14
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0343",
+     "name": "Storage",
+     "floor": "F3",
+     "kind": "service",
+     "use": "storage",
+     "polygon": [
+      [
+       105.4,
+       14
+      ],
+      [
+       114.7,
+       14
+      ],
+      [
+       114.7,
+       23.2
+      ],
+      [
+       105.4,
+       23.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0341",
+     "name": "C.C.S.L.C.",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       120.2,
+       -1.7
+      ],
+      [
+       140.2,
+       -1.7
+      ],
+      [
+       140.2,
+       28.2
+      ],
+      [
+       120.2,
+       28.2
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0340",
+     "name": "C.C.E.",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       140.2,
+       -1.7
+      ],
+      [
+       160,
+       -1.7
+      ],
+      [
+       160,
+       23.3
+      ],
+      [
+       151.9,
+       23.3
+      ],
+      [
+       151.9,
+       28.2
+      ],
+      [
+       140.2,
+       28.2
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0338",
+     "name": "C.P.R.",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       160,
+       -1.7
+      ],
+      [
+       180.1,
+       -1.7
+      ],
+      [
+       180.1,
+       28.2
+      ],
+      [
+       160,
+       28.2
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0336",
+     "name": "B.C.I.A.C.",
+     "floor": "F3",
+     "kind": "room",
+     "use": "office",
+     "polygon": [
+      [
+       180.1,
+       -1.7
+      ],
+      [
+       201.5,
+       -1.7
+      ],
+      [
+       201.5,
+       11.3
+      ],
+      [
+       196.6,
+       11.3
+      ],
+      [
+       196.6,
+       23
+      ],
+      [
+       190.9,
+       23
+      ],
+      [
+       190.9,
+       28.2
+      ],
+      [
+       180.1,
+       28.2
+      ]
+     ],
+     "occupiable": true,
+     "lockable": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "0336B",
+     "name": "Elec.",
+     "floor": "F3",
+     "kind": "service",
+     "use": "service",
+     "polygon": [
+      [
+       196.6,
+       11.3
+      ],
+      [
+       201.5,
+       11.3
+      ],
+      [
+       201.5,
+       28.2
+      ],
+      [
+       196.6,
+       28.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "S398B",
+     "name": "South stair",
+     "floor": "F3",
+     "kind": "stair",
+     "use": "circulation",
+     "polygon": [
+      [
+       201.5,
+       26
+      ],
+      [
+       210,
+       26
+      ],
+      [
+       210,
+       59.2
+      ],
+      [
+       201.7,
+       59.2
+      ],
+      [
+       201.7,
+       42.4
+      ],
+      [
+       200.5,
+       42.4
+      ],
+      [
+       200.5,
+       28.2
+      ],
+      [
+       201.5,
+       28.2
+      ]
+     ],
+     "occupiable": false,
+     "lockable": false,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "C399A",
+     "name": "Corridor",
+     "floor": "F3",
+     "kind": "corridor",
+     "use": "circulation",
+     "polygon": [
+      [
+       60,
+       9
+      ],
+      [
+       70.2,
+       9
+      ],
+      [
+       70.2,
+       20.1
+      ],
+      [
+       80,
+       20.1
+      ],
+      [
+       80,
+       28.2
+      ],
+      [
+       70.2,
+       28.2
+      ],
+      [
+       70.2,
+       38.6
+      ],
+      [
+       100,
+       38.6
+      ],
+      [
+       100,
+       28.2
+      ],
+      [
+       94.6,
+       28.2
+      ],
+      [
+       94.6,
+       23.2
+      ],
+      [
+       100,
+       23.2
+      ],
+      [
+       100,
+       14
+      ],
+      [
+       105.4,
+       14
+      ],
+      [
+       105.4,
+       23.2
+      ],
+      [
+       114.7,
+       23.2
+      ],
+      [
+       114.7,
+       14
+      ],
+      [
+       120.2,
+       14
+      ],
+      [
+       120.2,
+       28.2
+      ],
+      [
+       110.2,
+       28.2
+      ],
+      [
+       110.2,
+       38.6
+      ],
+      [
+       149.8,
+       38.6
+      ],
+      [
+       149.8,
+       43.7
+      ],
+      [
+       67.2,
+       43.7
+      ],
+      [
+       67.2,
+       63.8
+      ],
+      [
+       63,
+       63.8
+      ],
+      [
+       63,
+       43.7
+      ],
+      [
+       40.3,
+       43.7
+      ],
+      [
+       40.3,
+       38.6
+      ],
+      [
+       60,
+       38.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": false,
+     "axis": [
+      [
+       41,
+       41.15
+      ],
+      [
+       149.8,
+       41.15
+      ]
+     ],
+     "clearWidthFt": 5.1,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "C399B",
+     "name": "Corridor",
+     "floor": "F3",
+     "kind": "corridor",
+     "use": "circulation",
+     "polygon": [
+      [
+       145.9,
+       28.2
+      ],
+      [
+       151.9,
+       28.2
+      ],
+      [
+       151.9,
+       23.3
+      ],
+      [
+       160,
+       23.3
+      ],
+      [
+       160,
+       38.6
+      ],
+      [
+       180.1,
+       38.6
+      ],
+      [
+       180.1,
+       28.2
+      ],
+      [
+       190.9,
+       28.2
+      ],
+      [
+       190.9,
+       23
+      ],
+      [
+       196.6,
+       23
+      ],
+      [
+       196.6,
+       28.2
+      ],
+      [
+       200.5,
+       28.2
+      ],
+      [
+       200.5,
+       42.4
+      ],
+      [
+       201.7,
+       42.4
+      ],
+      [
+       201.7,
+       43.7
+      ],
+      [
+       149.8,
+       43.7
+      ],
+      [
+       149.8,
+       33.2
+      ],
+      [
+       145.9,
+       33.2
+      ]
+     ],
+     "occupiable": true,
+     "lockable": false,
+     "axis": [
+      [
+       149.8,
+       41.15
+      ],
+      [
+       200.5,
+       41.15
+      ]
+     ],
+     "clearWidthFt": 5.1,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "C399C",
+     "name": "Corridor",
+     "floor": "F3",
+     "kind": "corridor",
+     "use": "circulation",
+     "polygon": [
+      [
+       50.2,
+       62.7
+      ],
+      [
+       63,
+       62.7
+      ],
+      [
+       63,
+       63.8
+      ],
+      [
+       102.3,
+       63.8
+      ],
+      [
+       102.3,
+       43.7
+      ],
+      [
+       107.6,
+       43.7
+      ],
+      [
+       107.6,
+       63.6
+      ],
+      [
+       194.7,
+       63.6
+      ],
+      [
+       194.7,
+       68
+      ],
+      [
+       50.2,
+       68
+      ]
+     ],
+     "occupiable": true,
+     "lockable": false,
+     "axis": [
+      [
+       50.2,
+       65.8
+      ],
+      [
+       194.7,
+       65.8
+      ]
+     ],
+     "clearWidthFt": 4.2,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    },
+    {
+     "id": "C399D",
+     "name": "Corridor",
+     "floor": "F3",
+     "kind": "corridor",
+     "use": "circulation",
+     "polygon": [
+      [
+       180,
+       43.7
+      ],
+      [
+       185.9,
+       43.7
+      ],
+      [
+       185.9,
+       63.6
+      ],
+      [
+       180,
+       63.6
+      ]
+     ],
+     "occupiable": true,
+     "lockable": false,
+     "axis": [
+      [
+       182.95,
+       43.7
+      ],
+      [
+       182.95,
+       63.6
+      ]
+     ],
+     "clearWidthFt": 5.6,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "traced on A108 egress plan, cross-checked on A103"
+     }
+    }
+   ],
+   "portals": [
+    {
+     "id": "D-F3-001",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      22.6,
+      28.4
+     ],
+     "b": [
+      28.6,
+      28.4
+     ],
+     "clearWidthIn": 68,
+     "connects": [
+      "0303",
+      "0304"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-002",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      37.2,
+      11.2
+     ],
+     "b": [
+      40.1,
+      11.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0302",
+      "0301A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-003",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      50.6,
+      15.2
+     ],
+     "b": [
+      53.5,
+      15.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0301",
+      "0301A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-004",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      60,
+      11.9
+     ],
+     "b": [
+      60,
+      14.8
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0301",
+      "C399A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-005",
+     "floor": "F3",
+     "kind": "opening",
+     "a": [
+      35.2,
+      28.4
+     ],
+     "b": [
+      40.1,
+      28.4
+     ],
+     "clearWidthIn": 59,
+     "connects": [
+      "0301A",
+      "0304"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "no wall drawn; width = full shared boundary"
+     }
+    },
+    {
+     "id": "D-F3-006",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      40.3,
+      40.3
+     ],
+     "b": [
+      40.3,
+      43.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0304",
+      "C399A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-007",
+     "floor": "F3",
+     "kind": "opening",
+     "a": [
+      19.4,
+      43.7
+     ],
+     "b": [
+      40.3,
+      43.7
+     ],
+     "clearWidthIn": 251,
+     "connects": [
+      "0304",
+      "0305"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "no wall drawn; width = full shared boundary"
+     }
+    },
+    {
+     "id": "D-F3-008",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      50.2,
+      64.6
+     ],
+     "b": [
+      50.2,
+      67.6
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0305",
+      "C399C"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-009",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      38.4,
+      70.5
+     ],
+     "b": [
+      41.2,
+      70.5
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0305",
+      "0306"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-010",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      42.4,
+      70.5
+     ],
+     "b": [
+      45.2,
+      70.5
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0305",
+      "0307"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-011",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      50.2,
+      59.4
+     ],
+     "b": [
+      50.2,
+      62.4
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "0305",
+      "0308"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-012",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      63,
+      45
+     ],
+     "b": [
+      63,
+      48
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399A",
+      "0308A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-013",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      67.2,
+      44.2
+     ],
+     "b": [
+      67.2,
+      47.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399A",
+      "0310"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-014",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      67.2,
+      58.3
+     ],
+     "b": [
+      67.2,
+      61.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399A",
+      "0310"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-015",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      102.3,
+      53
+     ],
+     "b": [
+      102.3,
+      56
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0312"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-016",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      80.5,
+      63.8
+     ],
+     "b": [
+      83.5,
+      63.8
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0313"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-017",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      123,
+      63.6
+     ],
+     "b": [
+      126,
+      63.6
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0320"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-018",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      126.6,
+      63.6
+     ],
+     "b": [
+      129.6,
+      63.6
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0324"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-019",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      154.8,
+      63.6
+     ],
+     "b": [
+      157.8,
+      63.6
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0326"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-020",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      158.4,
+      63.6
+     ],
+     "b": [
+      161.4,
+      63.6
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0328"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-021",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      185.9,
+      44
+     ],
+     "b": [
+      185.9,
+      47
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399D",
+      "0334"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-022",
+     "floor": "F3",
+     "kind": "opening",
+     "a": [
+      63,
+      63.8
+     ],
+     "b": [
+      67.2,
+      63.8
+     ],
+     "clearWidthIn": 50,
+     "connects": [
+      "C399A",
+      "C399C"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "no wall drawn; width = full shared boundary"
+     }
+    },
+    {
+     "id": "D-F3-023",
+     "floor": "F3",
+     "kind": "opening",
+     "a": [
+      102.3,
+      43.7
+     ],
+     "b": [
+      107.6,
+      43.7
+     ],
+     "clearWidthIn": 64,
+     "connects": [
+      "C399A",
+      "C399C"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "no wall drawn; width = full shared boundary"
+     }
+    },
+    {
+     "id": "D-F3-024",
+     "floor": "F3",
+     "kind": "opening",
+     "a": [
+      149.8,
+      38.6
+     ],
+     "b": [
+      149.8,
+      43.7
+     ],
+     "clearWidthIn": 61,
+     "connects": [
+      "C399A",
+      "C399B"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "no wall drawn; width = full shared boundary"
+     }
+    },
+    {
+     "id": "D-F3-025",
+     "floor": "F3",
+     "kind": "opening",
+     "a": [
+      180,
+      43.7
+     ],
+     "b": [
+      185.9,
+      43.7
+     ],
+     "clearWidthIn": 71,
+     "connects": [
+      "C399B",
+      "C399D"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "no wall drawn; width = full shared boundary"
+     }
+    },
+    {
+     "id": "D-F3-026",
+     "floor": "F3",
+     "kind": "opening",
+     "a": [
+      180,
+      63.6
+     ],
+     "b": [
+      185.9,
+      63.6
+     ],
+     "clearWidthIn": 71,
+     "connects": [
+      "C399C",
+      "C399D"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A108",
+      "basis": "scaled",
+      "note": "no wall drawn; width = full shared boundary"
+     }
+    },
+    {
+     "id": "D-F3-027",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      70.2,
+      17
+     ],
+     "b": [
+      70.2,
+      20
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399A",
+      "S398A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-028",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      80,
+      24.6
+     ],
+     "b": [
+      80,
+      27.6
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399A",
+      "0346"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-029",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      96.8,
+      23.2
+     ],
+     "b": [
+      99.8,
+      23.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399A",
+      "0345"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-030",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      94.6,
+      25
+     ],
+     "b": [
+      94.6,
+      28
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399A",
+      "0345A"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-031",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      100.4,
+      14
+     ],
+     "b": [
+      103.4,
+      14
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399A",
+      "0344"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-032",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      116.8,
+      14
+     ],
+     "b": [
+      119.8,
+      14
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399A",
+      "0342"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-033",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      114.7,
+      19.6
+     ],
+     "b": [
+      114.7,
+      22.6
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399A",
+      "0343"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-034",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      120.2,
+      24.4
+     ],
+     "b": [
+      120.2,
+      27.4
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399A",
+      "0341"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-035",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      152.2,
+      23.3
+     ],
+     "b": [
+      155.2,
+      23.3
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399B",
+      "0340"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-036",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      160,
+      23.6
+     ],
+     "b": [
+      160,
+      26.6
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399B",
+      "0338"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-037",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      180.6,
+      28.2
+     ],
+     "b": [
+      183.6,
+      28.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399B",
+      "0336"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-038",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      192.4,
+      23
+     ],
+     "b": [
+      195.4,
+      23
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399B",
+      "0336"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-039",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      196.6,
+      24.2
+     ],
+     "b": [
+      196.6,
+      27.2
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399B",
+      "0336B"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-040",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      200.5,
+      37.5
+     ],
+     "b": [
+      200.5,
+      40.5
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399B",
+      "S398B"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-041",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      60.4,
+      68
+     ],
+     "b": [
+      63.4,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0309"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-042",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      70.4,
+      68
+     ],
+     "b": [
+      73.4,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0311"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-043",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      80.4,
+      68
+     ],
+     "b": [
+      83.4,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0314"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-044",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      90.4,
+      68
+     ],
+     "b": [
+      93.4,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0315"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-045",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      100.4,
+      68
+     ],
+     "b": [
+      103.4,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0316"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-046",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      110.4,
+      68
+     ],
+     "b": [
+      113.4,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0319"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-047",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      120.4,
+      68
+     ],
+     "b": [
+      123.4,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0321"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-048",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      130.5,
+      68
+     ],
+     "b": [
+      133.5,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0322"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-049",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      140.5,
+      68
+     ],
+     "b": [
+      143.5,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0323"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-050",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      150.5,
+      68
+     ],
+     "b": [
+      153.5,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0325"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-051",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      160.5,
+      68
+     ],
+     "b": [
+      163.5,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0327"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-052",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      170.5,
+      68
+     ],
+     "b": [
+      173.5,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0329"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-053",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      180.4,
+      68
+     ],
+     "b": [
+      183.4,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0331"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    },
+    {
+     "id": "D-F3-054",
+     "floor": "F3",
+     "kind": "door",
+     "a": [
+      190.6,
+      68
+     ],
+     "b": [
+      193.6,
+      68
+     ],
+     "clearWidthIn": 34,
+     "connects": [
+      "C399C",
+      "0332"
+     ],
+     "accessible": true,
+     "src": {
+      "sheet": "A103",
+      "basis": "assumed",
+      "note": "34 in per leaf assumed; position scaled from door swing on A103/A108"
+     }
+    }
+   ]
+  }
+ ],
+ "stairs": [
+  {
+   "id": "ST-A",
+   "name": "Central stair (S198A / S298A / S398A)",
+   "enclosed": true,
+   "countsAsCodeExit": true,
+   "clearWidthIn": 48,
+   "riserIn": 7,
+   "treadIn": 11,
+   "spaces": {
+    "F1": "S198A",
+    "F2": "S298A",
+    "F3": "S398A"
+   },
+   "flights": [
+    {
+     "from": "F3",
+     "to": "F2",
+     "travelFt": 29.4,
+     "head": [
+      [
+       71,
+       15.5
+      ],
+      [
+       75,
+       15.5
+      ],
+      [
+       75,
+       19.5
+      ],
+      [
+       71,
+       19.5
+      ]
+     ],
+     "landing": [
+      [
+       75.6,
+       15.5
+      ],
+      [
+       79.5,
+       15.5
+      ],
+      [
+       79.5,
+       19.5
+      ],
+      [
+       75.6,
+       19.5
+      ]
+     ]
+    },
+    {
+     "from": "F2",
+     "to": "F1",
+     "travelFt": 31.7,
+     "head": [
+      [
+       71,
+       15.5
+      ],
+      [
+       75,
+       15.5
+      ],
+      [
+       75,
+       19.5
+      ],
+      [
+       71,
+       19.5
+      ]
+     ],
+     "landing": [
+      [
+       75.6,
+       15.5
+      ],
+      [
+       79.5,
+       15.5
+      ],
+      [
+       79.5,
+       19.5
+      ],
+      [
+       75.6,
+       19.5
+      ]
+     ]
+    }
+   ],
+   "src": {
+    "sheet": "A603",
+    "basis": "dimensioned",
+    "detail": "5-8",
+    "note": "A108 PROVIDED 48 in used as clear width; A603 det. 6 flight strings 4'-7 1/2\" and 4'-6 1/2\"; sect. 8: 12+12 risers F1-F2 (168 in / 24 = 7.0 in), 11+11 risers F2-F3 (150 in / 22 = 6.82 in), 11 in treads"
+   }
+  },
+  {
+   "id": "ST-B",
+   "name": "South stair (S198B / S298B / S398B)",
+   "enclosed": true,
+   "countsAsCodeExit": true,
+   "clearWidthIn": 48,
+   "riserIn": 7,
+   "treadIn": 11,
+   "spaces": {
+    "F1": "S198B",
+    "F2": "S298B",
+    "F3": "S398B"
+   },
+   "flights": [
+    {
+     "from": "F3",
+     "to": "F2",
+     "travelFt": 28.4,
+     "head": [
+      [
+       206.2,
+       38.5
+      ],
+      [
+       209.8,
+       38.5
+      ],
+      [
+       209.8,
+       42.3
+      ],
+      [
+       206.2,
+       42.3
+      ]
+     ],
+     "landing": [
+      [
+       202,
+       38.5
+      ],
+      [
+       205.7,
+       38.5
+      ],
+      [
+       205.7,
+       42.3
+      ],
+      [
+       202,
+       42.3
+      ]
+     ]
+    },
+    {
+     "from": "F2",
+     "to": "F1",
+     "travelFt": 30.7,
+     "head": [
+      [
+       206.2,
+       38.5
+      ],
+      [
+       209.8,
+       38.5
+      ],
+      [
+       209.8,
+       42.3
+      ],
+      [
+       206.2,
+       42.3
+      ]
+     ],
+     "landing": [
+      [
+       202,
+       38.5
+      ],
+      [
+       205.7,
+       38.5
+      ],
+      [
+       205.7,
+       42.3
+      ],
+      [
+       202,
+       42.3
+      ]
+     ]
+    }
+   ],
+   "src": {
+    "sheet": "A603",
+    "basis": "dimensioned",
+    "detail": "1-3",
+    "note": "A108 PROVIDED 48 in; A603 flights 4'-1\" each, overall 16'-7 1/2\"; risers/treads assumed equal to the central stair (same floor-to-floor heights)"
+   }
+  },
+  {
+   "id": "ST-ATR",
+   "name": "Atrium stair (open)",
+   "enclosed": false,
+   "countsAsCodeExit": false,
+   "clearWidthIn": 48,
+   "riserIn": 7,
+   "treadIn": 11,
+   "spaces": {},
+   "flights": [
+    {
+     "from": "F3",
+     "to": "F2",
+     "travelFt": 32.4,
+     "head": [
+      [
+       146.2,
+       28.6
+      ],
+      [
+       149.6,
+       28.6
+      ],
+      [
+       149.6,
+       32.9
+      ],
+      [
+       146.2,
+       32.9
+      ]
+     ],
+     "landing": [
+      [
+       111,
+       28.8
+      ],
+      [
+       115.5,
+       28.8
+      ],
+      [
+       115.5,
+       32.8
+      ],
+      [
+       111,
+       32.8
+      ]
+     ]
+    },
+    {
+     "from": "F2",
+     "to": "F1",
+     "travelFt": 31.8,
+     "head": [
+      [
+       98.4,
+       28.6
+      ],
+      [
+       102,
+       28.6
+      ],
+      [
+       102,
+       32.8
+      ],
+      [
+       98.4,
+       32.8
+      ]
+     ],
+     "landing": [
+      [
+       66.4,
+       28.8
+      ],
+      [
+       70.1,
+       28.8
+      ],
+      [
+       70.1,
+       32.8
+      ],
+      [
+       66.4,
+       32.8
+      ]
+     ]
+    }
+   ],
+   "src": {
+    "sheet": "A602",
+    "basis": "dimensioned",
+    "detail": "3, 5",
+    "note": "plan strings: F1-F2 15 treads 13'-9\" + landing 7'-2 1/2\" + 7 treads 6'-5\"; F2-F3 10 treads 9'-2\" + landing 10'-3\" + 10 treads 9'-2\"; width ~4'-5\" between guard lines scaled, 48 in clear assumed"
+   }
+  }
+ ],
+ "exits": [
+  {
+   "id": "EX-N",
+   "name": "North lobby doors (lobby C199A to plaza C196A)",
+   "floor": "F1",
+   "kind": "exterior",
+   "portal": "X-F1-1",
+   "printed": {
+    "occupants": 141,
+    "requiredIn": 28.2,
+    "providedIn": 136
+   },
+   "src": {
+    "sheet": "A107",
+    "basis": "printed",
+    "note": "doors C196A/4-6 at grid C"
+   }
+  },
+  {
+   "id": "EX-W",
+   "name": "West entry (entry / exhibit C199C)",
+   "floor": "F1",
+   "kind": "exterior",
+   "portal": "X-F1-2",
+   "printed": {
+    "occupants": 141,
+    "requiredIn": 28.2,
+    "providedIn": 68
+   },
+   "src": {
+    "sheet": "A107",
+    "basis": "printed",
+    "note": "row 4 entry vestibule"
+   }
+  },
+  {
+   "id": "EX-S",
+   "name": "South stair S198B exterior door",
+   "floor": "F1",
+   "kind": "exterior",
+   "portal": "X-F1-3",
+   "printed": {
+    "occupants": 141,
+    "requiredIn": 28.2,
+    "providedIn": 34
+   },
+   "src": {
+    "sheet": "A107",
+    "basis": "printed",
+    "note": "door to exterior steps east of grid K"
+   }
+  },
+  {
+   "id": "EX-E1",
+   "name": "East door from storage 0140A",
+   "floor": "F1",
+   "kind": "exterior",
+   "portal": "X-F1-4",
+   "printed": {
+    "occupants": 9,
+    "requiredIn": 1.8,
+    "providedIn": 68
+   },
+   "src": {
+    "sheet": "A107",
+    "basis": "printed",
+    "note": "row 1 double door"
+   }
+  },
+  {
+   "id": "EX-E2",
+   "name": "East door from soils & concrete lab 0138",
+   "floor": "F1",
+   "kind": "exterior",
+   "portal": "X-F1-5",
+   "printed": {
+    "occupants": 4,
+    "requiredIn": 0.8,
+    "providedIn": 68
+   },
+   "src": {
+    "sheet": "A107",
+    "basis": "printed",
+    "note": "row 1 double door"
+   }
+  },
+  {
+   "id": "EX-2A",
+   "name": "Second floor: central stair S298A",
+   "floor": "F2",
+   "kind": "stair",
+   "portal": "D-F2-005",
+   "stair": "ST-A",
+   "printed": {
+    "occupants": 157,
+    "requiredIn": 47.1,
+    "providedIn": 48
+   },
+   "src": {
+    "sheet": "A108",
+    "basis": "printed",
+    "note": "PROVIDED = stair width; stair door 34 in assumed"
+   }
+  },
+  {
+   "id": "EX-2B",
+   "name": "Second floor: south stair S298B",
+   "floor": "F2",
+   "kind": "stair",
+   "portal": "D-F2-015",
+   "stair": "ST-B",
+   "printed": {
+    "occupants": 157,
+    "requiredIn": 47.1,
+    "providedIn": 48
+   },
+   "src": {
+    "sheet": "A108",
+    "basis": "printed",
+    "note": "PROVIDED = stair width; stair door 34 in assumed"
+   }
+  },
+  {
+   "id": "EX-3A",
+   "name": "Third floor: central stair S398A",
+   "floor": "F3",
+   "kind": "stair",
+   "portal": "D-F3-027",
+   "stair": "ST-A",
+   "printed": {
+    "occupants": 151,
+    "requiredIn": 45.3,
+    "providedIn": 48
+   },
+   "src": {
+    "sheet": "A108",
+    "basis": "printed",
+    "note": "PROVIDED = stair width; stair door 34 in assumed"
+   }
+  },
+  {
+   "id": "EX-3B",
+   "name": "Third floor: south stair S398B",
+   "floor": "F3",
+   "kind": "stair",
+   "portal": "D-F3-040",
+   "stair": "ST-B",
+   "printed": {
+    "occupants": 151,
+    "requiredIn": 45.3,
+    "providedIn": 48
+   },
+   "src": {
+    "sheet": "A108",
+    "basis": "printed",
+    "note": "PROVIDED = stair width; stair door 34 in assumed"
+   }
+  }
+ ],
+ "signMounts": [
+  {
+   "id": "SM-1F-01",
+   "floor": "F1",
+   "at": [
+    60,
+    30
+   ],
+   "facing": [
+    1,
+    0
+   ],
+   "space": "C199A",
+   "staticDefaultToward": "EX-N",
+   "src": {
+    "sheet": "A107",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  },
+  {
+   "id": "SM-1F-02",
+   "floor": "F1",
+   "at": [
+    49.2,
+    51
+   ],
+   "facing": [
+    0,
+    1
+   ],
+   "space": "C199B",
+   "staticDefaultToward": "EX-N",
+   "src": {
+    "sheet": "A107",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  },
+  {
+   "id": "SM-1F-03",
+   "floor": "F1",
+   "at": [
+    110,
+    39
+   ],
+   "facing": [
+    1,
+    0
+   ],
+   "space": "C199D",
+   "staticDefaultToward": "EX-W",
+   "src": {
+    "sheet": "A107",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  },
+  {
+   "id": "SM-1F-04",
+   "floor": "F1",
+   "at": [
+    192,
+    38
+   ],
+   "facing": [
+    -1,
+    0
+   ],
+   "space": "C199D",
+   "staticDefaultToward": "EX-S",
+   "src": {
+    "sheet": "A107",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  },
+  {
+   "id": "SM-2F-01",
+   "floor": "F2",
+   "at": [
+    65,
+    22
+   ],
+   "facing": [
+    0,
+    1
+   ],
+   "space": "C299A",
+   "staticDefaultToward": "EX-2A",
+   "src": {
+    "sheet": "A108",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  },
+  {
+   "id": "SM-2F-02",
+   "floor": "F2",
+   "at": [
+    66,
+    41.8
+   ],
+   "facing": [
+    1,
+    0
+   ],
+   "space": "C299A",
+   "staticDefaultToward": "EX-2A",
+   "src": {
+    "sheet": "A108",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  },
+  {
+   "id": "SM-2F-03",
+   "floor": "F2",
+   "at": [
+    133,
+    41.8
+   ],
+   "facing": [
+    -1,
+    0
+   ],
+   "space": "C299A",
+   "staticDefaultToward": "EX-2B",
+   "src": {
+    "sheet": "A108",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  },
+  {
+   "id": "SM-2F-04",
+   "floor": "F2",
+   "at": [
+    194,
+    41.8
+   ],
+   "facing": [
+    -1,
+    0
+   ],
+   "space": "C299A",
+   "staticDefaultToward": "EX-2B",
+   "src": {
+    "sheet": "A108",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  },
+  {
+   "id": "SM-3F-01",
+   "floor": "F3",
+   "at": [
+    65,
+    22
+   ],
+   "facing": [
+    0,
+    1
+   ],
+   "space": "C399A",
+   "staticDefaultToward": "EX-3A",
+   "src": {
+    "sheet": "A108",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  },
+  {
+   "id": "SM-3F-02",
+   "floor": "F3",
+   "at": [
+    105,
+    41.1
+   ],
+   "facing": [
+    1,
+    0
+   ],
+   "space": "C399A",
+   "staticDefaultToward": "EX-3A",
+   "src": {
+    "sheet": "A108",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  },
+  {
+   "id": "SM-3F-03",
+   "floor": "F3",
+   "at": [
+    120,
+    65.8
+   ],
+   "facing": [
+    1,
+    0
+   ],
+   "space": "C399C",
+   "staticDefaultToward": "EX-3A",
+   "src": {
+    "sheet": "A108",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  },
+  {
+   "id": "SM-3F-04",
+   "floor": "F3",
+   "at": [
+    195,
+    41.1
+   ],
+   "facing": [
+    -1,
+    0
+   ],
+   "space": "C399B",
+   "staticDefaultToward": "EX-3B",
+   "src": {
+    "sheet": "A108",
+    "basis": "assumed",
+    "note": "EXITMIND proposed sign location"
+   }
+  }
+ ],
+ "codeBasis": {
+  "occupantLoadSqftPerPerson": 100,
+  "egressInPerPerson": {
+   "corridorsDoors": 0.2,
+   "stairs": 0.3
+  },
+  "minDoorClearIn": 32,
+  "minCorridorIn": 44,
+  "minCorridorSmallLoadIn": 36,
+  "minExits": 2,
+  "travelDistanceFt": {
+   "nfpa101": 200,
+   "sbc": 250
+  },
+  "commonPathFt": 100,
+  "deadEndFt": 20,
+  "twoDoorRoomLoad": 50,
+  "twoDoorTravelFt": 75,
+  "grossAreaSqft": {
+   "F1": 14915,
+   "F2": 16270,
+   "F3": 16270
+  },
+  "src": {
+   "sheet": "A107",
+   "basis": "printed",
+   "detail": "Code Summary: SBC 1997 Tables 1003.1, 1004, sections 1004.1.2, 1004.2; NFPA 101 (1994) 5-2.2.2, 26-1.7, 26-2.4, 26-2.6, 2-8"
+  }
+ },
+ "sheets": [
+  {
+   "id": "A102",
+   "title": "Mechanical level & first floor plan",
+   "url": "http://coremng.dcp.ufl.edu/rinkerhall/images/rinker/Drawings/Rinker_009.pdf"
+  },
+  {
+   "id": "A103",
+   "title": "Second & third floor plan",
+   "url": "http://coremng.dcp.ufl.edu/rinkerhall/images/rinker/Drawings/Rinker_010.pdf"
+  },
+  {
+   "id": "A107",
+   "title": "Mechanical level & first floor egress plan",
+   "url": "http://coremng.dcp.ufl.edu/rinkerhall/images/rinker/Drawings/Rinker_012.pdf"
+  },
+  {
+   "id": "A108",
+   "title": "Second & third level egress plan",
+   "url": "http://coremng.dcp.ufl.edu/rinkerhall/images/rinker/Drawings/Rinker_013.pdf"
+  },
+  {
+   "id": "A602",
+   "title": "Atrium stair plans, sections, elevations",
+   "url": "http://coremng.dcp.ufl.edu/rinkerhall/images/rinker/Drawings/Rinker_031.pdf"
+  },
+  {
+   "id": "A603",
+   "title": "Stair & elevator enlarged plans & sections",
+   "url": "http://coremng.dcp.ufl.edu/rinkerhall/images/rinker/Drawings/Rinker_032.pdf"
+  }
+ ],
+ "zones": [
+  {
+   "id": "Z1N",
+   "floor": "F1",
+   "name": "First floor north (grids A-E)",
+   "xRangeFt": [
+    -1000,
+    80
+   ]
+  },
+  {
+   "id": "Z1C",
+   "floor": "F1",
+   "name": "First floor central (grids E-H)",
+   "xRangeFt": [
+    80,
+    140
+   ]
+  },
+  {
+   "id": "Z1S",
+   "floor": "F1",
+   "name": "First floor south (grids H-M)",
+   "xRangeFt": [
+    140,
+    1000
+   ]
+  },
+  {
+   "id": "Z2N",
+   "floor": "F2",
+   "name": "Second floor north (grids A-E)",
+   "xRangeFt": [
+    -1000,
+    80
+   ]
+  },
+  {
+   "id": "Z2C",
+   "floor": "F2",
+   "name": "Second floor central (grids E-H)",
+   "xRangeFt": [
+    80,
+    140
+   ]
+  },
+  {
+   "id": "Z2S",
+   "floor": "F2",
+   "name": "Second floor south (grids H-M)",
+   "xRangeFt": [
+    140,
+    1000
+   ]
+  },
+  {
+   "id": "Z3N",
+   "floor": "F3",
+   "name": "Third floor north (grids A-E)",
+   "xRangeFt": [
+    -1000,
+    80
+   ]
+  },
+  {
+   "id": "Z3C",
+   "floor": "F3",
+   "name": "Third floor central (grids E-H)",
+   "xRangeFt": [
+    80,
+    140
+   ]
+  },
+  {
+   "id": "Z3S",
+   "floor": "F3",
+   "name": "Third floor south (grids H-M)",
+   "xRangeFt": [
+    140,
+    1000
+   ]
+  }
+ ],
+ "hash": "baa48f276620753221132d9e99fadc0dc012a4f7f0e0e606d121af39ab797e93"
+}
