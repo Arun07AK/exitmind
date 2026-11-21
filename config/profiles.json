@@ -1,0 +1,34 @@
+{
+  "college": {
+    "label": "College / university teaching building",
+    "load": "printed",
+    "ages": { "young_adult": 0.85, "adult": 0.13, "older_adult": 0.02 },
+    "roles": { "student": 0.92, "visitor": 0.05, "staff": 0.03 },
+    "defaultProtocol": "EVACUATE",
+    "assistedEvacuation": false
+  },
+  "school": {
+    "label": "School (children in class groups with teachers)",
+    "load": "sqftPerPerson",
+    "ages": { "child": 0.94, "adult": 0.06 },
+    "roles": { "student": 0.94, "teacher": 0.06 },
+    "defaultProtocol": "EVACUATE",
+    "assistedEvacuation": false
+  },
+  "mall": {
+    "label": "Shopping mall",
+    "load": "sqftPerPerson",
+    "ages": { "child": 0.12, "young_adult": 0.3, "adult": 0.43, "older_adult": 0.15 },
+    "roles": { "shopper": 0.98, "staff": 0.02 },
+    "defaultProtocol": "PHASED_EVACUATION",
+    "assistedEvacuation": false
+  },
+  "hospital": {
+    "label": "Hospital ward building",
+    "load": "sqftPerPerson",
+    "ages": { "adult": 0.5, "older_adult": 0.5 },
+    "roles": { "patient": 0.55, "visitor": 0.2, "nurse": 0.25 },
+    "defaultProtocol": "HORIZONTAL_EVACUATION",
+    "assistedEvacuation": true
+  }
+}

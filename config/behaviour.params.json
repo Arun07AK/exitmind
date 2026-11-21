@@ -21,6 +21,18 @@
     "locator": "stair descent speed with an evacuation chair",
     "verified": false
   },
+  "assist.handlingSec": {
+    "value": 60,
+    "min": 20,
+    "max": 180,
+    "unit": "s",
+    "cite": [
+      "hunt2013",
+      "assumption"
+    ],
+    "locator": "time for one staff member to prepare and move one non-ambulant patient",
+    "verified": false
+  },
   "assist.horizontalSpeed": {
     "value": 0.9,
     "min": 0.5,
@@ -101,7 +113,7 @@
     "verified": false
   },
   "density.danger": {
-    "value": 4.0,
+    "value": 5.0,
     "min": 3.5,
     "max": 5.0,
     "unit": "persons/m2",
@@ -109,7 +121,7 @@
       "helbing2007",
       "assumption"
     ],
-    "locator": "exposure threshold for dangerous density; add Fruin or Still as a direct source",
+    "locator": "exposure threshold for dangerous density, set at the top of its range: calm queues in the model sit near the 3.8 p/m2 personal-space tolerance (local windows read up to ~4.5 at walls), so only pushing (stressed) crowds exceed 5 p/m2; add Fruin or Still as a direct source",
     "verified": false
   },
   "density.pushTolerance": {
@@ -280,6 +292,18 @@
     "locator": "pull toward the option most visible neighbours take, as equivalent time",
     "verified": false
   },
+  "herding.radiusM": {
+    "value": 5,
+    "min": 2,
+    "max": 10,
+    "unit": "m",
+    "cite": [
+      "haghani2019",
+      "assumption"
+    ],
+    "locator": "radius of neighbours whose choices are visible",
+    "verified": false
+  },
   "mobility.door.delaySec": {
     "value": 3,
     "min": 0,
@@ -323,6 +347,18 @@
       "boyce1999a"
     ],
     "locator": "horizontal speed, manual wheelchair, relative to unimpaired",
+    "verified": false
+  },
+  "perception.signRadiusM": {
+    "value": 15,
+    "min": 8,
+    "max": 25,
+    "unit": "m",
+    "cite": [
+      "xie2011",
+      "assumption"
+    ],
+    "locator": "distance within which a sign in the same space can be noticed",
     "verified": false
   },
   "premove.medianSec.college": {
@@ -419,6 +455,347 @@
       "purser2001"
     ],
     "locator": "lognormal shape of pre-movement time, school-like occupancy",
+    "verified": false
+  },
+  "premove.staffFactor": {
+    "value": 0.5,
+    "min": 0.3,
+    "max": 1.0,
+    "unit": "ratio",
+    "cite": [
+      "purser2001",
+      "assumption"
+    ],
+    "locator": "staff pre-movement time relative to other occupants",
+    "verified": false
+  },
+  "profile.college.familiarShare": {
+    "value": 0.75,
+    "min": 0.5,
+    "max": 0.95,
+    "unit": "share",
+    "cite": [
+      "sime1985",
+      "assumption"
+    ],
+    "locator": "share of college occupants who know every exit",
+    "verified": false
+  },
+  "profile.college.groupFraction": {
+    "value": 0.35,
+    "min": 0.1,
+    "max": 0.6,
+    "unit": "share",
+    "cite": [
+      "moussaid2010",
+      "assumption"
+    ],
+    "locator": "share in social groups, college",
+    "verified": false
+  },
+  "profile.college.share.crutches": {
+    "value": 0.005,
+    "min": 0,
+    "max": 0.02,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "walking with crutches, college",
+    "verified": false
+  },
+  "profile.college.share.slow": {
+    "value": 0.02,
+    "min": 0,
+    "max": 0.08,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "mobility impaired without aid, college",
+    "verified": false
+  },
+  "profile.college.share.wheelchair": {
+    "value": 0.005,
+    "min": 0,
+    "max": 0.02,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "wheelchair users, college",
+    "verified": false
+  },
+  "profile.college.staffRatio": {
+    "value": 0.03,
+    "min": 0.01,
+    "max": 0.1,
+    "unit": "share",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "staff per occupant, college",
+    "verified": false
+  },
+  "profile.hospital.familiarShare": {
+    "value": 0.5,
+    "min": 0.3,
+    "max": 0.8,
+    "unit": "share",
+    "cite": [
+      "sime1985",
+      "assumption"
+    ],
+    "locator": "share of hospital occupants who know every exit",
+    "verified": false
+  },
+  "profile.hospital.groupFraction": {
+    "value": 0.2,
+    "min": 0.05,
+    "max": 0.4,
+    "unit": "share",
+    "cite": [
+      "moussaid2010",
+      "assumption"
+    ],
+    "locator": "share in social groups, hospital",
+    "verified": false
+  },
+  "profile.hospital.share.assistedPatient": {
+    "value": 0.25,
+    "min": 0.1,
+    "max": 0.5,
+    "unit": "share",
+    "cite": [
+      "hunt2013",
+      "assumption"
+    ],
+    "locator": "non-ambulant patients needing staff assistance",
+    "verified": false
+  },
+  "profile.hospital.share.crutches": {
+    "value": 0.05,
+    "min": 0,
+    "max": 0.1,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "walking with crutches, hospital",
+    "verified": false
+  },
+  "profile.hospital.share.slow": {
+    "value": 0.1,
+    "min": 0.05,
+    "max": 0.2,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "mobility impaired without aid, hospital",
+    "verified": false
+  },
+  "profile.hospital.share.wheelchair": {
+    "value": 0.1,
+    "min": 0.05,
+    "max": 0.2,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "wheelchair users, hospital",
+    "verified": false
+  },
+  "profile.hospital.sqftPerPerson": {
+    "value": 240,
+    "min": 120,
+    "max": 240,
+    "unit": "sq ft/person",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "occupant load factor for hospital use on net occupiable area; typical code factor, not printed on the Rinker sheets",
+    "verified": false
+  },
+  "profile.hospital.staffRatio": {
+    "value": 0.25,
+    "min": 0.1,
+    "max": 0.4,
+    "unit": "share",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "staff per occupant, hospital",
+    "verified": false
+  },
+  "profile.mall.familiarShare": {
+    "value": 0.3,
+    "min": 0.1,
+    "max": 0.6,
+    "unit": "share",
+    "cite": [
+      "sime1985",
+      "assumption"
+    ],
+    "locator": "share of mall occupants who know every exit",
+    "verified": false
+  },
+  "profile.mall.groupFraction": {
+    "value": 0.55,
+    "min": 0.3,
+    "max": 0.7,
+    "unit": "share",
+    "cite": [
+      "moussaid2010",
+      "assumption"
+    ],
+    "locator": "share in social groups, mall",
+    "verified": false
+  },
+  "profile.mall.share.crutches": {
+    "value": 0.01,
+    "min": 0,
+    "max": 0.03,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "walking with crutches, mall",
+    "verified": false
+  },
+  "profile.mall.share.slow": {
+    "value": 0.05,
+    "min": 0.02,
+    "max": 0.1,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "mobility impaired without aid, mall",
+    "verified": false
+  },
+  "profile.mall.share.wheelchair": {
+    "value": 0.01,
+    "min": 0.005,
+    "max": 0.03,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "wheelchair users, mall",
+    "verified": false
+  },
+  "profile.mall.sqftPerPerson": {
+    "value": 30,
+    "min": 30,
+    "max": 60,
+    "unit": "sq ft/person",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "occupant load factor for mall use on net occupiable area; typical code factor, not printed on the Rinker sheets",
+    "verified": false
+  },
+  "profile.mall.staffRatio": {
+    "value": 0.02,
+    "min": 0.005,
+    "max": 0.05,
+    "unit": "share",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "staff per occupant, mall",
+    "verified": false
+  },
+  "profile.school.familiarShare": {
+    "value": 0.9,
+    "min": 0.7,
+    "max": 1.0,
+    "unit": "share",
+    "cite": [
+      "sime1985",
+      "assumption"
+    ],
+    "locator": "share of school occupants who know every exit",
+    "verified": false
+  },
+  "profile.school.groupFraction": {
+    "value": 0.8,
+    "min": 0.5,
+    "max": 1.0,
+    "unit": "share",
+    "cite": [
+      "moussaid2010",
+      "assumption"
+    ],
+    "locator": "share in social groups, school",
+    "verified": false
+  },
+  "profile.school.share.crutches": {
+    "value": 0.005,
+    "min": 0,
+    "max": 0.02,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "walking with crutches, school",
+    "verified": false
+  },
+  "profile.school.share.slow": {
+    "value": 0.01,
+    "min": 0,
+    "max": 0.05,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "mobility impaired without aid, school",
+    "verified": false
+  },
+  "profile.school.share.wheelchair": {
+    "value": 0.005,
+    "min": 0,
+    "max": 0.02,
+    "unit": "share",
+    "cite": [
+      "boyce1999a",
+      "assumption"
+    ],
+    "locator": "wheelchair users, school",
+    "verified": false
+  },
+  "profile.school.sqftPerPerson": {
+    "value": 20,
+    "min": 15,
+    "max": 50,
+    "unit": "sq ft/person",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "occupant load factor for school use on net occupiable area; typical code factor, not printed on the Rinker sheets",
+    "verified": false
+  },
+  "profile.school.staffRatio": {
+    "value": 0.06,
+    "min": 0.03,
+    "max": 0.12,
+    "unit": "share",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "staff per occupant, school",
     "verified": false
   },
   "quake.earlyLeaverShare": {

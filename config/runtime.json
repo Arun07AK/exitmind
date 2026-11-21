@@ -1,7 +1,48 @@
 {
-  "sim": { "dtSec": 0.25, "cellM": 0.4, "checkpointEveryTicks": 40 },
-  "showcase": { "livePersonas": 12, "maxInFlight": 8, "thinkingTicksMin": 4, "thinkingTicksMax": 12 },
-  "persona": { "deadlineMs": 2500, "jevTimeoutMs": 2000 },
-  "gate": { "failMode": "block_with_override" },
-  "approval": { "windowSec": 60 }
+  "sim": {
+    "dtSec": 0.25,
+    "cellM": 0.4,
+    "checkpointEveryTicks": 40
+  },
+  "showcase": {
+    "livePersonas": 12,
+    "maxInFlight": 8,
+    "thinkingTicksMin": 4,
+    "thinkingTicksMax": 12
+  },
+  "persona": {
+    "deadlineMs": 2500,
+    "jevTimeoutMs": 2000
+  },
+  "gate": {
+    "failMode": "block_with_override"
+  },
+  "approval": {
+    "windowSec": 60
+  },
+  "design": {
+    "clearanceTargetSec": 360,
+    "capSec": 900,
+    "badness": {
+      "w1": 0.5,
+      "w2": 2,
+      "w3": 10
+    },
+    "bulkRuns": 200,
+    "adversary": {
+      "population": 16,
+      "generations": 5,
+      "seeds": 3
+    },
+    "rating": {
+      "scenarios": 24
+    },
+    "workers": 8
+  },
+  "live": {
+    "sensorHz": 1,
+    "confirmConfidence": 0.6,
+    "publishConfidence": 0.5,
+    "verifierHorizonSec": 420
+  }
 }
