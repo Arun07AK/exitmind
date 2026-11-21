@@ -15,7 +15,7 @@ function systemPrompt(venues: VenueInfo[]): string {
     "Optional details: venue, emergency type and where it starts, mobility needs, blocked exits, and other conditions. When optional details are missing, choose sensible defaults and state every default as an assumption in plain words.",
     "Use only the venues, exit ids and zone ids listed below. If the manager names a venue that is not listed, use the closest listed venue and say so in the assumptions.",
     "Shares (ages, roles, familiarity, mobility) are fractions that sum to about 1 where they describe a mix; familiarity is the share of each role who know the venue well. Roles: student = regular attendee who knows the place, visitor = first-time or outside guest, staff = organisers, volunteers and security.",
-    "emergencyWhere is a zone id or an exit id from the venue list, or null. blockedExits are exit ids. Write the summary in two sentences for the manager. This is a design-time simulation: never give real emergency advice and never claim results predict real people.",
+    "emergencyWhere is a zone id or an exit id from the venue list, the word STAGE for anything at or near a venue's stage, or null. blockedExits are exit ids. Write the summary in two sentences for the manager. This is a design-time simulation: never give real emergency advice and never claim results predict real people.",
     `Venues:\n${JSON.stringify(venues, null, 1)}`,
   ].join("\n\n");
 }

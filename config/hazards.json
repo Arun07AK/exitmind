@@ -174,5 +174,16 @@
     ],
     "locator": "period after the main shaking in which people moving (not holding in place) count as exposed to aftershocks and falling debris; EXITMIND modelling assumption, not physics",
     "verified": false
+  },
+  "fire.outdoorPlumeM": {
+    "value": 35,
+    "min": 10,
+    "max": 100,
+    "unit": "m",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "on an open-air ground, smoke spreads only this far from the fire, thinning with distance (drifts away instead of filling enclosed rooms); EXITMIND modelling assumption, not physics",
+    "verified": false
   }
 }

@@ -10,6 +10,7 @@ const STEP = [1, 1, 1, 1, Math.SQRT2, Math.SQRT2, Math.SQRT2, Math.SQRT2];
 export class HazardState {
   readonly spec: HazardSpec;
   readonly smoke: Float32Array[];
+  readonly #cap: Float32Array[];
   readonly arrival: Float32Array[];
   readonly blocked: Uint8Array[];
   readonly debris: Uint8Array[];
@@ -42,6 +43,7 @@ export class HazardState {
     this.spec = spec;
     const mk = <T>(f: (n: number) => T) => m.floors.map((fm) => f(fm.n));
     this.smoke = mk((n) => new Float32Array(n));
+    this.#cap = mk((n) => new Float32Array(n).fill(1));
     this.arrival = mk((n) => new Float32Array(n).fill(Infinity));
     this.blocked = mk((n) => new Uint8Array(n));
     this.debris = mk((n) => new Uint8Array(n));
@@ -119,9 +121,15 @@ export class HazardState {
       }
       for (const u of vertical.get(g) ?? []) if (d + rise < dist[u]!) { dist[u] = d + rise; heap.push(d + rise, u); }
     }
+    const plumeFt = m.twin.venue ? this.hp("fire.outdoorPlumeM") / 0.3048 : Infinity;
     m.floors.forEach((fm, fi) => {
-      const a = this.arrival[fi]!;
-      for (let i = 0; i < fm.n; i++) a[i] = dist[offsets[fi]! + i]!;
+      const a = this.arrival[fi]!, cap = this.#cap[fi]!;
+      for (let i = 0; i < fm.n; i++) {
+        const r = Math.hypot(fm.cx[i]! - o.x, fm.cy[i]! - o.y);
+        cap[i] = plumeFt === Infinity ? 1 : Math.max(0, 1 - r / plumeFt);
+        if (cap[i] === 0) dist[offsets[fi]! + i] = Infinity;
+        a[i] = dist[offsets[fi]! + i]!;
+      }
     });
     const fin: number[] = [];
     for (let g = 0; g < total; g++) if (dist[g]! < Infinity) fin.push(g);
@@ -199,9 +207,9 @@ export class HazardState {
       const next: number[] = [];
       for (const key of this.#active) {
         const fi = Math.floor(key / 0x1000000), c = key - fi * 0x1000000;
-        const lv = Math.min(1, (t - this.arrival[fi]![c]!) / ramp);
+        const lv = Math.min(this.#cap[fi]![c]!, (t - this.arrival[fi]![c]!) / ramp);
         if (lv !== this.smoke[fi]![c]) { this.smoke[fi]![c] = lv; this.#dirty[fi] = 1; }
-        if (lv < 1) next.push(key);
+        if (lv < this.#cap[fi]![c]!) next.push(key);
       }
       this.#active = next;
       const r2 = (Math.min(this.hp("fire.coreMaxM"), this.hp("fire.coreGrowth") * t) / M_PER_FT) ** 2;

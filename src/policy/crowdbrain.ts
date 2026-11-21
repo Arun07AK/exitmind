@@ -32,7 +32,7 @@ export class CrowdBrainPolicy implements DecisionPolicy {
   groupKey(ctx: DecisionContext): string {
     const p = ctx.persona;
     const opts = [...new Set(ctx.options.map(signature))].sort().join(",");
-    return [ctx.key, p.role, p.mobility === "unimpaired" ? "-" : "M", Math.floor(ctx.tick / this.#refreshTicks), opts].join("|");
+    return [ctx.key, p.role, p.mobility === "unimpaired" ? "-" : "M", this.#refreshTicks > 0 ? Math.floor(ctx.tick / this.#refreshTicks) : 0, opts].join("|");
   }
 
   #ask(ctx: DecisionContext): Promise<{ dist: Record<string, number>; reason: string; ms: number } | null> {

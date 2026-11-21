@@ -5,6 +5,7 @@ import { repoPath } from "./paths.ts";
 const PositiveInt = z.number().int().positive();
 
 export const RuntimeConfig = z.strictObject({
+  crowdBrain: z.strictObject({ maxCalls: z.number().int().positive(), maxInFlight: z.number().int().positive(), timeoutMs: z.number().int().positive() }),
   sim: z.strictObject({ dtSec: z.number().positive(), cellM: z.number().positive(), checkpointEveryTicks: PositiveInt }),
   showcase: z
     .strictObject({ livePersonas: PositiveInt, maxInFlight: PositiveInt, thinkingTicksMin: PositiveInt, thinkingTicksMax: PositiveInt })

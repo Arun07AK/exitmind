@@ -38,8 +38,12 @@ export interface ShowcaseResult {
   personaAgents: number[];
 }
 
+function loadDistilledOrNull(): DistilledPolicy | null {
+  try { return DistilledPolicy.load(); } catch { return null; }
+}
+
 export function crowdBrain(simEnv: SimEnv, o: Pick<ShowcaseOptions, "claude" | "onLlmCall"> = {}): CrowdBrainPolicy {
-  return new CrowdBrainPolicy(o.claude ?? new ClaudeClient(o.onLlmCall ? { sink: o.onLlmCall } : {}), env("PERSONA_HAIKU_MODEL") ?? "claude-haiku-5-5", { timeoutMs: simEnv.runtime.persona.deadlineMs * 2, maxCalls: 400, refreshTicks: Math.round(60 / simEnv.runtime.sim.dtSec), maxInFlight: 8 });
+  return new CrowdBrainPolicy(o.claude ?? new ClaudeClient(o.onLlmCall ? { sink: o.onLlmCall } : {}), env("PERSONA_HAIKU_MODEL") ?? "claude-haiku-5-5", { timeoutMs: simEnv.runtime.crowdBrain.timeoutMs, maxCalls: simEnv.runtime.crowdBrain.maxCalls, refreshTicks: 0, maxInFlight: simEnv.runtime.crowdBrain.maxInFlight });
 }
 
 export function personaPolicy(backend: Exclude<Backend, "replay" | "crowd">, simEnv: SimEnv, o: Pick<ShowcaseOptions, "claude" | "typesafe" | "onLlmCall"> = {}): HaikuPersona | JevPersona {
@@ -64,7 +68,7 @@ export async function runShowcase(simEnv: SimEnv, sc: Scenario, o: ShowcaseOptio
   w = makeWorld(simEnv, sc, {
     ...(o.model ? { model: o.model } : {}),
     llm, llmAgents: o.livePersonas,
-    ...(o.distilled ? { distilled: o.distilled } : {}),
+    ...((o.distilled ?? (o.backend === "crowd" ? loadDistilledOrNull() : null)) ? { distilled: (o.distilled ?? loadDistilledOrNull())! } : {}),
     hooks: {
       onDecision: (ctx, d) => {
         if (w.policyKind[ctx.agent] !== POLICY.LLM) return;
@@ -84,6 +88,6 @@ export async function runShowcase(simEnv: SimEnv, sc: Scenario, o: ShowcaseOptio
   const personaAgents: number[] = [];
   for (let a = 0; a < w.n; a++) if (w.policyKind[a] === POLICY.LLM) personaAgents.push(a);
   const hash = stateHash(w);
-  o.log?.append({ tick: w.tick, actor: "sim", type: "world.checkpoint", payload: { hash, final: true, scenario: sc, livePersonas: o.livePersonas, backend: o.backend } });
+  o.log?.append({ tick: w.tick, actor: "sim", type: "world.checkpoint", payload: { hash, final: true, scenario: sc, livePersonas: o.livePersonas, backend: o.backend, venue: simEnv.twin.id } });
   return { metrics, hash, records, llmCalls: calls(), fallbacks, rejected, label: PERSONA_LABEL, personaAgents };
 }

@@ -42,7 +42,10 @@ export function buildScenario(spec: Spec, m: Model, params: Params, profiles: Pr
   if (!spec.mobility) assumptions.push("Mobility: 2% walk slowly, 0.5% use crutches, 0.5% use wheelchairs.");
   const kind = spec.emergency ?? "fire";
   let hazard: HazardSpec = { kind };
-  const where = spec.emergencyWhere ? zoneCentre(m, spec.emergencyWhere) : null;
+  const st = m.twin.venue?.stage;
+  const stageFront = st ? { floor: "F1" as const, at: [Math.round(st.reduce((a, p) => a + p[0], 0) / st.length), Math.round(Math.max(...st.map((p) => p[1])) + 25)] as [number, number] } : null;
+  const where = spec.emergencyWhere && /stage/i.test(spec.emergencyWhere) && stageFront ? stageFront : spec.emergencyWhere ? zoneCentre(m, spec.emergencyWhere) : null;
+  if (where && where === stageFront) assumptions.push("The emergency starts just in front of the stage.");
   const fallbackZone = m.zones[Math.floor(m.zones.length / 2)]!.id;
   if (kind === "fire" || kind === "threat" || kind === "medical") {
     const loc = where ?? zoneCentre(m, fallbackZone)!;

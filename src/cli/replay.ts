@@ -4,6 +4,7 @@ import { verifyRecords } from "../log/eventlog.ts";
 import { personaRecords } from "../policy/replay.ts";
 import { runShowcase } from "../policy/showcase.ts";
 import { loadEnv } from "../sim/run.ts";
+import { VENUES, loadVenue, type VenueId } from "../twin/build.ts";
 import type { Scenario } from "../sim/types.ts";
 import { loadDemoConfig, replayTruth } from "../live/session.ts";
 
@@ -27,6 +28,8 @@ if (started?.mode === "live") {
 }
 const fin = checkpoints.find((r) => (r.payload as { final?: boolean }).final)?.payload as { hash: string; scenario: Scenario; livePersonas: number } | undefined;
 if (!fin) { console.log("no final checkpoint in this log"); process.exit(2); }
-const r = await runShowcase(simEnv, fin.scenario, { backend: "replay", livePersonas: fin.livePersonas, records: personaRecords(recs) });
+const venue = (fin as { venue?: string }).venue;
+const runEnv = venue && venue !== "rinker-hall" && venue in VENUES ? loadEnv(loadVenue(venue as VenueId)) : simEnv;
+const r = await runShowcase(runEnv, fin.scenario, { backend: "replay", livePersonas: fin.livePersonas, records: personaRecords(recs) });
 console.log(`showcase replay: ${r.hash === fin.hash ? "IDENTICAL final state" : "MISMATCH"} (${r.llmCalls} LLM calls, ${r.records.length} persona decisions replayed)`);
 process.exit(r.hash === fin.hash ? 0 : 1);

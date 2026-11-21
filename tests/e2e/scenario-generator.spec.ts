@@ -18,11 +18,17 @@ test("custom scenario generator: Saturnalia demo preloads, asks for the crowd si
   await expect(reply).toHaveAttribute("data-status", "ready", { timeout: 60_000 });
   await expect(page.getByTestId("scenario-assumptions")).toContainText(/Stage position is not in OSM/);
   await expect(reply).toContainText(/OpenStreetMap contributors/);
+  const before = new URL(page.url()).searchParams.get("channel") ?? "";
   await page.getByTestId("scenario-run").click();
-  await expect.poll(async () => new URL(page.url()).searchParams.get("channel") ?? "", { timeout: 30_000 }).not.toBe("");
-  const channel = new URL(page.url()).searchParams.get("channel")!;
-  const info = await (await request.get(`/api/sim/runs/${encodeURIComponent(channel)}`)).json() as { venue: string; mode: string; scenario: { crowd: { size: number } } };
-  expect(info.venue).toBe("thapar-fete");
+  type RunInfo = { venue: string; mode: string; scenario: { crowd: { size: number } } };
+  let info: RunInfo | null = null;
+  await expect.poll(async () => {
+    const ch = new URL(page.url()).searchParams.get("channel") ?? "";
+    if (!ch || ch === before) return "";
+    info = await (await request.get(`/api/sim/runs/${encodeURIComponent(ch)}`)).json() as RunInfo;
+    return info.venue;
+  }, { timeout: 30_000 }).toBe("thapar-fete");
+  info = info!;
   expect(info.mode).toBe("crowd");
   expect(info.scenario.crowd.size).toBe(1500);
   const plan = page.getByTestId("building3d");

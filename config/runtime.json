@@ -52,5 +52,10 @@
     "confirmConfidence": 0.6,
     "publishConfidence": 0.5,
     "verifierHorizonSec": 420
+  },
+  "crowdBrain": {
+    "maxCalls": 800,
+    "maxInFlight": 8,
+    "timeoutMs": 12000
   }
 }
