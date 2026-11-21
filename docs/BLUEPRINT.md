@@ -736,6 +736,111 @@ For each hazard × profile cell: N = 50 distinct adversarial scenarios (from the
 
 ---
 
+## 9A. Architectural optimisation engine (built 2026-11-21; supersedes the 9.x layout optimiser for structural proposals)
+
+**Question it answers:** what to construct or change, exactly where, why it is needed, and how many more people reach safety as a result. The simulator is the judge throughout; the LLM proposes and explains, and the learned model only decides what to simulate next.
+
+```
+scenario set (same seeds for every candidate)
+   │
+   ├─► DIAGNOSE  src/optimise/diagnose.ts      measure where and why people wait
+   │        │
+   ├─► GENERATE  src/optimise/generate.ts      rule-based geometry from each hotspot
+   │   + CONCEPTS src/optimise/concepts.ts     Opus 5.5 ideas, rebuilt by the same generators or rejected
+   │        │
+   ├─► EVALUATE  src/optimise/evaluate.ts      paired runs, 95% intervals, safe-capacity bisection
+   ├─► SEARCH    src/optimise/search.ts        screen → full runs → pairs → triples (predicted, then simulated)
+   │        │
+   └─► REPORT    src/optimise/architect.ts     ranked alternatives, change plan, quantities, after-diagnosis
+                 → data/design/architect[-venue].json → Optimise page (2D, 3D, numbers)
+```
+
+### 9A.1 Diagnose (simulation analytics, no LLM)
+- **Scenario set:** drill and fire at 1.2× the printed load on three seeds, plus the adversary's worst fire on two seeds (`defaultScenarios`). Every candidate is judged on exactly this set.
+- **Instrumentation:** each tick records a person who is MOVING or DECIDING but stayed in the same cell as *waiting*. That builds a per-cell waiting map, per-person waiting time, and per-door flow over 10 s windows.
+- **Hotspots:** cells above 8% of the peak (at least 2 person-s per run) are grouped by 8-connectivity. Each group is charged to the nearest door or stair head within 25 ft (the constriction it queues behind), and records:
+  - capacity (the simulator's own door or stair rate), peak demand, and how long the door ran at 85%+ of capacity;
+  - the rooms the waiting people started in (the catchment) and the exits they were heading for;
+  - nearby exits with spare capacity.
+- **Failures:** everyone not out by the target is classified as *queue, travel, late start, no step-free route, smoke* or *sealed*, then grouped by where they were.
+- **Layout analytics:** exits that carry far more or fewer people than their share of capacity; rooms whose walking route to the nearest exit is more than 1.5× the straight-line distance.
+
+### 9A.2 Generate (geometry, not advice)
+Each proposal is a `GeometryPatch` (new spaces, doors, exits, stairs, removed or updated doors, cuts through wall barriers). It is applied by `applyEdits`, rasterised and validated like the hand-traced twin.
+
+| Generator | Placement rule |
+|---|---|
+| New exterior exit | ground-floor space edges that lie on the outline, closest to the hotspot; ≥ 2.5 ft from structural grid lines, ≥ 30 ft from existing exits; includes direct discharge from a stair |
+| External stair | façade of an upper-floor space near the hotspot where a 16 × 10 ft footprint is clear on every floor; 48 in stair, flights per floor, a door per floor, ground discharge |
+| Connecting passage | lowest-cost route over rooms that share walls (corridors 1, storage 1.5, offices 4, classrooms and labs 6; restrooms, wards, stairs and lifts excluded) from the hotspot to a spare exit; 44 in openings where no door exists |
+| Remove partition / double door | for door constrictions; partition removal only off the structural grid and ≥ 8 ft long |
+| Widen stair / exit | constrictions at stair heads and exits |
+| Ramp | exits with steps; 1:12 slope from an assumed 21 in rise, plus a landing |
+| Uploaded plans and outdoor venues | new openings in the perimeter nearest the hotspot; widened exits |
+
+Every proposal also carries:
+- **quantities:** doors, m² of wall opened, m of partition removed, m² of new floor, stair flights, m of ramp;
+- **structure:** none, partition or structural. Outside walls and walls on the drawing's structural grid count as structural, and any opening in them is marked *needs a structural engineer*.
+- **access and regulations:** the change in accessibility, and regulatory notes that cite the clause to verify;
+- **drawing shapes:** build (green), remove (red) or modify (amber).
+
+### 9A.3 Opus 5.5 concepts (where the LLM earns its place)
+- **Input:** Opus reads the diagnosis (summary, hotspots, exits, failures, detours) and the room layout (spaces, uses, adjacency, outside walls, doors). It returns a plain-language interpretation plus 4–8 typed concepts (kind, hotspot, floor, spaces or route, element, rationale).
+- **What it adds:** reasoning about room use (route through storage rather than a lab) and combinations that the fixed rules do not try.
+- **Compilation:** `compile()` rebuilds each concept with the same generators and checks. A concept that cannot be built is rejected with a reason, for example "no façade clear on every floor", "route passes through a restroom" or "unknown space".
+- **Interpretation guard:** the interpretation is dropped if it quotes a number that is not in the diagnosis.
+- **No reported numbers:** Opus never supplies a reported number.
+- **Ablation:** the report records how many Opus concepts were built and how many appear in the top 3.
+
+### 9A.4 Evaluate, search and learn
+- **Paired evaluation:** baseline and candidate run the same scenarios and seeds. Differences per run give the mean and a 95% interval for:
+  - people out by the target;
+  - time for 95% out (capped at the horizon);
+  - badness.
+- **Successive halving:** every single proposal is screened on 4 runs. The best 6 are re-run on the full set, and all their pairs are simulated.
+- **Learned predictor for triples:** a ridge regression is trained on the simulated pairs. Its inputs are the sum and best of the single effects, shared hotspot and shared kind. It ranks all triples, and the top 5 are simulated.
+- **Validation:** all triples are also simulated, and the rank correlation is reported for both ridge and plain addition of single effects.
+- **When the predictor is used:** only if the rank correlation is at least 0.7 and the best triple is among its picks. If plain addition is as good, the simpler rule is used. Otherwise every triple is simulated and no runs are saved.
+- **Why no learned congestion model:** a simulation costs 0.1–0.4 s here, so the congestion map comes from simulation, and a learned congestion predictor did not earn its place at this scale.
+- **Ranking:**
+  - a set of alternatives where none is beaten on all of safety gain, effort and structural changes;
+  - a weighted score with editable weights (`config/architect.json`: safety 0.6, effort 0.25, structural 0.15);
+  - effort in relative units from the quantities, ×1.5 for structural work. Not money.
+- **Safe capacity:** bisection on the load factor (or crowd size) for the largest crowd where every test run gets everyone out by the target with no gridlock. It is computed for the baseline and for the three alternatives with the largest safety gain. "Extra people" is the difference.
+
+### 9A.5 Show
+- **API:** `/api/architect/run` runs the analysis as a background job with progress, `/api/architect/status` reports it, and `/api/architect/report?venue=` serves the latest result.
+- **Optimise page, "Architectural changes":**
+  - safe capacity, extra people out at the same crowd, time for 95% out, and the number of simulations;
+  - a 2D plan per floor with the waiting map (now, after the best alternative, or the difference), hotspots, and the selected alternative's shapes;
+  - a 3D view with new construction as solid green blocks;
+  - the diagnosis with Opus's interpretation, what to build and why with structure and regulations, the ranked table, and the method note.
+
+### 9A.6 Result on Rinker Hall (2026-11-21; 8 paired runs, 392 simulations, about 2.5 minutes)
+- **Main cause:** the south stair's exterior door, about 68% of all waiting in the test set, which includes the adversary's worst fire.
+- **Top alternative:** widen that door from 34 to 70 in.
+  - people out by the target: +19.6 ± 26.6 at the same crowd;
+  - time for 95% out: −175 ± 157 s;
+  - effort 5.6 units; needs a structural engineer.
+- **Safe capacity:** 362 people → 556 with the door widening, a double door upstairs and an external stair (+194).
+- **Opus:** 8 concepts, 6 built, 2 rejected; 3 of the top 3 include an Opus concept.
+- **Predictor:** rank correlation 0.74 (ridge) vs 0.77 (addition), best triple found, so addition is used and would save 120 simulations.
+- **Confidence intervals are wide:** the two worst-case runs dominate the differences, so more seeds narrow them.
+
+## 9B. Custom scenarios, venues and uploaded plans (built 2026-11-21)
+- **Scenario generator:** one text box goes to Opus 5.5 (`src/scenario/`). Crowd size, age groups and event type are required, and the server re-checks them. Defaults come back as listed assumptions, and an offline keyword parser takes over without a key.
+- **Haiku crowd brain:** `src/policy/crowdbrain.ts` makes one decision per group of people who share role, mobility, situation and options; each person draws their own choice from it. Calls are budgeted, with the distilled policy, then rules, as fallback.
+- **Venues:** a registry (`src/twin/build.ts`) of built-in twins plus saved uploaded plans. The Thapar Fete Area comes from OpenStreetMap (`npm run venue:osm`, ODbL).
+- **Uploaded plans:** PDF, PNG or JPEG, stored in git-ignored `data/uploads/`.
+  - **Tracing:** Opus 5.5 traces outline, walls, doors, exits, obstacles, labels and scale in pixel coordinates (`src/plans/`). The draft is validated, and errors are sent back for one repair.
+  - **Editor:** `/plans` lets the user drag, add, delete, set the scale with two clicks, and add doors to sealed rooms.
+  - **Benchmark** (`npm run plans:benchmark`, `docs/verification/plan-benchmark.md`), Rinker first floor before any correction:
+    - outline IoU 0.958;
+    - scale 0.4% off;
+    - wall recall 91% and precision 92%;
+    - 4 of 5 exits found;
+    - after one click on "Add doors to sealed rooms", all 154 people get out in every seed.
+
 ## 10. Live mode
 
 ### 10.1 Orchestrator and ground truth

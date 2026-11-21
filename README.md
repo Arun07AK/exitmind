@@ -17,6 +17,39 @@ Claude Haiku then acts as the crowd brain. Each person has a profile (role, age,
 
 Below the box, **Try the Saturnalia demo** preloads a description of an evacuation during a Saturnalia concert at Thapar (students aged 18-21, the real venue from OpenStreetMap). Edit it or send it as is; Opus will ask how many people are there.
 
+## Architectural optimisation
+
+**Optimise → Architectural changes** answers: what should be built or changed, where, why, and how many more people reach safety. Full design: `docs/BLUEPRINT.md` section 9A.
+
+1. **Diagnose.** Simulations record where people wait and charge each queue to the door or stair causing it. The result names the rooms feeding each queue, the nearby exits with spare capacity, and why people fail to get out (queue, long walk, late start, no step-free route, smoke).
+2. **Generate.** Code turns each hotspot into real geometry:
+   - new exterior exits, including direct discharge from a stair;
+   - external stairs;
+   - connecting passages through suitable rooms;
+   - partition removal and double doors;
+   - wider stairs and exits;
+   - ramps.
+
+   Claude Opus 5.5 reads the diagnosis and the room layout and proposes further concepts. The same code rebuilds each one or rejects it with a reason.
+3. **Evaluate.** Every option, and the best pairs and triples, runs in the simulator on the same scenarios and seeds as the current layout. That includes the adversary's worst fire. Results are paired differences with 95% intervals.
+4. **Rank.** Options are compared on safety gain, effort (relative units from quantities, not money) and number of structural changes. A weighted score uses editable weights in `config/architect.json`.
+5. **Show.** A 2D plan shows waiting now, after the change, and the difference, with what to build, remove or modify. A 3D view shows the new construction. Each change lists its structural flags and regulatory notes.
+6. **Quantify.** The panel shows extra people out by the target for the same crowd, the change in time for 95% to get out, and safe capacity: the largest crowd that gets out in every test run, before and after.
+
+`npm run architect` (or **Re-run analysis** on the page) takes about 2–3 minutes on Rinker Hall. Results are concepts for professional review: anything that opens an outside or structural wall is marked as needing a structural engineer, and nothing here is a code approval.
+
+## Your own plan
+
+For better accuracy than the built-in venues, upload an architectural floor plan (PDF, PNG or JPEG) at `/plans`, or follow the link in the scenario box. Claude Opus 5.5 traces it. You then correct the draft in the editor, set the scale with two clicks, and save it as a venue that the scenario generator and the optimiser can use. Uploaded plans stay on this computer in git-ignored `data/uploads/` and are sent only to the Claude API for tracing.
+
+Benchmark on Rinker Hall's first floor, before any correction (`docs/verification/plan-benchmark.md`):
+- outline overlap (IoU) 0.958;
+- scale read from a printed dimension, 0.4% off;
+- 91% of real walls found, and 92% of traced walls are real;
+- 4 of 5 exits found.
+
+Untraced doors leave some rooms sealed; one click on **Add doors to sealed rooms** fixed that in the benchmark.
+
 ## What EXITMIND is, and is not
 
 - Results describe **this model under stated assumptions**. They say nothing about whether the real Rinker Hall is safe.
@@ -50,6 +83,8 @@ npm run demo                      # THE demo: builds the web app, serves on 0.0.
 | `npm run bottlenecks` / `adversary` / `optimise` / `rate` / `playbook` | design-mode pipelines; results go to `data/design/` and show under Optimise → Analyses |
 | `npm run personas:collect` / `distill` | record live LLM persona runs (needs a key), then distil them into `data/policy/distilled.policy.json` |
 | `npm run bakeoff` / `results:table` | persona backend comparison and the rule-only / hybrid / distilled table, written to `docs/verification/` |
+| `npm run architect -- --venue <id>` | architectural optimisation for a venue (`--no-opus` for rule-based only); writes `data/design/architect*.json` |
+| `npm run plans:benchmark` | traces Rinker A102 with Opus 5.5 and compares it with the hand-traced twin (`-- --reuse` skips the API call) |
 | `npm run venue:osm` | rebuilds the Fete Area twin from the saved OSM extract (`-- --fetch` re-downloads it) |
 | `npm run replay -- <log.jsonl>` | replays a recorded showcase run or live session and checks the final state is identical |
 

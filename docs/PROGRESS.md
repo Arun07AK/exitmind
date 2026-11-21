@@ -39,7 +39,7 @@ for f in data/fixtures/showcase_*.jsonl data/fixtures/table_hybrid_*.jsonl; do n
 
 If a persona replay reports MISMATCH after a simulator change, re-collect (needs the Anthropic key, roughly 1,000 short Haiku calls): `npm run personas:collect -- --runs 6 --personas 24 && npm run personas:collect -- --instructed && npm run personas:collect -- --table && npm run distill`.
 
-## In progress: plan upload, then the architectural optimisation engine (started 2026-11-21)
+## Plan upload and architectural optimisation engine (2026-11-21): done
 
 Arun's decisions: PDF and image plans, traced by Opus 5.5 with a full editor; plan upload first, then the optimisation engine; build all phases straight through, commit at each phase.
 
@@ -49,14 +49,31 @@ Arun's decisions: PDF and image plans, traced by Opus 5.5 with a full editor; pl
 | U2 | Opus 5.5 traces outline, walls, doors, exits, obstacles -> twin; validator feedback, one repair pass | stub tests; one live trace | done (`da118cd`) |
 | U3 | editor over the plan (drag/add/delete), live validation, save as a venue | Playwright | done (`e6f9e69`) |
 | U4 | accuracy benchmark: Opus traces Rinker A102 (first floor), compared with the hand-traced F1 | `docs/verification/plan-benchmark.md` | done (`3ab1aa9`) |
-| A1 | diagnosis: per-cell queue/density, delay attribution per element, hotspots + catchments, geometry analytics | known-bottleneck test building; Rinker agrees with bottleneck finder | in progress |
-| A2 | geometric generators (exit, external stair, corridor/passage, partition removal/second door, ramp, widen) + structural, code and accessibility rules | every generated twin validates; known effects reproduce | pending |
-| A3 | paired evaluation on common seeds, hydraulic estimate, learned surrogate, successive halving, safe-capacity bisection | rank correlation and runs saved reported | pending |
-| A4 | combination (beam) search, Pareto ranking, Opus concepts compiled by the generators | rejected concepts carry reasons; with/without-Opus ablation | pending |
-| A5 | Optimise UI: diagnosis map, ranked alternatives, 2D/3D change plan, before/after/difference heatmaps, quantification | Playwright | pending |
-| A6 | BLUEPRINT, README, PROGRESS | full `npm test` | pending |
+| A1 | diagnosis: per-cell queue/density, delay attribution per element, hotspots + catchments, geometry analytics | known-bottleneck test building; Rinker agrees with bottleneck finder | done (`ccdfc69`) |
+| A2 | geometric generators (exit, external stair, corridor/passage, partition removal/second door, ramp, widen) + structural, code and accessibility rules | every generated twin validates; known effects reproduce | done (`7ac86dd`, `4fe0c9d`) |
+| A3 | paired evaluation on common seeds, learned predictor for combinations (validated against simulation), successive halving, safe-capacity bisection | rank correlation and runs saved reported | done (`af65b1d`); hydraulic estimate dropped (a simulation is 0.1-0.4 s here) |
+| A4 | combination search, Pareto ranking, Opus concepts compiled by the generators | rejected concepts carry reasons; ablation in the report | done (`af65b1d`) |
+| A5 | Optimise UI: diagnosis map, ranked alternatives, 2D/3D change plan, before/after/difference heatmaps, quantification | Playwright | done (`a5d40c0`) |
+| A6 | BLUEPRINT (sections 9A, 9B), README, PROGRESS, AGENTS | full `npm test` | done |
 
-Resume: `git log --oneline | head`, then continue with the first phase above that is not done. Nothing runs in the background.
+**Evidence**
+
+- Plan tracing benchmark: `docs/verification/plan-benchmark.md` (outline IoU 0.958, scale 0.4% off, walls 91% / 92%, 4 of 5 exits; one click adds the 4 missing doors and all 154 people get out).
+- `npm run architect` on Rinker Hall (8 paired runs, 392 simulations, 156 s):
+  - main cause: the south stair exterior door, 68% of waiting;
+  - top alternative: widen it to 70 in, +19.6 ± 26.6 people out by the target, −175 ± 157 s for 95% out;
+  - safe capacity 362 → 556 people (+194) with A20 (door widening + double door upstairs + external stair);
+  - Opus: 8 concepts, 6 built, 2 rejected (external stairs with no façade clear on every floor); 3 of the top 3 include an Opus concept;
+  - combination predictor: ridge 0.74 vs addition 0.77, best triple found, so addition is used (would save 120 simulations).
+- Tests: `architect.test.ts` (6), `plans.test.ts` (6), e2e `plan-editor.spec.ts` and `architect.spec.ts`.
+
+**Gaps**
+
+- Paired intervals are wide because the two worst-case runs dominate the differences; more seeds would narrow them.
+- Structure is inferred (outside walls and grid-line walls), not read from structural drawings; regulatory notes cite clauses to verify, not checked code compliance.
+- Effort is relative units, not cost.
+- Uploaded plans are one level; stairs between floors are not traced. The tracer missed one of five exits on Rinker and most interior doors at 5.9 px/ft.
+- The optimiser has run on Rinker Hall only; uploaded plans and the Fete Area use the simpler venue generators (new perimeter openings, wider exits).
 
 ## Custom Emergency Scenario Generator (2026-11-21): done
 

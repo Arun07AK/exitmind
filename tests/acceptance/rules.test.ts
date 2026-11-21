@@ -87,7 +87,11 @@ describe("constraints", () => {
 
   it("no camera or personal data: no media capture APIs, no name/phone/email fields", () => {
     const all = [...SRC, ...WEB].map(read).join("\n");
-    expect(all).not.toMatch(/getUserMedia|mediaDevices|navigator\.geolocation|input[^>]*type=["']file|capture=/);
+    expect(all).not.toMatch(/getUserMedia|mediaDevices|navigator\.geolocation|capture=/);
+    // The only file input is the architectural plan upload: plan files only, no camera capture.
+    const fileInputs = [...SRC, ...WEB].filter((f) => /input[^>]*type=["']file/.test(read(f)));
+    expect(fileInputs.map((f) => f.replace(repoPath(), ""))).toEqual(["/web/src/pages/PlanEditor.tsx"]);
+    expect(read(fileInputs[0]!)).toMatch(/type="file" accept="application\/pdf,image\/png,image\/jpeg"/);
     expect(all).not.toMatch(/phoneNumber|emailAddress|fullName|dateOfBirth/);
   });
 
