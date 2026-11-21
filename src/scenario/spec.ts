@@ -81,7 +81,7 @@ export const QUESTION: Record<Required, string> = {
   event_type: "What kind of event is it (concert, fest, lecture, exam, sports, conference, exhibition)?",
 };
 
-export interface VenueInfo { id: string; label: string; kind: string; exits: { id: string; name: string }[]; zones: { id: string; name: string }[]; capacityHint: string; hasStage: boolean }
+export interface VenueInfo { id: string; label: string; kind: string; exits: { id: string; name: string }[]; zones: { id: string; name: string }[]; capacityHint: string; stage: string | null; assumptions: string[] }
 
 export function venueInfo(id: string, twin: Twin): VenueInfo {
   return {
@@ -89,6 +89,13 @@ export function venueInfo(id: string, twin: Twin): VenueInfo {
     exits: twin.exits.filter((e) => e.kind === "exterior").map((e) => ({ id: e.id, name: e.name })),
     zones: twin.zones.map((z) => ({ id: z.id, name: z.name })),
     capacityHint: twin.venue ? `${Math.round(twin.codeBasis.grossAreaSqft.F1 * 0.0929)} m2 open ground; up to 8,000 people can be simulated` : "printed occupant load 462 (154 / 157 / 151 per floor)",
-    hasStage: !!twin.venue?.stage,
+    stage: (() => {
+      const st = twin.venue?.stage;
+      if (!st) return null;
+      const x = st.reduce((a, p) => a + p[0], 0) / st.length;
+      const z = twin.zones.find((zz) => x >= zz.xRangeFt[0] && x < zz.xRangeFt[1]);
+      return `stage at the middle of the north edge, facing south, in zone ${z?.id ?? "?"} (${z?.name ?? ""}); the crowd faces it`;
+    })(),
+    assumptions: twin.venue?.assumptions ?? [],
   };
 }

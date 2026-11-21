@@ -23,7 +23,7 @@ function systemPrompt(venues: VenueInfo[]): string {
 export function finalise(reply: AgentReply, venues: VenueInfo[], source: AgentResult["source"], model: string | null): AgentResult {
   const missing = [...new Set([...reply.missing, ...missingRequired(reply.spec)])];
   const questions = [...reply.questions];
-  for (const k of missing) if (!questions.some((q) => q.toLowerCase().includes(k.split("_")[0]!))) questions.push(QUESTION[k]);
+  if (questions.length < missing.length) for (const k of missing.slice(questions.length)) questions.push(QUESTION[k]);
   const venue = venues.find((v) => v.id === reply.spec.venue);
   const exitIds = new Set(venue?.exits.map((e) => e.id) ?? []);
   const assumptions = [...reply.assumptions];
