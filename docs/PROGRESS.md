@@ -39,16 +39,41 @@ for f in data/fixtures/showcase_*.jsonl data/fixtures/table_hybrid_*.jsonl; do n
 
 If a persona replay reports MISMATCH after a simulator change, re-collect (needs the Anthropic key, roughly 1,000 short Haiku calls): `npm run personas:collect -- --runs 6 --personas 24 && npm run personas:collect -- --instructed && npm run personas:collect -- --table && npm run distill`.
 
-## In progress: Custom Emergency Scenario Generator (started 2026-11-21)
+## Custom Emergency Scenario Generator (2026-11-21): done
 
-Arun's decisions: venue = Thapar **Fete Area** (Saturnalia 2026 concert venue), map source = **OpenStreetMap** (ODbL), crowd brain = **Haiku group decisions**, build all four phases without stopping.
+Arun's decisions: venue = Thapar **Fete Area**, map source = **OpenStreetMap** (ODbL), crowd brain = **Haiku group decisions**, all four phases built without stopping.
 
-| Phase | Builds | Verified by | Status |
-|---|---|---|---|
-| A | `npm run venue:osm` imports the Fete Area from OSM into `data/twin/thapar-fete.twin.json`; gates/stage not in OSM are labelled assumptions | twin validates, area matches OSM, drill runs | in progress |
-| B | Opus 5.5 scenario agent: one text box, asks for missing crowd size / age groups / event type, lists assumptions; offline keyword parser | tests with a stub; one live Opus check | pending |
-| C | Haiku crowd brain: profiles with entry gate and familiarity; one Haiku decision per group of people in the same situation; rerouting | staff vs first-time visitor test; replay identical; live Haiku run | pending |
-| D | Scenario box, Opus conversation, assumptions panel, Run; "Try the Saturnalia demo" card that preloads the box | Playwright e2e | pending |
+| Phase | Built | Evidence |
+|---|---|---|
+| A Venue | `npm run venue:osm`: OSM way 396666360 -> `data/twin/thapar-fete.twin.json` (281,848 sq ft, 4 gates where OSM paths meet the boundary, assumed stage); crowd specs with entry gates; unannounced blocked exits | `venue.test.ts` (4): twin = build of saved extract, walkable area within 3% of OSM minus stage, 1,200-person evacuation with no gridlock, blocked gate discovered and rerouted around |
+| B Opus agent | `src/scenario/`: one text box -> `claude-opus-5-5` with a strict JSON schema; server re-checks the three required fields; offline keyword parser | `scenario-agent.test.ts` (4). Live: Saturnalia text -> one question (crowd size, 13.5 s); answer -> ready scenario with 9 assumptions (13.8 s) |
+| C Crowd brain | `src/policy/crowdbrain.ts`: one Haiku call per group in the same situation, each person samples; fallback distilled -> rule | `crowdbrain.test.ts` (3, stub): visitors head for their entry gate on 96% of first decisions vs staff 2%; replay identical; Haiku down -> everyone falls back and gets out |
+| D UI | Scenario sheet: text box, Opus conversation, assumptions panel, Run; "Try the Saturnalia demo" card preloads the box; 2D/3D load the run's venue | `scenario-generator.spec.ts` (passed 3 of 3 runs after a fix) |
+
+**Live Haiku crowd-brain run** (Saturnalia concert, 1,500 students aged 18-21, fire at the stage front, main gate G1 blocked; `data/fixtures/crowd_saturnalia_haiku.jsonl`):
+
+```
+n=1500 wall 264 s; Haiku calls 800 {"ok":684,"error":111,"timeout":5}; decisions 8358 by source {"llm:haiku":8004,"fallback:distilled":275,"fallback:rule":79}
+first decision heads for own entry gate: first-time visitors 50% of 445, regular students 35% of 987, staff 31% of 68
+c95 428.5s, not out 0, gridlock false, exits {"EX-G1":0,"EX-G2":519,"EX-G3":690,"EX-G4":291}
+replay: IDENTICAL final state, 0 LLM calls
+```
+
+**Found and fixed on the way**
+
+- People who discovered a blocked gate kept following its static sign back to it (fixed in `context.ts` and `#readSign`).
+- Open-air smoke used the indoor model and filled the whole ground in 15 minutes; it now stays within an assumed 35 m plume.
+- "Near the stage" was placed at the centre of the stage's zone; the agent can now say `STAGE`.
+- Group checks and group following were O(n²); now member lists.
+- The e2e test read the boot run's channel instead of the new run's.
+
+**Gaps**
+
+- 111 of the 800 live Haiku calls returned errors. The error text was not captured; at 8 concurrent requests this is most likely API rate limiting. Those people used the fallback policy.
+- The 800-call budget was used up in that run.
+- The behaviour difference (visitors 50% vs staff 31% towards their entry gate) comes from Haiku, not from a validated model of real crowds.
+- The venue's gates, stage and perimeter are assumptions on top of OSM. Nobody has checked them against the real Saturnalia layout.
+- Code check, playbook, optimiser and rating cover Rinker Hall only, not the Fete Area.
 
 ## Open items (Arun)
 

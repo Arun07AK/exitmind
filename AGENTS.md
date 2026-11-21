@@ -33,6 +33,7 @@ EXITMIND: building-egress design platform plus an agentic live-incident system. 
 | `npm run bottlenecks`, `adversary -- --hazard fire --seeds 1,2,3`, `optimise -- --hazard fire --seeds 1,2,3`, `rate`, `playbook` | design pipelines; write `data/design/*.json` and `data/playbook/rinker.playbook.json`. Add `--policy rule` to force the rule-based crowd. |
 | `npm run personas:collect` (`-- --instructed`, `-- --table`), `distill`, `bakeoff`, `results:table` | persona logs into `data/fixtures/` (needs a key), distilled policy, comparison docs in `docs/verification/` |
 | `npm run replay -- <log.jsonl>` | replay a showcase log or a live session log (`runs/live/*.jsonl`) and compare state hashes |
+| `npm run venue:osm` | rebuild the Fete Area twin from the saved OSM extract (`-- --fetch` re-downloads from Overpass; build time only) |
 
 Verification for any change: run `npm test` and paste the tail of its output as evidence. After changing anything in `src/sim` or `config/*.json`, the design outputs in `data/design/`, the playbook and the distilled policy are stale: re-run the pipelines (about 15 minutes in total) and the persona replays (`for f in data/fixtures/*.jsonl; do node src/cli/replay.ts $f; done`). A simulator change breaks replay of recorded persona logs unless the decision points stay identical; re-collect if replays report MISMATCH.
 
@@ -71,6 +72,7 @@ Verification for any change: run `npm test` and paste the tail of its output as 
 config/        behaviour.params.json  hazards.json  profiles.json  runtime.json  templates.json
                optimiser.costs.json  demo.json  references.json
 data/twin/     rinker/*.ts (traced sources, frames.json)  rinker.twin.json (built)
+               thapar-fete/osm.json (OSM extract, ODbL)  thapar-fete.twin.json (built by npm run venue:osm)
 data/design/   bottlenecks, adversary(-fire/-quake), optimiser, rating, playbook (.json, generated)
 data/playbook/ rinker.playbook.json      data/policy/ distilled.policy.json
 data/fixtures/ recorded Haiku persona logs (showcase_*, table_hybrid_*), decision_points.json
@@ -78,7 +80,9 @@ src/shared/    rng hash ids units paths params runtime env geom
 src/log/       events eventlog clock
 src/twin/      schema build validate raster augment edit candidates synthetic (test buildings)
 src/sim/       types constants model fields hazards population world run scenario
-src/policy/    types context rule personas (Haiku, Jev) distilled replay showcase
+src/policy/    types context rule personas (Haiku, Jev) crowdbrain (Haiku group decisions) distilled replay showcase
+src/scenario/  spec (schema, required fields) agent (Opus 5.5) lexicon (offline parser) build (spec -> Scenario)
+src/venue/     osm (OpenStreetMap extract -> outdoor twin)
 src/llm/       claude typesafe guard (allow-list, deadlines, call records)
 src/design/    codecheck protocols prepare evaluate worker pool space adversary bottleneck
                optimiser rating playbook nl2params

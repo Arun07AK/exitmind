@@ -6,6 +6,17 @@ No action reaches a person until three keys turn: **an AI agent decides, a simul
 
 > **Status:** Phases 0-7 are built. Phase 8 (open-ground event layout, stretch) is not started. Results, evidence, deviations and known gaps are in [`docs/PROGRESS.md`](docs/PROGRESS.md); the design is in [`docs/BLUEPRINT.md`](docs/BLUEPRINT.md).
 
+## Custom emergency scenario generator
+
+On the Simulate page, open **Scenario** and describe the emergency in one text box. Claude Opus 5.5 turns the description into a scenario:
+
+- **Required:** crowd size, age groups and event type. If any is missing, Opus asks for it (the server re-checks, so a reply cannot skip one).
+- **Optional:** venue (Rinker Hall, or the Thapar Fete Area), emergency type and where it starts, mobility needs, blocked exits, other conditions. Defaults are listed as assumptions, together with the venue's own assumptions, before you press **Run simulation**.
+
+Claude Haiku then acts as the crowd brain. Each person has a profile (role, age, mobility, whether they know the venue, the gate they came in through). People in the same situation share one Haiku decision and each draws their own choice from it, so a 1,500-person concert needs a few hundred calls instead of thousands. Blocked exits are not announced: people discover them when they get close and reroute. Every decision is logged, so a run replays to the identical state with no LLM calls. Without a key, the offline keyword parser and the distilled policy take over.
+
+Below the box, **Try the Saturnalia demo** preloads a description of an evacuation during a Saturnalia concert at Thapar (students aged 18-21, the real venue from OpenStreetMap). Edit it or send it as is; Opus will ask how many people are there.
+
 ## What EXITMIND is, and is not
 
 - Results describe **this model under stated assumptions**. They say nothing about whether the real Rinker Hall is safe.
@@ -39,6 +50,7 @@ npm run demo                      # THE demo: builds the web app, serves on 0.0.
 | `npm run bottlenecks` / `adversary` / `optimise` / `rate` / `playbook` | design-mode pipelines; results go to `data/design/` and show under Optimise → Analyses |
 | `npm run personas:collect` / `distill` | record live LLM persona runs (needs a key), then distil them into `data/policy/distilled.policy.json` |
 | `npm run bakeoff` / `results:table` | persona backend comparison and the rule-only / hybrid / distilled table, written to `docs/verification/` |
+| `npm run venue:osm` | rebuilds the Fete Area twin from the saved OSM extract (`-- --fetch` re-downloads it) |
 | `npm run replay -- <log.jsonl>` | replays a recorded showcase run or live session and checks the final state is identical |
 
 Demo script (3 minutes): `/live` -> Start fire -> read the decision card -> Approve -> phones change -> Inject bad plan (FAIL, needs an override reason) -> Fail a sensor (confidence drops, signs hold) -> Reset -> Start earthquake (a different protocol) -> Approve -> All clear -> `/report`.
@@ -78,10 +90,10 @@ Versions are pinned exactly. Every version was published at least 7 days before 
 
 | API | Used for | Without a key or network |
 |---|---|---|
-| Claude API (Anthropic), `api.anthropic.com` | Planner and Liaison agents, Haiku persona backend, plain-language parsing | playbook, templates, distilled policy, keyword lexicon |
+| Claude API (Anthropic), `api.anthropic.com` | Scenario agent (Claude Opus 5.5, `claude-opus-5-5`), crowd brain and persona backend (Claude Haiku 5.5), Planner and Liaison agents (Sonnet / Haiku), plain-language parsing | offline keyword parser, distilled policy, playbook, templates |
 | TypeSafe System One API, `api.typesafe.ai` | Jev persona backend (typed choices with probabilities). **Not exercised against the live API in this build: no TypeSafe key was available; the adapter is tested against a stub only.** | distilled policy; Haiku backend |
 
-The server's outbound HTTP is restricted to these two hosts.
+The server's outbound HTTP is restricted to these two hosts. `npm run venue:osm -- --fetch` (build time only, never the server) also queries the OpenStreetMap Overpass API at `overpass-api.de`; the extract it saves is committed, so nothing is fetched at run time.
 
 ## Data sources
 
@@ -99,6 +111,8 @@ Rinker Hall, M.E. Rinker, Sr. School of Building Construction, University of Flo
 The sheets remain the property of their architects. They are downloaded by script into a git-ignored folder and are not redistributed here. The committed digital twin is this project's own tracing, with every element linked to its sheet.
 
 Code basis printed on sheet A107: 1997 Standard Building Code and 1994 ANSI/NFPA 101 Life Safety Code.
+
+**Fete Area, Thapar Institute of Engineering & Technology (TIET), Patiala** (the Saturnalia concert ground). Outline and surrounding paths from OpenStreetMap: way 396666360 ("Fete Area") and the paths and service roads within 250 m, fetched from the Overpass API on 2026-11-21. © OpenStreetMap contributors, available under the [Open Database License (ODbL)](https://www.openstreetmap.org/copyright). The raw extract is `data/twin/thapar-fete/osm.json`; the derived twin `data/twin/thapar-fete.twin.json` is likewise ODbL. Gates are placed where OSM paths meet the boundary; the stage position, gate widths and which gate is "main" or "backstage" are EXITMIND assumptions, listed in the twin and shown before every run. Google Maps was not used (its terms do not allow building a model from its map data).
 
 ## Behaviour parameters and literature
 
@@ -150,4 +164,6 @@ These are EXITMIND's own choices, not facts about the building or findings from 
 - **Clearance targets** (`config/runtime.json`): 600 s for fire and crush, 720 s for earthquake, 300 s for a threat. They are reviewer settings and every rating depends on them.
 - **Sign mount positions, zones (north / central / south bands), optimiser costs and the badness weights** are EXITMIND defaults. Optimiser costs are illustrative units, not estimates.
 - **Sensors** are simulated. The fire alarm panel is modelled as an input EXITMIND can only read.
+- **Outdoor venue (Fete Area).** Flat open ground following the OSM outline, no barriers or stalls inside; a 90 x 40 ft stage at the middle of the north edge; four gates where paths meet the boundary (20 ft main, 12 ft others). People notice gates within 60 m, find out a gate is blocked within 15 m of it, and smoke from an open-air fire stays within 35 m of it. Attendees came in through the main gates and staff through the backstage gate.
+- **Crowd brain groups.** People share a Haiku decision when their role, mobility, situation and available options match; up to 800 calls per run (`config/runtime.json` `crowdBrain`), after which the distilled policy decides.
 - **Persona behaviour** is modelled behaviour, not validated against real evacuations. The distilled policy is built from 596 Claude Haiku decisions on Rinker Hall scenarios.
