@@ -30,34 +30,50 @@ function boundsOf(twin: Twin): [number, number, number, number] {
   return Number.isFinite(x0) ? [x0, y0, x1, y1] : [0, 0, 100, 100];
 }
 
-let pending: Promise<Geometry> | null = null;
+let venue = "rinker-hall";
+const listeners = new Set<() => void>();
+const cache = new Map<string, Promise<Geometry>>();
 
-export function loadGeometry(): Promise<Geometry> {
-  pending ??= Promise.all([getJSON<Twin>("/api/twin"), getJSON<GridInfo>("/api/grid")]).then(([twin, grid]) => {
-    const walk = grid.floors.map((f) => b64ToBytes(f.walkable));
-    const win5 = grid.floors.map((f, i) => boxSum(Float32Array.from(walk[i]!), f.w, f.h, 2, new Float32Array(f.w * f.h)));
-    return { twin, grid, walk, win5, bounds: boundsOf(twin) };
-  }).catch((e: unknown) => {
-    pending = null;
-    throw e;
-  });
-  return pending;
+export function currentVenue(): string { return venue; }
+export function setVenue(v: string): void {
+  if (v === venue) return;
+  venue = v;
+  for (const l of listeners) l();
+}
+
+export function loadGeometry(v = venue): Promise<Geometry> {
+  let p = cache.get(v);
+  if (!p) {
+    const q = `?venue=${encodeURIComponent(v)}`;
+    p = Promise.all([getJSON<Twin>(`/api/twin${q}`), getJSON<GridInfo>(`/api/grid${q}`)]).then(([twin, grid]) => {
+      const walk = grid.floors.map((f) => b64ToBytes(f.walkable));
+      const win5 = grid.floors.map((f, i) => boxSum(Float32Array.from(walk[i]!), f.w, f.h, 2, new Float32Array(f.w * f.h)));
+      return { twin, grid, walk, win5, bounds: boundsOf(twin) };
+    }).catch((e: unknown) => {
+      cache.delete(v);
+      throw e;
+    });
+    cache.set(v, p);
+  }
+  return p;
 }
 
 export function useGeometry(): { geo: Geometry | null; error: string | null } {
   const [geo, setGeo] = useState<Geometry | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [v, setV] = useState(venue);
+  useEffect(() => { const l = () => setV(venue); listeners.add(l); return () => { listeners.delete(l); }; }, []);
   useEffect(() => {
     let alive = true;
     let timer = 0;
-    const attempt = () => loadGeometry().then((g) => { if (alive) { setGeo(g); setError(null); } }).catch((e: unknown) => {
+    const attempt = () => loadGeometry(v).then((g) => { if (alive) { setGeo(g); setError(null); } }).catch((e: unknown) => {
       if (!alive) return;
       setError(e instanceof Error ? e.message : String(e));
       timer = window.setTimeout(attempt, 3000);
     });
     attempt();
     return () => { alive = false; window.clearTimeout(timer); };
-  }, []);
+  }, [v]);
   return { geo, error };
 }
 

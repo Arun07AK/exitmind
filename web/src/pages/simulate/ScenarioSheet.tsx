@@ -6,6 +6,7 @@ import { Button, cx, EvidenceChip, HazardTag, Segmented, Sheet } from "../../com
 import { useGeometry } from "../../geometry.ts";
 import { loadPresets, OCCUPANCY_LABEL, PROTOCOL_LABEL, useScenario, type CrowdMode, type Preset } from "../../sim/scenario.ts";
 import type { PlanPoint } from "../../views/Plan2D.tsx";
+import { ScenarioGenerator } from "./ScenarioGenerator.tsx";
 
 const NEEDS_ORIGIN: HazardKind[] = ["fire", "threat", "medical"];
 const HAZARD_LABEL: Record<string, string> = { none: "Drill (no hazard)", fire: "Fire", crush: "Crowd crush", quake: "Earthquake", threat: "Threat", medical: "Medical" };
@@ -61,6 +62,7 @@ export function ScenarioSheet({ open, onOpenChange, form, setForm, onPickOrigin 
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange} title="Scenario" description="Pick a ready-made scenario from the design results or build your own." width={460} testId="scenario-sheet">
+      <ScenarioGenerator onStarted={() => onOpenChange(false)} />
       <Segmented label="Scenario source" value={tab} onChange={setTab} options={[{ value: "presets", label: "From design results" }, { value: "custom", label: "Custom" }]} className="mb-4 w-full [&>*]:flex-1" />
       {tab === "presets" ? (
         <div className="flex flex-col gap-2" role="list">

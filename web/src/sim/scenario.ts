@@ -2,6 +2,7 @@ import { create } from "zustand";
 import type { Scenario, SimRunRequest } from "../../../src/server/contract.ts";
 import { getJSON, postJSON } from "../api.ts";
 import { useStore } from "../store.ts";
+import { setVenue } from "../geometry.ts";
 
 export interface Preset { id: string; label: string; hazard: string; description?: string; scenario: Scenario }
 
@@ -32,7 +33,8 @@ interface ScenarioState {
   mode: CrowdMode;
   busy: boolean;
   error: string | null;
-  run: (scenario: Scenario, label: string, mode?: CrowdMode) => Promise<void>;
+  venue: string;
+  run: (scenario: Scenario, label: string, mode?: CrowdMode, venue?: string) => Promise<void>;
 }
 
 export const lastSim = { channel: null as string | null };
@@ -44,11 +46,13 @@ export const useScenario = create<ScenarioState>()((set, get) => ({
   mode: "rule",
   busy: false,
   error: null,
-  run: async (scenario, label, mode = get().mode) => {
+  venue: "rinker-hall",
+  run: async (scenario, label, mode = get().mode, venue = "rinker-hall") => {
     set({ busy: true, error: null });
     try {
-      const r = await postJSON<{ channel: string }>("/api/sim/run", { scenario, mode, speed: 0 } satisfies SimRunRequest);
-      set({ scenario, label, mode, busy: false, channel: r.channel });
+      setVenue(venue);
+      const r = await postJSON<{ channel: string }>("/api/sim/run", { scenario, mode, speed: mode === "crowd" ? 2 : 0, venue: venue as SimRunRequest["venue"] } satisfies SimRunRequest);
+      set({ scenario, label, mode, busy: false, channel: r.channel, venue });
       lastSim.channel = r.channel;
       useStore.getState().setChannel(r.channel, { autoplay: true, follow: false });
       const u = new URL(location.href);
@@ -65,7 +69,8 @@ export async function adoptRun(channel: string): Promise<void> {
   const st = useScenario.getState();
   if (st.channel === channel && st.scenario) return;
   try {
-    const info = await getJSON<{ scenario: Scenario; mode: CrowdMode }>(`/api/sim/runs/${encodeURIComponent(channel)}`);
+    const info = await getJSON<{ scenario: Scenario; mode: CrowdMode; venue?: string }>(`/api/sim/runs/${encodeURIComponent(channel)}`);
+    setVenue(info.venue ?? "rinker-hall");
     const list = await loadPresets();
     const p = list.find((x) => x.scenario.id === info.scenario.id);
     useScenario.setState({ channel, scenario: info.scenario, mode: info.mode, label: p?.label ?? "Custom run" });
