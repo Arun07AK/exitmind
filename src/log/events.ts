@@ -16,6 +16,7 @@ export const EVENT_TYPES = [
   "liaison.brief", "historian.report",
   "persona.decision", "persona.decision.rejected",
   "playbook.updated", "policy.updated", "library.scenario_added",
+  "demo.control", "sign.state_sent",
 ] as const;
 export type EventType = (typeof EVENT_TYPES)[number];
 

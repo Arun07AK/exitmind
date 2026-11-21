@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <title>EXITMIND sign</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #000; color: #fff; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; overflow: hidden; }
+      #sign { position: fixed; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3vmin; box-sizing: border-box; }
+      #sign[data-sign-kind="ARROW"], #sign[data-sign-kind="STATIC_DEFAULT"] { background: #007a3d; }
+      #sign[data-sign-kind="X_ALT"] { background: #111; }
+      #sign[data-sign-kind="HOLD"] { background: #f5a300; color: #000; }
+      #sign[data-sign-kind="LOCKDOWN"] { background: #14141c; }
+      .glyph { width: 60vmin; height: 60vmin; max-height: 48vh; flex: none; }
+      .row { display: flex; align-items: center; justify-content: center; gap: 4vmin; }
+      .stack { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2vmin; }
+      .pair .glyph { width: 42vmin; height: 42vmin; }
+      .big { font-size: 15vmin; font-weight: 900; line-height: 1.05; letter-spacing: 0.02em; margin: 2vmin 0; overflow-wrap: break-word; max-width: 100%; }
+      .mid { font-size: 8vmin; font-weight: 800; line-height: 1.15; margin: 1vmin 0; overflow-wrap: break-word; }
+      .blocked { position: relative; display: inline-block; padding: 2vmin 5vmin; color: #fff; }
+      .blocked svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+      .alt { background: #007a3d; border-radius: 3vmin; padding: 2vmin 4vmin; margin-top: 3vmin; width: 92%; box-sizing: border-box; }
+      .alt .glyph { width: 34vmin; height: 34vmin; }
+      .note { position: fixed; left: 0; right: 0; bottom: 0; font-size: 4vmin; color: #e2e8f0; background: #333; padding: 1.5vmin; text-align: center; }
+      .note[hidden] { display: none; }
+      #tap { position: fixed; inset: 0; display: flex; align-items: flex-start; justify-content: center; padding-top: 3vmin; background: transparent; font-size: 5vmin; font-weight: 800; color: #fff; cursor: pointer; }
+      #tap span { background: #000; border: 0.6vmin solid #fff; border-radius: 2vmin; padding: 2vmin 4vmin; }
+      #tap[hidden] { display: none; }
+      .pick { position: fixed; inset: 0; overflow: auto; background: #0b1220; padding: 4vmin; text-align: left; }
+      .pick h1 { font-size: 6vmin; margin: 0 0 3vmin; }
+      .pick h2 { font-size: 4.5vmin; margin: 3vmin 0 1.5vmin; color: #94a3b8; }
+      .pick a { display: inline-block; margin: 0 2vmin 2vmin 0; padding: 2.5vmin 4vmin; font-size: 4.5vmin; color: #fff; background: #1e293b; border-radius: 1.5vmin; text-decoration: none; }
+      @media (orientation: landscape) { .stack { flex-direction: row; gap: 5vmin; } .big { font-size: 13vmin; } .glyph { max-height: 70vh; } }
+    </style>
+  </head>
+  <body>
+    <div id="sign" data-testid="sign" data-sign-kind="" data-approved-ref="" data-connection="offline"></div>
+    <div id="note" class="note" data-testid="sign-offline-note" hidden>No connection — showing the standard exit sign</div>
+    <div id="tap" data-testid="sign-activate" hidden><span>Tap to activate sign</span></div>
+    <script type="module" src="/src/sign/sign.ts"></script>
+  </body>
+</html>

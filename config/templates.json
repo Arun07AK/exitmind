@@ -1,0 +1,18 @@
+{
+  "_note": "The only text that may reach occupants. Signs and announcements are assembled from these entries; no LLM text is ever sent to the public.",
+  "sign": {
+    "exit": "EXIT",
+    "exitStair": "EXIT STAIR",
+    "safeArea": "SAFE AREA",
+    "hold": "HOLD — wait for instructions",
+    "stay": "STAY HERE — you are in a safe area",
+    "lockdown": "LOCKDOWN — go into a lockable room, stay out of sight"
+  },
+  "announcement": {
+    "EVACUATE_VIA": "Please leave the building now by {route}. Do not use the elevator.",
+    "EVACUATE_VIA_DELAYED": "Please stay where you are. You will be told when to leave by {route}.",
+    "HOLD": "Please stay where you are and wait for instructions.",
+    "LOCKDOWN": "Lockdown. Go into the nearest room that locks, lock the door and stay out of sight.",
+    "MOVE_TO_COMPARTMENT": "Please move calmly to {route}. Staff will help anyone who needs it."
+  }
+}

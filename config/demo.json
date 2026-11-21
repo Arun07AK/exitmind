@@ -1,0 +1,9 @@
+{
+  "profile": "college",
+  "occupancy": "classes_full",
+  "seed": 2026,
+  "speed": 2,
+  "fire": { "floor": "F2", "at": [55, 20] },
+  "quake": { "damaged": ["ST-B"] },
+  "replanCooldownSec": 20
+}
