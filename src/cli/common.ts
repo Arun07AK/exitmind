@@ -30,13 +30,13 @@ export function ledger(name: string, data: Record<string, unknown>): void {
   writeJson(["runs", name, "ledger.json"], { name, updated: new Date().toISOString(), ...data });
 }
 
-export function setup(workers?: number): { env: SimEnv; ev: Evaluator } {
+export function setup(workers?: number, policy?: "rule" | "distilled"): { env: SimEnv; ev: Evaluator } {
   const env = loadEnv();
   const cands = loadCandidates();
   setExitCandidates(cands);
-  const mode = args().policy === "rule" || !existsSync(repoPath("data", "policy", "distilled.policy.json")) ? "rule" : "distilled";
+  const mode = policy ?? (args().policy === "rule" || !existsSync(repoPath("data", "policy", "distilled.policy.json")) ? "rule" : "distilled");
   setDefaultMode(mode);
-  console.log(`crowd decision policy for bulk runs: ${mode}${mode === "distilled" ? " (data/policy/distilled.policy.json; zero LLM calls)" : " (no distilled policy file, or --policy rule)"}`);
+  console.log(`crowd decision policy for bulk runs: ${mode}${policy ? " (set by this command; --policy distilled|rule)" : mode === "distilled" ? " (data/policy/distilled.policy.json; zero LLM calls)" : " (no distilled policy file, or --policy rule)"}`);
   const ev = makeEvaluator({ workers: workers ?? env.runtime.design.workers, mode });
   return { env, ev };
 }

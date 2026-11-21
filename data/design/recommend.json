@@ -1,0 +1,2567 @@
+{
+ "scenario": {
+  "id": "worst-fire-college",
+  "label": "adversary worst case",
+  "scenario": {
+   "id": "worst-fire-college",
+   "profile": "college",
+   "hazard": {
+    "kind": "fire",
+    "floor": "F1",
+    "at": [
+     64.3,
+     65.9
+    ],
+    "overrides": {
+     "fire.smokeFrontSpeed": 0.443
+    }
+   },
+   "behaviour": {
+    "profile.college.familiarShare": 0.617,
+    "premove.medianSec.college": 178.694,
+    "sign.compliance.base": 0.782,
+    "herding.betaSec": 22.634,
+    "stress.gain.hazard": 0.313,
+    "profile.college.share.wheelchair": 0.015,
+    "profile.college.groupFraction": 0.375
+   },
+   "loadFactor": 1.183,
+   "occupancy": "classes_full",
+   "protocol": "EVACUATE",
+   "seed": 50001,
+   "maxSec": 900
+  }
+ },
+ "hazard": "fire",
+ "profile": "college",
+ "seeds": [
+  88000,
+  88001,
+  88002,
+  88003,
+  88004,
+  88005,
+  88006,
+  88007
+ ],
+ "targetSec": 600,
+ "policy": "rule",
+ "runs": 40,
+ "evidenceRule": "gain = people out by the target, variant minus original on the same seed; validated if mean > 0.5 and mean > 2·SE, worse if mean < -0.5 and |mean| > 2·SE, otherwise no effect",
+ "sources": [
+  "data/design/adversary.json (worst.scenario)",
+  "data/design/optimiser.json (accepted steps)",
+  "data/design/bottlenecks.json (overloaded exits)"
+ ],
+ "original": {
+  "perSeed": [
+   {
+    "seed": 88000,
+    "occupants": 547,
+    "remainingAtTarget": 78,
+    "outByTarget": 469,
+    "clearance95Sec": null,
+    "densityDangerPS": 11295.25,
+    "smokeExposurePS": 46717.58,
+    "crushSec": 678,
+    "gridlock": false,
+    "exitUsage": {
+     "EX-N": 208,
+     "EX-W": 33,
+     "EX-S": 186,
+     "EX-E1": 35,
+     "EX-E2": 49,
+     "ST-A@F3": 0,
+     "ST-A@F2": 0,
+     "ST-B@F3": 0,
+     "ST-B@F2": 0,
+     "ST-ATR@F3": 0,
+     "ST-ATR@F2": 0,
+     "ELEVATOR": 2
+    },
+    "badness": 100762.79,
+    "hash": "d382b2e7e00e4cab44f6be196f51d769718887cd642881a85eac8bd65a2f6c79"
+   },
+   {
+    "seed": 88001,
+    "occupants": 547,
+    "remainingAtTarget": 69,
+    "outByTarget": 478,
+    "clearance95Sec": 880.5,
+    "densityDangerPS": 11212.25,
+    "smokeExposurePS": 43514.09,
+    "crushSec": 684,
+    "gridlock": false,
+    "exitUsage": {
+     "EX-N": 221,
+     "EX-W": 21,
+     "EX-S": 183,
+     "EX-E1": 37,
+     "EX-E2": 58,
+     "ST-A@F3": 0,
+     "ST-A@F2": 0,
+     "ST-B@F3": 0,
+     "ST-B@F2": 0,
+     "ST-ATR@F3": 0,
+     "ST-ATR@F2": 0,
+     "ELEVATOR": 2
+    },
+    "badness": 94204.81,
+    "hash": "85090c7a0489e6089e25cbf211fd3d48e6d0759364d6c6473f9d8faa9df1e8ed"
+   },
+   {
+    "seed": 88002,
+    "occupants": 547,
+    "remainingAtTarget": 86,
+    "outByTarget": 461,
+    "clearance95Sec": null,
+    "densityDangerPS": 17977.5,
+    "smokeExposurePS": 54071.74,
+    "crushSec": 702,
+    "gridlock": false,
+    "exitUsage": {
+     "EX-N": 207,
+     "EX-W": 36,
+     "EX-S": 163,
+     "EX-E1": 30,
+     "EX-E2": 64,
+     "ST-A@F3": 0,
+     "ST-A@F2": 0,
+     "ST-B@F3": 0,
+     "ST-B@F2": 0,
+     "ST-ATR@F3": 0,
+     "ST-ATR@F2": 0,
+     "ELEVATOR": 5
+    },
+    "badness": 118892.23,
+    "hash": "6007d8c195fef8f1cb4f8deb937714aa26dd2b2f27e50da5cf8d16a55ad33584"
+   },
+   {
+    "seed": 88003,
+    "occupants": 547,
+    "remainingAtTarget": 84,
+    "outByTarget": 463,
+    "clearance95Sec": null,
+    "densityDangerPS": 11981.25,
+    "smokeExposurePS": 48478.16,
+    "crushSec": 683.5,
+    "gridlock": false,
+    "exitUsage": {
+     "EX-N": 209,
+     "EX-W": 21,
+     "EX-S": 170,
+     "EX-E1": 40,
+     "EX-E2": 62,
+     "ST-A@F3": 0,
+     "ST-A@F2": 0,
+     "ST-B@F3": 0,
+     "ST-B@F2": 0,
+     "ST-ATR@F3": 0,
+     "ST-ATR@F2": 0,
+     "ELEVATOR": 5
+    },
+    "badness": 104686.95,
+    "hash": "c25887623f0002cd459ba55fb0003f7e3f9e8ffc1f2f801187ccd7fc9e42a3cf"
+   },
+   {
+    "seed": 88004,
+    "occupants": 547,
+    "remainingAtTarget": 94,
+    "outByTarget": 453,
+    "clearance95Sec": null,
+    "densityDangerPS": 12339.5,
+    "smokeExposurePS": 49756.76,
+    "crushSec": 689.5,
+    "gridlock": false,
+    "exitUsage": {
+     "EX-N": 189,
+     "EX-W": 34,
+     "EX-S": 168,
+     "EX-E1": 41,
+     "EX-E2": 59,
+     "ST-A@F3": 0,
+     "ST-A@F2": 0,
+     "ST-B@F3": 0,
+     "ST-B@F2": 0,
+     "ST-ATR@F3": 0,
+     "ST-ATR@F2": 0,
+     "ELEVATOR": 6
+    },
+    "badness": 107523.27,
+    "hash": "c5ef3d45597ebb11b16bb9fbce2f087a30a379003d49fd2830682499835ad5e6"
+   },
+   {
+    "seed": 88005,
+    "occupants": 547,
+    "remainingAtTarget": 80,
+    "outByTarget": 467,
+    "clearance95Sec": null,
+    "densityDangerPS": 15577.5,
+    "smokeExposurePS": 50186.1,
+    "crushSec": 704,
+    "gridlock": false,
+    "exitUsage": {
+     "EX-N": 203,
+     "EX-W": 32,
+     "EX-S": 162,
+     "EX-E1": 32,
+     "EX-E2": 74,
+     "ST-A@F3": 0,
+     "ST-A@F2": 0,
+     "ST-B@F3": 0,
+     "ST-B@F2": 0,
+     "ST-ATR@F3": 0,
+     "ST-ATR@F2": 0,
+     "ELEVATOR": 6
+    },
+    "badness": 109860.95,
+    "hash": "a28d83d522ea7e8cb9b3e13e1c6db01afb312f6d8619cea4939cc8e87956e38f"
+   },
+   {
+    "seed": 88006,
+    "occupants": 547,
+    "remainingAtTarget": 98,
+    "outByTarget": 449,
+    "clearance95Sec": null,
+    "densityDangerPS": 18387,
+    "smokeExposurePS": 54512.4,
+    "crushSec": 704,
+    "gridlock": false,
+    "exitUsage": {
+     "EX-N": 198,
+     "EX-W": 23,
+     "EX-S": 167,
+     "EX-E1": 33,
+     "EX-E2": 69,
+     "ST-A@F3": 0,
+     "ST-A@F2": 0,
+     "ST-B@F3": 0,
+     "ST-B@F2": 0,
+     "ST-ATR@F3": 0,
+     "ST-ATR@F2": 0,
+     "ELEVATOR": 3
+    },
+    "badness": 120098.3,
+    "hash": "df7047bae4a4c9fb6afc43a6cbee952cc2f319b2bf4a2022625d3a213d56a22e"
+   },
+   {
+    "seed": 88007,
+    "occupants": 547,
+    "remainingAtTarget": 71,
+    "outByTarget": 476,
+    "clearance95Sec": null,
+    "densityDangerPS": 13201,
+    "smokeExposurePS": 48264.88,
+    "crushSec": 687.5,
+    "gridlock": false,
+    "exitUsage": {
+     "EX-N": 222,
+     "EX-W": 29,
+     "EX-S": 178,
+     "EX-E1": 39,
+     "EX-E2": 49,
+     "ST-A@F3": 0,
+     "ST-A@F2": 0,
+     "ST-B@F3": 0,
+     "ST-B@F2": 0,
+     "ST-ATR@F3": 0,
+     "ST-ATR@F2": 0,
+     "ELEVATOR": 1
+    },
+    "badness": 104740.26,
+    "hash": "87b9db39d9f81d2e5d7c2e2cac86bfc46b46c00c8fd8d2a46249f05b72d85184"
+   }
+  ],
+  "outByTarget": {
+   "mean": 464.5,
+   "min": 449,
+   "max": 478
+  },
+  "remainingAtTarget": {
+   "mean": 82.5,
+   "min": 69,
+   "max": 98
+  },
+  "reached95": {
+   "seeds": 1,
+   "of": 8,
+   "byTarget": 0,
+   "minSec": 880.5,
+   "maxSec": 880.5
+  },
+  "densityDangerPS": 13996.41,
+  "smokeExposurePS": 49437.71,
+  "crushSec": 691.56,
+  "gridlockSeeds": 0,
+  "badness": 107596.2,
+  "exitShares": [
+   {
+    "id": "EX-N",
+    "label": "North lobby doors (lobby C199A to plaza C196A)",
+    "clearWidthIn": 136,
+    "uses": 207.13,
+    "share": 0.411,
+    "widthShare": 0.364
+   },
+   {
+    "id": "EX-W",
+    "label": "West entry (entry / exhibit C199C)",
+    "clearWidthIn": 68,
+    "uses": 28.63,
+    "share": 0.057,
+    "widthShare": 0.182
+   },
+   {
+    "id": "EX-S",
+    "label": "South stair S198B exterior door",
+    "clearWidthIn": 34,
+    "uses": 172.13,
+    "share": 0.341,
+    "widthShare": 0.091
+   },
+   {
+    "id": "EX-E1",
+    "label": "East door from storage 0140A",
+    "clearWidthIn": 68,
+    "uses": 35.88,
+    "share": 0.071,
+    "widthShare": 0.182
+   },
+   {
+    "id": "EX-E2",
+    "label": "East door from soils & concrete lab 0138",
+    "clearWidthIn": 68,
+    "uses": 60.5,
+    "share": 0.12,
+    "widthShare": 0.182
+   }
+  ],
+  "danger": [
+   {
+    "floor": "F1",
+    "w": 149,
+    "h": 67,
+    "ox": 17.88766404199475,
+    "oy": -1.8123359580052494,
+    "cellFt": 1.3123359580052494,
+    "total": 13993.91,
+    "cells": [
+     [
+      3867,
+      0.66
+     ],
+     [
+      3868,
+      8.09
+     ],
+     [
+      3869,
+      17.06
+     ],
+     [
+      3870,
+      26.72
+     ],
+     [
+      4016,
+      3.63
+     ],
+     [
+      4017,
+      31.31
+     ],
+     [
+      4018,
+      92.72
+     ],
+     [
+      4019,
+      101.44
+     ],
+     [
+      4164,
+      0.69
+     ],
+     [
+      4165,
+      17.97
+     ],
+     [
+      4166,
+      66.31
+     ],
+     [
+      4167,
+      168.69
+     ],
+     [
+      4168,
+      176.94
+     ],
+     [
+      4313,
+      1.5
+     ],
+     [
+      4314,
+      40.16
+     ],
+     [
+      4315,
+      189.13
+     ],
+     [
+      4316,
+      231.94
+     ],
+     [
+      4317,
+      311.78
+     ],
+     [
+      4462,
+      2.38
+     ],
+     [
+      4463,
+      74.69
+     ],
+     [
+      4464,
+      226.5
+     ],
+     [
+      4465,
+      332.25
+     ],
+     [
+      4466,
+      709.38
+     ],
+     [
+      4611,
+      9.06
+     ],
+     [
+      4612,
+      114.69
+     ],
+     [
+      4613,
+      678
+     ],
+     [
+      4614,
+      694.56
+     ],
+     [
+      4615,
+      708.97
+     ],
+     [
+      4760,
+      11.03
+     ],
+     [
+      4761,
+      636.97
+     ],
+     [
+      4762,
+      677
+     ],
+     [
+      4763,
+      687.88
+     ],
+     [
+      4764,
+      693.69
+     ],
+     [
+      4910,
+      642.25
+     ],
+     [
+      4911,
+      670.19
+     ],
+     [
+      4912,
+      683.06
+     ],
+     [
+      4913,
+      686.22
+     ],
+     [
+      5059,
+      634.13
+     ],
+     [
+      5060,
+      658.13
+     ],
+     [
+      5061,
+      667.13
+     ],
+     [
+      5062,
+      676.03
+     ],
+     [
+      5209,
+      247.69
+     ],
+     [
+      5210,
+      253.06
+     ],
+     [
+      5211,
+      252.63
+     ],
+     [
+      5359,
+      83.53
+     ],
+     [
+      5360,
+      85
+     ],
+     [
+      5791,
+      2.44
+     ],
+     [
+      5792,
+      6.63
+     ],
+     [
+      5941,
+      1
+     ]
+    ]
+   },
+   {
+    "floor": "F2",
+    "w": 168,
+    "h": 69,
+    "ox": -6.71233595800525,
+    "oy": -3.612335958005249,
+    "cellFt": 1.3123359580052494,
+    "total": 2.5,
+    "cells": [
+     [
+      5699,
+      1.19
+     ],
+     [
+      5867,
+      0.88
+     ]
+    ]
+   },
+   {
+    "floor": "F3",
+    "w": 168,
+    "h": 69,
+    "ox": -6.71233595800525,
+    "oy": -3.5123359580052496,
+    "cellFt": 1.3123359580052494,
+    "total": 0,
+    "cells": []
+   }
+  ]
+ },
+ "problems": {
+  "exitShares": [
+   {
+    "id": "exit_share:EX-S",
+    "exit": "EX-S",
+    "label": "South stair S198B exterior door",
+    "share": 0.341,
+    "widthShare": 0.091,
+    "clearWidthIn": 34,
+    "ratio": 3.75,
+    "text": "EX-S carries 34.1% of exterior exit use with 9.1% of the exterior clear width (34 in)"
+   }
+  ],
+  "density": [
+   {
+    "id": "density:F1",
+    "floor": "F1",
+    "totalPS": 13993.91,
+    "centroid": [
+     207.18,
+     39.58
+    ],
+    "portal": "X-F1-3",
+    "portalLabel": "EX-S door",
+    "exit": "EX-S",
+    "x": 210,
+    "y": 39,
+    "radiusFt": 14,
+    "fractionWithin": 0.999,
+    "text": "13,994 person-s of dangerous density on F1, 99.9% of it within 14 ft of the EX-S door"
+   },
+   {
+    "id": "density:F2",
+    "floor": "F2",
+    "totalPS": 2.5,
+    "centroid": [
+     197.52,
+     41.07
+    ],
+    "portal": "D-F2-015",
+    "portalLabel": "door D-F2-015 (Corridor / South stair)",
+    "exit": null,
+    "x": 200.5,
+    "y": 38.8,
+    "radiusFt": 14,
+    "fractionWithin": 1,
+    "text": "3 person-s of dangerous density on F2, 100% of it within 14 ft of the door D-F2-015 (Corridor / South stair)"
+   }
+  ],
+  "insideAtTarget": {
+   "id": "inside_at_target",
+   "targetSec": 600,
+   "occupants": 547,
+   "remainingAtTarget": {
+    "mean": 82.5,
+    "min": 69,
+    "max": 98
+   },
+   "reached95": 1,
+   "of": 8,
+   "text": "82.5 of 547 people still inside at 600 s (mean of 8 seeds, 69–98); 95% clearance reached in 1 of 8"
+  }
+ },
+ "recommendations": [
+  {
+   "id": "widen_exit:EX-S:6+strategy:building:PHASED_EVACUATION",
+   "edits": [
+    {
+     "kind": "widen_exit",
+     "target": "EX-S",
+     "amount": 6
+    },
+    {
+     "kind": "strategy",
+     "target": "building",
+     "protocol": "PHASED_EVACUATION"
+    }
+   ],
+   "label": "widen exit EX-S by 6 in + strategy: PHASED_EVACUATION",
+   "kind": "architectural",
+   "source": "combination",
+   "whatChanges": "EX-S: 34 → 40 in clear width + response plan EVACUATE → PHASED_EVACUATION; no building change",
+   "why": "EX-S carries 34.1% of exterior exit use with 9.1% of the exterior clear width (34 in); 13,994 person-s of dangerous density on F1, 99.9% of it within 14 ft of the EX-S door; 82.5 of 547 people still inside at 600 s (mean of 8 seeds, 69–98); 95% clearance reached in 1 of 8",
+   "addresses": [
+    "exit_share:EX-S",
+    "density:F1",
+    "inside_at_target"
+   ],
+   "status": "validated",
+   "gain": {
+    "mean": 82.25,
+    "se": 3.56,
+    "perSeed": [
+     78,
+     69,
+     86,
+     84,
+     93,
+     79,
+     98,
+     71
+    ]
+   },
+   "codeLimitsOk": true,
+   "variant": {
+    "perSeed": [
+     {
+      "seed": 88000,
+      "occupants": 547,
+      "remainingAtTarget": 0,
+      "outByTarget": 547,
+      "clearance95Sec": 359.5,
+      "densityDangerPS": 33.75,
+      "smokeExposurePS": 20911.34,
+      "crushSec": 0,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 236,
+       "EX-W": 27,
+       "EX-S": 204,
+       "EX-E1": 34,
+       "EX-E2": 44,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 2
+      },
+      "badness": 42199.06,
+      "hash": "08d505ccd4879cdcc6f502dbbe52b2da7e41f3c8eb0dd49d0f69c09664774abf"
+     },
+     {
+      "seed": 88001,
+      "occupants": 547,
+      "remainingAtTarget": 0,
+      "outByTarget": 547,
+      "clearance95Sec": 353.25,
+      "densityDangerPS": 0,
+      "smokeExposurePS": 22209.97,
+      "crushSec": 0,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 225,
+       "EX-W": 29,
+       "EX-S": 196,
+       "EX-E1": 35,
+       "EX-E2": 60,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 2
+      },
+      "badness": 44773.19,
+      "hash": "d6bb2269d3570a6a5e231323406d1f199e776c1805399ba95ba29413068cdea4"
+     },
+     {
+      "seed": 88002,
+      "occupants": 547,
+      "remainingAtTarget": 0,
+      "outByTarget": 547,
+      "clearance95Sec": 344.5,
+      "densityDangerPS": 0,
+      "smokeExposurePS": 20123.06,
+      "crushSec": 0,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 215,
+       "EX-W": 33,
+       "EX-S": 183,
+       "EX-E1": 52,
+       "EX-E2": 59,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 5
+      },
+      "badness": 40590.62,
+      "hash": "22643151b87a347af4451b12d57b7b464fa57d3543e1ef919f46a4a5695fd8fb"
+     },
+     {
+      "seed": 88003,
+      "occupants": 547,
+      "remainingAtTarget": 0,
+      "outByTarget": 547,
+      "clearance95Sec": 347.25,
+      "densityDangerPS": 54.25,
+      "smokeExposurePS": 21847.27,
+      "crushSec": 0,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 220,
+       "EX-W": 28,
+       "EX-S": 210,
+       "EX-E1": 31,
+       "EX-E2": 53,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 5
+      },
+      "badness": 44068.92,
+      "hash": "5dc0ca80c490c5c3be7171b5e6d0b3e882e6c3215adfcaa14eb745f5a3165acd"
+     },
+     {
+      "seed": 88004,
+      "occupants": 547,
+      "remainingAtTarget": 1,
+      "outByTarget": 546,
+      "clearance95Sec": 359.25,
+      "densityDangerPS": 0.25,
+      "smokeExposurePS": 22176.39,
+      "crushSec": 0,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 224,
+       "EX-W": 23,
+       "EX-S": 214,
+       "EX-E1": 30,
+       "EX-E2": 50,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 6
+      },
+      "badness": 44722.16,
+      "hash": "a4ac57ede69a1b537bb1f12e3f8f0859439790519d1d0580c6062932c8cc9004"
+     },
+     {
+      "seed": 88005,
+      "occupants": 547,
+      "remainingAtTarget": 1,
+      "outByTarget": 546,
+      "clearance95Sec": 363.5,
+      "densityDangerPS": 14,
+      "smokeExposurePS": 22791.36,
+      "crushSec": 0,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 216,
+       "EX-W": 36,
+       "EX-S": 205,
+       "EX-E1": 25,
+       "EX-E2": 59,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 6
+      },
+      "badness": 45963.22,
+      "hash": "03c027d65cfa7c7cf6e43d0a237dfaaa82406944d851772ec5de7905893271ca"
+     },
+     {
+      "seed": 88006,
+      "occupants": 547,
+      "remainingAtTarget": 0,
+      "outByTarget": 547,
+      "clearance95Sec": 346.5,
+      "densityDangerPS": 0,
+      "smokeExposurePS": 21752.81,
+      "crushSec": 0,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 205,
+       "EX-W": 31,
+       "EX-S": 206,
+       "EX-E1": 37,
+       "EX-E2": 65,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 3
+      },
+      "badness": 43852.12,
+      "hash": "dfb3629bb659854e73fed8eb4f4159df7a300c61f0a46be872b3780c40b3754a"
+     },
+     {
+      "seed": 88007,
+      "occupants": 547,
+      "remainingAtTarget": 0,
+      "outByTarget": 547,
+      "clearance95Sec": 343.75,
+      "densityDangerPS": 15.25,
+      "smokeExposurePS": 20483.66,
+      "crushSec": 0,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 228,
+       "EX-W": 30,
+       "EX-S": 210,
+       "EX-E1": 30,
+       "EX-E2": 48,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 1
+      },
+      "badness": 41318.7,
+      "hash": "c91ff2227b8e2a2066f0b29d1f2b8e2d3cde47dea26bda5b21543081ae2a59c0"
+     }
+    ],
+    "outByTarget": {
+     "mean": 546.75,
+     "min": 546,
+     "max": 547
+    },
+    "remainingAtTarget": {
+     "mean": 0.25,
+     "min": 0,
+     "max": 1
+    },
+    "reached95": {
+     "seeds": 8,
+     "of": 8,
+     "byTarget": 8,
+     "minSec": 343.75,
+     "maxSec": 363.5
+    },
+    "densityDangerPS": 14.69,
+    "smokeExposurePS": 21536.98,
+    "crushSec": 0,
+    "gridlockSeeds": 0,
+    "badness": 43436,
+    "exitShares": [
+     {
+      "id": "EX-N",
+      "label": "North lobby doors (lobby C199A to plaza C196A)",
+      "clearWidthIn": 136,
+      "uses": 221.13,
+      "share": 0.407,
+      "widthShare": 0.358
+     },
+     {
+      "id": "EX-W",
+      "label": "West entry (entry / exhibit C199C)",
+      "clearWidthIn": 68,
+      "uses": 29.63,
+      "share": 0.055,
+      "widthShare": 0.179
+     },
+     {
+      "id": "EX-S",
+      "label": "South stair S198B exterior door",
+      "clearWidthIn": 40,
+      "uses": 203.5,
+      "share": 0.375,
+      "widthShare": 0.105
+     },
+     {
+      "id": "EX-E1",
+      "label": "East door from storage 0140A",
+      "clearWidthIn": 68,
+      "uses": 34.25,
+      "share": 0.063,
+      "widthShare": 0.179
+     },
+     {
+      "id": "EX-E2",
+      "label": "East door from soils & concrete lab 0138",
+      "clearWidthIn": 68,
+      "uses": 54.75,
+      "share": 0.101,
+      "widthShare": 0.179
+     }
+    ],
+    "danger": [
+     {
+      "floor": "F1",
+      "w": 149,
+      "h": 67,
+      "ox": 17.88766404199475,
+      "oy": -1.8123359580052494,
+      "cellFt": 1.3123359580052494,
+      "total": 7.84,
+      "cells": [
+       [
+        4317,
+        3.31
+       ],
+       [
+        4466,
+        4.25
+       ]
+      ]
+     },
+     {
+      "floor": "F2",
+      "w": 168,
+      "h": 69,
+      "ox": -6.71233595800525,
+      "oy": -3.612335958005249,
+      "cellFt": 1.3123359580052494,
+      "total": 6.84,
+      "cells": [
+       [
+        5531,
+        2.16
+       ],
+       [
+        5699,
+        3.63
+       ],
+       [
+        5700,
+        0.56
+       ]
+      ]
+     },
+     {
+      "floor": "F3",
+      "w": 168,
+      "h": 69,
+      "ox": -6.71233595800525,
+      "oy": -3.5123359580052496,
+      "cellFt": 1.3123359580052494,
+      "total": 0,
+      "cells": []
+     }
+    ]
+   }
+  },
+  {
+   "id": "widen_exit:EX-S:6",
+   "edits": [
+    {
+     "kind": "widen_exit",
+     "target": "EX-S",
+     "amount": 6
+    }
+   ],
+   "label": "widen exit EX-S by 6 in",
+   "kind": "architectural",
+   "source": "optimiser",
+   "whatChanges": "EX-S: 34 → 40 in clear width",
+   "why": "EX-S carries 34.1% of exterior exit use with 9.1% of the exterior clear width (34 in); 13,994 person-s of dangerous density on F1, 99.9% of it within 14 ft of the EX-S door; 82.5 of 547 people still inside at 600 s (mean of 8 seeds, 69–98); 95% clearance reached in 1 of 8",
+   "addresses": [
+    "exit_share:EX-S",
+    "density:F1",
+    "inside_at_target"
+   ],
+   "status": "validated",
+   "gain": {
+    "mean": 47.25,
+    "se": 6.96,
+    "perSeed": [
+     19,
+     69,
+     60,
+     42,
+     71,
+     24,
+     55,
+     38
+    ]
+   },
+   "codeLimitsOk": true,
+   "variant": {
+    "perSeed": [
+     {
+      "seed": 88000,
+      "occupants": 547,
+      "remainingAtTarget": 59,
+      "outByTarget": 488,
+      "clearance95Sec": 762.75,
+      "densityDangerPS": 11830.75,
+      "smokeExposurePS": 44003.86,
+      "crushSec": 619.5,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 219,
+       "EX-W": 24,
+       "EX-S": 223,
+       "EX-E1": 27,
+       "EX-E2": 52,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 2
+      },
+      "badness": 95275.85,
+      "hash": "05ac1eef4e4e22308a4e2ae738b8284090c353d383d50fbdc1c4facc7732874d"
+     },
+     {
+      "seed": 88001,
+      "occupants": 547,
+      "remainingAtTarget": 0,
+      "outByTarget": 547,
+      "clearance95Sec": 311.5,
+      "densityDangerPS": 2.25,
+      "smokeExposurePS": 18838.72,
+      "crushSec": 0,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 217,
+       "EX-W": 26,
+       "EX-S": 210,
+       "EX-E1": 36,
+       "EX-E2": 56,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 2
+      },
+      "badness": 37990.07,
+      "hash": "5518a72b461f6cae1660f9444a1e116ec330ed8a36967fba8eead3a172af44b7"
+     },
+     {
+      "seed": 88002,
+      "occupants": 547,
+      "remainingAtTarget": 26,
+      "outByTarget": 521,
+      "clearance95Sec": 592.5,
+      "densityDangerPS": 5711,
+      "smokeExposurePS": 31145.47,
+      "crushSec": 391,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 198,
+       "EX-W": 30,
+       "EX-S": 214,
+       "EX-E1": 45,
+       "EX-E2": 55,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 5
+      },
+      "badness": 65998.94,
+      "hash": "e19fd57ebce4401ef8f05ed632e9dc6c7f5192fa81212ac4d6ee8b9dd67184bf"
+     },
+     {
+      "seed": 88003,
+      "occupants": 547,
+      "remainingAtTarget": 42,
+      "outByTarget": 505,
+      "clearance95Sec": 677,
+      "densityDangerPS": 6375.75,
+      "smokeExposurePS": 36150.76,
+      "crushSec": 474,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 209,
+       "EX-W": 24,
+       "EX-S": 219,
+       "EX-E1": 28,
+       "EX-E2": 62,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 5
+      },
+      "badness": 76586.4,
+      "hash": "bf94088a7d0c0019357f1c4c0f76ad6ccfabd51b90fce8f3ea02d229475a8f98"
+     },
+     {
+      "seed": 88004,
+      "occupants": 547,
+      "remainingAtTarget": 23,
+      "outByTarget": 524,
+      "clearance95Sec": 575.5,
+      "densityDangerPS": 5365.25,
+      "smokeExposurePS": 32126.84,
+      "crushSec": 380,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 223,
+       "EX-W": 22,
+       "EX-S": 209,
+       "EX-E1": 28,
+       "EX-E2": 59,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 6
+      },
+      "badness": 67741.8,
+      "hash": "7739dfc6322efa944951b059d208f15662fd44b4c0066050188d2bde6b1ece6f"
+     },
+     {
+      "seed": 88005,
+      "occupants": 547,
+      "remainingAtTarget": 56,
+      "outByTarget": 491,
+      "clearance95Sec": 751.25,
+      "densityDangerPS": 10883.25,
+      "smokeExposurePS": 45299.89,
+      "crushSec": 621.5,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 213,
+       "EX-W": 31,
+       "EX-S": 214,
+       "EX-E1": 30,
+       "EX-E2": 53,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 6
+      },
+      "badness": 97352.66,
+      "hash": "f2eb127bb481e9a7b05a7dd8188c5623a618afb7616d71aedd1f24b2caeb9c3b"
+     },
+     {
+      "seed": 88006,
+      "occupants": 547,
+      "remainingAtTarget": 43,
+      "outByTarget": 504,
+      "clearance95Sec": 697.25,
+      "densityDangerPS": 7373.25,
+      "smokeExposurePS": 37875.68,
+      "crushSec": 513.5,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 199,
+       "EX-W": 25,
+       "EX-S": 230,
+       "EX-E1": 32,
+       "EX-E2": 58,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 3
+      },
+      "badness": 80565.24,
+      "hash": "bc8247deff44bfd574392d31945add026cf8fa6cd87916eef6f421b69e1feb2f"
+     },
+     {
+      "seed": 88007,
+      "occupants": 547,
+      "remainingAtTarget": 33,
+      "outByTarget": 514,
+      "clearance95Sec": 631.25,
+      "densityDangerPS": 6856.5,
+      "smokeExposurePS": 35260.07,
+      "crushSec": 473.5,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 225,
+       "EX-W": 25,
+       "EX-S": 215,
+       "EX-E1": 24,
+       "EX-E2": 57,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 1
+      },
+      "badness": 74909.64,
+      "hash": "3b57399010eb5dd6a03985406216bfc99ceda692bf5c84e1eb712ad6867d901f"
+     }
+    ],
+    "outByTarget": {
+     "mean": 511.75,
+     "min": 488,
+     "max": 547
+    },
+    "remainingAtTarget": {
+     "mean": 35.25,
+     "min": 0,
+     "max": 59
+    },
+    "reached95": {
+     "seeds": 8,
+     "of": 8,
+     "byTarget": 3,
+     "minSec": 311.5,
+     "maxSec": 762.75
+    },
+    "densityDangerPS": 6799.75,
+    "smokeExposurePS": 35087.66,
+    "crushSec": 434.13,
+    "gridlockSeeds": 0,
+    "badness": 74552.58,
+    "exitShares": [
+     {
+      "id": "EX-N",
+      "label": "North lobby doors (lobby C199A to plaza C196A)",
+      "clearWidthIn": 136,
+      "uses": 212.88,
+      "share": 0.392,
+      "widthShare": 0.358
+     },
+     {
+      "id": "EX-W",
+      "label": "West entry (entry / exhibit C199C)",
+      "clearWidthIn": 68,
+      "uses": 25.88,
+      "share": 0.048,
+      "widthShare": 0.179
+     },
+     {
+      "id": "EX-S",
+      "label": "South stair S198B exterior door",
+      "clearWidthIn": 40,
+      "uses": 216.75,
+      "share": 0.399,
+      "widthShare": 0.105
+     },
+     {
+      "id": "EX-E1",
+      "label": "East door from storage 0140A",
+      "clearWidthIn": 68,
+      "uses": 31.25,
+      "share": 0.058,
+      "widthShare": 0.179
+     },
+     {
+      "id": "EX-E2",
+      "label": "East door from soils & concrete lab 0138",
+      "clearWidthIn": 68,
+      "uses": 56.5,
+      "share": 0.104,
+      "widthShare": 0.179
+     }
+    ],
+    "danger": [
+     {
+      "floor": "F1",
+      "w": 149,
+      "h": 67,
+      "ox": 17.88766404199475,
+      "oy": -1.8123359580052494,
+      "cellFt": 1.3123359580052494,
+      "total": 6798.03,
+      "cells": [
+       [
+        3869,
+        1.19
+       ],
+       [
+        3870,
+        2.38
+       ],
+       [
+        4017,
+        8.25
+       ],
+       [
+        4018,
+        48.47
+       ],
+       [
+        4019,
+        51.69
+       ],
+       [
+        4166,
+        16.56
+       ],
+       [
+        4167,
+        63.56
+       ],
+       [
+        4168,
+        130.34
+       ],
+       [
+        4314,
+        0.63
+       ],
+       [
+        4315,
+        59.34
+       ],
+       [
+        4316,
+        137.34
+       ],
+       [
+        4317,
+        169.34
+       ],
+       [
+        4463,
+        6.38
+       ],
+       [
+        4464,
+        79.41
+       ],
+       [
+        4465,
+        250.5
+       ],
+       [
+        4466,
+        290.53
+       ],
+       [
+        4612,
+        14.41
+       ],
+       [
+        4613,
+        342.69
+       ],
+       [
+        4614,
+        378.84
+       ],
+       [
+        4615,
+        422.84
+       ],
+       [
+        4761,
+        306.44
+       ],
+       [
+        4762,
+        348.63
+       ],
+       [
+        4763,
+        385.59
+       ],
+       [
+        4764,
+        432
+       ],
+       [
+        4910,
+        308.94
+       ],
+       [
+        4911,
+        346.38
+       ],
+       [
+        4912,
+        384.22
+       ],
+       [
+        4913,
+        415.94
+       ],
+       [
+        5059,
+        294.38
+       ],
+       [
+        5060,
+        325.41
+       ],
+       [
+        5061,
+        369.28
+       ],
+       [
+        5062,
+        388.88
+       ],
+       [
+        5643,
+        0.59
+       ],
+       [
+        5791,
+        4.22
+       ],
+       [
+        5792,
+        9.59
+       ],
+       [
+        5941,
+        2.16
+       ]
+      ]
+     },
+     {
+      "floor": "F2",
+      "w": 168,
+      "h": 69,
+      "ox": -6.71233595800525,
+      "oy": -3.612335958005249,
+      "cellFt": 1.3123359580052494,
+      "total": 1.72,
+      "cells": [
+       [
+        5699,
+        1.25
+       ]
+      ]
+     },
+     {
+      "floor": "F3",
+      "w": 168,
+      "h": 69,
+      "ox": -6.71233595800525,
+      "oy": -3.5123359580052496,
+      "cellFt": 1.3123359580052494,
+      "total": 0,
+      "cells": []
+     }
+    ]
+   }
+  },
+  {
+   "id": "strategy:building:PHASED_EVACUATION",
+   "edits": [
+    {
+     "kind": "strategy",
+     "target": "building",
+     "protocol": "PHASED_EVACUATION"
+    }
+   ],
+   "label": "strategy: PHASED_EVACUATION",
+   "kind": "operational",
+   "source": "optimiser",
+   "whatChanges": "response plan EVACUATE → PHASED_EVACUATION; no building change",
+   "why": "13,994 person-s of dangerous density on F1, 99.9% of it within 14 ft of the EX-S door; 82.5 of 547 people still inside at 600 s (mean of 8 seeds, 69–98); 95% clearance reached in 1 of 8",
+   "addresses": [
+    "density:F1",
+    "inside_at_target"
+   ],
+   "status": "validated",
+   "gain": {
+    "mean": 37.63,
+    "se": 9,
+    "perSeed": [
+     -2,
+     36,
+     13,
+     30,
+     59,
+     67,
+     68,
+     30
+    ]
+   },
+   "codeLimitsOk": true,
+   "variant": {
+    "perSeed": [
+     {
+      "seed": 88000,
+      "occupants": 547,
+      "remainingAtTarget": 80,
+      "outByTarget": 467,
+      "clearance95Sec": null,
+      "densityDangerPS": 11731.75,
+      "smokeExposurePS": 50263.33,
+      "crushSec": 679.5,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 206,
+       "EX-W": 32,
+       "EX-S": 188,
+       "EX-E1": 39,
+       "EX-E2": 44,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 2
+      },
+      "badness": 108092.54,
+      "hash": "b760287377268aa020c6ad4d3db75f82022e6243ef33c9895fd0d38c241fbefa"
+     },
+     {
+      "seed": 88001,
+      "occupants": 547,
+      "remainingAtTarget": 33,
+      "outByTarget": 514,
+      "clearance95Sec": 635.25,
+      "densityDangerPS": 6039.75,
+      "smokeExposurePS": 38515.9,
+      "crushSec": 500,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 233,
+       "EX-W": 24,
+       "EX-S": 202,
+       "EX-E1": 36,
+       "EX-E2": 50,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 2
+      },
+      "badness": 81016.93,
+      "hash": "daad541ff6d61eed7265ff16794d93d34c7522204042c4ab96309a3754178e84"
+     },
+     {
+      "seed": 88002,
+      "occupants": 547,
+      "remainingAtTarget": 73,
+      "outByTarget": 474,
+      "clearance95Sec": null,
+      "densityDangerPS": 14711,
+      "smokeExposurePS": 53149.16,
+      "crushSec": 704,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 215,
+       "EX-W": 33,
+       "EX-S": 168,
+       "EX-E1": 33,
+       "EX-E2": 64,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 5
+      },
+      "badness": 115283.82,
+      "hash": "4fcfa4dd2715f03d931fccc87322450d392802108249529729611924b649e212"
+     },
+     {
+      "seed": 88003,
+      "occupants": 547,
+      "remainingAtTarget": 54,
+      "outByTarget": 493,
+      "clearance95Sec": 780,
+      "densityDangerPS": 8405.5,
+      "smokeExposurePS": 44225.02,
+      "crushSec": 622,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 220,
+       "EX-W": 22,
+       "EX-S": 206,
+       "EX-E1": 41,
+       "EX-E2": 53,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 5
+      },
+      "badness": 93972.79,
+      "hash": "66595cb5d98407fd29072f138d7a197844d71909d38729bee737f45f8757c1a5"
+     },
+     {
+      "seed": 88004,
+      "occupants": 547,
+      "remainingAtTarget": 35,
+      "outByTarget": 512,
+      "clearance95Sec": 665,
+      "densityDangerPS": 5519,
+      "smokeExposurePS": 39015.6,
+      "crushSec": 465,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 199,
+       "EX-W": 34,
+       "EX-S": 203,
+       "EX-E1": 37,
+       "EX-E2": 68,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 6
+      },
+      "badness": 81805.7,
+      "hash": "541f6ba5bd6afcc15b1853b2aa1e8620123b9c2c4ac732e8cbab926f626df802"
+     },
+     {
+      "seed": 88005,
+      "occupants": 547,
+      "remainingAtTarget": 13,
+      "outByTarget": 534,
+      "clearance95Sec": 500.25,
+      "densityDangerPS": 2653.75,
+      "smokeExposurePS": 30901.04,
+      "crushSec": 316.5,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 216,
+       "EX-W": 37,
+       "EX-S": 185,
+       "EX-E1": 46,
+       "EX-E2": 57,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 6
+      },
+      "badness": 63759.21,
+      "hash": "051aca5879842519b8d692b007540584bb37ad9d3f48ee2d4ef1d996a28b7cae"
+     },
+     {
+      "seed": 88006,
+      "occupants": 547,
+      "remainingAtTarget": 30,
+      "outByTarget": 517,
+      "clearance95Sec": 614.25,
+      "densityDangerPS": 5156.5,
+      "smokeExposurePS": 35685.82,
+      "crushSec": 460,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 208,
+       "EX-W": 28,
+       "EX-S": 201,
+       "EX-E1": 37,
+       "EX-E2": 70,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 3
+      },
+      "badness": 74864.14,
+      "hash": "826b8ccbf769b0e42d1aa83d17f953b6c50e17e09f9fee45cfe329277b40cf55"
+     },
+     {
+      "seed": 88007,
+      "occupants": 547,
+      "remainingAtTarget": 41,
+      "outByTarget": 506,
+      "clearance95Sec": 694.75,
+      "densityDangerPS": 6508.25,
+      "smokeExposurePS": 39111.24,
+      "crushSec": 534,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 227,
+       "EX-W": 34,
+       "EX-S": 208,
+       "EX-E1": 33,
+       "EX-E2": 44,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 1
+      },
+      "badness": 82581.36,
+      "hash": "7443778de755e7357e55f8fe76fd25bfe6be4dd1bb2ff10adcf32a8423e414da"
+     }
+    ],
+    "outByTarget": {
+     "mean": 502.13,
+     "min": 467,
+     "max": 534
+    },
+    "remainingAtTarget": {
+     "mean": 44.88,
+     "min": 13,
+     "max": 80
+    },
+    "reached95": {
+     "seeds": 6,
+     "of": 8,
+     "byTarget": 1,
+     "minSec": 500.25,
+     "maxSec": 780
+    },
+    "densityDangerPS": 7590.69,
+    "smokeExposurePS": 41358.39,
+    "crushSec": 535.13,
+    "gridlockSeeds": 0,
+    "badness": 87672.06,
+    "exitShares": [
+     {
+      "id": "EX-N",
+      "label": "North lobby doors (lobby C199A to plaza C196A)",
+      "clearWidthIn": 136,
+      "uses": 215.5,
+      "share": 0.403,
+      "widthShare": 0.364
+     },
+     {
+      "id": "EX-W",
+      "label": "West entry (entry / exhibit C199C)",
+      "clearWidthIn": 68,
+      "uses": 30.5,
+      "share": 0.057,
+      "widthShare": 0.182
+     },
+     {
+      "id": "EX-S",
+      "label": "South stair S198B exterior door",
+      "clearWidthIn": 34,
+      "uses": 195.13,
+      "share": 0.365,
+      "widthShare": 0.091
+     },
+     {
+      "id": "EX-E1",
+      "label": "East door from storage 0140A",
+      "clearWidthIn": 68,
+      "uses": 37.75,
+      "share": 0.071,
+      "widthShare": 0.182
+     },
+     {
+      "id": "EX-E2",
+      "label": "East door from soils & concrete lab 0138",
+      "clearWidthIn": 68,
+      "uses": 56.25,
+      "share": 0.105,
+      "widthShare": 0.182
+     }
+    ],
+    "danger": [
+     {
+      "floor": "F1",
+      "w": 149,
+      "h": 67,
+      "ox": 17.88766404199475,
+      "oy": -1.8123359580052494,
+      "cellFt": 1.3123359580052494,
+      "total": 7588.19,
+      "cells": [
+       [
+        4018,
+        46.19
+       ],
+       [
+        4019,
+        47.03
+       ],
+       [
+        4166,
+        1.06
+       ],
+       [
+        4167,
+        49.72
+       ],
+       [
+        4168,
+        50.81
+       ],
+       [
+        4315,
+        51.28
+       ],
+       [
+        4316,
+        89.16
+       ],
+       [
+        4317,
+        96.56
+       ],
+       [
+        4464,
+        85.22
+       ],
+       [
+        4465,
+        110.09
+       ],
+       [
+        4466,
+        325.19
+       ],
+       [
+        4612,
+        38.38
+       ],
+       [
+        4613,
+        402.34
+       ],
+       [
+        4614,
+        460.19
+       ],
+       [
+        4615,
+        532.31
+       ],
+       [
+        4761,
+        368
+       ],
+       [
+        4762,
+        431.56
+       ],
+       [
+        4763,
+        471.44
+       ],
+       [
+        4764,
+        532.19
+       ],
+       [
+        4910,
+        376.31
+       ],
+       [
+        4911,
+        426.28
+       ],
+       [
+        4912,
+        460.5
+       ],
+       [
+        4913,
+        507.03
+       ],
+       [
+        5059,
+        360.13
+       ],
+       [
+        5060,
+        398.63
+       ],
+       [
+        5061,
+        427.47
+       ],
+       [
+        5062,
+        442.81
+       ]
+      ]
+     },
+     {
+      "floor": "F2",
+      "w": 168,
+      "h": 69,
+      "ox": -6.71233595800525,
+      "oy": -3.612335958005249,
+      "cellFt": 1.3123359580052494,
+      "total": 2.5,
+      "cells": [
+       [
+        5699,
+        1.19
+       ],
+       [
+        5867,
+        0.88
+       ]
+      ]
+     },
+     {
+      "floor": "F3",
+      "w": 168,
+      "h": 69,
+      "ox": -6.71233595800525,
+      "oy": -3.5123359580052496,
+      "cellFt": 1.3123359580052494,
+      "total": 0,
+      "cells": []
+     }
+    ]
+   }
+  },
+  {
+   "id": "widen_exit:EX-E1:6",
+   "edits": [
+    {
+     "kind": "widen_exit",
+     "target": "EX-E1",
+     "amount": 6
+    }
+   ],
+   "label": "widen exit EX-E1 by 6 in",
+   "kind": "architectural",
+   "source": "optimiser",
+   "whatChanges": "EX-E1: 68 → 74 in clear width",
+   "why": "82.5 of 547 people still inside at 600 s (mean of 8 seeds, 69–98); 95% clearance reached in 1 of 8",
+   "addresses": [
+    "inside_at_target"
+   ],
+   "status": "no_effect",
+   "gain": {
+    "mean": 0,
+    "se": 0,
+    "perSeed": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   },
+   "codeLimitsOk": true,
+   "variant": {
+    "perSeed": [
+     {
+      "seed": 88000,
+      "occupants": 547,
+      "remainingAtTarget": 78,
+      "outByTarget": 469,
+      "clearance95Sec": null,
+      "densityDangerPS": 11295.25,
+      "smokeExposurePS": 46717.58,
+      "crushSec": 678,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 208,
+       "EX-W": 33,
+       "EX-S": 186,
+       "EX-E1": 35,
+       "EX-E2": 49,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 2
+      },
+      "badness": 100762.79,
+      "hash": "a6ef01012247f8809128fbc21863679118b9821d72c1aeeb8ef84cadb442f540"
+     },
+     {
+      "seed": 88001,
+      "occupants": 547,
+      "remainingAtTarget": 69,
+      "outByTarget": 478,
+      "clearance95Sec": 880.5,
+      "densityDangerPS": 11212.25,
+      "smokeExposurePS": 43514.09,
+      "crushSec": 684,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 221,
+       "EX-W": 21,
+       "EX-S": 183,
+       "EX-E1": 37,
+       "EX-E2": 58,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 2
+      },
+      "badness": 94204.81,
+      "hash": "dd87a97191d81b12610a3c856c2a3c51e6d304f371dc401b4be2579528aa9fa9"
+     },
+     {
+      "seed": 88002,
+      "occupants": 547,
+      "remainingAtTarget": 86,
+      "outByTarget": 461,
+      "clearance95Sec": null,
+      "densityDangerPS": 17977.5,
+      "smokeExposurePS": 54071.74,
+      "crushSec": 702,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 207,
+       "EX-W": 36,
+       "EX-S": 163,
+       "EX-E1": 30,
+       "EX-E2": 64,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 5
+      },
+      "badness": 118892.23,
+      "hash": "e092611c82c4c0caa3aa5864f05cd98e1fbc0c5cc894e94d97234cbb379a73c4"
+     },
+     {
+      "seed": 88003,
+      "occupants": 547,
+      "remainingAtTarget": 84,
+      "outByTarget": 463,
+      "clearance95Sec": null,
+      "densityDangerPS": 11981.25,
+      "smokeExposurePS": 48478.16,
+      "crushSec": 683.5,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 209,
+       "EX-W": 21,
+       "EX-S": 170,
+       "EX-E1": 40,
+       "EX-E2": 62,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 5
+      },
+      "badness": 104686.95,
+      "hash": "fa4c784405fe2e6009a5dadad7550dec1915fdf7e5d7dc2ae0d90e8255534c53"
+     },
+     {
+      "seed": 88004,
+      "occupants": 547,
+      "remainingAtTarget": 94,
+      "outByTarget": 453,
+      "clearance95Sec": null,
+      "densityDangerPS": 12339.5,
+      "smokeExposurePS": 49756.76,
+      "crushSec": 689.5,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 189,
+       "EX-W": 34,
+       "EX-S": 168,
+       "EX-E1": 41,
+       "EX-E2": 59,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 6
+      },
+      "badness": 107523.27,
+      "hash": "9e31897b3c42ae2a467deb459bd0f2191c96569b04bbae75ba258c097d18a153"
+     },
+     {
+      "seed": 88005,
+      "occupants": 547,
+      "remainingAtTarget": 80,
+      "outByTarget": 467,
+      "clearance95Sec": null,
+      "densityDangerPS": 15577.5,
+      "smokeExposurePS": 50186.1,
+      "crushSec": 704,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 203,
+       "EX-W": 32,
+       "EX-S": 162,
+       "EX-E1": 32,
+       "EX-E2": 74,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 6
+      },
+      "badness": 109860.95,
+      "hash": "c3011bf43a5d188170d02de19676ca0dea926d2910b088d614ef54a970d68c5e"
+     },
+     {
+      "seed": 88006,
+      "occupants": 547,
+      "remainingAtTarget": 98,
+      "outByTarget": 449,
+      "clearance95Sec": null,
+      "densityDangerPS": 18387,
+      "smokeExposurePS": 54512.4,
+      "crushSec": 704,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 198,
+       "EX-W": 23,
+       "EX-S": 167,
+       "EX-E1": 33,
+       "EX-E2": 69,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 3
+      },
+      "badness": 120098.3,
+      "hash": "47b1ffbfc5f10ae395200f094ab54955d37c94c3796be45c741ddbe3e94ee211"
+     },
+     {
+      "seed": 88007,
+      "occupants": 547,
+      "remainingAtTarget": 71,
+      "outByTarget": 476,
+      "clearance95Sec": null,
+      "densityDangerPS": 13201,
+      "smokeExposurePS": 48264.88,
+      "crushSec": 687.5,
+      "gridlock": false,
+      "exitUsage": {
+       "EX-N": 222,
+       "EX-W": 29,
+       "EX-S": 178,
+       "EX-E1": 39,
+       "EX-E2": 49,
+       "ST-A@F3": 0,
+       "ST-A@F2": 0,
+       "ST-B@F3": 0,
+       "ST-B@F2": 0,
+       "ST-ATR@F3": 0,
+       "ST-ATR@F2": 0,
+       "ELEVATOR": 1
+      },
+      "badness": 104740.26,
+      "hash": "09742cce6aa2b5a3fe605e51a6bf31f17c13fcdfaeb2b72e47f2857a81f2ad97"
+     }
+    ],
+    "outByTarget": {
+     "mean": 464.5,
+     "min": 449,
+     "max": 478
+    },
+    "remainingAtTarget": {
+     "mean": 82.5,
+     "min": 69,
+     "max": 98
+    },
+    "reached95": {
+     "seeds": 1,
+     "of": 8,
+     "byTarget": 0,
+     "minSec": 880.5,
+     "maxSec": 880.5
+    },
+    "densityDangerPS": 13996.41,
+    "smokeExposurePS": 49437.71,
+    "crushSec": 691.56,
+    "gridlockSeeds": 0,
+    "badness": 107596.2,
+    "exitShares": [
+     {
+      "id": "EX-N",
+      "label": "North lobby doors (lobby C199A to plaza C196A)",
+      "clearWidthIn": 136,
+      "uses": 207.13,
+      "share": 0.411,
+      "widthShare": 0.358
+     },
+     {
+      "id": "EX-W",
+      "label": "West entry (entry / exhibit C199C)",
+      "clearWidthIn": 68,
+      "uses": 28.63,
+      "share": 0.057,
+      "widthShare": 0.179
+     },
+     {
+      "id": "EX-S",
+      "label": "South stair S198B exterior door",
+      "clearWidthIn": 34,
+      "uses": 172.13,
+      "share": 0.341,
+      "widthShare": 0.089
+     },
+     {
+      "id": "EX-E1",
+      "label": "East door from storage 0140A",
+      "clearWidthIn": 74,
+      "uses": 35.88,
+      "share": 0.071,
+      "widthShare": 0.195
+     },
+     {
+      "id": "EX-E2",
+      "label": "East door from soils & concrete lab 0138",
+      "clearWidthIn": 68,
+      "uses": 60.5,
+      "share": 0.12,
+      "widthShare": 0.179
+     }
+    ],
+    "danger": [
+     {
+      "floor": "F1",
+      "w": 149,
+      "h": 67,
+      "ox": 17.88766404199475,
+      "oy": -1.8123359580052494,
+      "cellFt": 1.3123359580052494,
+      "total": 13993.91,
+      "cells": [
+       [
+        3867,
+        0.66
+       ],
+       [
+        3868,
+        8.09
+       ],
+       [
+        3869,
+        17.06
+       ],
+       [
+        3870,
+        26.72
+       ],
+       [
+        4016,
+        3.63
+       ],
+       [
+        4017,
+        31.31
+       ],
+       [
+        4018,
+        92.72
+       ],
+       [
+        4019,
+        101.44
+       ],
+       [
+        4164,
+        0.69
+       ],
+       [
+        4165,
+        17.97
+       ],
+       [
+        4166,
+        66.31
+       ],
+       [
+        4167,
+        168.69
+       ],
+       [
+        4168,
+        176.94
+       ],
+       [
+        4313,
+        1.5
+       ],
+       [
+        4314,
+        40.16
+       ],
+       [
+        4315,
+        189.13
+       ],
+       [
+        4316,
+        231.94
+       ],
+       [
+        4317,
+        311.78
+       ],
+       [
+        4462,
+        2.38
+       ],
+       [
+        4463,
+        74.69
+       ],
+       [
+        4464,
+        226.5
+       ],
+       [
+        4465,
+        332.25
+       ],
+       [
+        4466,
+        709.38
+       ],
+       [
+        4611,
+        9.06
+       ],
+       [
+        4612,
+        114.69
+       ],
+       [
+        4613,
+        678
+       ],
+       [
+        4614,
+        694.56
+       ],
+       [
+        4615,
+        708.97
+       ],
+       [
+        4760,
+        11.03
+       ],
+       [
+        4761,
+        636.97
+       ],
+       [
+        4762,
+        677
+       ],
+       [
+        4763,
+        687.88
+       ],
+       [
+        4764,
+        693.69
+       ],
+       [
+        4910,
+        642.25
+       ],
+       [
+        4911,
+        670.19
+       ],
+       [
+        4912,
+        683.06
+       ],
+       [
+        4913,
+        686.22
+       ],
+       [
+        5059,
+        634.13
+       ],
+       [
+        5060,
+        658.13
+       ],
+       [
+        5061,
+        667.13
+       ],
+       [
+        5062,
+        676.03
+       ],
+       [
+        5209,
+        247.69
+       ],
+       [
+        5210,
+        253.06
+       ],
+       [
+        5211,
+        252.63
+       ],
+       [
+        5359,
+        83.53
+       ],
+       [
+        5360,
+        85
+       ],
+       [
+        5791,
+        2.44
+       ],
+       [
+        5792,
+        6.63
+       ],
+       [
+        5941,
+        1
+       ]
+      ]
+     },
+     {
+      "floor": "F2",
+      "w": 168,
+      "h": 69,
+      "ox": -6.71233595800525,
+      "oy": -3.612335958005249,
+      "cellFt": 1.3123359580052494,
+      "total": 2.5,
+      "cells": [
+       [
+        5699,
+        1.19
+       ],
+       [
+        5867,
+        0.88
+       ]
+      ]
+     },
+     {
+      "floor": "F3",
+      "w": 168,
+      "h": 69,
+      "ox": -6.71233595800525,
+      "oy": -3.5123359580052496,
+      "cellFt": 1.3123359580052494,
+      "total": 0,
+      "cells": []
+     }
+    ]
+   }
+  },
+  {
+   "id": "add_exit",
+   "edits": [],
+   "label": "add an exterior exit",
+   "kind": "architectural",
+   "source": "candidates",
+   "whatChanges": "new exterior exit (no position defined to test)",
+   "why": "EX-S carries 34.1% of exterior exit use with 9.1% of the exterior clear width (34 in); 82.5 of 547 people still inside at 600 s (mean of 8 seeds, 69–98); 95% clearance reached in 1 of 8",
+   "addresses": [
+    "exit_share:EX-S",
+    "inside_at_target"
+   ],
+   "status": "untestable",
+   "reason": "No candidate exit positions are defined for this building, so an added exit cannot be simulated.",
+   "gain": null,
+   "codeLimitsOk": null,
+   "variant": null
+  }
+ ]
+}

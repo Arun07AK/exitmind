@@ -15,6 +15,7 @@ Updated at every phase boundary. Newest phase on top of the log. Design: `docs/B
 | 6 Phones, brief, report | sign page, Liaison, Historian | done; **the three-real-phone check has not been done** (simulated phones pass) |
 | 7 Demo and hardening | demo command, offline mode, README | done; evidence below |
 | 8 Stretch | open-ground event layout | not started; parked by Arun |
+| R UI redesign | Simulate / Optimise / Live, light theme, synced 3D and 2D Flow, recommendation engine | implemented 2026-11-21, not committed; see the log entry below and `docs/redesign/PLAN.md` |
 
 ## Resume
 
@@ -53,6 +54,40 @@ If a persona replay reports MISMATCH after a simulator change, re-collect (needs
 ---
 
 ## Log
+
+### UI redesign (2026-11-21)
+
+Arun asked for a complete redesign: three modes (Simulate, Optimise, Live), a 3D / 2D Flow toggle on one simulation, and an optimisation workflow that shows how many more people get out. The design canvas (light theme, chosen by Arun) is https://claude.ai/artifact/NsnpQRUPTFRQcwGeLEYFJz; the plan is `docs/redesign/PLAN.md`; the library research is `docs/redesign/oss-shortlist.md`. Built by the main session plus helper agents (Optimise engine, Optimise page, Live console, 3D view, analysis screens), each owning separate files.
+
+What changed
+- Frames carry each agent's target element, cumulative exit use and per-portal queue person-seconds; `GridInfo` lists portal midpoints. Simulation channels keep their whole history, so any view can replay a run from the start (`src/server/channels.ts`, `frames.ts`, `contract.ts`).
+- The client buffers every run and plays it with one shared playhead (`web/src/store.ts`): play, pause, scrub, 1–16×. Both views read the same frame, so switching 3D ↔ 2D keeps the time, positions, routes and hazards.
+- Simulate (`web/src/pages/Simulate.tsx`): full-bleed stage, scenario card and editor (presets from `/api/scenarios/presets`, custom form, plain-language input), status panel computed from the current frame, floor rail, camera controls, transport with the people-inside curve and the clearance target from `/api/meta`.
+- 2D Flow (`web/src/views/Plan2D.tsx`): light architectural plan, trajectories coloured by the exit chosen, density, smoke, live queue markers, exit labels with counts and flow, occupant and door inspector, follow mode, all-floors grid.
+- Optimise: `src/design/recommend.ts` (`npm run recommend`, `POST /api/design/recommend`) re-simulates the optimiser's changes on the adversary worst case with paired seeds and labels each change validated / no effect / worse / not testable. The page shows problems, recommendations, before/after danger maps, per-seed results, a side-by-side replay and the earlier analyses.
+- Live: incident banner and state stepper, demo-feed labelling, zone matrix, SVG floor plan with sign previews, decision card with the three-key gate.
+- Light design tokens, IBM Plex (self-hosted), Radix controls, lucide icons.
+
+Results on the worst-case fire (rule crowd, seeds 88000–88007, 547 occupants, target 600 s; `data/design/recommend.json`)
+
+| Change | Out by 600 s (mean) | Evidence |
+|---|---|---|
+| original | 464.5 | — |
+| widen EX-S by 6 in + phased evacuation | 546.75 | validated, +82.25 ± 7.12 (2 SE) |
+| widen EX-S by 6 in | 511.75 | validated, +47.25 ± 13.92 |
+| phased evacuation | 502.13 | validated, +37.63 ± 18.0 |
+| widen EX-E1 by 6 in | 464.5 | no effect (identical in all 8 seeds) |
+| add an exterior exit | — | not testable: no candidate exit positions are defined |
+
+Evidence: `npm test` (exit 0) — `tsc --noEmit` clean; vitest `Test Files 16 passed (16) · Tests 91 passed (91)` (new: `tests/unit/frames.test.ts`, `tests/acceptance/recommend.test.ts`); Playwright `4 passed (56.9s)`: demo-offline, phones, 2D/3D same tick and hash in split view, and the new "switching between 3D and 2D keeps the playhead, tick and state hash". Screenshots of every mode at 1440×900 and 390 wide were taken from the running app and compared against the design canvas and the reference images.
+
+Deviations and open items
+- `sync.spec.ts` now opens the Simulate page in split view (`&view=split`) because one view shows at a time by default; the assertion is unchanged.
+- The old 3D view's floating sign boards and persona text labels were dropped; sign states show in 2D and on the Live plan, persona decisions in Run statistics.
+- The 2D Flow view stays on Canvas 2D (crisp lines and text); the shortlist suggested an orthographic three.js view.
+- `recommend` defaults to the rule crowd because its figures are the reference; `--policy distilled` gives different numbers.
+- Adding an exit needs candidate wall segments, which do not exist yet.
+- Headless Chromium uses a software GPU, so measured frame rates there (2D playing: 16–22 fps; paused: 60) are lower than on real hardware; JavaScript was idle about 90% of the time while playing.
 
 ### Phases 1–7 (2026-11-21)
 

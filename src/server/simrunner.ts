@@ -12,12 +12,17 @@ import { prepareScenario } from "../design/prepare.ts";
 
 let counter = 0;
 
+/** What each simulation channel is running, so a page opened from a link can describe it. Only the most recent runs are kept. */
+export const runInfo = new Map<string, { scenario: Scenario; mode: SimRunRequest["mode"] }>();
+
 export function loadDistilled(): DistilledPolicy | undefined {
   try { return DistilledPolicy.load(); } catch { return undefined; }
 }
 
 export function startSimRun(simEnv: SimEnv, channels: Channels, req: SimRunRequest): { channel: string; world: World } {
   const channel = `sim:${++counter}`;
+  runInfo.set(channel, { scenario: req.scenario as Scenario, mode: req.mode });
+  if (runInfo.size > 32) runInfo.delete(runInfo.keys().next().value!);
   const { scenario, model } = prepareScenario(simEnv, req.scenario as Scenario);
   const distilled = loadDistilled();
   const backend = (env("PERSONA_BACKEND") ?? "haiku") as "haiku" | "jev";

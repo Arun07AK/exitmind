@@ -30,6 +30,8 @@ export interface GridInfo {
   /** egress elements the simulator routes to (exits and stair heads) */
   elements: { id: string; label: string; kind: "exit" | "stair"; floor: string; x: number; y: number }[];
   mounts: { id: string; floor: string; x: number; y: number; facing: [number, number]; staticTarget: string | null }[];
+  /** doors and openings with their midpoints, so views can place queue markers */
+  portals: { id: string; floor: string; x: number; y: number; label: string }[];
 }
 
 // ---------- frames (WebSocket /ws, JSON text messages) ----------
@@ -65,6 +67,12 @@ export interface FrameMsg {
   stress: number[];
   /** 0 rule, 1 distilled, 2 live LLM persona */
   policy: number[];
+  /** index into GridInfo.elements of the exit or stair head each agent is heading for; -1 when none */
+  target: number[];
+  /** cumulative people through each element, aligned with GridInfo.elements */
+  exits: number[];
+  /** cumulative person-seconds of queuing per portal id (non-zero entries only) */
+  queues: Record<string, number>;
   /** present on the first frame and whenever hazard geometry changes */
   hazard?: HazardFrame;
   signs: { mount: string; state: SignState | null; dynamic: boolean }[];
@@ -314,7 +322,7 @@ export interface LiveState {
  *  GET  /api/signs/qr?mount=<id> -> image/svg+xml QR code of the sign URL on the LAN address
  * Design REST:
  *  GET /api/twin -> Twin ; GET /api/grid -> GridInfo ; GET /api/codecheck -> CodeCheckResult
- *  POST /api/sim/run -> {channel} ; GET /api/design/{bottlenecks|adversary|optimiser|rating|playbook} -> the matching result (404 if not generated yet)
+ *  POST /api/sim/run -> {channel} ; GET /api/sim/runs/<channel> -> {scenario, mode} for recent runs ; GET /api/design/{bottlenecks|adversary|optimiser|rating|playbook} -> the matching result (404 if not generated yet)
  *  POST /api/nl2params {text} -> Nl2ParamsResult
  *  GET /api/meta -> { offline: boolean, personaBackend: string, libraries: string[] }
  */
@@ -326,4 +334,146 @@ export interface HistorianReport {
   newBreakingScenarios: string[];
   playbookUpdated: boolean;
   policyUpdated: boolean;
+}
+
+// ---------- optimise mode (POST /api/design/recommend {seeds?} -> RecommendResult; GET /api/design/recommend serves the last one) ----------
+export type RecommendEdit = NonNullable<Scenario["edits"]>[number];
+export type EvidenceStatus = "validated" | "no_effect" | "worse";
+export interface RecommendSeed {
+  seed: number;
+  occupants: number;
+  remainingAtTarget: number;
+  /** occupants - remainingAtTarget */
+  outByTarget: number;
+  clearance95Sec: number | null;
+  densityDangerPS: number;
+  smokeExposurePS: number;
+  crushSec: number;
+  gridlock: boolean;
+  exitUsage: Record<string, number>;
+  badness: number;
+  hash: string;
+}
+export interface RecommendStats {
+  mean: number;
+  min: number;
+  max: number;
+}
+export interface RecommendDangerFloor {
+  floor: string;
+  w: number;
+  h: number;
+  ox: number;
+  oy: number;
+  cellFt: number;
+  /** mean person-seconds above the danger density per run, summed over the floor */
+  total: number;
+  /** sparse [cellIndex, mean person-seconds] for cells above 0.5; cellIndex = y*w + x, cell centre = (ox + (x+0.5)*cellFt, oy + (y+0.5)*cellFt) */
+  cells: [number, number][];
+}
+export interface RecommendExitShare {
+  id: string;
+  label: string;
+  clearWidthIn: number;
+  /** mean people through this exterior exit per run */
+  uses: number;
+  /** share of all exterior exit use */
+  share: number;
+  /** share of total exterior clear width */
+  widthShare: number;
+}
+export interface RecommendAggregate {
+  perSeed: RecommendSeed[];
+  outByTarget: RecommendStats;
+  remainingAtTarget: RecommendStats;
+  /** seeds where 95% of occupants were out or protected before the run ended (byTarget: by the clearance target) */
+  reached95: { seeds: number; of: number; byTarget: number; minSec: number | null; maxSec: number | null };
+  densityDangerPS: number;
+  smokeExposurePS: number;
+  crushSec: number;
+  gridlockSeeds: number;
+  badness: number;
+  exitShares: RecommendExitShare[];
+  danger: RecommendDangerFloor[];
+}
+export interface RecommendExitShareProblem {
+  id: string;
+  exit: string;
+  label: string;
+  share: number;
+  widthShare: number;
+  clearWidthIn: number;
+  /** share / widthShare; flagged above 1.5 */
+  ratio: number;
+  text: string;
+}
+export interface RecommendDensityProblem {
+  id: string;
+  floor: string;
+  /** mean person-seconds above the danger density per run on this floor */
+  totalPS: number;
+  centroid: [number, number];
+  portal: string;
+  portalLabel: string;
+  /** exterior exit whose door this portal is, if any */
+  exit: string | null;
+  x: number;
+  y: number;
+  radiusFt: number;
+  /** share of this floor's danger within radiusFt of the portal midpoint */
+  fractionWithin: number;
+  text: string;
+}
+export interface RecommendInsideProblem {
+  id: string;
+  targetSec: number;
+  occupants: number;
+  remainingAtTarget: RecommendStats;
+  reached95: number;
+  of: number;
+  text: string;
+}
+export interface RecommendGain {
+  /** mean over seeds of (variant outByTarget - original outByTarget), same seed */
+  mean: number;
+  se: number;
+  perSeed: number[];
+}
+export interface Recommendation {
+  id: string;
+  edits: RecommendEdit[];
+  label: string;
+  kind: "architectural" | "operational";
+  source: "optimiser" | "bottlenecks" | "candidates" | "combination";
+  whatChanges: string;
+  why: string;
+  /** ids of the problems this change targets */
+  addresses: string[];
+  status: EvidenceStatus | "untestable";
+  reason?: string;
+  gain: RecommendGain | null;
+  codeLimitsOk: boolean | null;
+  variant: RecommendAggregate | null;
+}
+export interface RecommendResult {
+  scenario: ScenarioRef;
+  hazard: HazardKind;
+  profile: ProfileId;
+  seeds: number[];
+  targetSec: number;
+  policy: "rule" | "distilled";
+  runs: number;
+  evidenceRule: string;
+  sources: string[];
+  original: RecommendAggregate;
+  problems: { exitShares: RecommendExitShareProblem[]; density: RecommendDensityProblem[]; insideAtTarget: RecommendInsideProblem };
+  recommendations: Recommendation[];
+}
+/** GET /api/scenarios/presets -> ScenarioPreset[] */
+export interface ScenarioPreset {
+  id: string;
+  label: string;
+  hazard: HazardKind;
+  description: string;
+  scenario: Scenario;
 }

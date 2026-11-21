@@ -1,11 +1,71 @@
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+@import "@fontsource/ibm-plex-mono/600.css";
 @import "tailwindcss" source("..");
 
 @theme {
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* surfaces and text */
+  --color-page: #f4f5f7;
+  --color-panel: #ffffff;
+  --color-stage: #eceef1;
+  --color-inset: #eef0f3;
+  --color-hover: #f6f7f9;
+  --color-line: #e3e6ea;
+  --color-line-strong: #d0d5dc;
+  --color-ink: #14171c;
+  --color-ink-2: #4b5361;
+  --color-ink-3: #6a7280;
+  --color-ink-4: #8a93a0;
+  --color-focus: #2f5bea;
+
+  /* safety semantics */
+  --color-safe: #22c55e;
+  --color-safe-ink: #15803d;
+  --color-safe-bg: #eef9f1;
+  --color-safe-line: #bfe6cb;
+  --color-warn: #f59e0b;
+  --color-warn-ink: #92400e;
+  --color-warn-bg: #fff6e5;
+  --color-warn-line: #f3d08a;
+  --color-danger: #e5372b;
+  --color-danger-strong: #d92d20;
+  --color-danger-ink: #b42318;
+  --color-danger-bg: #fdecea;
+  --color-danger-line: #f6c9c4;
+  --color-moving: #1f2530;
+  --color-stair: #5b6b8c;
+  --color-idle: #b4bbc6;
 }
 
 html, body, #root { height: 100%; }
-body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+body {
+  margin: 0;
+  background: var(--color-page);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+.num { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: #d0d5dc; border-radius: 4px; }
 ::-webkit-scrollbar-track { background: transparent; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
+@keyframes slide-in-right { from { transform: translateX(16px); opacity: 0 } to { transform: none; opacity: 1 } }
+@keyframes pop-in { from { transform: translateY(4px) scale(.98); opacity: 0 } to { transform: none; opacity: 1 } }
+@keyframes pulse-ring { 0% { transform: scale(.8); opacity: .7 } 100% { transform: scale(1.8); opacity: 0 } }
+.anim-fade { animation: fade-in 160ms ease-out }
+.anim-sheet { animation: slide-in-right 220ms cubic-bezier(.2,.7,.2,1) }
+.anim-pop { animation: pop-in 140ms ease-out }
+@media (prefers-reduced-motion: reduce) {
+  .anim-fade, .anim-sheet, .anim-pop { animation: none }
+}

@@ -35,7 +35,8 @@ npm run demo                      # THE demo: builds the web app, serves on 0.0.
 | `npm run sheets:fetch` | downloads the six drawing sheets into the git-ignored `data/sheets/` |
 | `npm run twin:build` / `twin:overlay` | builds and validates `data/twin/rinker.twin.json`; draws the twin over the sheets (git-ignored output) |
 | `npm run sim -- --hazard fire` | one simulation run from the command line |
-| `npm run bottlenecks` / `adversary` / `optimise` / `rate` / `playbook` | design-mode pipelines; results go to `data/design/` and show in the Design tabs |
+| `npm run recommend` | re-simulates the optimiser's changes on the worst case (8 seeds) and writes `data/design/recommend.json` for the Optimise page |
+| `npm run bottlenecks` / `adversary` / `optimise` / `rate` / `playbook` | design-mode pipelines; results go to `data/design/` and show under Optimise → Analyses |
 | `npm run personas:collect` / `distill` | record live LLM persona runs (needs a key), then distil them into `data/policy/distilled.policy.json` |
 | `npm run bakeoff` / `results:table` | persona backend comparison and the rule-only / hybrid / distilled table, written to `docs/verification/` |
 | `npm run replay -- <log.jsonl>` | replays a recorded showcase run or live session and checks the final state is identical |
@@ -55,7 +56,12 @@ Demo script (3 minutes): `/live` -> Start fire -> read the decision card -> Appr
 | `three` | 0.187.0 | 3D view |
 | `@react-three/fiber` | 9.8.2 | 3D in React |
 | `@react-three/drei` | 10.7.9 | 3D controls and labels |
-| `zustand` | 5.1.0 | shared frame store for the 2D and 3D views |
+| `zustand` | 5.1.0 | run buffer and shared playhead for the 2D and 3D views |
+| `@react-three/postprocessing` | 3.2.2 | ambient occlusion and anti-aliasing in the 3D view |
+| `postprocessing` | 6.39.6 | effect passes used by `@react-three/postprocessing`; its `n8ao` dependency is pinned to 2.0.2 with `overrides` (2.1.0 was under 7 days old) |
+| `radix-ui` | 1.8.1 | accessible segmented controls, popovers, tooltips, sheets and the timeline slider |
+| `lucide-react` | 1.72.0 | icons |
+| `@fontsource/ibm-plex-sans`, `@fontsource/ibm-plex-mono` | 5.3.0 | self-hosted IBM Plex fonts, so the offline demo keeps its typography |
 | `qrcode` | 1.5.4 | sign registration QR codes |
 | `nosleep.js` | 0.12.0 | keeps phone screens awake |
 | `vite` | 8.3.8 | web build and dev server (dev) |

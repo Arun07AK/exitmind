@@ -27,10 +27,24 @@ export class Channels {
 
   publish(channel: string, msg: ServerMsg, sticky = false): void {
     const data = JSON.stringify(msg);
-    if (sticky) this.#last.set(channel, [msg]);
+    if (channel.startsWith("sim:")) this.#remember(channel, msg);
+    else if (sticky) this.#last.set(channel, [msg]);
     else if (msg.type === "frame" && msg.hazard) this.#last.set(channel, [msg]);
     for (const ws of this.#subs.get(channel) ?? []) if (ws.readyState === 1) ws.send(data);
   }
+
+  /** Simulation runs keep their whole history so a late subscriber (or a second view) can replay the run from the start. */
+  #remember(channel: string, msg: ServerMsg): void {
+    let h = this.#last.get(channel);
+    if (!h) {
+      this.#last.set(channel, (h = []));
+      const sims = [...this.#last.keys()].filter((k) => k.startsWith("sim:"));
+      for (const k of sims.slice(0, Math.max(0, sims.length - Channels.KEEP_RUNS))) this.#last.delete(k);
+    }
+    h.push(msg);
+  }
+
+  static readonly KEEP_RUNS = 12;
 
   broadcast(msg: ServerMsg): void {
     const data = JSON.stringify(msg);

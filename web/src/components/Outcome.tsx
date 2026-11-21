@@ -1,35 +1,35 @@
 import type { Outcome } from "../../../src/server/contract.ts";
 import { useStore } from "../store.ts";
 import { formatNumber } from "./Metric.tsx";
-import { Chip, Td, Th } from "./ui.tsx";
+import { Chip, cx, Td, Th } from "./ui.tsx";
 
 const FALLBACK_FORMULA = "badness = min(clearance95, cap) + w1·densityDangerPS + w2·smokeExposurePS + w3·remainingAtTarget";
 
 export function BadnessFormula() {
   const f = useStore((s) => s.badnessFormula);
   return (
-    <div className="mt-1 font-mono text-[11px] text-slate-500" data-testid="badness-formula" title={f ? "from the latest run summary" : "from src/sim/run.ts"}>
-      {f ?? FALLBACK_FORMULA} (lower is better)
+    <div className="mt-2 text-[11px] leading-relaxed text-ink-3" data-testid="badness-formula" title={f ? "from the latest run summary" : "from src/sim/run.ts"}>
+      <span className="num">{f ?? FALLBACK_FORMULA}</span> (lower is better)
     </div>
   );
 }
 
 const ROWS: { key: keyof Outcome; label: string; unit: string }[] = [
   { key: "clearance95Sec", label: "95% clearance", unit: "s" },
-  { key: "remainingAtTarget", label: "not yet protected at target time", unit: "people" },
-  { key: "densityDangerPS", label: "time above danger density", unit: "p·s" },
-  { key: "smokeExposurePS", label: "smoke exposure", unit: "p·s" },
-  { key: "gridlock", label: "gridlock", unit: "" },
-  { key: "badness", label: "badness", unit: "" },
+  { key: "remainingAtTarget", label: "Not yet protected at target time", unit: "people" },
+  { key: "densityDangerPS", label: "Time above danger density", unit: "p·s" },
+  { key: "smokeExposurePS", label: "Smoke exposure", unit: "p·s" },
+  { key: "gridlock", label: "Gridlock", unit: "" },
+  { key: "badness", label: "Badness", unit: "" },
 ];
 
 function cell(o: Outcome | null | undefined, key: keyof Outcome): string {
-  if (!o) return "\u2014";
+  if (!o) return "—";
   const v = o[key];
   if (key === "clearance95Sec" && v === null) return "not reached";
   if (typeof v === "boolean") return v ? "yes" : "no";
   if (typeof v === "number") return formatNumber(v);
-  return v === undefined || v === null ? "\u2014" : String(v);
+  return v === undefined || v === null ? "—" : String(v);
 }
 
 export interface OutcomeColumn {
@@ -44,27 +44,31 @@ export function OutcomeTable({ columns, onRef, testId }: { columns: OutcomeColum
       <table className="w-full border-collapse">
         <thead>
           <tr>
-            <Th>figure</Th>
-            {columns.map((c) => <Th key={c.title}>{c.title}</Th>)}
+            <Th className="pl-0">Figure</Th>
+            {columns.map((c) => <Th key={c.title} className="text-right! first-letter:uppercase">{c.title}</Th>)}
           </tr>
         </thead>
         <tbody>
           {ROWS.map((r) => (
-            <tr key={r.key}>
-              <Td className="text-slate-400">{r.label}{r.unit ? <span className="ml-1 text-[10px] text-slate-500">{r.unit}</span> : null}</Td>
-              {columns.map((c) => (
-                <Td key={c.title} className={`font-mono ${r.key === "gridlock" && c.outcome?.gridlock ? "text-red-400" : ""}`} title={c.outcome ? `source: ${c.outcome.ref}` : undefined}>
-                  {cell(c.outcome, r.key)}
-                </Td>
-              ))}
+            <tr key={r.key} className={r.key === "badness" ? "font-medium" : undefined}>
+              <Td className="pl-0 text-ink-2">{r.label}{r.unit ? <span className="num ml-1.5 text-[11px] text-ink-4">{r.unit}</span> : null}</Td>
+              {columns.map((c) => {
+                const text = cell(c.outcome, r.key);
+                const muted = text === "—" || text === "not reached";
+                return (
+                  <Td key={c.title} className={cx("text-right", muted ? "text-ink-3" : "num text-ink", r.key === "gridlock" && c.outcome?.gridlock && "font-medium text-danger-ink")} title={c.outcome ? `source: ${c.outcome.ref}` : undefined}>
+                    {text}
+                  </Td>
+                );
+              })}
             </tr>
           ))}
           <tr>
-            <Td className="text-slate-400">source record</Td>
+            <Td className="border-b-0! pl-0 text-ink-3">Source record</Td>
             {columns.map((c) => (
-              <Td key={c.title}>
-                {c.outcome ? <Chip onClick={onRef ? () => onRef(c.outcome!.ref) : undefined}>{c.outcome.ref}</Chip> : "\u2014"}
-                {c.extra ? <div className="text-[10px] text-slate-500">{c.extra}</div> : null}
+              <Td key={c.title} className="border-b-0! text-right">
+                {c.outcome ? <Chip onClick={onRef ? () => onRef(c.outcome!.ref) : undefined}>{c.outcome.ref}</Chip> : <span className="text-ink-3">{"—"}</span>}
+                {c.extra ? <div className="mt-0.5 text-[11px] text-ink-3">{c.extra}</div> : null}
               </Td>
             ))}
           </tr>

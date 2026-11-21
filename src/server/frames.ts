@@ -18,6 +18,10 @@ export function gridInfo(w: Pick<World, "m">): GridInfo {
       return { id: e.id, label: e.label, kind: e.kind, floor: fm.id, x: x / k, y: y / k };
     }),
     mounts: m.mounts.map((mt) => ({ id: mt.id, floor: m.floors[mt.floor]!.id, x: mt.x, y: mt.y, facing: mt.facing, staticTarget: mt.staticTarget >= 0 ? m.elements[mt.staticTarget]!.id : null })),
+    portals: m.twin.floors.flatMap((f) => {
+      const name = new Map(f.spaces.map((s) => [s.id, s.name]));
+      return f.portals.map((p) => ({ id: p.id, floor: f.id, x: (p.a[0] + p.b[0]) / 2, y: (p.a[1] + p.b[1]) / 2, label: p.connects.map((c) => (c === "OUTSIDE" ? "outside" : name.get(c) ?? c)).join(" / ") }));
+    }),
   };
 }
 
@@ -50,9 +54,14 @@ export class FrameEncoder {
       x[a] = Math.round(px * 10); y[a] = Math.round(py * 10); z[a] = Math.round(pz * 10);
     }
     const sum = w.summary();
+    const queues: Record<string, number> = {};
+    for (const [k, v] of Object.entries(sum.portalQueuePS)) if (v > 0) queues[k] = Math.round(v * 10) / 10;
     const msg: FrameMsg = {
       type: "frame", channel: this.channel, tick: w.tick, t: Math.round(w.tSec * 100) / 100, hash: stateHash(w), n, x, y, z,
       floor: Array.from(w.floor), state: Array.from(w.state), stress: Array.from(w.stress, (s) => Math.round(s * 100)), policy: Array.from(w.policyKind),
+      target: Array.from(w.target, (v) => (v >= 0 ? v : -1)),
+      exits: w.m.elements.map((e) => sum.exitUsage[e.id] ?? 0),
+      queues,
       signs: w.m.mounts.map((mt, k) => ({ mount: mt.id, state: w.signs[k] ?? null, dynamic: !!w.signDynamic[k] })),
       metrics: { protected: sum.protected + sum.sheltered + sum.inRefuge, remaining: sum.remaining, clearance95Sec: sum.clearance95Sec, endSec: sum.endSec },
       done: w.done,

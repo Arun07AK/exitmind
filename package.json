@@ -27,6 +27,7 @@
     "optimise": "node src/cli/optimise.ts",
     "rate": "node src/cli/rate.ts",
     "playbook": "node src/cli/playbook.ts",
+    "recommend": "node src/cli/recommend.ts",
     "personas:collect": "node src/cli/personas-collect.ts",
     "distill": "node src/cli/distill.ts",
     "bakeoff": "node src/cli/bakeoff.ts",
@@ -36,12 +37,18 @@
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.8.0",
+    "@fontsource/ibm-plex-mono": "5.3.0",
+    "@fontsource/ibm-plex-sans": "5.3.0",
     "@react-three/drei": "10.7.9",
     "@react-three/fiber": "9.8.2",
+    "@react-three/postprocessing": "3.2.2",
     "@typesafe-ai/sdk": "0.7.0",
     "express": "5.3.0",
+    "lucide-react": "1.72.0",
     "nosleep.js": "0.12.0",
+    "postprocessing": "6.39.6",
     "qrcode": "1.5.4",
+    "radix-ui": "1.8.1",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "three": "0.187.0",
@@ -64,5 +71,8 @@
     "typescript": "7.0.2",
     "vite": "8.3.8",
     "vitest": "5.1.0"
+  },
+  "overrides": {
+    "n8ao": "2.0.2"
   }
 }

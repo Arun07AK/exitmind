@@ -11,9 +11,9 @@ export function applyFrameAttrs(el: Element | null, f: FrameMsg | null): void {
 export function useFrameAttrs<T extends Element>() {
   const ref = useRef<T>(null);
   useEffect(() => {
-    applyFrameAttrs(ref.current, useStore.getState().frameB);
+    applyFrameAttrs(ref.current, useStore.getState().frame);
     return useStore.subscribe((s, p) => {
-      if (s.frameB !== p.frameB) applyFrameAttrs(ref.current, s.frameB);
+      if (s.frame !== p.frame) applyFrameAttrs(ref.current, s.frame);
     });
   }, []);
   return ref;

@@ -22,7 +22,7 @@ test("2D plan and 3D view show the same tick and state hash during playback", as
   expect(res.ok(), await res.text()).toBeTruthy();
   const { channel } = (await res.json()) as { channel: string };
 
-  await page.goto(`/?channel=${encodeURIComponent(channel)}`);
+  await page.goto(`/?channel=${encodeURIComponent(channel)}&view=split`);
   await expect(page.getByTestId("synced-views")).toBeVisible();
   await expect(page.getByTestId("plan2d-canvas")).toHaveAttribute("data-tick", /^\d+$/, { timeout: 60_000 });
   await expect(page.getByTestId("building3d")).toHaveAttribute("data-tick", /^\d+$/, { timeout: 60_000 });
@@ -38,4 +38,39 @@ test("2D plan and 3D view show the same tick and state hash during playback", as
     await page.waitForTimeout(400);
   }
   expect(ticks.size, "playback advanced while sampling").toBeGreaterThan(1);
+});
+
+test("switching between 3D and 2D keeps the playhead, tick and state hash", async ({ page, request }) => {
+  const g = await grid(request);
+  const scenario: Scenario = {
+    id: "e2e-switch-college-quake",
+    profile: "college",
+    hazard: { kind: "quake", damaged: [], startSec: 0 },
+    behaviour: {},
+    loadFactor: 1,
+    occupancy: "uniform",
+    protocol: "HOLD_THEN_EVACUATE",
+    seed: 3,
+    maxSec: 600,
+  };
+  expect(g.floors.length).toBeGreaterThan(0);
+  const res = await request.post("/api/sim/run", { data: { scenario, mode: "rule", speed: 0 } });
+  expect(res.ok(), await res.text()).toBeTruthy();
+  const { channel } = (await res.json()) as { channel: string };
+  await page.goto(`/?channel=${encodeURIComponent(channel)}&view=2d`);
+  const plan = page.getByTestId("plan2d-canvas");
+  await expect(plan).toHaveAttribute("data-tick", /^[1-9]\d*$/, { timeout: 60_000 });
+  await page.getByTestId("play").click();
+  await page.waitForTimeout(300);
+  const clock = await page.getByTestId("clock").textContent();
+  const tick = await plan.getAttribute("data-tick");
+  const hash = await plan.getAttribute("data-state-hash");
+  await page.getByTestId("view-3d").click();
+  const view3d = page.getByTestId("building3d");
+  await expect(view3d).toHaveAttribute("data-tick", tick!, { timeout: 30_000 });
+  await expect(view3d).toHaveAttribute("data-state-hash", hash!);
+  await expect(page.getByTestId("clock")).toHaveText(clock!);
+  await page.getByTestId("view-2d").click();
+  await expect(page.getByTestId("plan2d-canvas")).toHaveAttribute("data-tick", tick!, { timeout: 30_000 });
+  await expect(page.getByTestId("clock")).toHaveText(clock!);
 });
