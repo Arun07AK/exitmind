@@ -1,0 +1,17 @@
+{
+  "_note": "Illustrative units for comparing edits, editable, NOT cost estimates.",
+  "budget": 60,
+  "maxSteps": 5,
+  "costs": {
+    "widen_corridor": 8,
+    "widen_stair": 14,
+    "widen_exit": 5,
+    "add_exit": 30,
+    "evac_chairs": 3,
+    "refuge": 6,
+    "accessible_exit": 10,
+    "strategy": 1
+  },
+  "step": { "widen_corridor": 1, "widen_stair": 6, "widen_exit": 6, "evac_chairs": 2 },
+  "maxRepeats": 2
+}
