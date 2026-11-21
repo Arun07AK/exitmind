@@ -45,11 +45,11 @@ Arun's decisions: PDF and image plans, traced by Opus 5.5 with a full editor; pl
 
 | Phase | Builds | Verified by | Status |
 |---|---|---|---|
-| U1 | upload PDF/PNG/JPG, render, scale (two clicks or Opus suggestion), stored in git-ignored `data/uploads/` | API tests | in progress (venue registry + image input done) |
-| U2 | Opus 5.5 traces outline, walls, doors, exits, obstacles -> twin; validator feedback, one repair pass | stub tests; one live trace | pending |
-| U3 | editor over the plan (drag/add/delete), live validation, save as a venue | Playwright | pending |
-| U4 | accuracy benchmark: Opus traces Rinker A107, compared with the hand-traced F1 | area, exit positions, clearance | pending |
-| A1 | diagnosis: per-cell queue/density, delay attribution per element, hotspots + catchments, geometry analytics | known-bottleneck test building; Rinker agrees with bottleneck finder | pending |
+| U1 | upload PDF/PNG/JPG, render, scale (two clicks or Opus suggestion), stored in git-ignored `data/uploads/` | API tests | done (`da118cd`) |
+| U2 | Opus 5.5 traces outline, walls, doors, exits, obstacles -> twin; validator feedback, one repair pass | stub tests; one live trace | done (`da118cd`) |
+| U3 | editor over the plan (drag/add/delete), live validation, save as a venue | Playwright | done (`e6f9e69`) |
+| U4 | accuracy benchmark: Opus traces Rinker A102 (first floor), compared with the hand-traced F1 | `docs/verification/plan-benchmark.md` | done (`3ab1aa9`) |
+| A1 | diagnosis: per-cell queue/density, delay attribution per element, hotspots + catchments, geometry analytics | known-bottleneck test building; Rinker agrees with bottleneck finder | in progress |
 | A2 | geometric generators (exit, external stair, corridor/passage, partition removal/second door, ramp, widen) + structural, code and accessibility rules | every generated twin validates; known effects reproduce | pending |
 | A3 | paired evaluation on common seeds, hydraulic estimate, learned surrogate, successive halving, safe-capacity bisection | rank correlation and runs saved reported | pending |
 | A4 | combination (beam) search, Pareto ranking, Opus concepts compiled by the generators | rejected concepts carry reasons; with/without-Opus ablation | pending |
