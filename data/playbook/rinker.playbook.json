@@ -1,0 +1,1184 @@
+[
+ {
+  "id": "PB-college-fire-Z1N",
+  "situation": {
+   "hazard": "fire",
+   "zone": "Z1N",
+   "blocked": [],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "EVACUATE",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 0
+    }
+   ],
+   "closedRoutes": [],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 222.5,
+   "remainingAtTarget": 3.3,
+   "densityDangerPS": 47.8,
+   "smokeExposurePS": 5527.3,
+   "gridlock": false,
+   "badness": 11334.3,
+   "ref": "C1 nominal (3 seeds); worst-case badness 11170.6"
+  },
+  "doNothing": {
+   "clearance95Sec": 219.6,
+   "remainingAtTarget": 3.7,
+   "densityDangerPS": 3.6,
+   "smokeExposurePS": 5730.9,
+   "gridlock": false,
+   "badness": 11719.8,
+   "ref": "do-nothing"
+  },
+  "rationale": "everyone leaves now by the nearest route; route costs include smoke and damage; best of 4 candidates on 3 nominal seeds plus a low-compliance worst case (badness 11334.3 nominal, 11170.6 worst, do-nothing 11719.8). Rejected: EVACUATE (avoid zone) 11252, HOLD_THEN_EVACUATE 14042, PHASED_EVACUATION 20984."
+ },
+ {
+  "id": "PB-college-fire-Z1C",
+  "situation": {
+   "hazard": "fire",
+   "zone": "Z1C",
+   "blocked": [],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "EVACUATE",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 0
+    }
+   ],
+   "closedRoutes": [],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 234.8,
+   "remainingAtTarget": 3.3,
+   "densityDangerPS": 212.7,
+   "smokeExposurePS": 6760.7,
+   "gridlock": false,
+   "badness": 13895.9,
+   "ref": "C1 nominal (3 seeds); worst-case badness 26090.3"
+  },
+  "doNothing": {
+   "clearance95Sec": 244.1,
+   "remainingAtTarget": 3.3,
+   "densityDangerPS": 197,
+   "smokeExposurePS": 8025.7,
+   "gridlock": false,
+   "badness": 16427.4,
+   "ref": "do-nothing"
+  },
+  "rationale": "everyone leaves now by the nearest route; route costs include smoke and damage; best of 4 candidates on 3 nominal seeds plus a low-compliance worst case (badness 13895.9 nominal, 26090.3 worst, do-nothing 16427.4). Rejected: EVACUATE (avoid zone) 19993, HOLD_THEN_EVACUATE 30803, PHASED_EVACUATION 35515."
+ },
+ {
+  "id": "PB-college-fire-Z1S",
+  "situation": {
+   "hazard": "fire",
+   "zone": "Z1S",
+   "blocked": [],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "EVACUATE",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 0
+    }
+   ],
+   "closedRoutes": [],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 244.3,
+   "remainingAtTarget": 3.3,
+   "densityDangerPS": 38.9,
+   "smokeExposurePS": 3542.6,
+   "gridlock": false,
+   "badness": 7382.2,
+   "ref": "C1 nominal (3 seeds); worst-case badness 11218.5"
+  },
+  "doNothing": {
+   "clearance95Sec": 270,
+   "remainingAtTarget": 3.7,
+   "densityDangerPS": 150,
+   "smokeExposurePS": 5873.3,
+   "gridlock": false,
+   "badness": 12128.3,
+   "ref": "do-nothing"
+  },
+  "rationale": "everyone leaves now by the nearest route; route costs include smoke and damage; best of 4 candidates on 3 nominal seeds plus a low-compliance worst case (badness 7382.2 nominal, 11218.5 worst, do-nothing 12128.3). Rejected: EVACUATE (avoid zone) 9300, HOLD_THEN_EVACUATE 15261, PHASED_EVACUATION 27004."
+ },
+ {
+  "id": "PB-college-fire-Z2N",
+  "situation": {
+   "hazard": "fire",
+   "zone": "Z2N",
+   "blocked": [],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "EVACUATE",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 0
+    }
+   ],
+   "closedRoutes": [],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 212,
+   "remainingAtTarget": 7.3,
+   "densityDangerPS": 0,
+   "smokeExposurePS": 3499.3,
+   "gridlock": false,
+   "badness": 7283.8,
+   "ref": "C1 nominal (3 seeds); worst-case badness 10951.5"
+  },
+  "doNothing": {
+   "clearance95Sec": 189.8,
+   "remainingAtTarget": 11.7,
+   "densityDangerPS": 0,
+   "smokeExposurePS": 3079.2,
+   "gridlock": true,
+   "badness": 6464.8,
+   "ref": "do-nothing"
+  },
+  "rationale": "everyone leaves now by the nearest route; route costs include smoke and damage; best of 4 candidates on 3 nominal seeds plus a low-compliance worst case (badness 7283.8 nominal, 10951.5 worst, do-nothing 6464.8). Rejected: EVACUATE (avoid zone) 9118, PHASED_EVACUATION 9237, HOLD_THEN_EVACUATE 1000008574."
+ },
+ {
+  "id": "PB-college-fire-Z2C",
+  "situation": {
+   "hazard": "fire",
+   "zone": "Z2C",
+   "blocked": [],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "EVACUATE",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 0
+    }
+   ],
+   "closedRoutes": [],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 235.9,
+   "remainingAtTarget": 3.3,
+   "densityDangerPS": 270.8,
+   "smokeExposurePS": 980.6,
+   "gridlock": false,
+   "badness": 2365.9,
+   "ref": "C1 nominal (3 seeds); worst-case badness 4731.1"
+  },
+  "doNothing": {
+   "clearance95Sec": 272.8,
+   "remainingAtTarget": 3.3,
+   "densityDangerPS": 499.4,
+   "smokeExposurePS": 2121.2,
+   "gridlock": false,
+   "badness": 4798.2,
+   "ref": "do-nothing"
+  },
+  "rationale": "everyone leaves now by the nearest route; route costs include smoke and damage; best of 4 candidates on 3 nominal seeds plus a low-compliance worst case (badness 2365.9 nominal, 4731.1 worst, do-nothing 4798.2). Rejected: EVACUATE (avoid zone) 3549, PHASED_EVACUATION 4975, HOLD_THEN_EVACUATE 5399."
+ },
+ {
+  "id": "PB-college-fire-Z2S",
+  "situation": {
+   "hazard": "fire",
+   "zone": "Z2S",
+   "blocked": [],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "EVACUATE",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 0
+    }
+   ],
+   "closedRoutes": [],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 183.5,
+   "remainingAtTarget": 4,
+   "densityDangerPS": 0,
+   "smokeExposurePS": 743.5,
+   "gridlock": false,
+   "badness": 1710.5,
+   "ref": "C1 nominal (3 seeds); worst-case badness 931.5"
+  },
+  "doNothing": {
+   "clearance95Sec": 222.1,
+   "remainingAtTarget": 4,
+   "densityDangerPS": 0,
+   "smokeExposurePS": 871.4,
+   "gridlock": false,
+   "badness": 2005,
+   "ref": "do-nothing"
+  },
+  "rationale": "everyone leaves now by the nearest route; route costs include smoke and damage; best of 4 candidates on 3 nominal seeds plus a low-compliance worst case (badness 1710.5 nominal, 931.5 worst, do-nothing 2005). Rejected: EVACUATE (avoid zone) 1321, PHASED_EVACUATION 1424, HOLD_THEN_EVACUATE 2092."
+ },
+ {
+  "id": "PB-college-fire-Z3N",
+  "situation": {
+   "hazard": "fire",
+   "zone": "Z3N",
+   "blocked": [],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "EVACUATE",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 0
+    }
+   ],
+   "closedRoutes": [],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 176.3,
+   "remainingAtTarget": 3.7,
+   "densityDangerPS": 11.6,
+   "smokeExposurePS": 321.3,
+   "gridlock": false,
+   "badness": 861.4,
+   "ref": "C1 nominal (3 seeds); worst-case badness 1517.5"
+  },
+  "doNothing": {
+   "clearance95Sec": 195.3,
+   "remainingAtTarget": 4.3,
+   "densityDangerPS": 9.1,
+   "smokeExposurePS": 727.7,
+   "gridlock": false,
+   "badness": 1698.6,
+   "ref": "do-nothing"
+  },
+  "rationale": "everyone leaves now by the nearest route; route costs include smoke and damage; best of 4 candidates on 3 nominal seeds plus a low-compliance worst case (badness 861.4 nominal, 1517.5 worst, do-nothing 1698.6). Rejected: EVACUATE (avoid zone) 1189, PHASED_EVACUATION 1216, HOLD_THEN_EVACUATE 3368."
+ },
+ {
+  "id": "PB-college-fire-Z3C",
+  "situation": {
+   "hazard": "fire",
+   "zone": "Z3C",
+   "blocked": [],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "PHASED_EVACUATION",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 240
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 240
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 240
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 180
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 180
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 180
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 0
+    }
+   ],
+   "closedRoutes": [],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 262.7,
+   "remainingAtTarget": 3.7,
+   "densityDangerPS": 0.7,
+   "smokeExposurePS": 748.1,
+   "gridlock": false,
+   "badness": 1795.9,
+   "ref": "C3 nominal (3 seeds); worst-case badness 3538"
+  },
+  "doNothing": {
+   "clearance95Sec": 237.7,
+   "remainingAtTarget": 4,
+   "densityDangerPS": 114.8,
+   "smokeExposurePS": 1509.5,
+   "gridlock": false,
+   "badness": 3354.1,
+   "ref": "do-nothing"
+  },
+  "rationale": "the hazard floor leaves first; other floors hold and follow in timed phases; best of 4 candidates on 3 nominal seeds plus a low-compliance worst case (badness 1795.9 nominal, 3538 worst, do-nothing 3354.1). Rejected: EVACUATE 2739, EVACUATE (avoid zone) 2739, HOLD_THEN_EVACUATE 4689."
+ },
+ {
+  "id": "PB-college-fire-Z3S",
+  "situation": {
+   "hazard": "fire",
+   "zone": "Z3S",
+   "blocked": [],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "PHASED_EVACUATION",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 240
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 240
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 240
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 180
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 180
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 180
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 0
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 0
+    }
+   ],
+   "closedRoutes": [],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 266.8,
+   "remainingAtTarget": 3.7,
+   "densityDangerPS": 0,
+   "smokeExposurePS": 113.6,
+   "gridlock": false,
+   "badness": 530.6,
+   "ref": "C3 nominal (3 seeds); worst-case badness 1754.8"
+  },
+  "doNothing": {
+   "clearance95Sec": 278.3,
+   "remainingAtTarget": 3.7,
+   "densityDangerPS": 136.1,
+   "smokeExposurePS": 680.7,
+   "gridlock": false,
+   "badness": 1744.4,
+   "ref": "do-nothing"
+  },
+  "rationale": "the hazard floor leaves first; other floors hold and follow in timed phases; best of 4 candidates on 3 nominal seeds plus a low-compliance worst case (badness 530.6 nominal, 1754.8 worst, do-nothing 1744.4). Rejected: EVACUATE 1187, EVACUATE (avoid zone) 1187, HOLD_THEN_EVACUATE 3283."
+ },
+ {
+  "id": "PB-college-quake-building",
+  "situation": {
+   "hazard": "quake",
+   "zone": "building",
+   "blocked": [],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "HOLD_THEN_EVACUATE",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 80
+    }
+   ],
+   "closedRoutes": [],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 227.6,
+   "remainingAtTarget": 4,
+   "densityDangerPS": 207.8,
+   "smokeExposurePS": 0,
+   "gridlock": false,
+   "badness": 9623.7,
+   "ref": "C1 nominal (3 seeds); worst-case badness 14937"
+  },
+  "doNothing": {
+   "clearance95Sec": 227.1,
+   "remainingAtTarget": 4,
+   "densityDangerPS": 183,
+   "smokeExposurePS": 0,
+   "gridlock": false,
+   "badness": 18625.6,
+   "ref": "do-nothing"
+  },
+  "rationale": "everyone holds in place briefly, then leaves by undamaged routes; best of 3 candidates on 3 nominal seeds plus a low-compliance worst case (badness 9623.7 nominal, 14937 worst, do-nothing 18625.6). Rejected: PHASED_EVACUATION 18221, EVACUATE 23234."
+ },
+ {
+  "id": "PB-college-quake-building-ST-A",
+  "situation": {
+   "hazard": "quake",
+   "zone": "building",
+   "blocked": [
+    "ST-A"
+   ],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "HOLD_THEN_EVACUATE",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 80
+    }
+   ],
+   "closedRoutes": [
+    "ST-A"
+   ],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 252.2,
+   "remainingAtTarget": 4,
+   "densityDangerPS": 81,
+   "smokeExposurePS": 0,
+   "gridlock": false,
+   "badness": 9677,
+   "ref": "C1 nominal (3 seeds); worst-case badness 14820.4"
+  },
+  "doNothing": {
+   "clearance95Sec": 252.3,
+   "remainingAtTarget": 4,
+   "densityDangerPS": 216.2,
+   "smokeExposurePS": 0,
+   "gridlock": false,
+   "badness": 18692.5,
+   "ref": "do-nothing"
+  },
+  "rationale": "everyone holds in place briefly, then leaves by undamaged routes; best of 3 candidates on 3 nominal seeds plus a low-compliance worst case (badness 9677 nominal, 14820.4 worst, do-nothing 18692.5). Rejected: PHASED_EVACUATION 18185, EVACUATE 23182."
+ },
+ {
+  "id": "PB-college-quake-building-ST-ATR",
+  "situation": {
+   "hazard": "quake",
+   "zone": "building",
+   "blocked": [
+    "ST-ATR"
+   ],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "HOLD_THEN_EVACUATE",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-B@F3",
+     "delaySec": 80
+    }
+   ],
+   "closedRoutes": [
+    "ST-ATR"
+   ],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 332.3,
+   "remainingAtTarget": 13,
+   "densityDangerPS": 1160.9,
+   "smokeExposurePS": 0,
+   "gridlock": false,
+   "badness": 10563.5,
+   "ref": "C1 nominal (3 seeds); worst-case badness 16744.9"
+  },
+  "doNothing": {
+   "clearance95Sec": 325.8,
+   "remainingAtTarget": 9.3,
+   "densityDangerPS": 1539.3,
+   "smokeExposurePS": 0,
+   "gridlock": false,
+   "badness": 19755.6,
+   "ref": "do-nothing"
+  },
+  "rationale": "everyone holds in place briefly, then leaves by undamaged routes; best of 3 candidates on 3 nominal seeds plus a low-compliance worst case (badness 10563.5 nominal, 16744.9 worst, do-nothing 19755.6). Rejected: PHASED_EVACUATION 19387, EVACUATE 24589."
+ },
+ {
+  "id": "PB-college-quake-building-ST-B",
+  "situation": {
+   "hazard": "quake",
+   "zone": "building",
+   "blocked": [
+    "ST-B"
+   ],
+   "occupancy": "uniform",
+   "profile": "college"
+  },
+  "protocol": "HOLD_THEN_EVACUATE",
+  "policy": {
+   "zones": [
+    {
+     "zone": "Z1N",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-N",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z1C",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-W",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z1S",
+     "instruction": "EVACUATE_VIA",
+     "via": "EX-S",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z2S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F2",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3N",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3C",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-A@F3",
+     "delaySec": 80
+    },
+    {
+     "zone": "Z3S",
+     "instruction": "EVACUATE_VIA",
+     "via": "ST-ATR@F3",
+     "delaySec": 80
+    }
+   ],
+   "closedRoutes": [
+    "ST-B"
+   ],
+   "inflowClosed": []
+  },
+  "verified": {
+   "clearance95Sec": 270.3,
+   "remainingAtTarget": 4,
+   "densityDangerPS": 541.6,
+   "smokeExposurePS": 0,
+   "gridlock": false,
+   "badness": 9868.2,
+   "ref": "C1 nominal (3 seeds); worst-case badness 15402"
+  },
+  "doNothing": {
+   "clearance95Sec": 273.8,
+   "remainingAtTarget": 4,
+   "densityDangerPS": 580.8,
+   "smokeExposurePS": 0,
+   "gridlock": false,
+   "badness": 19054.9,
+   "ref": "do-nothing"
+  },
+  "rationale": "everyone holds in place briefly, then leaves by undamaged routes; best of 3 candidates on 3 nominal seeds plus a low-compliance worst case (badness 9868.2 nominal, 15402 worst, do-nothing 19054.9). Rejected: PHASED_EVACUATION 18661, EVACUATE 23653."
+ }
+]

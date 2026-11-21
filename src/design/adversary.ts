@@ -26,6 +26,9 @@ export interface Archived { point: Point; score: number; scenario: Scenario }
 
 export interface AdversaryRun {
   result: AdversaryResult;
+  final: { mu: number[]; sig: number[]; probs: number[][] };
+  evaluated: Archived[];
+  toScenario: (pt: Point, seed: number, id: string) => Scenario;
   archive: Archived[];
   space: Space;
   baselineFresh: number[];
@@ -57,6 +60,7 @@ export async function adversary(env: SimEnv, ev: Evaluator, o: AdversaryOptions)
   let mu = defaultPoint(space).u.map(() => 0.5), sig = space.cont.map(() => 0.35);
   let probs = space.cat.map((d) => d.options.map(() => 1 / d.options.length));
   const archive: Archived[] = [];
+  const evaluated: Archived[] = [];
   const history: AdversaryResult["history"] = [];
   let evaluations = 0;
   for (let g = 0; g < G; g++) {
@@ -68,6 +72,7 @@ export async function adversary(env: SimEnv, ev: Evaluator, o: AdversaryOptions)
     const scores = pts.map((_, i) => mean(res.slice(i * S, i * S + S).map((r) => r.badness)));
     const order = scores.map((s, i) => [s, i] as const).sort((a, b) => b[0] - a[0] || a[1] - b[1]);
     history.push({ generation: g, best: Math.round(order[0]![0] * 10) / 10, mean: Math.round(mean(scores) * 10) / 10 });
+    for (const [s, i] of order) evaluated.push({ point: pts[i]!, score: s, scenario: sc(pts[i]!, seeds[0]!, `adv-${o.hazard}-${g}-${i}`) });
     for (const [s, i] of order.slice(0, elites)) archive.push({ point: pts[i]!, score: s, scenario: sc(pts[i]!, seeds[0]!, `adv-${o.hazard}-${g}-${i}`) });
     const el = order.slice(0, elites).map(([, i]) => pts[i]!);
     const a = 0.7;
@@ -115,6 +120,6 @@ export async function adversary(env: SimEnv, ev: Evaluator, o: AdversaryOptions)
       worst: { ...outcome(worstRes, "worst"), scenario: ref(top[0]!.point, "adversary worst case", `worst-${o.hazard}-${o.profile}`) },
       explanation, history, evaluations, seeds: fresh,
     },
-    archive: top, space, baselineFresh, worstFresh,
+    archive: top, space, baselineFresh, worstFresh, final: { mu, sig, probs }, evaluated, toScenario: sc,
   };
 }

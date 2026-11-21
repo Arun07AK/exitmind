@@ -104,11 +104,18 @@ export async function optimise(env: SimEnv, ev: Evaluator, o: { hazard: HazardKi
   const fresh = Array.from({ length: 8 }, (_, k) => 88000 + k);
   const attack = async (edits: Edit[]) => adversary(env, ev, { hazard: o.hazard, profile: o.profile, ...(edits.length ? { edits } : {}), ...advB, freshSeeds: fresh.length, explain: false, seed: (o.seed ?? 1) + 77 });
   const [origAdv, optAdv] = [await attack([]), await attack(applied)];
-  const origRes = await ev.map(fresh.map((s) => ({ scenario: { ...origAdv.archive[0]!.scenario, seed: s } })));
-  const optRes = await ev.map(fresh.map((s) => ({ scenario: { ...optAdv.archive[0]!.scenario, seed: s, edits: applied, protocol: applied.filter((e) => e.kind === "strategy").at(-1)?.protocol ?? optAdv.archive[0]!.scenario.protocol } })));
+  const pool = [...origAdv.archive.slice(0, 3), ...optAdv.archive.slice(0, 3)].map((a) => a.scenario);
+  const strategy = applied.filter((e) => e.kind === "strategy").at(-1)?.protocol;
+  const worstOf = async (edits: Edit[]) => {
+    const res = await ev.map(pool.flatMap((sc0) => fresh.map((s) => ({ scenario: { ...sc0, seed: s, edits, protocol: (edits.length ? strategy : undefined) ?? sc0.protocol } }))));
+    const groups = pool.map((_, i) => res.slice(i * fresh.length, (i + 1) * fresh.length));
+    return groups.reduce((w, g) => (mean(g.map((r) => r.badness)) > mean(w.map((r) => r.badness)) ? g : w));
+  };
+  const origRes = await worstOf([]);
+  const optRes = await worstOf(applied);
   return {
     budget: c.budget, spent, costTable: "config/optimiser.costs.json (illustrative units, not estimates)", steps,
-    original: outcome(origRes, "original layout, fresh adversary worst case"), optimised: outcome(optRes, "optimised layout, fresh adversary worst case"),
+    original: outcome(origRes, "original layout: worst of the fresh attack pool (top 3 scenarios from attacks on both layouts), 8 fresh seeds"), optimised: outcome(optRes, "optimised layout: worst of the same attack pool, same 8 fresh seeds"),
     seeds: fresh, codeLimitsOk: codeLimitsOk(env, applied),
   };
 }

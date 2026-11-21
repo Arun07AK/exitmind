@@ -49,8 +49,12 @@ export function makeWorld(env: SimEnv, sc: Scenario, o: MakeWorldOptions = {}): 
     ...(o.idle ? { idle: true } : {}),
     thinkTicks: [env.runtime.showcase.thinkingTicksMin, env.runtime.showcase.thinkingTicksMax],
   }, env.runtime.sim.dtSec);
-  w.targetTick = Math.round(((sc.hazard.startSec ?? 0) + env.runtime.design.clearanceTargetSec) / env.runtime.sim.dtSec);
+  w.targetTick = Math.round(((sc.hazard.startSec ?? 0) + targetSec(env.runtime, sc.hazard.kind)) / env.runtime.sim.dtSec);
   return w;
+}
+
+export function targetSec(rt: RuntimeConfig, kind: Scenario["hazard"]["kind"]): number {
+  return rt.design.targets[kind] ?? rt.design.clearanceTargetSec;
 }
 
 export function runSync(w: World, onFrame?: (w: World) => void, every = 4): RunMetrics {
@@ -92,7 +96,7 @@ export function badness(mt: RunMetrics, rt: RuntimeConfig): number {
   const c95 = Math.min(mt.clearance95Sec ?? capSec, capSec);
   const remainingAtTarget = mt.remainingAtTarget ?? mt.remaining;
   void clearanceTargetSec;
-  return Math.round((c95 + b.w1 * mt.densityDangerPS + b.w2 * mt.smokeExposurePS + b.w3 * remainingAtTarget) * 100) / 100;
+  return Math.round((c95 + b.w1 * mt.densityDangerPS + b.w2 * (mt.smokeExposurePS + (mt.quakeExposurePS ?? 0)) + b.w3 * remainingAtTarget) * 100) / 100;
 }
 
-export const BADNESS_FORMULA = "badness = min(clearance95, cap) + w1·densityDangerPS + w2·smokeExposurePS + w3·remainingAtTarget";
+export const BADNESS_FORMULA = "badness = min(clearance95, cap) + w1·densityDangerPS + w2·(smokeExposurePS + quakeExposurePS) + w3·remainingAtTarget";

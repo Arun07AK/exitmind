@@ -1,4 +1,4 @@
-import { mkdirSync } from "node:fs";
+import { existsSync, mkdirSync } from "node:fs";
 import type { Express } from "express";
 import QRCode from "qrcode";
 import type { WebSocket } from "ws";
@@ -15,7 +15,7 @@ export const LIVE_CHANNEL = "live";
 
 export function mountLive(app: Express, simEnv: SimEnv, channels: Channels, opts: { port: number; lan: string; demo: boolean; evaluator?: Evaluator; logDir?: string }) {
   const lan = `http://${opts.lan}:${opts.port}`;
-  const evaluator = opts.evaluator ?? new Pool({ size: Math.max(2, Math.min(9, simEnv.runtime.design.workers)), twin: simEnv.twin });
+  const evaluator = opts.evaluator ?? new Pool({ size: Math.max(2, Math.min(9, simEnv.runtime.design.workers)), twin: simEnv.twin, mode: existsSync(repoPath("data", "policy", "distilled.policy.json")) ? "distilled" : "rule" });
   const logDir = opts.logDir ?? repoPath("runs", "live");
   mkdirSync(logDir, { recursive: true });
   let session!: LiveSession;

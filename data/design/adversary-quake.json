@@ -1,0 +1,228 @@
+{
+ "layout": "as drawn",
+ "baseline": {
+  "clearance95Sec": 220.5,
+  "remainingAtTarget": 1.3,
+  "densityDangerPS": 189.7,
+  "smokeExposurePS": 0,
+  "gridlock": false,
+  "badness": 328.3,
+  "ref": "baseline",
+  "scenario": {
+   "id": "baseline-quake-college",
+   "label": "default crowd",
+   "scenario": {
+    "id": "baseline-quake-college",
+    "profile": "college",
+    "hazard": {
+     "kind": "quake",
+     "damaged": []
+    },
+    "behaviour": {
+     "profile.college.familiarShare": 0.75,
+     "premove.medianSec.college": 45,
+     "sign.compliance.base": 0.9,
+     "herding.betaSec": 15,
+     "stress.gain.hazard": 0.15,
+     "profile.college.share.wheelchair": 0.005,
+     "profile.college.groupFraction": 0.35
+    },
+    "loadFactor": 1,
+    "occupancy": "uniform",
+    "protocol": "HOLD_THEN_EVACUATE",
+    "seed": 50002,
+    "maxSec": 900
+   }
+  }
+ },
+ "worst": {
+  "clearance95Sec": 345.3,
+  "remainingAtTarget": 21.8,
+  "densityDangerPS": 11906.6,
+  "smokeExposurePS": 0,
+  "gridlock": false,
+  "badness": 6516.6,
+  "ref": "worst",
+  "scenario": {
+   "id": "worst-quake-college",
+   "label": "adversary worst case",
+   "scenario": {
+    "id": "worst-quake-college",
+    "profile": "college",
+    "hazard": {
+     "kind": "quake",
+     "damaged": [
+      "EX-N"
+     ]
+    },
+    "behaviour": {
+     "profile.college.familiarShare": 0.701,
+     "premove.medianSec.college": 22.813,
+     "sign.compliance.base": 0.902,
+     "herding.betaSec": 13.672,
+     "stress.gain.hazard": 0.187,
+     "profile.college.share.wheelchair": 0.008,
+     "profile.college.groupFraction": 0.36
+    },
+    "loadFactor": 1.298,
+    "occupancy": "event_in:0110",
+    "protocol": "HOLD_THEN_EVACUATE",
+    "seed": 50002,
+    "maxSec": 900
+   }
+  }
+ },
+ "explanation": [
+  "Worst scenario badness 6516.6 ± 596.2 vs default crowd 328.3 ± 41.3 on 10 fresh seeds (difference 6188.3).",
+  "Resetting \"where people are\" to its default changes badness by -5665.3 (mean of 3 seeds).",
+  "Resetting \"damaged stair or exit\" to its default changes badness by -5624.5 (mean of 3 seeds).",
+  "Resetting \"load relative to the printed occupant load\" to its default changes badness by -3856.1 (mean of 3 seeds).",
+  "Resetting \"pre-movement delay (median)\" to its default changes badness by -506.3 (mean of 3 seeds).",
+  "Longest queue in the worst run: D-F1-025 with 1289.5 person-seconds of waiting.",
+  "Exit shares in the worst run: EX-W 44%, EX-S 22%, EX-E1 22%, EX-E2 12%.",
+  "Worst scenario: share who know the building: 0.701 (default 0.75, range 0.5-0.95)",
+  "Worst scenario: pre-movement delay (median): 23 (default 45, range 10-180)",
+  "Worst scenario: sign compliance: 0.902 (default 0.9, range 0.6-1)",
+  "Worst scenario: herding pull: 14 (default 15, range 0-40)",
+  "Worst scenario: stress from hazard cues: 0.187 (default 0.15, range 0-0.4)",
+  "Worst scenario: wheelchair users: 0.008 (default 0.005, range 0-0.02)",
+  "Worst scenario: share moving in groups: 0.360 (default 0.35, range 0.1-0.6)",
+  "Worst scenario: load relative to the printed occupant load: 1.298 (default 1, range 0.8-1.3)",
+  "Worst scenario: damaged stair or exit: EX-N (default none)",
+  "Worst scenario: where people are: event_in:0110 (default uniform)"
+ ],
+ "history": [
+  {
+   "generation": 0,
+   "best": 4342.8,
+   "mean": 913.2
+  },
+  {
+   "generation": 1,
+   "best": 3171.4,
+   "mean": 1203.6
+  },
+  {
+   "generation": 2,
+   "best": 2079.2,
+   "mean": 1146.4
+  },
+  {
+   "generation": 3,
+   "best": 3137,
+   "mean": 1834.9
+  },
+  {
+   "generation": 4,
+   "best": 6407.3,
+   "mean": 2644.1
+  }
+ ],
+ "evaluations": 290,
+ "seeds": [
+  50002,
+  50015,
+  50028,
+  50041,
+  50054,
+  50067,
+  50080,
+  50093,
+  50106,
+  50119
+ ],
+ "seedsRun": [
+  1,
+  2,
+  3
+ ],
+ "perSeed": [
+  {
+   "seed": 1,
+   "baseline": 348.1,
+   "worst": 1698.1,
+   "baselineFresh": [
+    278.88,
+    316.13,
+    326.25,
+    414.38,
+    327.25,
+    404.25,
+    388.88,
+    352.75,
+    334.63,
+    337.13
+   ],
+   "worstFresh": [
+    1692.25,
+    1687.63,
+    1387.88,
+    1679.25,
+    1500,
+    2065.63,
+    1538.38,
+    1339.63,
+    2479.13,
+    1611
+   ]
+  },
+  {
+   "seed": 2,
+   "baseline": 328.3,
+   "worst": 6516.6,
+   "baselineFresh": [
+    306.88,
+    317,
+    315.13,
+    331.5,
+    354.75,
+    387.5,
+    399.5,
+    308,
+    297.13,
+    265.88
+   ],
+   "worstFresh": [
+    6370.75,
+    7556.88,
+    5959.13,
+    7035.88,
+    6248.75,
+    6860.88,
+    6025.75,
+    5956.13,
+    5958.25,
+    7193.5
+   ]
+  },
+  {
+   "seed": 3,
+   "baseline": 355,
+   "worst": 4088.9,
+   "baselineFresh": [
+    359.63,
+    330.25,
+    318.88,
+    353.38,
+    381.13,
+    321.75,
+    357,
+    372.75,
+    395,
+    360
+   ],
+   "worstFresh": [
+    5177.88,
+    4494.5,
+    3214.88,
+    3816.38,
+    3920.38,
+    4314.13,
+    4149.75,
+    4536,
+    3431.63,
+    3833.13
+   ]
+  }
+ ]
+}

@@ -84,7 +84,7 @@ The playbook holds responses verified at design time. Live mode consults it firs
 
 | # | Item | Status | What the builder does meanwhile |
 |---|---|---|---|
-| O1 | Does a failing verdict block the action or only warn? | **Unanswered** (Arun skipped the question). | Implement both behind `runtime.json: gate.failMode` = `"block_with_override"` or `"warn"`. Ship with `block_with_override` as the provisional value and raise it at the Phase 5 stop. |
+| O1 | Does a failing verdict block the action or only warn? | **Decided by Arun: block unless overridden with a reason** (`gate.failMode = "block_with_override"`). | Both modes stay implemented; `warn` remains available in `runtime.json`. |
 | O2 | Which two hazards the demo shows. | **Decided: fire + earthquake.** | |
 | O3 | Jev or Haiku as default persona backend. | **Undecided.** To be decided after the side-by-side test. Arun has an Anthropic key only. | Build both adapters. Run the bake-off (8.7) for whichever keys exist and report the other column as "not run: no key". `PERSONA_BACKEND` has no default; development uses `haiku` explicitly. |
 | O4 | Live personas per showcase run. | **Provisionally 12** (D15); configurable. | |

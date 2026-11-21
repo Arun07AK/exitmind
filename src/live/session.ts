@@ -33,9 +33,9 @@ export function loadDemoConfig(): DemoConfig {
   return JSON.parse(readFileSync(repoPath("config", "demo.json"), "utf8")) as DemoConfig;
 }
 
-export function loadPlaybook(): PlaybookEntry[] {
+export function loadPlaybook(twinId = "rinker-hall"): PlaybookEntry[] {
   const p = repoPath("data", "playbook", "rinker.playbook.json");
-  return existsSync(p) ? (JSON.parse(readFileSync(p, "utf8")) as PlaybookEntry[]) : [];
+  return twinId === "rinker-hall" && existsSync(p) ? (JSON.parse(readFileSync(p, "utf8")) as PlaybookEntry[]) : [];
 }
 
 export type Control = { action: "start_fire" } | { action: "start_quake" } | { action: "inject_bad_plan" } | { action: "fail_sensor"; sensor: string; mode?: Fault } | { action: "restore_sensors" } | { action: "all_clear" };
@@ -76,8 +76,8 @@ export function panelAlarm(feed: SensorFeed, truth: World): void {
 
 const TRUTH_TYPES = new Set(["demo.control", "gate.published", "sign.online", "sign.offline"]);
 
-export function replayTruth(simEnv: SimEnv, records: readonly EventRecord[], cfg: DemoConfig, sessionId: string, untilTick: number): { hash: string; world: World } {
-  const distilled = (() => { try { return DistilledPolicy.load(); } catch { return undefined; } })();
+export function replayTruth(simEnv: SimEnv, records: readonly EventRecord[], cfg: DemoConfig, sessionId: string, untilTick: number, distilledOpt?: DistilledPolicy | null): { hash: string; world: World } {
+  const distilled = distilledOpt === null ? undefined : distilledOpt ?? (() => { try { return DistilledPolicy.load(); } catch { return undefined; } })();
   const truth = makeWorld(simEnv, truthScenario(cfg, sessionId), { ...(distilled ? { distilled, bulkPolicy: "distilled" as const } : {}), idle: true });
   const feed = new SensorFeed(simEnv.model, cfg.seed);
   const online = new Set<string>();
@@ -103,6 +103,8 @@ export interface SessionOptions {
   failMode?: FailMode;
   approvalWindowSec?: number;
   lan?: string;
+  playbook?: PlaybookEntry[];
+  distilled?: DistilledPolicy | null;
 }
 
 export class LiveSession {
@@ -148,8 +150,8 @@ export class LiveSession {
     this.#ev = o.evaluator;
     this.#claude = o.claude;
     this.lan = o.lan ?? "http://localhost:8080";
-    this.playbook = loadPlaybook();
-    const distilled = (() => { try { return DistilledPolicy.load(); } catch { return undefined; } })();
+    this.playbook = o.playbook ?? loadPlaybook(o.simEnv.twin.id);
+    const distilled = o.distilled === null ? undefined : o.distilled ?? (() => { try { return DistilledPolicy.load(); } catch { return undefined; } })();
     this.truth = makeWorld(this.env, truthScenario(this.cfg, this.id), { ...(distilled ? { distilled, bulkPolicy: "distilled" as const } : {}), idle: true });
     this.feed = new SensorFeed(this.env.model, this.cfg.seed);
     this.hub = new SignHub(this.env.model, this.log);

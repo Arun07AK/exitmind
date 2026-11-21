@@ -45,7 +45,7 @@ export class ClaudeClient implements ClaudeLike {
       throw new LlmUnavailable(outcome, `Claude unavailable (${outcome})`);
     }
     const ctrl = new AbortController();
-    let text = "";
+    let text = "", stop = "";
     try {
       const msg = await withDeadline(this.#client.messages.create({
         model: req.model,
@@ -55,6 +55,7 @@ export class ClaudeClient implements ClaudeLike {
         output_config: { format: { type: "json_schema", schema: req.schema }, ...(req.effort ? { effort: req.effort } : {}) },
       }, { signal: ctrl.signal, timeout: req.timeoutMs }), req.timeoutMs, ctrl);
       for (const b of msg.content) if (b.type === "text") text += b.text;
+      stop = msg.stop_reason ?? "";
     } catch (e) {
       const timeout = e instanceof DeadlineError;
       rec(timeout ? "timeout" : "error", null, String(e));
@@ -64,8 +65,9 @@ export class ClaudeClient implements ClaudeLike {
     try {
       parsed = req.parse.parse(JSON.parse(text));
     } catch (e) {
-      rec("invalid", text, String(e));
-      throw new LlmUnavailable("invalid", `unparseable output: ${String(e).slice(0, 200)}`);
+      const why = stop === "max_tokens" ? `output cut off at max_tokens=${req.maxTokens}` : String(e);
+      rec("invalid", text, why);
+      throw new LlmUnavailable("invalid", `unparseable output: ${why.slice(0, 200)}`);
     }
     rec("ok", parsed);
     return parsed;

@@ -58,6 +58,7 @@ export interface RunMetrics {
   densityDangerPS: number;
   smokeExposurePS: number;
   threatExposurePS: number;
+  quakeExposurePS: number;
   crushSec: number;
   gridlock: boolean;
   gridlockAtSec: number | null;
@@ -145,10 +146,13 @@ export class World {
   zoneInstrVersion = 0;
   readonly zoneInstrAt: Int32Array;
   inflowClosed: Set<string> = new Set();
+  policyClosedMask = 0;
+  elevatorReady = 0;
+  elevatorTrips = 0;
   readonly pending: Pending[] = [];
   readonly metrics = {
     queuePS: new Float64Array(0), crossings: new Int32Array(0), flightEntries: new Int32Array(0), exitUsage: new Int32Array(0),
-    densityDangerPS: 0, smokeExposurePS: 0, threatExposurePS: 0, crushTicks: 0, gridlockAt: -1, lastProgress: 0,
+    densityDangerPS: 0, smokeExposurePS: 0, threatExposurePS: 0, quakeExposurePS: 0, crushTicks: 0, gridlockAt: -1, lastProgress: 0,
     decisions: {} as Record<string, number>, rejected: 0, dangerCells: [] as Float32Array[], t95: -1, tAll: -1,
   };
   readonly #scratch: Float32Array[];
@@ -286,6 +290,11 @@ export class World {
     }
   }
 
+  #holdFloor(a: number): number {
+    if (this.hz.spec.kind !== "quake" || this.earlyLeaver[a]) return 0;
+    return Math.round(((this.hz.spec.startSec ?? 0) + this.hz.hp("quake.shakeSec") + this.p.get("quake.postShakeDelaySec")) / this.dt);
+  }
+
   startHazard(spec: Scenario["hazard"]): void {
     this.hz = new HazardState(this.m, { ...spec, startSec: this.tSec }, this.#hp);
     this.#fieldVersion = -1;
@@ -325,6 +334,8 @@ export class World {
     }
     for (const p of portals) this.portalClosed[p] = 1;
     for (const f of flights) this.flightClosedExtra[f] = 1;
+    this.policyClosedMask = 0;
+    this.m.elements.forEach((e, ei) => { if (rp.closedRoutes.some((id) => id === e.id || id === e.exitId || id === e.stairId)) this.policyClosedMask |= 1 << ei; });
     this.#fieldVersion = -1;
     this.#floorBuilt = null;
     const reach = this.p.get("announce.reachShare");
@@ -338,13 +349,19 @@ export class World {
   }
 
   #receiveInstruction(a: number, z: ZoneInstruction): void {
-    const fl = this.floor[a]!;
+    this.closedMask[a] = this.closedMask[a]! | this.policyClosedMask;
+    if (this.state[a] === ST.PREMOVE && !(z.instruction === "EVACUATE_VIA" && z.delaySec > 0) && z.instruction !== "HOLD") {
+      this.premoveEnd[a] = Math.max(this.#holdFloor(a), Math.min(this.premoveEnd[a]!, Math.max(this.tick, this.alarmTick) + Math.round((this.premoveDur[a]! * this.p.get("announce.premoveFactor")) / this.dt)));
+    }
     if (z.instruction === "EVACUATE_VIA") {
-      const e = z.via ? resolveElement(this.m, z.via, fl) : -1;
-      if (e < 0) return;
-      if (z.delaySec > 0) { this.instrKind[a] = INSTR.HOLD; this.instrUntil[a] = this.tick + Math.round(z.delaySec / this.dt); }
-      else this.instrKind[a] = INSTR.ROUTE;
-      this.instrTarget[a] = e;
+      if (z.delaySec > 0) {
+        this.instrKind[a] = INSTR.HOLD; this.instrUntil[a] = this.tick + Math.round(z.delaySec / this.dt); this.instrTarget[a] = -1;
+      } else {
+        this.instrKind[a] = INSTR.NONE; this.instrTarget[a] = -1;
+        this.instrVersion[a] = this.zoneInstrVersion;
+        if (this.state[a] === ST.MOVING && this.target[a]! >= 0 && (this.policyClosedMask >> this.target[a]!) & 1) this.raise(a, "BLOCKED");
+        return;
+      }
     } else if (z.instruction === "HOLD") {
       this.instrKind[a] = INSTR.HOLD; this.instrUntil[a] = this.tick + Math.round(Math.max(1, z.delaySec) / this.dt); this.instrTarget[a] = -1;
     } else if (z.instruction === "LOCKDOWN") {
@@ -545,8 +562,10 @@ export class World {
       }
       case "FOLLOW_GROUP": {
         this.followGroup[a] = 1;
-        const lt = this.target[this.groupLeader[a]!]!;
-        if (lt !== -1 && (lt < 0 || this.m.elements[lt]!.floor === this.floor[a])) this.setTarget(a, lt);
+        const leader = this.groupLeader[a]!;
+        const lt = this.target[leader]!;
+        if (this.state[leader] === ST.SHELTERING && this.floor[leader] === this.floor[a]) this.setTarget(a, T_LOCK);
+        else if (lt !== -1 && (lt < 0 || this.m.elements[lt]!.floor === this.floor[a])) this.setTarget(a, lt);
         else { this.state[a] = ST.WAITING; this.waitUntil[a] = this.tick + Math.round(5 / this.dt); }
         break;
       }
@@ -697,6 +716,7 @@ export class World {
     this.#moveAgents();
     this.#advanceStairs();
     this.#crush();
+    this.#elevator();
     this.#checkEnd();
     this.tick++;
   }
@@ -728,6 +748,8 @@ export class World {
     const push = p.get("density.pushTolerance"), danger = p.get("density.danger");
     const alarm = this.sc.hazard.kind !== "none";
     const stuck = Math.round(p.get("blocked.timeoutSec") / dt);
+    const quakeExposed = this.hz.spec.kind === "quake" && this.tSec < (this.hz.spec.startSec ?? 0) + this.hz.hp("quake.shakeSec") + this.hz.hp("quake.aftershockWindowSec");
+    if (quakeExposed) for (let a = 0; a < this.n; a++) if (this.state[a] === ST.MOVING || this.state[a] === ST.ON_STAIR || this.state[a] === ST.DECIDING) this.metrics.quakeExposurePS += dt;
     for (let a = 0; a < this.n; a++) {
       const st = this.state[a];
       if (st === ST.PROTECTED || st === ST.ON_STAIR) continue;
@@ -867,7 +889,15 @@ export class World {
       const pi = fm.nbrPortal[c * 8 + d]!;
       if (pi >= 0 && (this.portalClosed[pi] || this.hz.closedPortal[pi])) continue;
       const b = occ[j]! - 1;
-      if (this.state[b] !== ST.MOVING || this.floor[b] !== fi) continue;
+      const sb = this.state[b];
+      if (pi >= 0 && sb === ST.SHELTERING) { this.#stepInside(b); return false; }
+      if (pi < 0 && (sb === ST.PREMOVE || sb === ST.WAITING || sb === ST.SHELTERING || sb === ST.REFUGE) && (sb !== ST.SHELTERING || fm.lockable[c])) {
+        occ[c] = b + 1; occ[j] = a + 1;
+        this.cell[a] = j; this.cell[b] = c;
+        this.credit[a] = 0;
+        return true;
+      }
+      if (sb !== ST.MOVING || this.floor[b] !== fi) continue;
       const fb = this.fieldFor(b);
       if (!fb || !(fb[c]! < fb[j]!) || this.blockedTicks[b]! < 4) continue;
       if (pi >= 0) {
@@ -898,7 +928,7 @@ export class World {
   #tryArrive(a: number, c: number): boolean {
     const fi = this.floor[a]!, fm = this.m.floors[fi]!, t = this.target[a]!;
     if (t === T_LOCK) {
-      if (fm.lockable[c] && !this.hz.threat[fi]![c]) { this.#protect(a, "shelter"); return true; }
+      if (fm.lockable[c] && !this.hz.threat[fi]![c]) { this.#stepInside(a); this.#protect(a, "shelter"); return true; }
       return false;
     }
     if (t <= -3) {
@@ -943,6 +973,22 @@ export class World {
     }
     this.#enterFlight(a, k);
     return true;
+  }
+
+  #stepInside(a: number): void {
+    const fi = this.floor[a]!, fm = this.m.floors[fi]!, occ = this.occ[fi]!, c0 = this.cell[a]!, sp = fm.space[c0]!;
+    const x0 = c0 % fm.w, y0 = (c0 - x0) / fm.w;
+    let best = -1, bd = -1;
+    for (let j = 0; j < fm.n; j++) {
+      if (fm.space[j] !== sp || !fm.walkable[j] || occ[j] || this.hz.threat[fi]![j] || this.hz.blocked[fi]![j]) continue;
+      let nearPortal = false;
+      for (let d = 0; d < 4; d++) if (fm.nbrPortal[j * 8 + d]! >= 0) nearPortal = true;
+      if (nearPortal) continue;
+      const x = j % fm.w, y = (j - x) / fm.w, dd = (x - x0) ** 2 + (y - y0) ** 2;
+      if (dd > bd) { bd = dd; best = j; }
+    }
+    if (best < 0) return;
+    occ[c0] = 0; occ[best] = a + 1; this.cell[a] = best;
   }
 
   #stepAside(a: number): void {
@@ -1050,17 +1096,28 @@ export class World {
     });
   }
 
+  #elevator(): void {
+    if (this.hz.spec.kind === "quake" || this.alarmTick < 0 || this.tick < this.elevatorReady) return;
+    let pick = -1;
+    for (let a = 0; a < this.n; a++) if (this.state[a] === ST.REFUGE && this.protectedAt[a]! < 0) { pick = a; break; }
+    if (pick < 0) return;
+    this.state[pick] = ST.MOVING;
+    this.#protect(pick, "exit");
+    this.elevatorTrips++;
+    this.elevatorReady = this.tick + Math.round(this.p.get("assist.elevatorTripSec") / this.dt);
+  }
+
   #crush(): void {
     const p = this.p, thr = p.get("crush.density"), rec = p.get("crush.recoverDensity"), sustain = Math.round(p.get("crush.sustainSec") / this.dt);
     let any = false;
     if (this.tick % 2) return;
     this.m.portals.forEach((pt, i) => {
       if (!pt.cells.length) return;
-      let D = 0;
-      for (const c of pt.cells) D = Math.max(D, this.localDensity(pt.floor, c));
+      let D = 0, sum = 0;
+      for (const c of pt.cells) { const d = this.localDensity(pt.floor, c); D = Math.max(D, d); sum += d; }
       if (this.portalCrush[i]) {
         any = true;
-        if (D < rec) { this.portalCrush[i] = 0; this.portalHighSince[i] = -1; }
+        if (sum / pt.cells.length < rec) { this.portalCrush[i] = 0; this.portalHighSince[i] = -1; }
       } else if (D > thr) {
         if (this.portalHighSince[i]! < 0) this.portalHighSince[i] = this.tick;
         else if (this.tick - this.portalHighSince[i]! >= sustain) this.portalCrush[i] = 1;
@@ -1078,6 +1135,7 @@ export class World {
       const s = this.state[a];
       if (s === ST.MOVING || s === ST.ON_STAIR || s === ST.DECIDING || s === ST.PREMOVE) active++;
       else if (s === ST.WAITING || s === ST.HOLDING) waiting++;
+      else if (s === ST.REFUGE && this.protectedAt[a]! < 0 && this.hz.spec.kind !== "quake" && this.alarmTick >= 0) waiting++;
     }
     for (const q of this.flightThrough) active += q.length;
     const gridlockTicks = Math.round(60 / this.dt);
@@ -1109,12 +1167,12 @@ export class World {
     return {
       occupants: this.n, protected: prot, sheltered: shel, inRefuge: ref, remaining: this.n - prot - shel - ref, remainingAtTarget: this.n - this.protectedBy(this.targetTick),
       clearance95Sec: M.t95 >= 0 ? M.t95 * dt : null, clearanceAllSec: M.tAll >= 0 ? M.tAll * dt : null, endSec: this.tick * dt,
-      exitUsage: rec(m.elements.map((e) => e.id), M.exitUsage, (v) => v),
+      exitUsage: { ...rec(m.elements.map((e) => e.id), M.exitUsage, (v) => v), ...(this.elevatorTrips ? { ELEVATOR: this.elevatorTrips } : {}) },
       portalQueuePS: rec(m.portals.map((p) => p.id), M.queuePS, (v) => Math.round(v * 100) / 100),
       portalCrossings: rec(m.portals.map((p) => p.id), M.crossings, (v) => v),
       flightEntries: rec(m.flights.map((f) => `${f.stairId}:${m.floors[f.from]!.id}>${m.floors[f.to]!.id}`), M.flightEntries, (v) => v),
       densityDangerPS: Math.round(M.densityDangerPS * 100) / 100, smokeExposurePS: Math.round(M.smokeExposurePS * 100) / 100,
-      threatExposurePS: Math.round(M.threatExposurePS * 100) / 100, crushSec: M.crushTicks * dt,
+      threatExposurePS: Math.round(M.threatExposurePS * 100) / 100, quakeExposurePS: Math.round(M.quakeExposurePS * 100) / 100, crushSec: M.crushTicks * dt,
       gridlock: M.gridlockAt >= 0, gridlockAtSec: M.gridlockAt >= 0 ? M.gridlockAt * dt : null,
       meanPremoveSec: preN ? Math.round((pre / preN) * 100) / 100 : 0, decisions: { ...M.decisions }, rejected: M.rejected,
     };

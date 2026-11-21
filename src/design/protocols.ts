@@ -79,8 +79,11 @@ export function protocolPolicy(m: Model, protocol: Protocol, hazard: HazardSpec,
         const order = hzFloor >= 0 ? (fi === hzFloor ? 0 : fi === hzFloor + 1 ? 1 : 2 + Math.abs(fi - hzFloor)) : m.floors.length - 1 - fi;
         return { zone: z.id, instruction: "EVACUATE_VIA", via: route(zi), delaySec: order * PHASE_DELAY_SEC };
       }
-      case "HOLD_THEN_EVACUATE":
-        return { zone: z.id, instruction: "EVACUATE_VIA", via: route(zi), delaySec: HOLD_SEC + (hazard.kind === "quake" ? hp.get("quake.shakeSec") : 0) };
+      case "HOLD_THEN_EVACUATE": {
+        const at = opts.atSec ?? 0;
+        const delay = hazard.kind === "quake" ? Math.max(15, Math.round(hp.get("quake.shakeSec") + hp.get("quake.aftershockWindowSec") - at)) : HOLD_SEC;
+        return { zone: z.id, instruction: "EVACUATE_VIA", via: route(zi), delaySec: delay };
+      }
       case "LOCKDOWN_SHELTER":
         return { zone: z.id, instruction: "LOCKDOWN", via: null, delaySec: 0 };
       case "HORIZONTAL_EVACUATION": {

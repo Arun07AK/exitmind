@@ -1,5 +1,5 @@
 import { readdirSync, readFileSync } from "node:fs";
-import { distill } from "../policy/distilled.ts";
+import { chosenSignature, distill } from "../policy/distilled.ts";
 import type { PersonaDecisionRecord } from "../policy/replay.ts";
 import { repoPath } from "../shared/paths.ts";
 import { writeJson } from "./common.ts";
@@ -18,6 +18,6 @@ if (!recs.length) {
   process.exit(2);
 }
 const backends = [...new Set(recs.map((r) => r.source))].join(",");
-const table = distill(recs.map((r) => ({ key: r.key, options: r.options, chosen: r.chosen })), { logs: files, decisions: recs.length, backend: backends, createdFrom: new Date().toISOString().slice(0, 10) });
+const table = distill(recs.map((r) => ({ key: r.key, options: r.options, chosen: chosenSignature(r) })), { logs: files, decisions: recs.length, backend: backends, createdFrom: new Date().toISOString().slice(0, 10) });
 const p = writeJson(["data", "policy", "distilled.policy.json"], table);
 console.log(`distilled ${recs.length} decisions from ${files.length} logs (${backends}) into ${Object.keys(table.table).length} situation rows -> ${p}`);

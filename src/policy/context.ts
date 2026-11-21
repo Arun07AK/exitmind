@@ -108,7 +108,7 @@ export function buildContext(w: World, a: number, point: DecisionPoint): Decisio
   else if (instr === INSTR.COMPARTMENT) add({ action: "FOLLOW_SIGN", target: w.instrTarget[a]!, roles: ["SIGNED"], desc: `Move to ${m.zones[-3 - w.instrTarget[a]!]?.name ?? "the next area"}, as instructed`, num: zero });
   for (const ei of moveEls) add({ action: "MOVE_TO", target: ei, roles: rolesFor(ei), desc: describe(ei, "Head for"), num: nums.get(ei)! });
   const leader = w.groupLeader[a]!;
-  const groupActive = leader >= 0 && leader !== a && w.state[leader] !== ST.PROTECTED && w.floor[leader] === fi;
+  const groupActive = leader >= 0 && leader !== a && w.state[leader] !== ST.PROTECTED && w.state[leader] !== ST.REFUGE && w.floor[leader] === fi;
   if (groupActive) add({ action: "FOLLOW_GROUP", target: -1, roles: [], desc: "Stay with your group and go where they go", num: zero });
   const prev = w.prevTarget[a]!;
   if ((point === "BLOCKED" || prev >= 0) && prev !== w.target[a] && prev >= 0 && nums.has(prev) && m.elements[prev]!.floor === fi) {

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { EventLog } from "../../src/log/eventlog.ts";
-import { DistilledPolicy, distill, tvd } from "../../src/policy/distilled.ts";
+import { DistilledPolicy, chosenSignature, distill, tvd } from "../../src/policy/distilled.ts";
 import { personaRecords } from "../../src/policy/replay.ts";
 import { runShowcase } from "../../src/policy/showcase.ts";
 import { ACTIONS, signature } from "../../src/policy/types.ts";
@@ -60,7 +60,7 @@ describe("LLM persona agents (stubbed providers; no network)", () => {
     const records = [];
     for (const seed of [11, 12, 13, 14, 15, 16]) records.push(...(await runShowcase(env, sc(seed), { backend: "haiku", livePersonas: 40, claude: new StubClaude("sensible") })).records);
     const real = records.filter((r) => r.source === "llm:haiku");
-    const table = distill(real.map((r) => ({ key: r.key, options: r.options, chosen: r.chosen })), { logs: ["test"], decisions: real.length, backend: "stub", createdFrom: "test" });
+    const table = distill(real.map((r) => ({ key: r.key, options: r.options, chosen: chosenSignature(r) })), { logs: ["test"], decisions: real.length, backend: "stub", createdFrom: "test" });
     const pol = new DistilledPolicy(table, 1);
     const groups = new Map<string, typeof real>();
     for (const r of real) groups.set(r.key, [...(groups.get(r.key) ?? []), r]);
@@ -69,7 +69,7 @@ describe("LLM persona agents (stubbed providers; no network)", () => {
       if (rs.length < 20) continue;
       const logged = new Map<string, number>(), model = new Map<string, number>();
       for (const r of rs) {
-        logged.set(r.chosen, (logged.get(r.chosen) ?? 0) + 1 / rs.length);
+        logged.set(chosenSignature(r), (logged.get(chosenSignature(r)) ?? 0) + 1 / rs.length);
         const dist = pol.distribution({ key: r.key, options: r.options.map((o) => ({ ...o, target: -1, num: { distM: 0, queueSec: 0, hazard: 0, herd: 0, familiar: false, signed: false } })), agent: 0, tick: 0, point: r.point, persona: r.persona, situation: r.situation })!;
         for (const [id, p] of dist) { const o = r.options.find((x) => x.id === id)!; const s = signature(o); model.set(s, (model.get(s) ?? 0) + p / rs.length); }
       }

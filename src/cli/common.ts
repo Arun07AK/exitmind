@@ -1,6 +1,7 @@
-import { mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { dirname } from "node:path";
 import { makeEvaluator, type Evaluator } from "../design/pool.ts";
+import { setDefaultMode } from "../design/evaluate.ts";
 import { setExitCandidates } from "../design/prepare.ts";
 import { repoPath } from "../shared/paths.ts";
 import { loadEnv, type SimEnv } from "../sim/run.ts";
@@ -33,6 +34,9 @@ export function setup(workers?: number): { env: SimEnv; ev: Evaluator } {
   const env = loadEnv();
   const cands = loadCandidates();
   setExitCandidates(cands);
-  const ev = makeEvaluator({ workers: workers ?? env.runtime.design.workers });
+  const mode = args().policy === "rule" || !existsSync(repoPath("data", "policy", "distilled.policy.json")) ? "rule" : "distilled";
+  setDefaultMode(mode);
+  console.log(`crowd decision policy for bulk runs: ${mode}${mode === "distilled" ? " (data/policy/distilled.policy.json; zero LLM calls)" : " (no distilled policy file, or --policy rule)"}`);
+  const ev = makeEvaluator({ workers: workers ?? env.runtime.design.workers, mode });
   return { env, ev };
 }

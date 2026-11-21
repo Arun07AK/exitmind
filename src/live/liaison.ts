@@ -63,7 +63,7 @@ export async function draftBrief(log: EventLog, m: Model, claude: ClaudeLike, ti
   if (!claude.available() || !facts.length) return template;
   try {
     const r = await claude.json({
-      role: "liaison", model: env("LIAISON_MODEL") ?? "claude-haiku-5-5", maxTokens: 500, timeoutMs: 6000,
+      role: "liaison", model: env("LIAISON_MODEL") ?? "claude-haiku-5-5", maxTokens: 1500, timeoutMs: 10000, effort: "low",
       system: "You draft a short responder brief for a human operator who will phone emergency services. Use only the facts given; never add numbers, casualty estimates or guesses. Each line must cite the record ids of the facts it uses. At most 8 lines, plain language.",
       user: JSON.stringify(facts),
       schema: { type: "object", additionalProperties: false, required: ["lines"], properties: { lines: { type: "array", items: { type: "object", additionalProperties: false, required: ["text", "refs"], properties: { text: { type: "string" }, refs: { type: "array", items: { type: "string" } } } } } } },

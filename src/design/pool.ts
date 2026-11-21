@@ -30,10 +30,10 @@ export class Pool implements Evaluator {
   readonly #pending = new Map<number, { resolve: (r: EvalResult) => void; reject: (e: Error) => void }>();
   #next = 0;
 
-  constructor(opts: { size?: number; twin?: Twin; candidates?: readonly ExitCandidate[] } = {}) {
+  constructor(opts: { size?: number; twin?: Twin; candidates?: readonly ExitCandidate[]; mode?: "rule" | "distilled" } = {}) {
     this.size = Math.max(1, opts.size ?? Math.max(1, availableParallelism() - 2));
     for (let i = 0; i < this.size; i++) {
-      const w = new Worker(new URL("./worker.ts", import.meta.url), { workerData: { twin: opts.twin, candidates: opts.candidates ?? exitCandidates() } });
+      const w = new Worker(new URL("./worker.ts", import.meta.url), { workerData: { twin: opts.twin, candidates: opts.candidates ?? exitCandidates(), mode: opts.mode ?? "rule" } });
       w.on("message", (msg: { id: number; ok: boolean; result?: EvalResult; error?: string }) => {
         const p = this.#pending.get(msg.id);
         this.#pending.delete(msg.id);
@@ -41,7 +41,6 @@ export class Pool implements Evaluator {
         this.#dispatch(w);
       });
       w.on("error", (e) => { for (const p of this.#pending.values()) p.reject(e); this.#pending.clear(); });
-      w.unref();
       this.#workers.push(w);
       this.#idle.push(w);
     }
@@ -68,8 +67,8 @@ export class Pool implements Evaluator {
   async close(): Promise<void> { await Promise.all(this.#workers.map((w) => w.terminate())); }
 }
 
-export function makeEvaluator(opts: { workers?: number; twin?: Twin } = {}): Evaluator {
+export function makeEvaluator(opts: { workers?: number; twin?: Twin; mode?: "rule" | "distilled" } = {}): Evaluator {
   if (opts.workers === 0) return new InlineEvaluator(loadEnv(opts.twin));
-  return new Pool({ ...(opts.workers ? { size: opts.workers } : {}), ...(opts.twin ? { twin: opts.twin } : {}) });
+  return new Pool({ ...(opts.workers ? { size: opts.workers } : {}), ...(opts.twin ? { twin: opts.twin } : {}), ...(opts.mode ? { mode: opts.mode } : {}) });
 }
 void setExitCandidates;

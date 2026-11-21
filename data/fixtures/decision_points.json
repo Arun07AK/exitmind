@@ -1,0 +1,4490 @@
+[
+ {
+  "agent": 44,
+  "tick": 160,
+  "point": "ALARM_NOTICED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "panicked",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "quake",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 8,
+     "queueSec": 3.2,
+     "hazard": 0,
+     "herd": 0.5,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (close, clear)",
+    "num": {
+     "distM": 12.7,
+     "queueSec": 1.1,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 21.5,
+     "queueSec": 2.7,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 2,
+    "roles": [
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for South stair S198B exterior door (a short walk, clear, others nearby are heading there)",
+    "num": {
+     "distM": 26.1,
+     "queueSec": 6.8,
+     "hazard": 0,
+     "herd": 0.5,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "F"
+   }
+  ],
+  "key": "ALARM_NOTICED|alarm|light|none|high|U"
+ },
+ {
+  "agent": 179,
+  "tick": 196,
+  "point": "GROUP_MEMBER_MISSING",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": true
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 6,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (close, busy, others nearby are heading there)",
+    "num": {
+     "distM": 14.7,
+     "queueSec": 22.6,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 10,
+    "roles": [
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (a short walk, busy)",
+    "num": {
+     "distM": 21.1,
+     "queueSec": 30.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 8,
+    "roles": [
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (far, busy)",
+    "num": {
+     "distM": 51.4,
+     "queueSec": 12.9,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   }
+  ],
+  "key": "GROUP_MEMBER_MISSING|none|light|none|low|U"
+ },
+ {
+  "agent": 101,
+  "tick": 392,
+  "point": "GROUP_MEMBER_MISSING",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "busy",
+   "instruction": "none",
+   "groupMissing": true
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 2,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for South stair S198B exterior door (close, busy, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 2,
+     "queueSec": 21.8,
+     "hazard": 0,
+     "herd": 0.89,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (close, clear, a way you know)",
+    "num": {
+     "distM": 16.7,
+     "queueSec": 1.6,
+     "hazard": 0,
+     "herd": 0.11,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 31.9,
+     "queueSec": 2.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 37.7,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 49.2,
+     "queueSec": 5.4,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "E"
+   },
+   {
+    "action": "GO_BACK",
+    "target": 3,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Turn back towards East door from storage 0140A (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 31.9,
+     "queueSec": 2.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "F"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "G"
+   }
+  ],
+  "key": "GROUP_MEMBER_MISSING|none|busy|none|low|F"
+ },
+ {
+  "agent": 244,
+  "tick": 86,
+  "point": "ALARM_NOTICED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": false
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "busy",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 10,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 20.3,
+     "queueSec": 5.4,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 8,
+    "roles": [
+     "FAMILIAR",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 34.9,
+     "queueSec": 8.6,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 6,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 35.4,
+     "queueSec": 2.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   }
+  ],
+  "key": "ALARM_NOTICED|none|busy|none|low|F"
+ },
+ {
+  "agent": 261,
+  "tick": 315,
+  "point": "JUNCTION",
+  "persona": {
+   "age": "young_adult",
+   "role": "staff",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "stressed",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "busy",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 12.6,
+     "queueSec": 5.1,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 29.9,
+     "queueSec": 3.8,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 34,
+     "queueSec": 3.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 40.6,
+     "queueSec": 2.7,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "JUNCTION|alarm|busy|none|high|F"
+ },
+ {
+  "agent": 429,
+  "tick": 80,
+  "point": "JUNCTION",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 9,
+    "roles": [
+     "NEAREST",
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (close, clear)",
+    "num": {
+     "distM": 7.6,
+     "queueSec": 8.6,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 7,
+    "roles": [
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (a short walk, clear)",
+    "num": {
+     "distM": 24.8,
+     "queueSec": 1.1,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 5,
+    "roles": [
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (a short walk, clear)",
+    "num": {
+     "distM": 40.7,
+     "queueSec": 8.6,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "JUNCTION|none|light|none|low|U"
+ },
+ {
+  "agent": 440,
+  "tick": 647,
+  "point": "BLOCKED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "packed",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 12.3,
+     "queueSec": 5.4,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 29.5,
+     "queueSec": 1.6,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 33.6,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 40.3,
+     "queueSec": 0.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "F"
+   }
+  ],
+  "key": "BLOCKED|alarm|packed|none|low|U"
+ },
+ {
+  "agent": 444,
+  "tick": 530,
+  "point": "BLOCKED",
+  "persona": {
+   "age": "adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "packed",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 2,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for South stair S198B exterior door (close, busy, others nearby are heading there)",
+    "num": {
+     "distM": 1.4,
+     "queueSec": 12.3,
+     "hazard": 0,
+     "herd": 0.78,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "B"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "C"
+   }
+  ],
+  "key": "BLOCKED|alarm|packed|none|low|U"
+ },
+ {
+  "agent": 437,
+  "tick": 793,
+  "point": "JUNCTION",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "busy",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 13.4,
+     "queueSec": 4.4,
+     "hazard": 0,
+     "herd": 0.88,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 30.7,
+     "queueSec": 1.6,
+     "hazard": 0,
+     "herd": 0.12,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 34.8,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 41.4,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "F"
+   }
+  ],
+  "key": "JUNCTION|alarm|busy|none|low|U"
+ },
+ {
+  "agent": 65,
+  "tick": 171,
+  "point": "ALARM_NOTICED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "NEAREST",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (close, clear)",
+    "num": {
+     "distM": 7.9,
+     "queueSec": 6.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "B"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "C"
+   }
+  ],
+  "key": "ALARM_NOTICED|none|light|none|low|U"
+ },
+ {
+  "agent": 92,
+  "tick": 360,
+  "point": "GROUP_MEMBER_MISSING",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": true
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (close, clear, a way you know)",
+    "num": {
+     "distM": 12.4,
+     "queueSec": 6.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (close, clear, a way you know)",
+    "num": {
+     "distM": 14.7,
+     "queueSec": 2.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 20.9,
+     "queueSec": 0.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 24.7,
+     "queueSec": 6.3,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 2,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for South stair S198B exterior door (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 27.3,
+     "queueSec": 9.6,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "E"
+   },
+   {
+    "action": "GO_BACK",
+    "target": 4,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Turn back towards East door from soils & concrete lab 0138 (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 20.9,
+     "queueSec": 0.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "F"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "G"
+   }
+  ],
+  "key": "GROUP_MEMBER_MISSING|alarm|light|none|low|F"
+ },
+ {
+  "agent": 142,
+  "tick": 48,
+  "point": "GROUP_MEMBER_MISSING",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "slow",
+   "familiar": true,
+   "stress": "panicked",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "quake",
+   "smokeVisible": false,
+   "shaking": true,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": true
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 23.5,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 23.6,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 2,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for South stair S198B exterior door (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 25.9,
+     "queueSec": 2.7,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 27.1,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 35.9,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "E"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "F"
+   }
+  ],
+  "key": "GROUP_MEMBER_MISSING|shaking|light|none|high|F"
+ },
+ {
+  "agent": 307,
+  "tick": 184,
+  "point": "BLOCKED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": false
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "busy",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 10,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "MAJORITY",
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (close, busy, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 0,
+     "queueSec": 21.5,
+     "hazard": 0,
+     "herd": 0.89,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 6,
+    "roles": [
+     "FAMILIAR",
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (close, busy, a way you know)",
+    "num": {
+     "distM": 17.8,
+     "queueSec": 19.4,
+     "hazard": 0,
+     "herd": 0.11,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 8,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (a short walk, busy, a way you know)",
+    "num": {
+     "distM": 32.8,
+     "queueSec": 10.8,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   }
+  ],
+  "key": "BLOCKED|alarm|busy|none|low|F"
+ },
+ {
+  "agent": 278,
+  "tick": 277,
+  "point": "BLOCKED",
+  "persona": {
+   "age": "adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "packed",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 10,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (close, busy, others nearby are heading there)",
+    "num": {
+     "distM": 0,
+     "queueSec": 20.5,
+     "hazard": 0,
+     "herd": 0.86,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 6,
+    "roles": [
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (close, busy)",
+    "num": {
+     "distM": 17.6,
+     "queueSec": 16.2,
+     "hazard": 0,
+     "herd": 0.14,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 8,
+    "roles": [
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (a short walk, busy)",
+    "num": {
+     "distM": 33.2,
+     "queueSec": 14,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "BLOCKED|none|packed|none|low|U"
+ },
+ {
+  "agent": 163,
+  "tick": 355,
+  "point": "BLOCKED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "packed",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 11.4,
+     "queueSec": 6.1,
+     "hazard": 0,
+     "herd": 0.94,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 29.1,
+     "queueSec": 5.9,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 33.2,
+     "queueSec": 2.2,
+     "hazard": 0,
+     "herd": 0.06,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 39.9,
+     "queueSec": 0.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "BLOCKED|alarm|packed|none|low|F"
+ },
+ {
+  "agent": 239,
+  "tick": 108,
+  "point": "JUNCTION",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": true,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 6,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (close, busy, a way you know)",
+    "num": {
+     "distM": 14.3,
+     "queueSec": 11.8,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 10,
+    "roles": [
+     "FAMILIAR",
+     "MAJORITY",
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (a short walk, busy, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 26.7,
+     "queueSec": 17.2,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 8,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (far, clear, a way you know)",
+    "num": {
+     "distM": 57.1,
+     "queueSec": 5.4,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "JUNCTION|smoke|light|none|low|F"
+ },
+ {
+  "agent": 174,
+  "tick": 340,
+  "point": "BLOCKED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "stressed",
+   "inGroup": false
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "packed",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 11.1,
+     "queueSec": 4.9,
+     "hazard": 0,
+     "herd": 0.93,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 28.3,
+     "queueSec": 4.3,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 32.4,
+     "queueSec": 2.7,
+     "hazard": 0,
+     "herd": 0.07,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 39.1,
+     "queueSec": 0.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "BLOCKED|alarm|packed|none|high|U"
+ },
+ {
+  "agent": 323,
+  "tick": 116,
+  "point": "GROUP_MEMBER_MISSING",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": true
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 7,
+    "roles": [
+     "NEAREST",
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (close, busy)",
+    "num": {
+     "distM": 14.5,
+     "queueSec": 11.8,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 9,
+    "roles": [
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (close, busy)",
+    "num": {
+     "distM": 19.4,
+     "queueSec": 11.8,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 5,
+    "roles": [
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (a short walk, busy)",
+    "num": {
+     "distM": 48.9,
+     "queueSec": 15.1,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   }
+  ],
+  "key": "GROUP_MEMBER_MISSING|none|light|none|low|U"
+ },
+ {
+  "agent": 435,
+  "tick": 224,
+  "point": "BLOCKED",
+  "persona": {
+   "age": "adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": false
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "busy",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 5,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "MAJORITY",
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (close, busy, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 0.8,
+     "queueSec": 30.2,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 9,
+    "roles": [
+     "FAMILIAR",
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (a short walk, busy, a way you know)",
+    "num": {
+     "distM": 33,
+     "queueSec": 19.4,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 7,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (a short walk, busy, a way you know)",
+    "num": {
+     "distM": 47.8,
+     "queueSec": 18.3,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   }
+  ],
+  "key": "BLOCKED|none|busy|none|low|F"
+ },
+ {
+  "agent": 319,
+  "tick": 632,
+  "point": "BLOCKED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": false
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "packed",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 12.3,
+     "queueSec": 7.1,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 29.5,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 33.6,
+     "queueSec": 1.1,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 40.3,
+     "queueSec": 1.6,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "BLOCKED|none|packed|none|low|U"
+ },
+ {
+  "agent": 424,
+  "tick": 336,
+  "point": "GROUP_MEMBER_MISSING",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "panicked",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "quake",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": true
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 7,
+    "roles": [
+     "NEAREST",
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (close, busy)",
+    "num": {
+     "distM": 0.8,
+     "queueSec": 16.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 5,
+    "roles": [
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (a short walk, busy)",
+    "num": {
+     "distM": 47.2,
+     "queueSec": 25.9,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "C"
+   }
+  ],
+  "key": "GROUP_MEMBER_MISSING|alarm|light|none|high|U"
+ },
+ {
+  "agent": 259,
+  "tick": 63,
+  "point": "ALARM_NOTICED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 6,
+    "roles": [
+     "NEAREST",
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (a short walk, clear)",
+    "num": {
+     "distM": 22.3,
+     "queueSec": 1.1,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 10,
+    "roles": [
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (a short walk, clear)",
+    "num": {
+     "distM": 28.7,
+     "queueSec": 3.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 8,
+    "roles": [
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (far, clear)",
+    "num": {
+     "distM": 59.1,
+     "queueSec": 1.1,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "ALARM_NOTICED|none|light|none|low|U"
+ },
+ {
+  "agent": 330,
+  "tick": 196,
+  "point": "SIGN_SEEN",
+  "persona": {
+   "age": "adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "panicked",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "quake",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "route",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "FOLLOW_SIGN",
+    "target": 5,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "SIGNED",
+     "STAIR"
+    ],
+    "desc": "Follow the sign to Central stair (S198A / S298A / S398A) (close, busy, a way you know)",
+    "num": {
+     "distM": 13.7,
+     "queueSec": 38.8,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": true
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 9,
+    "roles": [
+     "FAMILIAR",
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (a short walk, busy, a way you know)",
+    "num": {
+     "distM": 34.1,
+     "queueSec": 25.9,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 7,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (a short walk, busy, a way you know)",
+    "num": {
+     "distM": 48.7,
+     "queueSec": 19.4,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "SIGN_SEEN|alarm|light|route|high|F"
+ },
+ {
+  "agent": 406,
+  "tick": 397,
+  "point": "JUNCTION",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": false
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "packed",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 12.3,
+     "queueSec": 6.8,
+     "hazard": 0,
+     "herd": 0.81,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 29.5,
+     "queueSec": 7,
+     "hazard": 0,
+     "herd": 0.05,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 33.6,
+     "queueSec": 3.2,
+     "hazard": 0,
+     "herd": 0.1,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 40.3,
+     "queueSec": 1.6,
+     "hazard": 0,
+     "herd": 0.05,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "JUNCTION|alarm|packed|none|low|U"
+ },
+ {
+  "agent": 271,
+  "tick": 188,
+  "point": "SIGN_SEEN",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "route",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "FOLLOW_SIGN",
+    "target": 6,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "SIGNED",
+     "MAJORITY",
+     "STAIR"
+    ],
+    "desc": "Follow the sign to Central stair (S198A / S298A / S398A) (close, busy, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 8.9,
+     "queueSec": 18.3,
+     "hazard": 0,
+     "herd": 0.83,
+     "familiar": true,
+     "signed": true
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 10,
+    "roles": [
+     "FAMILIAR",
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (close, busy, a way you know)",
+    "num": {
+     "distM": 14.9,
+     "queueSec": 20.5,
+     "hazard": 0,
+     "herd": 0.17,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 8,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (a short walk, busy, a way you know)",
+    "num": {
+     "distM": 45.1,
+     "queueSec": 10.8,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "SIGN_SEEN|alarm|light|route|low|F"
+ },
+ {
+  "agent": 164,
+  "tick": 144,
+  "point": "GROUP_MEMBER_MISSING",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": true
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 6,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (close, busy, others nearby are heading there)",
+    "num": {
+     "distM": 7.2,
+     "queueSec": 23.7,
+     "hazard": 0,
+     "herd": 0.63,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 10,
+    "roles": [
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (close, busy, others nearby are heading there)",
+    "num": {
+     "distM": 11.5,
+     "queueSec": 20.5,
+     "hazard": 0,
+     "herd": 0.38,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 8,
+    "roles": [
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (a short walk, clear)",
+    "num": {
+     "distM": 41.8,
+     "queueSec": 8.6,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   }
+  ],
+  "key": "GROUP_MEMBER_MISSING|alarm|light|none|low|U"
+ },
+ {
+  "agent": 160,
+  "tick": 88,
+  "point": "GROUP_MEMBER_MISSING",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": true
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 8,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "MAJORITY",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (close, clear, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 9.1,
+     "queueSec": 8.6,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 10,
+    "roles": [
+     "FAMILIAR",
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 24.5,
+     "queueSec": 6.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 6,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 39.7,
+     "queueSec": 2.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   }
+  ],
+  "key": "GROUP_MEMBER_MISSING|none|light|none|low|F"
+ },
+ {
+  "agent": 187,
+  "tick": 160,
+  "point": "ALARM_NOTICED",
+  "persona": {
+   "age": "adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "panicked",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "quake",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 10,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "MAJORITY",
+     "STAIR"
+    ],
+    "desc": "Head for Atrium stair (open) (close, clear, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 9.7,
+     "queueSec": 9.7,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 6,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 23,
+     "queueSec": 2.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 8,
+    "roles": [
+     "FAMILIAR",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 36.9,
+     "queueSec": 3.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "ALARM_NOTICED|alarm|light|none|high|F"
+ },
+ {
+  "agent": 281,
+  "tick": 496,
+  "point": "JUNCTION",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "panicked",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 4.6,
+     "queueSec": 7.6,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 28,
+     "queueSec": 1.1,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 32.1,
+     "queueSec": 1.1,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 38.8,
+     "queueSec": 1.6,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "GO_BACK",
+    "target": 3,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Turn back towards East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 32.1,
+     "queueSec": 1.1,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "E"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "F"
+   }
+  ],
+  "key": "JUNCTION|alarm|light|none|high|F"
+ },
+ {
+  "agent": 213,
+  "tick": 578,
+  "point": "BLOCKED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "panicked",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "quake",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "packed",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 10.5,
+     "queueSec": 4.1,
+     "hazard": 0,
+     "herd": 0.56,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 27.8,
+     "queueSec": 4.3,
+     "hazard": 0,
+     "herd": 0.12,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 31.9,
+     "queueSec": 4.3,
+     "hazard": 0,
+     "herd": 0.2,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 38.5,
+     "queueSec": 3.2,
+     "hazard": 0,
+     "herd": 0.12,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   },
+   {
+    "action": "GO_BACK",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Turn back towards North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 10.5,
+     "queueSec": 4.1,
+     "hazard": 0,
+     "herd": 0.56,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "F"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "G"
+   }
+  ],
+  "key": "BLOCKED|alarm|packed|none|high|F"
+ },
+ {
+  "agent": 1,
+  "tick": 136,
+  "point": "GROUP_MEMBER_MISSING",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": true
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (close, clear, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 1.9,
+     "queueSec": 5.4,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 2,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for South stair S198B exterior door (close, clear, a way you know)",
+    "num": {
+     "distM": 16.5,
+     "queueSec": 9.6,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (close, clear, a way you know)",
+    "num": {
+     "distM": 19.5,
+     "queueSec": 2.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 35.6,
+     "queueSec": 2.7,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 45.1,
+     "queueSec": 1.7,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "E"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "F"
+   }
+  ],
+  "key": "GROUP_MEMBER_MISSING|none|light|none|low|F"
+ },
+ {
+  "agent": 117,
+  "tick": 215,
+  "point": "JUNCTION",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "busy",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (close, clear, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 4.2,
+     "queueSec": 3.8,
+     "hazard": 0,
+     "herd": 0.5,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "FAMILIAR",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (close, clear, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 13.4,
+     "queueSec": 4.9,
+     "hazard": 0,
+     "herd": 0.5,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 2,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for South stair S198B exterior door (a short walk, busy, a way you know)",
+    "num": {
+     "distM": 20.9,
+     "queueSec": 17.7,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 28.9,
+     "queueSec": 3.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 38.3,
+     "queueSec": 2.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "E"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "F"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "G"
+   }
+  ],
+  "key": "JUNCTION|none|busy|none|low|F"
+ },
+ {
+  "agent": 227,
+  "tick": 608,
+  "point": "JUNCTION",
+  "persona": {
+   "age": "young_adult",
+   "role": "visitor",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "panicked",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "quake",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "packed",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 13,
+     "queueSec": 7.3,
+     "hazard": 0,
+     "herd": 0.63,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 30.3,
+     "queueSec": 3.8,
+     "hazard": 0,
+     "herd": 0.13,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 34.4,
+     "queueSec": 3.8,
+     "hazard": 0,
+     "herd": 0.13,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 41,
+     "queueSec": 2.2,
+     "hazard": 0,
+     "herd": 0.1,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "F"
+   }
+  ],
+  "key": "JUNCTION|alarm|packed|none|high|F"
+ },
+ {
+  "agent": 261,
+  "tick": 389,
+  "point": "BLOCKED",
+  "persona": {
+   "age": "young_adult",
+   "role": "staff",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "stressed",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "packed",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 10.7,
+     "queueSec": 7.3,
+     "hazard": 0,
+     "herd": 0.8,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 28.2,
+     "queueSec": 7,
+     "hazard": 0,
+     "herd": 0.05,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 32.3,
+     "queueSec": 3.2,
+     "hazard": 0,
+     "herd": 0.1,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 38.9,
+     "queueSec": 1.6,
+     "hazard": 0,
+     "herd": 0.05,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "BLOCKED|alarm|packed|none|high|F"
+ },
+ {
+  "agent": 84,
+  "tick": 160,
+  "point": "ALARM_NOTICED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "panicked",
+   "inGroup": false
+  },
+  "situation": {
+   "hazard": "quake",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "busy",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (close, clear, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 1.8,
+     "queueSec": 4.9,
+     "hazard": 0,
+     "herd": 0.75,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (close, clear, a way you know)",
+    "num": {
+     "distM": 19.1,
+     "queueSec": 1.6,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 28.3,
+     "queueSec": 4.3,
+     "hazard": 0,
+     "herd": 0.25,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 2,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for South stair S198B exterior door (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 35.7,
+     "queueSec": 9.6,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 37.3,
+     "queueSec": 1.7,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "E"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "F"
+   }
+  ],
+  "key": "ALARM_NOTICED|alarm|busy|none|high|F"
+ },
+ {
+  "agent": 96,
+  "tick": 71,
+  "point": "ALARM_NOTICED",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "fire",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (close, clear, a way you know)",
+    "num": {
+     "distM": 8.8,
+     "queueSec": 1.1,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (close, clear, a way you know)",
+    "num": {
+     "distM": 15.4,
+     "queueSec": 0.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 2,
+    "roles": [
+     "FAMILIAR",
+     "LEVEL"
+    ],
+    "desc": "Head for South stair S198B exterior door (close, clear, a way you know)",
+    "num": {
+     "distM": 18.5,
+     "queueSec": 1.4,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 26.9,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (a short walk, clear, a way you know)",
+    "num": {
+     "distM": 36.4,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "E"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "F"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "G"
+   }
+  ],
+  "key": "ALARM_NOTICED|alarm|light|none|low|F"
+ },
+ {
+  "agent": 339,
+  "tick": 424,
+  "point": "GROUP_MEMBER_MISSING",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": true,
+   "stress": "panicked",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "quake",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": true
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 7,
+    "roles": [
+     "NEAREST",
+     "FAMILIAR",
+     "LEAST_CROWDED",
+     "MAJORITY",
+     "STAIR"
+    ],
+    "desc": "Head for South stair (S198B / S298B / S398B) (close, clear, a way you know, others nearby are heading there)",
+    "num": {
+     "distM": 6,
+     "queueSec": 8.6,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 5,
+    "roles": [
+     "FAMILIAR",
+     "STAIR"
+    ],
+    "desc": "Head for Central stair (S198A / S298A / S398A) (a short walk, busy, a way you know)",
+    "num": {
+     "distM": 42,
+     "queueSec": 20.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": true,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "C"
+   }
+  ],
+  "key": "GROUP_MEMBER_MISSING|alarm|light|none|high|F"
+ },
+ {
+  "agent": 56,
+  "tick": 176,
+  "point": "GROUP_MEMBER_MISSING",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "panicked",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "quake",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": true
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "LEAST_CROWDED",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 14.1,
+     "queueSec": 2.9,
+     "hazard": 0,
+     "herd": 0.75,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (close, clear)",
+    "num": {
+     "distM": 14.2,
+     "queueSec": 8.1,
+     "hazard": 0,
+     "herd": 0.25,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 37,
+     "queueSec": 7.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 43.2,
+     "queueSec": 3.2,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "GROUP_MEMBER_MISSING|alarm|light|none|high|U"
+ },
+ {
+  "agent": 7,
+  "tick": 180,
+  "point": "JUNCTION",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "crutches",
+   "familiar": false,
+   "stress": "panicked",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "quake",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "light",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 2,
+     "queueSec": 8.1,
+     "hazard": 0,
+     "herd": 0.83,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "FOLLOW_GROUP",
+    "target": -1,
+    "roles": [],
+    "desc": "Stay with your group and go where they go",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "B"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "C"
+   }
+  ],
+  "key": "JUNCTION|alarm|light|none|high|U"
+ },
+ {
+  "agent": 399,
+  "tick": 791,
+  "point": "JUNCTION",
+  "persona": {
+   "age": "young_adult",
+   "role": "student",
+   "mobility": "unimpaired",
+   "familiar": false,
+   "stress": "calm",
+   "inGroup": true
+  },
+  "situation": {
+   "hazard": "none",
+   "smokeVisible": false,
+   "shaking": false,
+   "threatVisible": false,
+   "crowd": "packed",
+   "instruction": "none",
+   "groupMissing": false
+  },
+  "options": [
+   {
+    "action": "MOVE_TO",
+    "target": 0,
+    "roles": [
+     "NEAREST",
+     "MAJORITY",
+     "LEVEL"
+    ],
+    "desc": "Head for North lobby doors (lobby C199A to plaza C196A) (close, clear, others nearby are heading there)",
+    "num": {
+     "distM": 13.3,
+     "queueSec": 4.1,
+     "hazard": 0,
+     "herd": 1,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "A"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 1,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for West entry (entry / exhibit C199C) (a short walk, clear)",
+    "num": {
+     "distM": 30.5,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "B"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 3,
+    "roles": [
+     "LEVEL"
+    ],
+    "desc": "Head for East door from storage 0140A (a short walk, clear)",
+    "num": {
+     "distM": 34.6,
+     "queueSec": 0.5,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "C"
+   },
+   {
+    "action": "MOVE_TO",
+    "target": 4,
+    "roles": [
+     "LEAST_CROWDED",
+     "LEVEL"
+    ],
+    "desc": "Head for East door from soils & concrete lab 0138 (a short walk, clear)",
+    "num": {
+     "distM": 41.3,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": false
+    },
+    "id": "D"
+   },
+   {
+    "action": "WAIT",
+    "target": -1,
+    "roles": [],
+    "desc": "Wait here and watch what others do",
+    "num": {
+     "distM": 0,
+     "queueSec": 0,
+     "hazard": 0,
+     "herd": 0,
+     "familiar": false,
+     "signed": true
+    },
+    "id": "E"
+   }
+  ],
+  "key": "JUNCTION|none|packed|none|low|U"
+ }
+]

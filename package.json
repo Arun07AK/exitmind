@@ -31,7 +31,8 @@
     "distill": "node src/cli/distill.ts",
     "bakeoff": "node src/cli/bakeoff.ts",
     "results:table": "node src/cli/results-table.ts",
-    "replay": "node src/cli/replay.ts"
+    "replay": "node src/cli/replay.ts",
+    "llm:check": "node src/cli/llm-check.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "1.8.0",

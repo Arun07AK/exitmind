@@ -163,5 +163,16 @@
     ],
     "locator": "radius of the keep-clear zone around a medical incident",
     "verified": false
+  },
+  "quake.aftershockWindowSec": {
+    "value": 60,
+    "min": 0,
+    "max": 300,
+    "unit": "s",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "period after the main shaking in which people moving (not holding in place) count as exposed to aftershocks and falling debris; EXITMIND modelling assumption, not physics",
+    "verified": false
   }
 }

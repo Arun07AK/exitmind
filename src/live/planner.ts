@@ -92,7 +92,7 @@ export async function plan(opts: {
     });
     const ids = cands.map((c) => c.id);
     const r = await opts.claude.json({
-      role: "planner", model: env("PLANNER_MODEL") ?? "claude-sonnet-5-5", system: PLANNER_SYSTEM, user, maxTokens: 400, timeoutMs: opts.timeoutMs, effort: "low",
+      role: "planner", model: env("PLANNER_MODEL") ?? "claude-sonnet-5-5", system: PLANNER_SYSTEM, user, maxTokens: 1200, timeoutMs: opts.timeoutMs, effort: "low",
       schema: {
         type: "object", additionalProperties: false, required: ["candidateId", "rationale", "rejected"],
         properties: {

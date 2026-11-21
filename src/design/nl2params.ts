@@ -68,7 +68,7 @@ export async function nl2params(text: string, simEnv: SimEnv, claude: ClaudeLike
     try {
       const level = { type: "integer", enum: [0, 1, 2, 3, 4] };
       const lv = await claude.json({
-        role: "parser", model: env("PERSONA_HAIKU_MODEL") ?? "claude-haiku-5-5", maxTokens: 120, timeoutMs: 4000,
+        role: "parser", model: env("PERSONA_HAIKU_MODEL") ?? "claude-haiku-5-5", maxTokens: 500, timeoutMs: 8000, effort: "low",
         system: "Rate a short description of a building's occupants on fixed 0-4 scales (2 = typical). familiarity: how well people know the building. crowdSize: how full it is. ageSkew: 0 mostly children, 4 mostly elderly. mobility: share with reduced mobility. grouping: how much people move in groups. urgency: how urgently people react. compliance: how readily people follow instructions. Answer only with the ratings.",
         user: text.slice(0, 500),
         schema: { type: "object", properties: Object.fromEntries(DIMENSIONS.map((d) => [d, level])), required: [...DIMENSIONS], additionalProperties: false },

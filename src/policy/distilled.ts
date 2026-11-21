@@ -21,8 +21,14 @@ export function backoffKeys(ctx: Pick<DecisionContext, "key" | "options">): stri
 
 export interface LoggedChoice {
   key: string;
-  options: { action: DecisionContext["options"][number]["action"]; roles: DecisionContext["options"][number]["roles"] }[];
+  options: { id?: string; action: DecisionContext["options"][number]["action"]; roles: DecisionContext["options"][number]["roles"] }[];
   chosen: string;
+}
+
+/** Recompute the chosen signature from a logged record, so logs written with an older signature scheme still distil. */
+export function chosenSignature(r: { options: { id: string; action: DecisionContext["options"][number]["action"]; roles: DecisionContext["options"][number]["roles"] }[]; optionId: string; chosen: string }): string {
+  const o = r.options.find((x) => x.id === r.optionId);
+  return o ? signature(o) : r.chosen;
 }
 
 export function distill(choices: LoggedChoice[], meta: DistilledTable["source"]): DistilledTable {
@@ -42,6 +48,7 @@ export class DistilledPolicy implements DecisionPolicy {
   readonly name = "distilled";
   readonly t: DistilledTable;
   readonly minSupport: number;
+  readonly minCoverage = 0.6;
   constructor(t: DistilledTable, minSupport = 5) { this.t = t; this.minSupport = minSupport; }
 
   static load(path = repoPath("data", "policy", "distilled.policy.json")): DistilledPolicy {
@@ -49,21 +56,24 @@ export class DistilledPolicy implements DecisionPolicy {
   }
 
   distribution(ctx: DecisionContext): Map<string, number> | null {
-    const avail = new Map<string, string>();
-    for (const o of ctx.options) { const s = signature(o); if (!avail.has(s)) avail.set(s, o.id); }
+    const avail = new Map<string, string[]>();
+    for (const o of ctx.options) { const s = signature(o); avail.set(s, [...(avail.get(s) ?? []), o.id]); }
+    const instructed = ctx.options.some((o) => o.action === "FOLLOW_SIGN");
     for (const k of backoffKeys(ctx)) {
       const row = this.t.table[k];
       if (!row) continue;
-      let total = 0;
+      if (instructed && !Object.keys(row).some((sig) => sig.startsWith("FOLLOW_SIGN"))) continue;
+      let matched = 0, all = 0;
       const dist = new Map<string, number>();
       for (const [sig, n] of Object.entries(row)) {
-        const id = avail.get(sig);
-        if (id === undefined) continue;
-        dist.set(id, (dist.get(id) ?? 0) + n);
-        total += n;
+        all += n;
+        const ids = avail.get(sig);
+        if (!ids) continue;
+        for (const id of ids) dist.set(id, (dist.get(id) ?? 0) + n / ids.length);
+        matched += n;
       }
-      if (total < this.minSupport) continue;
-      for (const [id, n] of dist) dist.set(id, n / total);
+      if (matched < this.minSupport || matched < this.minCoverage * all) continue;
+      for (const [id, n] of dist) dist.set(id, n / matched);
       return dist;
     }
     return null;

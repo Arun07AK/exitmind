@@ -1,0 +1,5345 @@
+{
+ "layout": "as drawn",
+ "cells": [
+  {
+   "hazard": "fire",
+   "profile": "college",
+   "survived": 13,
+   "total": 24,
+   "targetSec": 600,
+   "breaking": [
+    {
+     "id": "rate-fire-college-0",
+     "label": "99 not out by 600 s, flow collapse at a doorway for 734 s, 17981.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-college-0",
+      "profile": "college",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.497
+       }
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.636,
+       "premove.medianSec.college": 142.817,
+       "sign.compliance.base": 0.795,
+       "herding.betaSec": 32.669,
+       "stress.gain.hazard": 0.33,
+       "profile.college.share.wheelchair": 0.01,
+       "profile.college.groupFraction": 0.589
+      },
+      "loadFactor": 1.279,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-college-1",
+     "label": "53 not out by 600 s, flow collapse at a doorway for 672 s, 9488.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-college-1",
+      "profile": "college",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.44
+       }
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.89,
+       "premove.medianSec.college": 158.771,
+       "sign.compliance.base": 0.68,
+       "herding.betaSec": 28.646,
+       "stress.gain.hazard": 0.345,
+       "profile.college.share.wheelchair": 0.008,
+       "profile.college.groupFraction": 0.552
+      },
+      "loadFactor": 1.051,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-college-2",
+     "label": "27 not out by 600 s, flow collapse at a doorway for 485.5 s, 8085.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-college-2",
+      "profile": "college",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.398
+       }
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.838,
+       "premove.medianSec.college": 108.989,
+       "sign.compliance.base": 0.737,
+       "herding.betaSec": 39.868,
+       "stress.gain.hazard": 0.201,
+       "profile.college.share.wheelchair": 0.008,
+       "profile.college.groupFraction": 0.383
+      },
+      "loadFactor": 1.288,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-college-3",
+     "label": "60 not out by 600 s, flow collapse at a doorway for 706 s, 11170.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-college-3",
+      "profile": "college",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.422
+       }
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.927,
+       "premove.medianSec.college": 156.44,
+       "sign.compliance.base": 0.855,
+       "herding.betaSec": 37.998,
+       "stress.gain.hazard": 0.359,
+       "profile.college.share.wheelchair": 0.014,
+       "profile.college.groupFraction": 0.474
+      },
+      "loadFactor": 1.079,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-college-4",
+     "label": "0 not out by 600 s, flow collapse at a doorway for 370.5 s, 5380 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-college-4",
+      "profile": "college",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.402
+       }
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.806,
+       "premove.medianSec.college": 119.01,
+       "sign.compliance.base": 0.704,
+       "herding.betaSec": 27.746,
+       "stress.gain.hazard": 0.315,
+       "profile.college.share.wheelchair": 0.002,
+       "profile.college.groupFraction": 0.348
+      },
+      "loadFactor": 1.153,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-college-13",
+     "label": "6 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-college-13",
+      "profile": "college",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F3",
+       "at": [
+        130.4,
+        12.9
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.434
+       }
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.651,
+       "premove.medianSec.college": 156.415,
+       "sign.compliance.base": 0.766,
+       "herding.betaSec": 32.558,
+       "stress.gain.hazard": 0.066,
+       "profile.college.share.wheelchair": 0.001,
+       "profile.college.groupFraction": 0.474
+      },
+      "loadFactor": 1.258,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70013,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-college-15",
+     "label": "7 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-college-15",
+      "profile": "college",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F3",
+       "at": [
+        130.4,
+        12.9
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.437
+       }
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.767,
+       "premove.medianSec.college": 168.667,
+       "sign.compliance.base": 0.795,
+       "herding.betaSec": 39.406,
+       "stress.gain.hazard": 0.033,
+       "profile.college.share.wheelchair": 0.005,
+       "profile.college.groupFraction": 0.497
+      },
+      "loadFactor": 1.14,
+      "occupancy": "event_in:0110",
+      "protocol": "EVACUATE",
+      "seed": 70015,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-college-16",
+     "label": "2 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-college-16",
+      "profile": "college",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F3",
+       "at": [
+        130.4,
+        12.9
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.455
+       }
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.761,
+       "premove.medianSec.college": 102.41,
+       "sign.compliance.base": 0.927,
+       "herding.betaSec": 33.454,
+       "stress.gain.hazard": 0.082,
+       "profile.college.share.wheelchair": 0.012,
+       "profile.college.groupFraction": 0.398
+      },
+      "loadFactor": 1.188,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70016,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-college-17",
+     "label": "8 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-college-17",
+      "profile": "college",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F2",
+       "at": [
+        39.2,
+        68.6
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.296
+       }
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.685,
+       "premove.medianSec.college": 143.286,
+       "sign.compliance.base": 0.682,
+       "herding.betaSec": 22.404,
+       "stress.gain.hazard": 0.267,
+       "profile.college.share.wheelchair": 0.016,
+       "profile.college.groupFraction": 0.563
+      },
+      "loadFactor": 0.975,
+      "occupancy": "event_in:0110",
+      "protocol": "EVACUATE",
+      "seed": 70017,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-college-19",
+     "label": "3 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-college-19",
+      "profile": "college",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F2",
+       "at": [
+        169.1,
+        13.6
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.159
+       }
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.683,
+       "premove.medianSec.college": 159.81,
+       "sign.compliance.base": 0.844,
+       "herding.betaSec": 17.294,
+       "stress.gain.hazard": 0.238,
+       "profile.college.share.wheelchair": 0.011,
+       "profile.college.groupFraction": 0.331
+      },
+      "loadFactor": 0.982,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70019,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "fire",
+   "profile": "school",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 600,
+   "breaking": [
+    {
+     "id": "rate-fire-school-0",
+     "label": "618 not out by 600 s, flow collapse at a doorway for 777 s, 92065 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-school-0",
+      "profile": "school",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.248
+       }
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.991,
+       "premove.medianSec.school": 108.574,
+       "sign.compliance.base": 0.982,
+       "herding.betaSec": 35.364,
+       "stress.gain.hazard": 0.39,
+       "profile.school.share.wheelchair": 0.007,
+       "profile.school.groupFraction": 0.844
+      },
+      "loadFactor": 1.269,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-school-1",
+     "label": "506 not out by 600 s, flow collapse at a doorway for 706.5 s, 73899 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-school-1",
+      "profile": "school",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.333
+       }
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.936,
+       "premove.medianSec.school": 101.759,
+       "sign.compliance.base": 0.74,
+       "herding.betaSec": 18.645,
+       "stress.gain.hazard": 0.169,
+       "profile.school.share.wheelchair": 0.014,
+       "profile.school.groupFraction": 0.75
+      },
+      "loadFactor": 1.185,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-school-2",
+     "label": "482 not out by 600 s, flow collapse at a doorway for 789.5 s, 88841.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-school-2",
+      "profile": "school",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.242
+       }
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.851,
+       "premove.medianSec.school": 64.742,
+       "sign.compliance.base": 0.998,
+       "herding.betaSec": 18.799,
+       "stress.gain.hazard": 0.193,
+       "profile.school.share.wheelchair": 0.015,
+       "profile.school.groupFraction": 0.652
+      },
+      "loadFactor": 1.2,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-school-3",
+     "label": "475 not out by 600 s, flow collapse at a doorway for 775.5 s, 61965.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-school-3",
+      "profile": "school",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.353
+       }
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.885,
+       "premove.medianSec.school": 91.211,
+       "sign.compliance.base": 0.914,
+       "herding.betaSec": 32.969,
+       "stress.gain.hazard": 0.343,
+       "profile.school.share.wheelchair": 0.014,
+       "profile.school.groupFraction": 0.953
+      },
+      "loadFactor": 1.048,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-school-4",
+     "label": "501 not out by 600 s, flow collapse at a doorway for 779.5 s, 75340.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-school-4",
+      "profile": "school",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.268
+       }
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.871,
+       "premove.medianSec.school": 91.962,
+       "sign.compliance.base": 0.861,
+       "herding.betaSec": 17.269,
+       "stress.gain.hazard": 0.312,
+       "profile.school.share.wheelchair": 0.004,
+       "profile.school.groupFraction": 0.669
+      },
+      "loadFactor": 1.1,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-school-5",
+     "label": "416 not out by 600 s, flow collapse at a doorway for 802.5 s, 72343 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-school-5",
+      "profile": "school",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.253
+       }
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.795,
+       "premove.medianSec.school": 68.555,
+       "sign.compliance.base": 0.765,
+       "herding.betaSec": 38.717,
+       "stress.gain.hazard": 0.318,
+       "profile.school.share.wheelchair": 0.011,
+       "profile.school.groupFraction": 0.709
+      },
+      "loadFactor": 1.06,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-school-6",
+     "label": "303 not out by 600 s, flow collapse at a doorway for 691 s, 57660.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-school-6",
+      "profile": "school",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.317
+       }
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.776,
+       "premove.medianSec.school": 78.157,
+       "sign.compliance.base": 0.929,
+       "herding.betaSec": 12.17,
+       "stress.gain.hazard": 0.226,
+       "profile.school.share.wheelchair": 0.009,
+       "profile.school.groupFraction": 0.852
+      },
+      "loadFactor": 1.043,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-school-7",
+     "label": "401 not out by 600 s, flow collapse at a doorway for 680 s, 47055.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-school-7",
+      "profile": "school",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.381
+       }
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.785,
+       "premove.medianSec.school": 97.486,
+       "sign.compliance.base": 0.801,
+       "herding.betaSec": 37.965,
+       "stress.gain.hazard": 0.279,
+       "profile.school.share.wheelchair": 0.008,
+       "profile.school.groupFraction": 0.88
+      },
+      "loadFactor": 1.033,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-school-8",
+     "label": "321 not out by 600 s, flow collapse at a doorway for 775.5 s, 56707.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-school-8",
+      "profile": "school",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.314
+       }
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.823,
+       "premove.medianSec.school": 59.569,
+       "sign.compliance.base": 0.675,
+       "herding.betaSec": 29.781,
+       "stress.gain.hazard": 0.267,
+       "profile.school.share.wheelchair": 0.01,
+       "profile.school.groupFraction": 0.748
+      },
+      "loadFactor": 1.021,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-school-9",
+     "label": "283 not out by 600 s, flow collapse at a doorway for 794.5 s, 49638 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-school-9",
+      "profile": "school",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.311
+       }
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.828,
+       "premove.medianSec.school": 68.983,
+       "sign.compliance.base": 0.967,
+       "herding.betaSec": 39.982,
+       "stress.gain.hazard": 0.2,
+       "profile.school.share.wheelchair": 0.008,
+       "profile.school.groupFraction": 0.689
+      },
+      "loadFactor": 0.94,
+      "occupancy": "uniform",
+      "protocol": "EVACUATE",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "fire",
+   "profile": "mall",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 600,
+   "breaking": [
+    {
+     "id": "rate-fire-mall-0",
+     "label": "354 not out by 600 s, flow collapse at a doorway for 661 s, 53365 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-mall-0",
+      "profile": "mall",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.355
+       }
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.335,
+       "premove.medianSec.mall": 247.691,
+       "sign.compliance.base": 0.87,
+       "herding.betaSec": 30.172,
+       "stress.gain.hazard": 0.19,
+       "profile.mall.share.wheelchair": 0.016,
+       "profile.mall.groupFraction": 0.408
+      },
+      "loadFactor": 1.146,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-mall-1",
+     "label": "378 not out by 600 s, flow collapse at a doorway for 705 s, 59169 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-mall-1",
+      "profile": "mall",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.283
+       }
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.207,
+       "premove.medianSec.mall": 233.05,
+       "sign.compliance.base": 0.719,
+       "herding.betaSec": 4.566,
+       "stress.gain.hazard": 0.204,
+       "profile.mall.share.wheelchair": 0.022,
+       "profile.mall.groupFraction": 0.447
+      },
+      "loadFactor": 1.249,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-mall-2",
+     "label": "340 not out by 600 s, flow collapse at a doorway for 668 s, 45272.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-mall-2",
+      "profile": "mall",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.293
+       }
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.256,
+       "premove.medianSec.mall": 195.121,
+       "sign.compliance.base": 0.814,
+       "herding.betaSec": 32.254,
+       "stress.gain.hazard": 0.166,
+       "profile.mall.share.wheelchair": 0.023,
+       "profile.mall.groupFraction": 0.587
+      },
+      "loadFactor": 1.131,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-mall-3",
+     "label": "310 not out by 600 s, flow collapse at a doorway for 696.5 s, 45024.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-mall-3",
+      "profile": "mall",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.344
+       }
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.321,
+       "premove.medianSec.mall": 179.492,
+       "sign.compliance.base": 0.703,
+       "herding.betaSec": 4.943,
+       "stress.gain.hazard": 0.187,
+       "profile.mall.share.wheelchair": 0.022,
+       "profile.mall.groupFraction": 0.598
+      },
+      "loadFactor": 1.104,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-mall-4",
+     "label": "293 not out by 600 s, flow collapse at a doorway for 679 s, 34773.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-mall-4",
+      "profile": "mall",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.37
+       }
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.294,
+       "premove.medianSec.mall": 261.706,
+       "sign.compliance.base": 0.732,
+       "herding.betaSec": 25.795,
+       "stress.gain.hazard": 0.327,
+       "profile.mall.share.wheelchair": 0.022,
+       "profile.mall.groupFraction": 0.517
+      },
+      "loadFactor": 1.068,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-mall-5",
+     "label": "272 not out by 600 s, flow collapse at a doorway for 679 s, 35560 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-mall-5",
+      "profile": "mall",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.358
+       }
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.291,
+       "premove.medianSec.mall": 217.223,
+       "sign.compliance.base": 0.754,
+       "herding.betaSec": 27.736,
+       "stress.gain.hazard": 0.358,
+       "profile.mall.share.wheelchair": 0.014,
+       "profile.mall.groupFraction": 0.407
+      },
+      "loadFactor": 1.245,
+      "occupancy": "event_in:0110",
+      "protocol": "EVACUATE",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-mall-6",
+     "label": "293 not out by 600 s, flow collapse at a doorway for 696 s, 31865.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-mall-6",
+      "profile": "mall",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.394
+       }
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.285,
+       "premove.medianSec.mall": 238.303,
+       "sign.compliance.base": 0.865,
+       "herding.betaSec": 18.391,
+       "stress.gain.hazard": 0.252,
+       "profile.mall.share.wheelchair": 0.025,
+       "profile.mall.groupFraction": 0.419
+      },
+      "loadFactor": 1.022,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-mall-7",
+     "label": "282 not out by 600 s, flow collapse at a doorway for 697 s, 34196 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-mall-7",
+      "profile": "mall",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.284
+       }
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.273,
+       "premove.medianSec.mall": 155.321,
+       "sign.compliance.base": 0.706,
+       "herding.betaSec": 16.484,
+       "stress.gain.hazard": 0.342,
+       "profile.mall.share.wheelchair": 0.018,
+       "profile.mall.groupFraction": 0.611
+      },
+      "loadFactor": 1.164,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-mall-8",
+     "label": "293 not out by 600 s, flow collapse at a doorway for 670 s, 39799.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-mall-8",
+      "profile": "mall",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.266
+       }
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.375,
+       "premove.medianSec.mall": 206.879,
+       "sign.compliance.base": 0.732,
+       "herding.betaSec": 20.456,
+       "stress.gain.hazard": 0.386,
+       "profile.mall.share.wheelchair": 0.021,
+       "profile.mall.groupFraction": 0.452
+      },
+      "loadFactor": 1.056,
+      "occupancy": "classes_full",
+      "protocol": "EVACUATE",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-mall-9",
+     "label": "189 not out by 600 s, flow collapse at a doorway for 669 s, 25660 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-fire-mall-9",
+      "profile": "mall",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.388
+       }
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.469,
+       "premove.medianSec.mall": 108.101,
+       "sign.compliance.base": 0.907,
+       "herding.betaSec": 22.326,
+       "stress.gain.hazard": 0.283,
+       "profile.mall.share.wheelchair": 0.01,
+       "profile.mall.groupFraction": 0.532
+      },
+      "loadFactor": 1.181,
+      "occupancy": "event_in:0110",
+      "protocol": "EVACUATE",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "fire",
+   "profile": "hospital",
+   "survived": 1,
+   "total": 24,
+   "targetSec": 600,
+   "breaking": [
+    {
+     "id": "rate-fire-hospital-0",
+     "label": "12 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-hospital-0",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.281
+       }
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.518,
+       "premove.medianSec.hospital": 477.583,
+       "sign.compliance.base": 0.813,
+       "herding.betaSec": 26.014,
+       "stress.gain.hazard": 0.31,
+       "profile.hospital.share.wheelchair": 0.158,
+       "profile.hospital.groupFraction": 0.294
+      },
+      "loadFactor": 1.198,
+      "occupancy": "classes_full",
+      "protocol": "HORIZONTAL_EVACUATION",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-hospital-1",
+     "label": "15 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-hospital-1",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.261
+       }
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.619,
+       "premove.medianSec.hospital": 435.847,
+       "sign.compliance.base": 0.635,
+       "herding.betaSec": 18.608,
+       "stress.gain.hazard": 0.129,
+       "profile.hospital.share.wheelchair": 0.165,
+       "profile.hospital.groupFraction": 0.342
+      },
+      "loadFactor": 1.135,
+      "occupancy": "event_in:0110",
+      "protocol": "HORIZONTAL_EVACUATION",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-hospital-2",
+     "label": "16 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-hospital-2",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.203
+       }
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.503,
+       "premove.medianSec.hospital": 459.239,
+       "sign.compliance.base": 0.736,
+       "herding.betaSec": 27.759,
+       "stress.gain.hazard": 0.269,
+       "profile.hospital.share.wheelchair": 0.182,
+       "profile.hospital.groupFraction": 0.281
+      },
+      "loadFactor": 1.007,
+      "occupancy": "classes_full",
+      "protocol": "HORIZONTAL_EVACUATION",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-hospital-3",
+     "label": "14 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-hospital-3",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.431
+       }
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.606,
+       "premove.medianSec.hospital": 518.018,
+       "sign.compliance.base": 0.874,
+       "herding.betaSec": 11.66,
+       "stress.gain.hazard": 0.256,
+       "profile.hospital.share.wheelchair": 0.148,
+       "profile.hospital.groupFraction": 0.214
+      },
+      "loadFactor": 1.112,
+      "occupancy": "uniform",
+      "protocol": "HORIZONTAL_EVACUATION",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-hospital-4",
+     "label": "13 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-hospital-4",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.1
+       }
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.669,
+       "premove.medianSec.hospital": 439.496,
+       "sign.compliance.base": 0.72,
+       "herding.betaSec": 29.523,
+       "stress.gain.hazard": 0.179,
+       "profile.hospital.share.wheelchair": 0.158,
+       "profile.hospital.groupFraction": 0.298
+      },
+      "loadFactor": 1.098,
+      "occupancy": "classes_full",
+      "protocol": "HORIZONTAL_EVACUATION",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-hospital-5",
+     "label": "14 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-hospital-5",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.287
+       }
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.63,
+       "premove.medianSec.hospital": 451.682,
+       "sign.compliance.base": 0.757,
+       "herding.betaSec": 18.636,
+       "stress.gain.hazard": 0.333,
+       "profile.hospital.share.wheelchair": 0.096,
+       "profile.hospital.groupFraction": 0.305
+      },
+      "loadFactor": 1.046,
+      "occupancy": "event_in:0110",
+      "protocol": "HORIZONTAL_EVACUATION",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-hospital-6",
+     "label": "12 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-hospital-6",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.243
+       }
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.406,
+       "premove.medianSec.hospital": 339.2,
+       "sign.compliance.base": 0.861,
+       "herding.betaSec": 31.845,
+       "stress.gain.hazard": 0.219,
+       "profile.hospital.share.wheelchair": 0.114,
+       "profile.hospital.groupFraction": 0.292
+      },
+      "loadFactor": 0.967,
+      "occupancy": "classes_full",
+      "protocol": "HORIZONTAL_EVACUATION",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-hospital-7",
+     "label": "13 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-hospital-7",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.444
+       }
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.529,
+       "premove.medianSec.hospital": 492.168,
+       "sign.compliance.base": 0.7,
+       "herding.betaSec": 16.805,
+       "stress.gain.hazard": 0.32,
+       "profile.hospital.share.wheelchair": 0.196,
+       "profile.hospital.groupFraction": 0.304
+      },
+      "loadFactor": 1.085,
+      "occupancy": "event_in:0110",
+      "protocol": "HORIZONTAL_EVACUATION",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-hospital-8",
+     "label": "12 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-hospital-8",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.235
+       }
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.625,
+       "premove.medianSec.hospital": 258.322,
+       "sign.compliance.base": 0.88,
+       "herding.betaSec": 11.048,
+       "stress.gain.hazard": 0.169,
+       "profile.hospital.share.wheelchair": 0.128,
+       "profile.hospital.groupFraction": 0.28
+      },
+      "loadFactor": 0.955,
+      "occupancy": "uniform",
+      "protocol": "HORIZONTAL_EVACUATION",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-fire-hospital-9",
+     "label": "16 not out by 600 s",
+     "scenario": {
+      "id": "rate-fire-hospital-9",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "fire",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "overrides": {
+        "fire.smokeFrontSpeed": 0.241
+       }
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.46,
+       "premove.medianSec.hospital": 556.605,
+       "sign.compliance.base": 0.872,
+       "herding.betaSec": 18.723,
+       "stress.gain.hazard": 0.155,
+       "profile.hospital.share.wheelchair": 0.152,
+       "profile.hospital.groupFraction": 0.084
+      },
+      "loadFactor": 1.143,
+      "occupancy": "classes_full",
+      "protocol": "HORIZONTAL_EVACUATION",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "crush",
+   "profile": "college",
+   "survived": 12,
+   "total": 24,
+   "targetSec": 600,
+   "breaking": [
+    {
+     "id": "rate-crush-college-1",
+     "label": "4 not out by 600 s, 2555 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-college-1",
+      "profile": "college",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.795,
+       "premove.medianSec.college": 61.678,
+       "sign.compliance.base": 0.726,
+       "herding.betaSec": 16.588,
+       "stress.gain.hazard": 0.337,
+       "profile.college.share.wheelchair": 0.019,
+       "profile.college.groupFraction": 0.302
+      },
+      "loadFactor": 1.742,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-college-5",
+     "label": "1 not out by 600 s, 782 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-college-5",
+      "profile": "college",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.631,
+       "premove.medianSec.college": 147.808,
+       "sign.compliance.base": 0.739,
+       "herding.betaSec": 9.08,
+       "stress.gain.hazard": 0.281,
+       "profile.college.share.wheelchair": 0.01,
+       "profile.college.groupFraction": 0.316
+      },
+      "loadFactor": 1.855,
+      "occupancy": "classes_full",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-college-6",
+     "label": "6 not out by 600 s, 893.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-college-6",
+      "profile": "college",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.853,
+       "premove.medianSec.college": 140.457,
+       "sign.compliance.base": 0.671,
+       "herding.betaSec": 22.736,
+       "stress.gain.hazard": 0.379,
+       "profile.college.share.wheelchair": 0.008,
+       "profile.college.groupFraction": 0.554
+      },
+      "loadFactor": 1.751,
+      "occupancy": "uniform",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-college-8",
+     "label": "3 not out by 600 s, 520.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-college-8",
+      "profile": "college",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.624,
+       "premove.medianSec.college": 134.704,
+       "sign.compliance.base": 0.679,
+       "herding.betaSec": 19.429,
+       "stress.gain.hazard": 0.23,
+       "profile.college.share.wheelchair": 0.011,
+       "profile.college.groupFraction": 0.234
+      },
+      "loadFactor": 1.373,
+      "occupancy": "uniform",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-college-9",
+     "label": "6 not out by 600 s, 705.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-college-9",
+      "profile": "college",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.805,
+       "premove.medianSec.college": 175.848,
+       "sign.compliance.base": 0.612,
+       "herding.betaSec": 10.646,
+       "stress.gain.hazard": 0.281,
+       "profile.college.share.wheelchair": 0.01,
+       "profile.college.groupFraction": 0.511
+      },
+      "loadFactor": 1.436,
+      "occupancy": "uniform",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-college-11",
+     "label": "7 not out by 600 s, 505.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-college-11",
+      "profile": "college",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.573,
+       "premove.medianSec.college": 145.941,
+       "sign.compliance.base": 0.631,
+       "herding.betaSec": 21.002,
+       "stress.gain.hazard": 0.324,
+       "profile.college.share.wheelchair": 0.014,
+       "profile.college.groupFraction": 0.323
+      },
+      "loadFactor": 1.45,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70011,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-college-12",
+     "label": "1 not out by 600 s, 833.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-college-12",
+      "profile": "college",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.722,
+       "premove.medianSec.college": 144.191,
+       "sign.compliance.base": 0.811,
+       "herding.betaSec": 21.848,
+       "stress.gain.hazard": 0.271,
+       "profile.college.share.wheelchair": 0.008,
+       "profile.college.groupFraction": 0.555
+      },
+      "loadFactor": 1.681,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70012,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-college-14",
+     "label": "2 not out by 600 s, 528.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-college-14",
+      "profile": "college",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.721,
+       "premove.medianSec.college": 128.062,
+       "sign.compliance.base": 0.869,
+       "herding.betaSec": 13.81,
+       "stress.gain.hazard": 0.204,
+       "profile.college.share.wheelchair": 0.008,
+       "profile.college.groupFraction": 0.298
+      },
+      "loadFactor": 1.553,
+      "occupancy": "classes_full",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70014,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-college-15",
+     "label": "2 not out by 600 s, 487.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-college-15",
+      "profile": "college",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.734,
+       "premove.medianSec.college": 142.787,
+       "sign.compliance.base": 0.84,
+       "herding.betaSec": 24.132,
+       "stress.gain.hazard": 0.291,
+       "profile.college.share.wheelchair": 0.005,
+       "profile.college.groupFraction": 0.412
+      },
+      "loadFactor": 1.655,
+      "occupancy": "classes_full",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70015,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-college-17",
+     "label": "6 not out by 600 s, 307.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-college-17",
+      "profile": "college",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.678,
+       "premove.medianSec.college": 140.461,
+       "sign.compliance.base": 0.675,
+       "herding.betaSec": 14.402,
+       "stress.gain.hazard": 0.258,
+       "profile.college.share.wheelchair": 0.008,
+       "profile.college.groupFraction": 0.294
+      },
+      "loadFactor": 1.179,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70017,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "crush",
+   "profile": "school",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 600,
+   "breaking": [
+    {
+     "id": "rate-crush-school-0",
+     "label": "769 not out by 600 s, flow collapse at a doorway for 308 s, 291845 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-school-0",
+      "profile": "school",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.943,
+       "premove.medianSec.school": 53.461,
+       "sign.compliance.base": 0.932,
+       "herding.betaSec": 23.492,
+       "stress.gain.hazard": 0.28,
+       "profile.school.share.wheelchair": 0.016,
+       "profile.school.groupFraction": 0.74
+      },
+      "loadFactor": 1.955,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-school-1",
+     "label": "547 not out by 600 s, flow collapse at a doorway for 243 s, 225849.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-school-1",
+      "profile": "school",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.907,
+       "premove.medianSec.school": 14.882,
+       "sign.compliance.base": 0.864,
+       "herding.betaSec": 8.259,
+       "stress.gain.hazard": 0.315,
+       "profile.school.share.wheelchair": 0.015,
+       "profile.school.groupFraction": 0.615
+      },
+      "loadFactor": 1.735,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-school-2",
+     "label": "928 not out by 600 s, flow collapse at a doorway for 846 s, 189116.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-school-2",
+      "profile": "school",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.874,
+       "premove.medianSec.school": 47.937,
+       "sign.compliance.base": 0.962,
+       "herding.betaSec": 11.103,
+       "stress.gain.hazard": 0.233,
+       "profile.school.share.wheelchair": 0.012,
+       "profile.school.groupFraction": 0.761
+      },
+      "loadFactor": 1.921,
+      "occupancy": "uniform",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-school-3",
+     "label": "830 not out by 600 s, flow collapse at a doorway for 662 s, 179249.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-school-3",
+      "profile": "school",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.94,
+       "premove.medianSec.school": 48.556,
+       "sign.compliance.base": 0.852,
+       "herding.betaSec": 20.12,
+       "stress.gain.hazard": 0.218,
+       "profile.school.share.wheelchair": 0.012,
+       "profile.school.groupFraction": 0.979
+      },
+      "loadFactor": 1.882,
+      "occupancy": "uniform",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-school-4",
+     "label": "713 not out by 600 s, flow collapse at a doorway for 714.5 s, 149709 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-school-4",
+      "profile": "school",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.918,
+       "premove.medianSec.school": 49.189,
+       "sign.compliance.base": 0.993,
+       "herding.betaSec": 11.656,
+       "stress.gain.hazard": 0.217,
+       "profile.school.share.wheelchair": 0.007,
+       "profile.school.groupFraction": 0.61
+      },
+      "loadFactor": 1.773,
+      "occupancy": "uniform",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-school-5",
+     "label": "331 not out by 600 s, flow collapse at a doorway for 103.5 s, 131189 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-school-5",
+      "profile": "school",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.801,
+       "premove.medianSec.school": 26.297,
+       "sign.compliance.base": 0.843,
+       "herding.betaSec": 37.133,
+       "stress.gain.hazard": 0.259,
+       "profile.school.share.wheelchair": 0.014,
+       "profile.school.groupFraction": 0.967
+      },
+      "loadFactor": 1.468,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-school-6",
+     "label": "679 not out by 600 s, flow collapse at a doorway for 691.5 s, 130123.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-school-6",
+      "profile": "school",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.809,
+       "premove.medianSec.school": 64.446,
+       "sign.compliance.base": 0.895,
+       "herding.betaSec": 29.105,
+       "stress.gain.hazard": 0.263,
+       "profile.school.share.wheelchair": 0.011,
+       "profile.school.groupFraction": 0.973
+      },
+      "loadFactor": 1.709,
+      "occupancy": "uniform",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-school-7",
+     "label": "667 not out by 600 s, flow collapse at a doorway for 660 s, 123027.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-school-7",
+      "profile": "school",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.877,
+       "premove.medianSec.school": 70.036,
+       "sign.compliance.base": 0.946,
+       "herding.betaSec": 26.216,
+       "stress.gain.hazard": 0.224,
+       "profile.school.share.wheelchair": 0.015,
+       "profile.school.groupFraction": 0.667
+      },
+      "loadFactor": 1.699,
+      "occupancy": "classes_full",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-school-8",
+     "label": "318 not out by 600 s, flow collapse at a doorway for 30 s, 111851.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-school-8",
+      "profile": "school",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.904,
+       "premove.medianSec.school": 54.888,
+       "sign.compliance.base": 0.814,
+       "herding.betaSec": 21.371,
+       "stress.gain.hazard": 0.242,
+       "profile.school.share.wheelchair": 0.005,
+       "profile.school.groupFraction": 0.729
+      },
+      "loadFactor": 1.451,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-school-9",
+     "label": "440 not out by 600 s, flow collapse at a doorway for 56.5 s, 102110.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-school-9",
+      "profile": "school",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.879,
+       "premove.medianSec.school": 63.445,
+       "sign.compliance.base": 0.716,
+       "herding.betaSec": 23.942,
+       "stress.gain.hazard": 0.246,
+       "profile.school.share.wheelchair": 0.01,
+       "profile.school.groupFraction": 0.981
+      },
+      "loadFactor": 1.62,
+      "occupancy": "uniform",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "crush",
+   "profile": "mall",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 600,
+   "breaking": [
+    {
+     "id": "rate-crush-mall-0",
+     "label": "450 not out by 600 s, flow collapse at a doorway for 741 s, 87003 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-mall-0",
+      "profile": "mall",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.289,
+       "premove.medianSec.mall": 91.629,
+       "sign.compliance.base": 0.822,
+       "herding.betaSec": 21.047,
+       "stress.gain.hazard": 0.272,
+       "profile.mall.share.wheelchair": 0.014,
+       "profile.mall.groupFraction": 0.558
+      },
+      "loadFactor": 1.957,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-mall-1",
+     "label": "446 not out by 600 s, flow collapse at a doorway for 728.5 s, 72951.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-mall-1",
+      "profile": "mall",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.257,
+       "premove.medianSec.mall": 107.863,
+       "sign.compliance.base": 0.934,
+       "herding.betaSec": 7.588,
+       "stress.gain.hazard": 0.283,
+       "profile.mall.share.wheelchair": 0.023,
+       "profile.mall.groupFraction": 0.551
+      },
+      "loadFactor": 1.932,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-mall-2",
+     "label": "296 not out by 600 s, flow collapse at a doorway for 766.5 s, 60257.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-mall-2",
+      "profile": "mall",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.246,
+       "premove.medianSec.mall": 74.861,
+       "sign.compliance.base": 0.913,
+       "herding.betaSec": 17.084,
+       "stress.gain.hazard": 0.359,
+       "profile.mall.share.wheelchair": 0.015,
+       "profile.mall.groupFraction": 0.639
+      },
+      "loadFactor": 1.721,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-mall-3",
+     "label": "417 not out by 600 s, flow collapse at a doorway for 727 s, 53904.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-mall-3",
+      "profile": "mall",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.351,
+       "premove.medianSec.mall": 129.686,
+       "sign.compliance.base": 0.788,
+       "herding.betaSec": 22.087,
+       "stress.gain.hazard": 0.231,
+       "profile.mall.share.wheelchair": 0.027,
+       "profile.mall.groupFraction": 0.688
+      },
+      "loadFactor": 1.911,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-mall-4",
+     "label": "433 not out by 600 s, flow collapse at a doorway for 802 s, 49197.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-mall-4",
+      "profile": "mall",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.157,
+       "premove.medianSec.mall": 113.108,
+       "sign.compliance.base": 0.847,
+       "herding.betaSec": 11.547,
+       "stress.gain.hazard": 0.291,
+       "profile.mall.share.wheelchair": 0.023,
+       "profile.mall.groupFraction": 0.576
+      },
+      "loadFactor": 1.783,
+      "occupancy": "uniform",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-mall-5",
+     "label": "494 not out by 600 s, flow collapse at a doorway for 721.5 s, 41553.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-mall-5",
+      "profile": "mall",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.286,
+       "premove.medianSec.mall": 171.278,
+       "sign.compliance.base": 0.757,
+       "herding.betaSec": 25.894,
+       "stress.gain.hazard": 0.198,
+       "profile.mall.share.wheelchair": 0.023,
+       "profile.mall.groupFraction": 0.6
+      },
+      "loadFactor": 1.991,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-mall-6",
+     "label": "44 not out by 600 s, flow collapse at a doorway for 282 s, 47163.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-mall-6",
+      "profile": "mall",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.435,
+       "premove.medianSec.mall": 51.839,
+       "sign.compliance.base": 0.644,
+       "herding.betaSec": 9.249,
+       "stress.gain.hazard": 0.259,
+       "profile.mall.share.wheelchair": 0.012,
+       "profile.mall.groupFraction": 0.35
+      },
+      "loadFactor": 1.544,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-mall-7",
+     "label": "254 not out by 600 s, flow collapse at a doorway for 806.5 s, 39991.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-mall-7",
+      "profile": "mall",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.201,
+       "premove.medianSec.mall": 68.357,
+       "sign.compliance.base": 0.899,
+       "herding.betaSec": 39.545,
+       "stress.gain.hazard": 0.254,
+       "profile.mall.share.wheelchair": 0.022,
+       "profile.mall.groupFraction": 0.585
+      },
+      "loadFactor": 1.573,
+      "occupancy": "classes_full",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-mall-8",
+     "label": "326 not out by 600 s, flow collapse at a doorway for 764 s, 40409.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-mall-8",
+      "profile": "mall",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.24,
+       "premove.medianSec.mall": 133.21,
+       "sign.compliance.base": 0.764,
+       "herding.betaSec": 11.533,
+       "stress.gain.hazard": 0.299,
+       "profile.mall.share.wheelchair": 0.025,
+       "profile.mall.groupFraction": 0.515
+      },
+      "loadFactor": 1.69,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-mall-9",
+     "label": "203 not out by 600 s, flow collapse at a doorway for 796 s, 29265 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-crush-mall-9",
+      "profile": "mall",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.235,
+       "premove.medianSec.mall": 107.813,
+       "sign.compliance.base": 0.779,
+       "herding.betaSec": 34.876,
+       "stress.gain.hazard": 0.241,
+       "profile.mall.share.wheelchair": 0.015,
+       "profile.mall.groupFraction": 0.57
+      },
+      "loadFactor": 1.507,
+      "occupancy": "classes_full",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "crush",
+   "profile": "hospital",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 600,
+   "breaking": [
+    {
+     "id": "rate-crush-hospital-0",
+     "label": "80 not out by 600 s",
+     "scenario": {
+      "id": "rate-crush-hospital-0",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.652,
+       "premove.medianSec.hospital": 503.808,
+       "sign.compliance.base": 0.77,
+       "herding.betaSec": 13.553,
+       "stress.gain.hazard": 0.153,
+       "profile.hospital.share.wheelchair": 0.111,
+       "profile.hospital.groupFraction": 0.159
+      },
+      "loadFactor": 1.871,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-hospital-1",
+     "label": "89 not out by 600 s",
+     "scenario": {
+      "id": "rate-crush-hospital-1",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.412,
+       "premove.medianSec.hospital": 528.5,
+       "sign.compliance.base": 0.685,
+       "herding.betaSec": 14.126,
+       "stress.gain.hazard": 0.258,
+       "profile.hospital.share.wheelchair": 0.135,
+       "profile.hospital.groupFraction": 0.387
+      },
+      "loadFactor": 1.758,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-hospital-2",
+     "label": "74 not out by 600 s",
+     "scenario": {
+      "id": "rate-crush-hospital-2",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.444,
+       "premove.medianSec.hospital": 562.68,
+       "sign.compliance.base": 0.939,
+       "herding.betaSec": 18.086,
+       "stress.gain.hazard": 0.249,
+       "profile.hospital.share.wheelchair": 0.167,
+       "profile.hospital.groupFraction": 0.334
+      },
+      "loadFactor": 1.776,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-hospital-3",
+     "label": "79 not out by 600 s",
+     "scenario": {
+      "id": "rate-crush-hospital-3",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.669,
+       "premove.medianSec.hospital": 536.259,
+       "sign.compliance.base": 0.732,
+       "herding.betaSec": 19.755,
+       "stress.gain.hazard": 0.19,
+       "profile.hospital.share.wheelchair": 0.107,
+       "profile.hospital.groupFraction": 0.251
+      },
+      "loadFactor": 1.786,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-hospital-4",
+     "label": "65 not out by 600 s",
+     "scenario": {
+      "id": "rate-crush-hospital-4",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.511,
+       "premove.medianSec.hospital": 528.063,
+       "sign.compliance.base": 0.764,
+       "herding.betaSec": 20.987,
+       "stress.gain.hazard": 0.075,
+       "profile.hospital.share.wheelchair": 0.072,
+       "profile.hospital.groupFraction": 0.227
+      },
+      "loadFactor": 1.774,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-hospital-5",
+     "label": "66 not out by 600 s",
+     "scenario": {
+      "id": "rate-crush-hospital-5",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.468,
+       "premove.medianSec.hospital": 444.494,
+       "sign.compliance.base": 0.729,
+       "herding.betaSec": 5.657,
+       "stress.gain.hazard": 0.139,
+       "profile.hospital.share.wheelchair": 0.091,
+       "profile.hospital.groupFraction": 0.176
+      },
+      "loadFactor": 1.958,
+      "occupancy": "uniform",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-hospital-6",
+     "label": "56 not out by 600 s",
+     "scenario": {
+      "id": "rate-crush-hospital-6",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.644,
+       "premove.medianSec.hospital": 544.068,
+       "sign.compliance.base": 0.83,
+       "herding.betaSec": 16.606,
+       "stress.gain.hazard": 0.269,
+       "profile.hospital.share.wheelchair": 0.059,
+       "profile.hospital.groupFraction": 0.26
+      },
+      "loadFactor": 1.598,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-hospital-7",
+     "label": "49 not out by 600 s",
+     "scenario": {
+      "id": "rate-crush-hospital-7",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.567,
+       "premove.medianSec.hospital": 448.304,
+       "sign.compliance.base": 0.746,
+       "herding.betaSec": 20.705,
+       "stress.gain.hazard": 0.389,
+       "profile.hospital.share.wheelchair": 0.147,
+       "profile.hospital.groupFraction": 0.293
+      },
+      "loadFactor": 1.583,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-hospital-8",
+     "label": "59 not out by 600 s",
+     "scenario": {
+      "id": "rate-crush-hospital-8",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.731,
+       "premove.medianSec.hospital": 456.972,
+       "sign.compliance.base": 0.914,
+       "herding.betaSec": 12.439,
+       "stress.gain.hazard": 0.171,
+       "profile.hospital.share.wheelchair": 0.116,
+       "profile.hospital.groupFraction": 0.139
+      },
+      "loadFactor": 1.619,
+      "occupancy": "uniform",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-crush-hospital-9",
+     "label": "59 not out by 600 s",
+     "scenario": {
+      "id": "rate-crush-hospital-9",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "crush"
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.673,
+       "premove.medianSec.hospital": 344.864,
+       "sign.compliance.base": 0.829,
+       "herding.betaSec": 16.397,
+       "stress.gain.hazard": 0.264,
+       "profile.hospital.share.wheelchair": 0.13,
+       "profile.hospital.groupFraction": 0.33
+      },
+      "loadFactor": 1.638,
+      "occupancy": "event_in:0110",
+      "protocol": "INFLOW_CONTROL",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "quake",
+   "profile": "college",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 720,
+   "breaking": [
+    {
+     "id": "rate-quake-college-0",
+     "label": "3 not out by 720 s, 1319.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-college-0",
+      "profile": "college",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "ST-B"
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.575,
+       "premove.medianSec.college": 17.451,
+       "sign.compliance.base": 0.912,
+       "herding.betaSec": 9.235,
+       "stress.gain.hazard": 0.279,
+       "profile.college.share.wheelchair": 0.008,
+       "profile.college.groupFraction": 0.258
+      },
+      "loadFactor": 1.222,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-college-1",
+     "label": "5 not out by 720 s, 292.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-college-1",
+      "profile": "college",
+      "hazard": {
+       "kind": "quake",
+       "damaged": []
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.73,
+       "premove.medianSec.college": 26.12,
+       "sign.compliance.base": 0.79,
+       "herding.betaSec": 6.377,
+       "stress.gain.hazard": 0.296,
+       "profile.college.share.wheelchair": 0.013,
+       "profile.college.groupFraction": 0.316
+      },
+      "loadFactor": 1.17,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-college-2",
+     "label": "1 not out by 720 s, 194.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-college-2",
+      "profile": "college",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-N"
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.914,
+       "premove.medianSec.college": 23.735,
+       "sign.compliance.base": 0.776,
+       "herding.betaSec": 26.868,
+       "stress.gain.hazard": 0.151,
+       "profile.college.share.wheelchair": 0.005,
+       "profile.college.groupFraction": 0.274
+      },
+      "loadFactor": 1.023,
+      "occupancy": "uniform",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-college-3",
+     "label": "2 not out by 720 s, 70.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-college-3",
+      "profile": "college",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-E1"
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.823,
+       "premove.medianSec.college": 10.632,
+       "sign.compliance.base": 0.706,
+       "herding.betaSec": 3.817,
+       "stress.gain.hazard": 0.279,
+       "profile.college.share.wheelchair": 0.006,
+       "profile.college.groupFraction": 0.372
+      },
+      "loadFactor": 0.932,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-college-4",
+     "label": "7 not out by 720 s, 156.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-college-4",
+      "profile": "college",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-W"
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.741,
+       "premove.medianSec.college": 38.343,
+       "sign.compliance.base": 0.878,
+       "herding.betaSec": 13.513,
+       "stress.gain.hazard": 0.222,
+       "profile.college.share.wheelchair": 0.012,
+       "profile.college.groupFraction": 0.181
+      },
+      "loadFactor": 1.102,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-college-5",
+     "label": "5 not out by 720 s, 332.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-college-5",
+      "profile": "college",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-E1"
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.861,
+       "premove.medianSec.college": 41.748,
+       "sign.compliance.base": 0.956,
+       "herding.betaSec": 15.466,
+       "stress.gain.hazard": 0.377,
+       "profile.college.share.wheelchair": 0.016,
+       "profile.college.groupFraction": 0.197
+      },
+      "loadFactor": 1.099,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-college-6",
+     "label": "2 not out by 720 s, 272 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-college-6",
+      "profile": "college",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-W"
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.57,
+       "premove.medianSec.college": 39.129,
+       "sign.compliance.base": 0.986,
+       "herding.betaSec": 13.651,
+       "stress.gain.hazard": 0.261,
+       "profile.college.share.wheelchair": 0.004,
+       "profile.college.groupFraction": 0.452
+      },
+      "loadFactor": 1.188,
+      "occupancy": "uniform",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-college-7",
+     "label": "2 not out by 720 s, 410 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-college-7",
+      "profile": "college",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "ST-A"
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.739,
+       "premove.medianSec.college": 48.618,
+       "sign.compliance.base": 0.961,
+       "herding.betaSec": 10.442,
+       "stress.gain.hazard": 0.2,
+       "profile.college.share.wheelchair": 0.006,
+       "profile.college.groupFraction": 0.285
+      },
+      "loadFactor": 1.277,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-college-8",
+     "label": "1 not out by 720 s, 375.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-college-8",
+      "profile": "college",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-W"
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.699,
+       "premove.medianSec.college": 52.225,
+       "sign.compliance.base": 0.787,
+       "herding.betaSec": 11.184,
+       "stress.gain.hazard": 0.296,
+       "profile.college.share.wheelchair": 0.01,
+       "profile.college.groupFraction": 0.128
+      },
+      "loadFactor": 1.152,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-college-9",
+     "label": "5 not out by 720 s, 194.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-college-9",
+      "profile": "college",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-W"
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.732,
+       "premove.medianSec.college": 42.072,
+       "sign.compliance.base": 0.773,
+       "herding.betaSec": 33.335,
+       "stress.gain.hazard": 0.224,
+       "profile.college.share.wheelchair": 0.013,
+       "profile.college.groupFraction": 0.292
+      },
+      "loadFactor": 0.977,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "quake",
+   "profile": "school",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 720,
+   "breaking": [
+    {
+     "id": "rate-quake-school-0",
+     "label": "414 not out by 720 s, flow collapse at a doorway for 782 s, 151375.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-school-0",
+      "profile": "school",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "ST-ATR"
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.82,
+       "premove.medianSec.school": 20.985,
+       "sign.compliance.base": 0.964,
+       "herding.betaSec": 24.969,
+       "stress.gain.hazard": 0.187,
+       "profile.school.share.wheelchair": 0.005,
+       "profile.school.groupFraction": 0.631
+      },
+      "loadFactor": 1.121,
+      "occupancy": "uniform",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-school-1",
+     "label": "431 not out by 720 s, flow collapse at a doorway for 226.5 s, 116846.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-school-1",
+      "profile": "school",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "ST-B"
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.834,
+       "premove.medianSec.school": 21.859,
+       "sign.compliance.base": 0.788,
+       "herding.betaSec": 18.072,
+       "stress.gain.hazard": 0.213,
+       "profile.school.share.wheelchair": 0.009,
+       "profile.school.groupFraction": 0.776
+      },
+      "loadFactor": 1.283,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-school-2",
+     "label": "176 not out by 720 s, flow collapse at a doorway for 616 s, 144185.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-school-2",
+      "profile": "school",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-N"
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.808,
+       "premove.medianSec.school": 68.943,
+       "sign.compliance.base": 0.851,
+       "herding.betaSec": 21.002,
+       "stress.gain.hazard": 0.292,
+       "profile.school.share.wheelchair": 0.018,
+       "profile.school.groupFraction": 0.653
+      },
+      "loadFactor": 1.116,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-school-3",
+     "label": "432 not out by 720 s, flow collapse at a doorway for 229.5 s, 105787.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-school-3",
+      "profile": "school",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "ST-B"
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.773,
+       "premove.medianSec.school": 79.163,
+       "sign.compliance.base": 0.914,
+       "herding.betaSec": 24.813,
+       "stress.gain.hazard": 0.377,
+       "profile.school.share.wheelchair": 0.019,
+       "profile.school.groupFraction": 0.814
+      },
+      "loadFactor": 1.261,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-school-4",
+     "label": "54 not out by 720 s, flow collapse at a doorway for 104 s, 53425 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-school-4",
+      "profile": "school",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "ST-B"
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.809,
+       "premove.medianSec.school": 16.195,
+       "sign.compliance.base": 0.911,
+       "herding.betaSec": 18.029,
+       "stress.gain.hazard": 0.161,
+       "profile.school.share.wheelchair": 0.014,
+       "profile.school.groupFraction": 0.58
+      },
+      "loadFactor": 0.922,
+      "occupancy": "uniform",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-school-5",
+     "label": "44 not out by 720 s, flow collapse at a doorway for 594 s, 52382.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-school-5",
+      "profile": "school",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-E1"
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.734,
+       "premove.medianSec.school": 32.851,
+       "sign.compliance.base": 0.83,
+       "herding.betaSec": 24.594,
+       "stress.gain.hazard": 0.184,
+       "profile.school.share.wheelchair": 0.006,
+       "profile.school.groupFraction": 0.872
+      },
+      "loadFactor": 1.246,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-school-6",
+     "label": "325 not out by 720 s, flow collapse at a doorway for 87.5 s, 30562 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-school-6",
+      "profile": "school",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "ST-B"
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.76,
+       "premove.medianSec.school": 24.443,
+       "sign.compliance.base": 0.652,
+       "herding.betaSec": 12.068,
+       "stress.gain.hazard": 0.087,
+       "profile.school.share.wheelchair": 0.01,
+       "profile.school.groupFraction": 0.928
+      },
+      "loadFactor": 0.99,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-school-7",
+     "label": "140 not out by 720 s, flow collapse at a doorway for 13.5 s, 52248.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-school-7",
+      "profile": "school",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "ST-B"
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.778,
+       "premove.medianSec.school": 44.717,
+       "sign.compliance.base": 0.65,
+       "herding.betaSec": 19.348,
+       "stress.gain.hazard": 0.141,
+       "profile.school.share.wheelchair": 0.013,
+       "profile.school.groupFraction": 0.777
+      },
+      "loadFactor": 1.003,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-school-8",
+     "label": "19 not out by 720 s, flow collapse at a doorway for 5.5 s, 49556.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-school-8",
+      "profile": "school",
+      "hazard": {
+       "kind": "quake",
+       "damaged": []
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.733,
+       "premove.medianSec.school": 50.105,
+       "sign.compliance.base": 0.784,
+       "herding.betaSec": 11.011,
+       "stress.gain.hazard": 0.183,
+       "profile.school.share.wheelchair": 0.017,
+       "profile.school.groupFraction": 0.83
+      },
+      "loadFactor": 1.123,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-school-9",
+     "label": "17 not out by 720 s, flow collapse at a doorway for 342.5 s, 31035.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-school-9",
+      "profile": "school",
+      "hazard": {
+       "kind": "quake",
+       "damaged": []
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.816,
+       "premove.medianSec.school": 33.083,
+       "sign.compliance.base": 0.695,
+       "herding.betaSec": 18.906,
+       "stress.gain.hazard": 0.217,
+       "profile.school.share.wheelchair": 0.012,
+       "profile.school.groupFraction": 0.69
+      },
+      "loadFactor": 1.044,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "quake",
+   "profile": "mall",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 720,
+   "breaking": [
+    {
+     "id": "rate-quake-mall-0",
+     "label": "50 not out by 720 s, flow collapse at a doorway for 760 s, 32839.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-mall-0",
+      "profile": "mall",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-W"
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.339,
+       "premove.medianSec.mall": 17.941,
+       "sign.compliance.base": 0.865,
+       "herding.betaSec": 22.056,
+       "stress.gain.hazard": 0.321,
+       "profile.mall.share.wheelchair": 0.01,
+       "profile.mall.groupFraction": 0.665
+      },
+      "loadFactor": 1.247,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-mall-1",
+     "label": "12 not out by 720 s, 12504.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-mall-1",
+      "profile": "mall",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-S"
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.23,
+       "premove.medianSec.mall": 27.881,
+       "sign.compliance.base": 0.602,
+       "herding.betaSec": 22.879,
+       "stress.gain.hazard": 0.288,
+       "profile.mall.share.wheelchair": 0.012,
+       "profile.mall.groupFraction": 0.537
+      },
+      "loadFactor": 1.11,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-mall-2",
+     "label": "270 not out by 720 s, flow collapse at a doorway for 724 s, 39802.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-mall-2",
+      "profile": "mall",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "ST-ATR"
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.367,
+       "premove.medianSec.mall": 102.622,
+       "sign.compliance.base": 0.83,
+       "herding.betaSec": 26.109,
+       "stress.gain.hazard": 0.168,
+       "profile.mall.share.wheelchair": 0.019,
+       "profile.mall.groupFraction": 0.462
+      },
+      "loadFactor": 1.131,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-mall-3",
+     "label": "6 not out by 720 s, flow collapse at a doorway for 4 s, 15480.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-mall-3",
+      "profile": "mall",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "ST-B"
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.129,
+       "premove.medianSec.mall": 60.419,
+       "sign.compliance.base": 0.74,
+       "herding.betaSec": 17.31,
+       "stress.gain.hazard": 0.378,
+       "profile.mall.share.wheelchair": 0.014,
+       "profile.mall.groupFraction": 0.387
+      },
+      "loadFactor": 0.993,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-mall-4",
+     "label": "7 not out by 720 s, flow collapse at a doorway for 514.5 s, 10714.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-mall-4",
+      "profile": "mall",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-W"
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.333,
+       "premove.medianSec.mall": 54.447,
+       "sign.compliance.base": 0.823,
+       "herding.betaSec": 22.581,
+       "stress.gain.hazard": 0.292,
+       "profile.mall.share.wheelchair": 0.012,
+       "profile.mall.groupFraction": 0.448
+      },
+      "loadFactor": 1.002,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-mall-5",
+     "label": "25 not out by 720 s, flow collapse at a doorway for 588 s, 9350.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-mall-5",
+      "profile": "mall",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-W"
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.21,
+       "premove.medianSec.mall": 92.833,
+       "sign.compliance.base": 0.794,
+       "herding.betaSec": 28.396,
+       "stress.gain.hazard": 0.262,
+       "profile.mall.share.wheelchair": 0.01,
+       "profile.mall.groupFraction": 0.515
+      },
+      "loadFactor": 1.002,
+      "occupancy": "uniform",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-mall-6",
+     "label": "135 not out by 720 s, flow collapse at a doorway for 671.5 s, 11888 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-mall-6",
+      "profile": "mall",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-W"
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.224,
+       "premove.medianSec.mall": 176.272,
+       "sign.compliance.base": 0.836,
+       "herding.betaSec": 22.397,
+       "stress.gain.hazard": 0.232,
+       "profile.mall.share.wheelchair": 0.012,
+       "profile.mall.groupFraction": 0.515
+      },
+      "loadFactor": 1.277,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-mall-7",
+     "label": "20 not out by 720 s, 3764.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-mall-7",
+      "profile": "mall",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-E2"
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.379,
+       "premove.medianSec.mall": 96.998,
+       "sign.compliance.base": 0.753,
+       "herding.betaSec": 28.145,
+       "stress.gain.hazard": 0.205,
+       "profile.mall.share.wheelchair": 0.018,
+       "profile.mall.groupFraction": 0.545
+      },
+      "loadFactor": 1.143,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-mall-8",
+     "label": "38 not out by 720 s, flow collapse at a doorway for 515.5 s, 7985.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-mall-8",
+      "profile": "mall",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-E2"
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.194,
+       "premove.medianSec.mall": 161.959,
+       "sign.compliance.base": 0.65,
+       "herding.betaSec": 9.193,
+       "stress.gain.hazard": 0.268,
+       "profile.mall.share.wheelchair": 0.008,
+       "profile.mall.groupFraction": 0.414
+      },
+      "loadFactor": 1.206,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-mall-9",
+     "label": "111 not out by 720 s, flow collapse at a doorway for 660.5 s, 11566.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-quake-mall-9",
+      "profile": "mall",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-E2"
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.319,
+       "premove.medianSec.mall": 201.482,
+       "sign.compliance.base": 0.829,
+       "herding.betaSec": 17.119,
+       "stress.gain.hazard": 0.211,
+       "profile.mall.share.wheelchair": 0.015,
+       "profile.mall.groupFraction": 0.511
+      },
+      "loadFactor": 1.293,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "quake",
+   "profile": "hospital",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 720,
+   "breaking": [
+    {
+     "id": "rate-quake-hospital-0",
+     "label": "34 not out by 720 s",
+     "scenario": {
+      "id": "rate-quake-hospital-0",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-W"
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.448,
+       "premove.medianSec.hospital": 30.864,
+       "sign.compliance.base": 0.879,
+       "herding.betaSec": 19.81,
+       "stress.gain.hazard": 0.234,
+       "profile.hospital.share.wheelchair": 0.179,
+       "profile.hospital.groupFraction": 0.273
+      },
+      "loadFactor": 1.235,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-hospital-1",
+     "label": "34 not out by 720 s",
+     "scenario": {
+      "id": "rate-quake-hospital-1",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-S"
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.659,
+       "premove.medianSec.hospital": 77.633,
+       "sign.compliance.base": 0.874,
+       "herding.betaSec": 14.019,
+       "stress.gain.hazard": 0.378,
+       "profile.hospital.share.wheelchair": 0.157,
+       "profile.hospital.groupFraction": 0.14
+      },
+      "loadFactor": 1.104,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-hospital-2",
+     "label": "31 not out by 720 s",
+     "scenario": {
+      "id": "rate-quake-hospital-2",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-E1"
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.472,
+       "premove.medianSec.hospital": 73.353,
+       "sign.compliance.base": 0.936,
+       "herding.betaSec": 32.506,
+       "stress.gain.hazard": 0.122,
+       "profile.hospital.share.wheelchair": 0.06,
+       "profile.hospital.groupFraction": 0.125
+      },
+      "loadFactor": 1.144,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-hospital-3",
+     "label": "26 not out by 720 s",
+     "scenario": {
+      "id": "rate-quake-hospital-3",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-S"
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.671,
+       "premove.medianSec.hospital": 119.416,
+       "sign.compliance.base": 0.862,
+       "herding.betaSec": 15.07,
+       "stress.gain.hazard": 0.194,
+       "profile.hospital.share.wheelchair": 0.174,
+       "profile.hospital.groupFraction": 0.279
+      },
+      "loadFactor": 0.849,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-hospital-4",
+     "label": "32 not out by 720 s",
+     "scenario": {
+      "id": "rate-quake-hospital-4",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-W"
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.747,
+       "premove.medianSec.hospital": 110.243,
+       "sign.compliance.base": 0.945,
+       "herding.betaSec": 7.334,
+       "stress.gain.hazard": 0.006,
+       "profile.hospital.share.wheelchair": 0.121,
+       "profile.hospital.groupFraction": 0.222
+      },
+      "loadFactor": 1.203,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-hospital-5",
+     "label": "33 not out by 720 s",
+     "scenario": {
+      "id": "rate-quake-hospital-5",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-S"
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.59,
+       "premove.medianSec.hospital": 145.585,
+       "sign.compliance.base": 0.951,
+       "herding.betaSec": 30.282,
+       "stress.gain.hazard": 0.269,
+       "profile.hospital.share.wheelchair": 0.159,
+       "profile.hospital.groupFraction": 0.179
+      },
+      "loadFactor": 1.206,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-hospital-6",
+     "label": "27 not out by 720 s",
+     "scenario": {
+      "id": "rate-quake-hospital-6",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-S"
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.604,
+       "premove.medianSec.hospital": 138.765,
+       "sign.compliance.base": 0.757,
+       "herding.betaSec": 29.491,
+       "stress.gain.hazard": 0.123,
+       "profile.hospital.share.wheelchair": 0.086,
+       "profile.hospital.groupFraction": 0.277
+      },
+      "loadFactor": 1.056,
+      "occupancy": "classes_full",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-hospital-7",
+     "label": "28 not out by 720 s",
+     "scenario": {
+      "id": "rate-quake-hospital-7",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-N"
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.757,
+       "premove.medianSec.hospital": 165.018,
+       "sign.compliance.base": 0.74,
+       "herding.betaSec": 20.721,
+       "stress.gain.hazard": 0.127,
+       "profile.hospital.share.wheelchair": 0.074,
+       "profile.hospital.groupFraction": 0.127
+      },
+      "loadFactor": 1.224,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-hospital-8",
+     "label": "31 not out by 720 s",
+     "scenario": {
+      "id": "rate-quake-hospital-8",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "EX-E1"
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.528,
+       "premove.medianSec.hospital": 156.521,
+       "sign.compliance.base": 0.769,
+       "herding.betaSec": 19.314,
+       "stress.gain.hazard": 0.29,
+       "profile.hospital.share.wheelchair": 0.144,
+       "profile.hospital.groupFraction": 0.355
+      },
+      "loadFactor": 1.097,
+      "occupancy": "event_in:0110",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-quake-hospital-9",
+     "label": "44 not out by 720 s",
+     "scenario": {
+      "id": "rate-quake-hospital-9",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "quake",
+       "damaged": [
+        "ST-A"
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.628,
+       "premove.medianSec.hospital": 166.835,
+       "sign.compliance.base": 0.762,
+       "herding.betaSec": 35.609,
+       "stress.gain.hazard": 0.119,
+       "profile.hospital.share.wheelchair": 0.186,
+       "profile.hospital.groupFraction": 0.193
+      },
+      "loadFactor": 1.09,
+      "occupancy": "uniform",
+      "protocol": "HOLD_THEN_EVACUATE",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "threat",
+   "profile": "college",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 300,
+   "breaking": [
+    {
+     "id": "rate-threat-college-0",
+     "label": "18 not out by 300 s, 4603.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-college-0",
+      "profile": "college",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        169.1,
+        13.6
+       ],
+       "path": [
+        [
+         169.1,
+         13.6
+        ],
+        [
+         209.1,
+         13.6
+        ],
+        [
+         209.1,
+         43.6
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.738,
+       "premove.medianSec.college": 66.627,
+       "sign.compliance.base": 0.968,
+       "herding.betaSec": 11.248,
+       "stress.gain.hazard": 0.131,
+       "profile.college.share.wheelchair": 0.005,
+       "profile.college.groupFraction": 0.267
+      },
+      "loadFactor": 1.129,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-college-1",
+     "label": "17 not out by 300 s, 4485.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-college-1",
+      "profile": "college",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "path": [
+        [
+         90.1,
+         63.8
+        ],
+        [
+         130.1,
+         63.8
+        ],
+        [
+         130.1,
+         93.8
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.72,
+       "premove.medianSec.college": 29.652,
+       "sign.compliance.base": 0.874,
+       "herding.betaSec": 5.309,
+       "stress.gain.hazard": 0.276,
+       "profile.college.share.wheelchair": 0.019,
+       "profile.college.groupFraction": 0.547
+      },
+      "loadFactor": 0.946,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-college-2",
+     "label": "27 not out by 300 s, 1718 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-college-2",
+      "profile": "college",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        169.8,
+        12.9
+       ],
+       "path": [
+        [
+         169.8,
+         12.9
+        ],
+        [
+         209.8,
+         12.9
+        ],
+        [
+         209.8,
+         42.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.904,
+       "premove.medianSec.college": 109.178,
+       "sign.compliance.base": 0.814,
+       "herding.betaSec": 28.276,
+       "stress.gain.hazard": 0.133,
+       "profile.college.share.wheelchair": 0.012,
+       "profile.college.groupFraction": 0.41
+      },
+      "loadFactor": 0.995,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-college-3",
+     "label": "23 not out by 300 s, 3663.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-college-3",
+      "profile": "college",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "path": [
+        [
+         90.1,
+         63.8
+        ],
+        [
+         130.1,
+         63.8
+        ],
+        [
+         130.1,
+         93.8
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.893,
+       "premove.medianSec.college": 93.312,
+       "sign.compliance.base": 0.746,
+       "herding.betaSec": 15.172,
+       "stress.gain.hazard": 0.215,
+       "profile.college.share.wheelchair": 0.007,
+       "profile.college.groupFraction": 0.574
+      },
+      "loadFactor": 1.045,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-college-4",
+     "label": "43 not out by 300 s, 984.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-college-4",
+      "profile": "college",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "path": [
+        [
+         64.3,
+         65.9
+        ],
+        [
+         104.3,
+         65.9
+        ],
+        [
+         104.3,
+         95.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.645,
+       "premove.medianSec.college": 156.296,
+       "sign.compliance.base": 0.992,
+       "herding.betaSec": 20.511,
+       "stress.gain.hazard": 0.198,
+       "profile.college.share.wheelchair": 0.009,
+       "profile.college.groupFraction": 0.333
+      },
+      "loadFactor": 0.979,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-college-5",
+     "label": "14 not out by 300 s, 2696.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-college-5",
+      "profile": "college",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F1",
+       "at": [
+        90.1,
+        63.8
+       ],
+       "path": [
+        [
+         90.1,
+         63.8
+        ],
+        [
+         130.1,
+         63.8
+        ],
+        [
+         130.1,
+         93.8
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.606,
+       "premove.medianSec.college": 75.185,
+       "sign.compliance.base": 0.791,
+       "herding.betaSec": 17.277,
+       "stress.gain.hazard": 0.183,
+       "profile.college.share.wheelchair": 0.009,
+       "profile.college.groupFraction": 0.392
+      },
+      "loadFactor": 0.994,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-college-6",
+     "label": "43 not out by 300 s",
+     "scenario": {
+      "id": "rate-threat-college-6",
+      "profile": "college",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        169.8,
+        12.9
+       ],
+       "path": [
+        [
+         169.8,
+         12.9
+        ],
+        [
+         209.8,
+         12.9
+        ],
+        [
+         209.8,
+         42.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.541,
+       "premove.medianSec.college": 124.958,
+       "sign.compliance.base": 0.893,
+       "herding.betaSec": 12.086,
+       "stress.gain.hazard": 0.179,
+       "profile.college.share.wheelchair": 0.01,
+       "profile.college.groupFraction": 0.573
+      },
+      "loadFactor": 0.935,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-college-7",
+     "label": "15 not out by 300 s, 1840.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-college-7",
+      "profile": "college",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "path": [
+        [
+         64.3,
+         65.9
+        ],
+        [
+         104.3,
+         65.9
+        ],
+        [
+         104.3,
+         95.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.744,
+       "premove.medianSec.college": 89.771,
+       "sign.compliance.base": 0.782,
+       "herding.betaSec": 27.878,
+       "stress.gain.hazard": 0.071,
+       "profile.college.share.wheelchair": 0,
+       "profile.college.groupFraction": 0.486
+      },
+      "loadFactor": 0.953,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-college-8",
+     "label": "18 not out by 300 s, 1798.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-college-8",
+      "profile": "college",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "path": [
+        [
+         64.3,
+         65.9
+        ],
+        [
+         104.3,
+         65.9
+        ],
+        [
+         104.3,
+         95.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.729,
+       "premove.medianSec.college": 37.183,
+       "sign.compliance.base": 0.919,
+       "herding.betaSec": 21.885,
+       "stress.gain.hazard": 0.299,
+       "profile.college.share.wheelchair": 0.011,
+       "profile.college.groupFraction": 0.51
+      },
+      "loadFactor": 0.935,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-college-9",
+     "label": "12 not out by 300 s, 2547 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-college-9",
+      "profile": "college",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        130.4,
+        12.9
+       ],
+       "path": [
+        [
+         130.4,
+         12.9
+        ],
+        [
+         170.4,
+         12.9
+        ],
+        [
+         170.4,
+         42.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.college.familiarShare": 0.525,
+       "premove.medianSec.college": 60.741,
+       "sign.compliance.base": 0.898,
+       "herding.betaSec": 19.611,
+       "stress.gain.hazard": 0.059,
+       "profile.college.share.wheelchair": 0.013,
+       "profile.college.groupFraction": 0.295
+      },
+      "loadFactor": 0.974,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "threat",
+   "profile": "school",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 300,
+   "breaking": [
+    {
+     "id": "rate-threat-school-0",
+     "label": "141 not out by 300 s, gridlock, 45971.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-school-0",
+      "profile": "school",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        34.6,
+        56.9
+       ],
+       "path": [
+        [
+         34.6,
+         56.9
+        ],
+        [
+         74.6,
+         56.9
+        ],
+        [
+         74.6,
+         86.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.839,
+       "premove.medianSec.school": 75.412,
+       "sign.compliance.base": 0.76,
+       "herding.betaSec": 15.31,
+       "stress.gain.hazard": 0.164,
+       "profile.school.share.wheelchair": 0.01,
+       "profile.school.groupFraction": 0.757
+      },
+      "loadFactor": 1.15,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-school-1",
+     "label": "208 not out by 300 s, gridlock, 43526.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-school-1",
+      "profile": "school",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        120.6,
+        12.2
+       ],
+       "path": [
+        [
+         120.6,
+         12.2
+        ],
+        [
+         160.6,
+         12.2
+        ],
+        [
+         160.6,
+         42.2
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.907,
+       "premove.medianSec.school": 77.703,
+       "sign.compliance.base": 0.67,
+       "herding.betaSec": 9.163,
+       "stress.gain.hazard": 0.142,
+       "profile.school.share.wheelchair": 0.01,
+       "profile.school.groupFraction": 0.677
+      },
+      "loadFactor": 1.083,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-school-2",
+     "label": "233 not out by 300 s, 75097 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-school-2",
+      "profile": "school",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        120.6,
+        12.2
+       ],
+       "path": [
+        [
+         120.6,
+         12.2
+        ],
+        [
+         160.6,
+         12.2
+        ],
+        [
+         160.6,
+         42.2
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.846,
+       "premove.medianSec.school": 103.668,
+       "sign.compliance.base": 0.642,
+       "herding.betaSec": 8.489,
+       "stress.gain.hazard": 0.137,
+       "profile.school.share.wheelchair": 0.013,
+       "profile.school.groupFraction": 0.702
+      },
+      "loadFactor": 1.087,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-school-3",
+     "label": "129 not out by 300 s, 62765.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-school-3",
+      "profile": "school",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        39.2,
+        68.6
+       ],
+       "path": [
+        [
+         39.2,
+         68.6
+        ],
+        [
+         79.2,
+         68.6
+        ],
+        [
+         79.2,
+         98.6
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.782,
+       "premove.medianSec.school": 50.637,
+       "sign.compliance.base": 0.716,
+       "herding.betaSec": 6.925,
+       "stress.gain.hazard": 0.181,
+       "profile.school.share.wheelchair": 0.005,
+       "profile.school.groupFraction": 0.843
+      },
+      "loadFactor": 1.027,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-school-4",
+     "label": "259 not out by 300 s, 50616.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-school-4",
+      "profile": "school",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        120.6,
+        12.2
+       ],
+       "path": [
+        [
+         120.6,
+         12.2
+        ],
+        [
+         160.6,
+         12.2
+        ],
+        [
+         160.6,
+         42.2
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.882,
+       "premove.medianSec.school": 81.909,
+       "sign.compliance.base": 0.786,
+       "herding.betaSec": 10.008,
+       "stress.gain.hazard": 0.296,
+       "profile.school.share.wheelchair": 0.015,
+       "profile.school.groupFraction": 0.748
+      },
+      "loadFactor": 1.285,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-school-5",
+     "label": "165 not out by 300 s, gridlock, 48347.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-school-5",
+      "profile": "school",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        120.6,
+        12.2
+       ],
+       "path": [
+        [
+         120.6,
+         12.2
+        ],
+        [
+         160.6,
+         12.2
+        ],
+        [
+         160.6,
+         42.2
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.899,
+       "premove.medianSec.school": 66.224,
+       "sign.compliance.base": 0.778,
+       "herding.betaSec": 17.817,
+       "stress.gain.hazard": 0.011,
+       "profile.school.share.wheelchair": 0.013,
+       "profile.school.groupFraction": 0.775
+      },
+      "loadFactor": 1.011,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-school-6",
+     "label": "294 not out by 300 s, gridlock, 55001 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-school-6",
+      "profile": "school",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        169.1,
+        13.6
+       ],
+       "path": [
+        [
+         169.1,
+         13.6
+        ],
+        [
+         209.1,
+         13.6
+        ],
+        [
+         209.1,
+         43.6
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.906,
+       "premove.medianSec.school": 41.534,
+       "sign.compliance.base": 0.719,
+       "herding.betaSec": 30.388,
+       "stress.gain.hazard": 0.297,
+       "profile.school.share.wheelchair": 0.014,
+       "profile.school.groupFraction": 0.808
+      },
+      "loadFactor": 1.296,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-school-7",
+     "label": "132 not out by 300 s, 54698 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-school-7",
+      "profile": "school",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        120.6,
+        12.2
+       ],
+       "path": [
+        [
+         120.6,
+         12.2
+        ],
+        [
+         160.6,
+         12.2
+        ],
+        [
+         160.6,
+         42.2
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.783,
+       "premove.medianSec.school": 37.749,
+       "sign.compliance.base": 0.851,
+       "herding.betaSec": 25.181,
+       "stress.gain.hazard": 0.293,
+       "profile.school.share.wheelchair": 0.008,
+       "profile.school.groupFraction": 0.776
+      },
+      "loadFactor": 1.047,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-school-8",
+     "label": "155 not out by 300 s, 48476.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-school-8",
+      "profile": "school",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        120.6,
+        12.2
+       ],
+       "path": [
+        [
+         120.6,
+         12.2
+        ],
+        [
+         160.6,
+         12.2
+        ],
+        [
+         160.6,
+         42.2
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.79,
+       "premove.medianSec.school": 73.616,
+       "sign.compliance.base": 0.955,
+       "herding.betaSec": 34.359,
+       "stress.gain.hazard": 0.224,
+       "profile.school.share.wheelchair": 0.013,
+       "profile.school.groupFraction": 0.806
+      },
+      "loadFactor": 1.044,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-school-9",
+     "label": "288 not out by 300 s, 52216.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-school-9",
+      "profile": "school",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        34.6,
+        56.9
+       ],
+       "path": [
+        [
+         34.6,
+         56.9
+        ],
+        [
+         74.6,
+         56.9
+        ],
+        [
+         74.6,
+         86.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.school.familiarShare": 0.801,
+       "premove.medianSec.school": 106.052,
+       "sign.compliance.base": 0.776,
+       "herding.betaSec": 30.624,
+       "stress.gain.hazard": 0.353,
+       "profile.school.share.wheelchair": 0.003,
+       "profile.school.groupFraction": 0.786
+      },
+      "loadFactor": 1.26,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "threat",
+   "profile": "mall",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 300,
+   "breaking": [
+    {
+     "id": "rate-threat-mall-0",
+     "label": "285 not out by 300 s, 40072.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-mall-0",
+      "profile": "mall",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        169.8,
+        12.9
+       ],
+       "path": [
+        [
+         169.8,
+         12.9
+        ],
+        [
+         209.8,
+         12.9
+        ],
+        [
+         209.8,
+         42.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.312,
+       "premove.medianSec.mall": 224.148,
+       "sign.compliance.base": 0.904,
+       "herding.betaSec": 19.004,
+       "stress.gain.hazard": 0.123,
+       "profile.mall.share.wheelchair": 0.01,
+       "profile.mall.groupFraction": 0.68
+      },
+      "loadFactor": 1.264,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-mall-1",
+     "label": "199 not out by 300 s, 29423.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-mall-1",
+      "profile": "mall",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        34.6,
+        56.9
+       ],
+       "path": [
+        [
+         34.6,
+         56.9
+        ],
+        [
+         74.6,
+         56.9
+        ],
+        [
+         74.6,
+         86.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.317,
+       "premove.medianSec.mall": 229.889,
+       "sign.compliance.base": 0.881,
+       "herding.betaSec": 22.794,
+       "stress.gain.hazard": 0.139,
+       "profile.mall.share.wheelchair": 0.012,
+       "profile.mall.groupFraction": 0.469
+      },
+      "loadFactor": 1.179,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-mall-2",
+     "label": "236 not out by 300 s, 24260.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-mall-2",
+      "profile": "mall",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        34.6,
+        56.9
+       ],
+       "path": [
+        [
+         34.6,
+         56.9
+        ],
+        [
+         74.6,
+         56.9
+        ],
+        [
+         74.6,
+         86.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.258,
+       "premove.medianSec.mall": 256.971,
+       "sign.compliance.base": 0.971,
+       "herding.betaSec": 16.583,
+       "stress.gain.hazard": 0.148,
+       "profile.mall.share.wheelchair": 0.018,
+       "profile.mall.groupFraction": 0.47
+      },
+      "loadFactor": 1.089,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-mall-3",
+     "label": "93 not out by 300 s, 27558.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-mall-3",
+      "profile": "mall",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        169.8,
+        12.9
+       ],
+       "path": [
+        [
+         169.8,
+         12.9
+        ],
+        [
+         209.8,
+         12.9
+        ],
+        [
+         209.8,
+         42.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.335,
+       "premove.medianSec.mall": 116.657,
+       "sign.compliance.base": 0.777,
+       "herding.betaSec": 1.345,
+       "stress.gain.hazard": 0.129,
+       "profile.mall.share.wheelchair": 0.024,
+       "profile.mall.groupFraction": 0.442
+      },
+      "loadFactor": 1.101,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-mall-4",
+     "label": "112 not out by 300 s, 18728 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-mall-4",
+      "profile": "mall",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        169.8,
+        12.9
+       ],
+       "path": [
+        [
+         169.8,
+         12.9
+        ],
+        [
+         209.8,
+         12.9
+        ],
+        [
+         209.8,
+         42.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.273,
+       "premove.medianSec.mall": 155.076,
+       "sign.compliance.base": 0.846,
+       "herding.betaSec": 24.909,
+       "stress.gain.hazard": 0.133,
+       "profile.mall.share.wheelchair": 0.011,
+       "profile.mall.groupFraction": 0.595
+      },
+      "loadFactor": 0.965,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-mall-5",
+     "label": "151 not out by 300 s, 17026 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-mall-5",
+      "profile": "mall",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        120.6,
+        12.2
+       ],
+       "path": [
+        [
+         120.6,
+         12.2
+        ],
+        [
+         160.6,
+         12.2
+        ],
+        [
+         160.6,
+         42.2
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.249,
+       "premove.medianSec.mall": 169.905,
+       "sign.compliance.base": 0.676,
+       "herding.betaSec": 25.522,
+       "stress.gain.hazard": 0.171,
+       "profile.mall.share.wheelchair": 0.01,
+       "profile.mall.groupFraction": 0.696
+      },
+      "loadFactor": 1.197,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-mall-6",
+     "label": "144 not out by 300 s, 14437.5 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-mall-6",
+      "profile": "mall",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        120.6,
+        12.2
+       ],
+       "path": [
+        [
+         120.6,
+         12.2
+        ],
+        [
+         160.6,
+         12.2
+        ],
+        [
+         160.6,
+         42.2
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.246,
+       "premove.medianSec.mall": 218.943,
+       "sign.compliance.base": 0.892,
+       "herding.betaSec": 3.962,
+       "stress.gain.hazard": 0.06,
+       "profile.mall.share.wheelchair": 0.026,
+       "profile.mall.groupFraction": 0.587
+      },
+      "loadFactor": 0.91,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-mall-7",
+     "label": "122 not out by 300 s, 13877.75 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-mall-7",
+      "profile": "mall",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        34.6,
+        56.9
+       ],
+       "path": [
+        [
+         34.6,
+         56.9
+        ],
+        [
+         74.6,
+         56.9
+        ],
+        [
+         74.6,
+         86.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.36,
+       "premove.medianSec.mall": 178.017,
+       "sign.compliance.base": 0.791,
+       "herding.betaSec": 24.113,
+       "stress.gain.hazard": 0.118,
+       "profile.mall.share.wheelchair": 0.025,
+       "profile.mall.groupFraction": 0.349
+      },
+      "loadFactor": 1.023,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-mall-8",
+     "label": "111 not out by 300 s, 19808.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-mall-8",
+      "profile": "mall",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        120.6,
+        12.2
+       ],
+       "path": [
+        [
+         120.6,
+         12.2
+        ],
+        [
+         160.6,
+         12.2
+        ],
+        [
+         160.6,
+         42.2
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.363,
+       "premove.medianSec.mall": 162.867,
+       "sign.compliance.base": 0.756,
+       "herding.betaSec": 14.838,
+       "stress.gain.hazard": 0.172,
+       "profile.mall.share.wheelchair": 0.021,
+       "profile.mall.groupFraction": 0.43
+      },
+      "loadFactor": 1.095,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-mall-9",
+     "label": "86 not out by 300 s, 29193.25 person-s above 5 p/m²",
+     "scenario": {
+      "id": "rate-threat-mall-9",
+      "profile": "mall",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F3",
+       "at": [
+        169.8,
+        12.9
+       ],
+       "path": [
+        [
+         169.8,
+         12.9
+        ],
+        [
+         209.8,
+         12.9
+        ],
+        [
+         209.8,
+         42.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.mall.familiarShare": 0.412,
+       "premove.medianSec.mall": 119.885,
+       "sign.compliance.base": 0.827,
+       "herding.betaSec": 13.659,
+       "stress.gain.hazard": 0.197,
+       "profile.mall.share.wheelchair": 0.023,
+       "profile.mall.groupFraction": 0.346
+      },
+      "loadFactor": 1.134,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  },
+  {
+   "hazard": "threat",
+   "profile": "hospital",
+   "survived": 0,
+   "total": 24,
+   "targetSec": 300,
+   "breaking": [
+    {
+     "id": "rate-threat-hospital-0",
+     "label": "84 not out by 300 s",
+     "scenario": {
+      "id": "rate-threat-hospital-0",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "path": [
+        [
+         164.9,
+         63.8
+        ],
+        [
+         204.9,
+         63.8
+        ],
+        [
+         204.9,
+         93.8
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.584,
+       "premove.medianSec.hospital": 542.725,
+       "sign.compliance.base": 0.765,
+       "herding.betaSec": 23.5,
+       "stress.gain.hazard": 0.22,
+       "profile.hospital.share.wheelchair": 0.101,
+       "profile.hospital.groupFraction": 0.203
+      },
+      "loadFactor": 1.226,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70000,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-hospital-1",
+     "label": "72 not out by 300 s",
+     "scenario": {
+      "id": "rate-threat-hospital-1",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        39.2,
+        68.6
+       ],
+       "path": [
+        [
+         39.2,
+         68.6
+        ],
+        [
+         79.2,
+         68.6
+        ],
+        [
+         79.2,
+         98.6
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.479,
+       "premove.medianSec.hospital": 585.268,
+       "sign.compliance.base": 0.862,
+       "herding.betaSec": 8.116,
+       "stress.gain.hazard": 0.157,
+       "profile.hospital.share.wheelchair": 0.163,
+       "profile.hospital.groupFraction": 0.324
+      },
+      "loadFactor": 1.183,
+      "occupancy": "classes_full",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70001,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-hospital-2",
+     "label": "46 not out by 300 s",
+     "scenario": {
+      "id": "rate-threat-hospital-2",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "path": [
+        [
+         64.3,
+         65.9
+        ],
+        [
+         104.3,
+         65.9
+        ],
+        [
+         104.3,
+         95.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.475,
+       "premove.medianSec.hospital": 493.62,
+       "sign.compliance.base": 0.63,
+       "herding.betaSec": 6.506,
+       "stress.gain.hazard": 0.188,
+       "profile.hospital.share.wheelchair": 0.111,
+       "profile.hospital.groupFraction": 0.363
+      },
+      "loadFactor": 1.065,
+      "occupancy": "uniform",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70002,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-hospital-3",
+     "label": "48 not out by 300 s",
+     "scenario": {
+      "id": "rate-threat-hospital-3",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        169.1,
+        13.6
+       ],
+       "path": [
+        [
+         169.1,
+         13.6
+        ],
+        [
+         209.1,
+         13.6
+        ],
+        [
+         209.1,
+         43.6
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.528,
+       "premove.medianSec.hospital": 447.164,
+       "sign.compliance.base": 0.955,
+       "herding.betaSec": 11.769,
+       "stress.gain.hazard": 0.356,
+       "profile.hospital.share.wheelchair": 0.117,
+       "profile.hospital.groupFraction": 0.283
+      },
+      "loadFactor": 0.973,
+      "occupancy": "uniform",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70003,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-hospital-4",
+     "label": "66 not out by 300 s",
+     "scenario": {
+      "id": "rate-threat-hospital-4",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        169.1,
+        13.6
+       ],
+       "path": [
+        [
+         169.1,
+         13.6
+        ],
+        [
+         209.1,
+         13.6
+        ],
+        [
+         209.1,
+         43.6
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.433,
+       "premove.medianSec.hospital": 484.655,
+       "sign.compliance.base": 0.842,
+       "herding.betaSec": 10.164,
+       "stress.gain.hazard": 0.321,
+       "profile.hospital.share.wheelchair": 0.19,
+       "profile.hospital.groupFraction": 0.331
+      },
+      "loadFactor": 1.132,
+      "occupancy": "classes_full",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70004,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-hospital-5",
+     "label": "64 not out by 300 s",
+     "scenario": {
+      "id": "rate-threat-hospital-5",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "path": [
+        [
+         164.9,
+         63.8
+        ],
+        [
+         204.9,
+         63.8
+        ],
+        [
+         204.9,
+         93.8
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.734,
+       "premove.medianSec.hospital": 399.522,
+       "sign.compliance.base": 0.852,
+       "herding.betaSec": 5.898,
+       "stress.gain.hazard": 0.329,
+       "profile.hospital.share.wheelchair": 0.17,
+       "profile.hospital.groupFraction": 0.374
+      },
+      "loadFactor": 1.248,
+      "occupancy": "classes_full",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70005,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-hospital-6",
+     "label": "44 not out by 300 s",
+     "scenario": {
+      "id": "rate-threat-hospital-6",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        169.1,
+        13.6
+       ],
+       "path": [
+        [
+         169.1,
+         13.6
+        ],
+        [
+         209.1,
+         13.6
+        ],
+        [
+         209.1,
+         43.6
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.578,
+       "premove.medianSec.hospital": 488.21,
+       "sign.compliance.base": 0.966,
+       "herding.betaSec": 19.689,
+       "stress.gain.hazard": 0.129,
+       "profile.hospital.share.wheelchair": 0.175,
+       "profile.hospital.groupFraction": 0.148
+      },
+      "loadFactor": 1.013,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70006,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-hospital-7",
+     "label": "59 not out by 300 s",
+     "scenario": {
+      "id": "rate-threat-hospital-7",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F2",
+       "at": [
+        169.1,
+        13.6
+       ],
+       "path": [
+        [
+         169.1,
+         13.6
+        ],
+        [
+         209.1,
+         13.6
+        ],
+        [
+         209.1,
+         43.6
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.649,
+       "premove.medianSec.hospital": 432.934,
+       "sign.compliance.base": 0.733,
+       "herding.betaSec": 14.808,
+       "stress.gain.hazard": 0.246,
+       "profile.hospital.share.wheelchair": 0.166,
+       "profile.hospital.groupFraction": 0.264
+      },
+      "loadFactor": 1.021,
+      "occupancy": "event_in:0110",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70007,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-hospital-8",
+     "label": "57 not out by 300 s",
+     "scenario": {
+      "id": "rate-threat-hospital-8",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F1",
+       "at": [
+        64.3,
+        65.9
+       ],
+       "path": [
+        [
+         64.3,
+         65.9
+        ],
+        [
+         104.3,
+         65.9
+        ],
+        [
+         104.3,
+         95.9
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.482,
+       "premove.medianSec.hospital": 529.333,
+       "sign.compliance.base": 0.603,
+       "herding.betaSec": 30.912,
+       "stress.gain.hazard": 0.106,
+       "profile.hospital.share.wheelchair": 0.135,
+       "profile.hospital.groupFraction": 0.359
+      },
+      "loadFactor": 1.173,
+      "occupancy": "classes_full",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70008,
+      "maxSec": 900
+     }
+    },
+    {
+     "id": "rate-threat-hospital-9",
+     "label": "57 not out by 300 s",
+     "scenario": {
+      "id": "rate-threat-hospital-9",
+      "profile": "hospital",
+      "hazard": {
+       "kind": "threat",
+       "floor": "F1",
+       "at": [
+        164.9,
+        63.8
+       ],
+       "path": [
+        [
+         164.9,
+         63.8
+        ],
+        [
+         204.9,
+         63.8
+        ],
+        [
+         204.9,
+         93.8
+        ]
+       ]
+      },
+      "behaviour": {
+       "profile.hospital.familiarShare": 0.413,
+       "premove.medianSec.hospital": 482.239,
+       "sign.compliance.base": 0.938,
+       "herding.betaSec": 28.365,
+       "stress.gain.hazard": 0.193,
+       "profile.hospital.share.wheelchair": 0.147,
+       "profile.hospital.groupFraction": 0.227
+      },
+      "loadFactor": 1.208,
+      "occupancy": "classes_full",
+      "protocol": "LOCKDOWN_SHELTER",
+      "seed": 70009,
+      "maxSec": 900
+     }
+    }
+   ]
+  }
+ ],
+ "disclaimer": "Decision support for professional safety review, not certification.",
+ "criterion": "A scenario is survived when everyone is out or protected by the clearance target (set by the reviewer; EXITMIND default), no doorway suffers a flow collapse (crush), and there is no gridlock. Scenarios are a spread across the adversary's search, from mild to worst."
+}

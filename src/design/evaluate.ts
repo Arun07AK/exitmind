@@ -20,6 +20,8 @@ export interface EvalResult {
   dangerCells?: number[][];
 }
 
+let defaultMode: "rule" | "distilled" = "rule";
+export function setDefaultMode(m: "rule" | "distilled"): void { defaultMode = m; }
 let distilled: DistilledPolicy | null | undefined;
 function distilledPolicy(): DistilledPolicy | null {
   if (distilled === undefined) { try { distilled = DistilledPolicy.load(); } catch { distilled = null; } }
@@ -29,7 +31,7 @@ function distilledPolicy(): DistilledPolicy | null {
 export function evaluate(env: SimEnv, t: EvalTask): EvalResult {
   const elapsed = stopwatch();
   const { scenario, model } = prepareScenario(env, t.scenario);
-  const d = t.mode === "distilled" ? distilledPolicy() : null;
+  const d = (t.mode ?? defaultMode) === "distilled" ? distilledPolicy() : null;
   const w = makeWorld(env, scenario, { model, ...(d ? { distilled: d, bulkPolicy: "distilled" as const } : {}) });
   const metrics = runSync(w);
   const out: EvalResult = { id: scenario.id, seed: scenario.seed, metrics, badness: badness(metrics, env.runtime), hash: stateHash(w), ms: elapsed() };

@@ -31,7 +31,7 @@ Then read the "Next" section below and the blueprint section for that phase. No 
 
 | # | Item | State |
 |---|---|---|
-| O1 | Failing verdict: block-with-override or warn only | Unanswered. `config/runtime.json` → `gate.failMode` is provisionally `"block_with_override"`; both modes get built. Ask again at the Phase 5 stop. |
+| O1 | Failing verdict: block-with-override or warn only | **Decided by Arun: block unless the operator types an override reason.** `config/runtime.json` → `gate.failMode = "block_with_override"` (already the shipped value). |
 | O3 | Default persona backend, Jev or Haiku | Undecided; needs the side-by-side test in Phase 3. Blocked on a TypeSafe API key for the Jev column. |
 | — | TypeSafe API key | Not available yet (Arun has Anthropic only). Get one at console.typesafe.ai/keys. |
 | — | Anthropic key in `.env` | Arun has one; copy `.env.example` to `.env` and paste it before Phase 3. |

@@ -14,6 +14,7 @@ export const RuntimeConfig = z.strictObject({
   approval: z.strictObject({ windowSec: z.number().positive() }),
   design: z.strictObject({
     clearanceTargetSec: z.number().positive(),
+    targets: z.strictObject({ none: z.number().positive(), fire: z.number().positive(), crush: z.number().positive(), quake: z.number().positive(), threat: z.number().positive(), medical: z.number().positive() }),
     capSec: z.number().positive(),
     badness: z.strictObject({ w1: z.number().nonnegative(), w2: z.number().nonnegative(), w3: z.number().nonnegative() }),
     bulkRuns: PositiveInt,

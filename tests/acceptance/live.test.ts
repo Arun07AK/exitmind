@@ -150,7 +150,7 @@ describe("live mode on the mini test building (offline: LLMs stubbed down, so fa
     s.decide(s.current!.id, "approve");
     await stepUntil(s, () => false, 300);
     const hash = stateHash(s.truth);
-    const r = replayTruth(env, s.log.records(), MINI_CFG, s.id, s.tick);
+    const r = replayTruth(env, s.log.records(), MINI_CFG, s.id, s.tick, null);
     expect(r.hash).toBe(hash);
   });
 });

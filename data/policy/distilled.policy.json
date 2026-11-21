@@ -1,0 +1,1341 @@
+{
+ "version": 1,
+ "source": {
+  "logs": [
+   "showcase_haiku_0.jsonl",
+   "showcase_haiku_1.jsonl",
+   "showcase_haiku_2.jsonl",
+   "showcase_haiku_3.jsonl",
+   "showcase_haiku_4.jsonl",
+   "showcase_haiku_5.jsonl",
+   "showcase_haiku_instructed_fire-evacuate.jsonl",
+   "showcase_haiku_instructed_fire-f1-phased.jsonl",
+   "showcase_haiku_instructed_quake-hold.jsonl",
+   "showcase_haiku_instructed_threat-lockdown.jsonl"
+  ],
+  "decisions": 596,
+  "backend": "llm:haiku",
+  "createdFrom": "2026-11-21"
+ },
+ "table": {
+  "ALARM_NOTICED": {
+   "FOLLOW_GROUP:": 23,
+   "FOLLOW_SIGN:SIGNED": 15,
+   "MOVE_TO:FAMILIAR": 47,
+   "MOVE_TO:FAMILIAR+HAZARD": 1,
+   "MOVE_TO:LEAST_CROWDED": 4,
+   "MOVE_TO:MAJORITY": 12,
+   "MOVE_TO:NEAREST": 123,
+   "MOVE_TO:OTHER": 2,
+   "WAIT:": 13
+  },
+  "ALARM_NOTICED|alarm": {
+   "FOLLOW_GROUP:": 22,
+   "FOLLOW_SIGN:SIGNED": 12,
+   "MOVE_TO:FAMILIAR": 34,
+   "MOVE_TO:LEAST_CROWDED": 4,
+   "MOVE_TO:MAJORITY": 10,
+   "MOVE_TO:NEAREST": 94,
+   "MOVE_TO:OTHER": 2,
+   "WAIT:": 5
+  },
+  "ALARM_NOTICED|alarm|busy": {
+   "FOLLOW_GROUP:": 2,
+   "MOVE_TO:FAMILIAR": 1
+  },
+  "ALARM_NOTICED|alarm|busy|none|high|F": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:FAMILIAR": 1
+  },
+  "ALARM_NOTICED|alarm|busy|none|high|F#FOLLOW_GROUP:,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "ALARM_NOTICED|alarm|busy|none|high|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 1
+  },
+  "ALARM_NOTICED|alarm|busy|none|low|U": {
+   "FOLLOW_GROUP:": 1
+  },
+  "ALARM_NOTICED|alarm|busy|none|low|U#FOLLOW_GROUP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "ALARM_NOTICED|alarm|light": {
+   "FOLLOW_GROUP:": 20,
+   "FOLLOW_SIGN:SIGNED": 12,
+   "MOVE_TO:FAMILIAR": 33,
+   "MOVE_TO:LEAST_CROWDED": 4,
+   "MOVE_TO:MAJORITY": 10,
+   "MOVE_TO:NEAREST": 94,
+   "MOVE_TO:OTHER": 2,
+   "WAIT:": 5
+  },
+  "ALARM_NOTICED|alarm|light|hold|high|F": {
+   "FOLLOW_GROUP:": 2,
+   "FOLLOW_SIGN:SIGNED": 1,
+   "MOVE_TO:FAMILIAR": 3,
+   "MOVE_TO:NEAREST": 3,
+   "WAIT:": 1
+  },
+  "ALARM_NOTICED|alarm|light|hold|high|F#FOLLOW_GROUP:,FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 2
+  },
+  "ALARM_NOTICED|alarm|light|hold|high|F#FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 1,
+   "MOVE_TO:FAMILIAR": 3,
+   "MOVE_TO:NEAREST": 2,
+   "WAIT:": 1
+  },
+  "ALARM_NOTICED|alarm|light|hold|high|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|hold|high|U": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:MAJORITY": 3,
+   "MOVE_TO:NEAREST": 2
+  },
+  "ALARM_NOTICED|alarm|light|hold|high|U#FOLLOW_GROUP:,FOLLOW_SIGN:SIGNED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "ALARM_NOTICED|alarm|light|hold|high|U#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:MAJORITY": 1
+  },
+  "ALARM_NOTICED|alarm|light|hold|high|U#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|hold|high|U#FOLLOW_SIGN:SIGNED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|hold|high|U#FOLLOW_SIGN:SIGNED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:MAJORITY": 2
+  },
+  "ALARM_NOTICED|alarm|light|hold|low|F": {
+   "FOLLOW_GROUP:": 2,
+   "FOLLOW_SIGN:SIGNED": 3,
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:NEAREST": 3,
+   "WAIT:": 2
+  },
+  "ALARM_NOTICED|alarm|light|hold|low|F#FOLLOW_GROUP:,FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 2
+  },
+  "ALARM_NOTICED|alarm|light|hold|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 3,
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:NEAREST": 3,
+   "WAIT:": 1
+  },
+  "ALARM_NOTICED|alarm|light|hold|low|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "WAIT:": 1
+  },
+  "ALARM_NOTICED|alarm|light|hold|low|U": {
+   "FOLLOW_SIGN:SIGNED": 1,
+   "MOVE_TO:MAJORITY": 1,
+   "WAIT:": 2
+  },
+  "ALARM_NOTICED|alarm|light|hold|low|U#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:MAJORITY": 1
+  },
+  "ALARM_NOTICED|alarm|light|hold|low|U#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 1,
+   "WAIT:": 1
+  },
+  "ALARM_NOTICED|alarm|light|hold|low|U#FOLLOW_SIGN:SIGNED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "WAIT:": 1
+  },
+  "ALARM_NOTICED|alarm|light|lockdown|low|F": {
+   "FOLLOW_SIGN:SIGNED": 4,
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|lockdown|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|lockdown|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 4,
+   "MOVE_TO:FAMILIAR": 1
+  },
+  "ALARM_NOTICED|alarm|light|lockdown|low|U": {
+   "FOLLOW_SIGN:SIGNED": 3
+  },
+  "ALARM_NOTICED|alarm|light|lockdown|low|U#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 3
+  },
+  "ALARM_NOTICED|alarm|light|none|high|F": {
+   "FOLLOW_GROUP:": 5,
+   "MOVE_TO:FAMILIAR": 8,
+   "MOVE_TO:NEAREST": 27
+  },
+  "ALARM_NOTICED|alarm|light|none|high|F#FOLLOW_GROUP:,GO_BACK:NEAREST,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|high|F#FOLLOW_GROUP:,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 4,
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|high|F#GO_BACK:FAMILIAR,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|high|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 8,
+   "MOVE_TO:NEAREST": 25
+  },
+  "ALARM_NOTICED|alarm|light|none|high|U": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:MAJORITY": 3,
+   "MOVE_TO:NEAREST": 6,
+   "MOVE_TO:OTHER": 2
+  },
+  "ALARM_NOTICED|alarm|light|none|high|U#FOLLOW_GROUP:,GO_BACK:NEAREST,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|high|U#FOLLOW_GROUP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|high|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:MAJORITY": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|high|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 2
+  },
+  "ALARM_NOTICED|alarm|light|none|high|U#MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:MAJORITY": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|high|U#MOVE_TO:MAJORITY,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:MAJORITY": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|high|U#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 3,
+   "MOVE_TO:OTHER": 2
+  },
+  "ALARM_NOTICED|alarm|light|none|low|F": {
+   "FOLLOW_GROUP:": 8,
+   "MOVE_TO:FAMILIAR": 19,
+   "MOVE_TO:NEAREST": 39
+  },
+  "ALARM_NOTICED|alarm|light|none|low|F#FOLLOW_GROUP:,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST+HAZARD,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|low|F#FOLLOW_GROUP:,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 7,
+   "MOVE_TO:NEAREST": 2
+  },
+  "ALARM_NOTICED|alarm|light|none|low|F#MOVE_TO:FAMILIAR,MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 3,
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|low|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 16,
+   "MOVE_TO:NEAREST": 36
+  },
+  "ALARM_NOTICED|alarm|light|none|low|U": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:LEAST_CROWDED": 3,
+   "MOVE_TO:MAJORITY": 3,
+   "MOVE_TO:NEAREST": 13
+  },
+  "ALARM_NOTICED|alarm|light|none|low|U#FOLLOW_GROUP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:MAJORITY": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:LEAST_CROWDED": 3,
+   "MOVE_TO:NEAREST": 7
+  },
+  "ALARM_NOTICED|alarm|light|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|low|U#MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:MAJORITY": 2
+  },
+  "ALARM_NOTICED|alarm|light|none|low|U#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|alarm|light|none|low|U#MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "ALARM_NOTICED|none": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:FAMILIAR": 11,
+   "MOVE_TO:MAJORITY": 2,
+   "MOVE_TO:NEAREST": 26,
+   "WAIT:": 8
+  },
+  "ALARM_NOTICED|none|light": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:FAMILIAR": 11,
+   "MOVE_TO:MAJORITY": 2,
+   "MOVE_TO:NEAREST": 26,
+   "WAIT:": 8
+  },
+  "ALARM_NOTICED|none|light|none|low|F": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:FAMILIAR": 11,
+   "MOVE_TO:NEAREST": 26,
+   "WAIT:": 4
+  },
+  "ALARM_NOTICED|none|light|none|low|F#FOLLOW_GROUP:,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 1,
+   "WAIT:": 1
+  },
+  "ALARM_NOTICED|none|light|none|low|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 10,
+   "MOVE_TO:NEAREST": 25,
+   "WAIT:": 3
+  },
+  "ALARM_NOTICED|none|light|none|low|U": {
+   "MOVE_TO:MAJORITY": 2,
+   "WAIT:": 4
+  },
+  "ALARM_NOTICED|none|light|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "WAIT:": 3
+  },
+  "ALARM_NOTICED|none|light|none|low|U#MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:MAJORITY": 2
+  },
+  "ALARM_NOTICED|none|light|none|low|U#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "WAIT:": 1
+  },
+  "ALARM_NOTICED|shaking": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|shaking|light": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|shaking|light|none|high|F": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|shaking|light|none|high|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|smoke": {
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:FAMILIAR+HAZARD": 1,
+   "MOVE_TO:NEAREST": 2
+  },
+  "ALARM_NOTICED|smoke|light": {
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:FAMILIAR+HAZARD": 1,
+   "MOVE_TO:NEAREST": 2
+  },
+  "ALARM_NOTICED|smoke|light|hold|low|F": {
+   "MOVE_TO:FAMILIAR+HAZARD": 1
+  },
+  "ALARM_NOTICED|smoke|light|hold|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST+HAZARD,WAIT:": {
+   "MOVE_TO:FAMILIAR+HAZARD": 1
+  },
+  "ALARM_NOTICED|smoke|light|none|low|F": {
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|smoke|light|none|low|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|smoke|light|none|low|U": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|smoke|light|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "ALARM_NOTICED|threat": {
+   "FOLLOW_SIGN:SIGNED": 3,
+   "MOVE_TO:FAMILIAR": 1
+  },
+  "ALARM_NOTICED|threat|light": {
+   "FOLLOW_SIGN:SIGNED": 3,
+   "MOVE_TO:FAMILIAR": 1
+  },
+  "ALARM_NOTICED|threat|light|lockdown|low|F": {
+   "FOLLOW_SIGN:SIGNED": 3
+  },
+  "ALARM_NOTICED|threat|light|lockdown|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST+HAZARD,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "ALARM_NOTICED|threat|light|lockdown|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR,MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "ALARM_NOTICED|threat|light|lockdown|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "ALARM_NOTICED|threat|light|none|low|F": {
+   "MOVE_TO:FAMILIAR": 1
+  },
+  "ALARM_NOTICED|threat|light|none|low|F#MOVE_TO:FAMILIAR,MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 1
+  },
+  "BLOCKED": {
+   "FOLLOW_GROUP:": 1,
+   "FOLLOW_SIGN:SIGNED": 1,
+   "MOVE_TO:FAMILIAR": 4,
+   "MOVE_TO:FAMILIAR+HAZARD": 1,
+   "MOVE_TO:LEAST_CROWDED": 4,
+   "MOVE_TO:NEAREST": 71,
+   "MOVE_TO:NEAREST+HAZARD": 2,
+   "WAIT:": 4
+  },
+  "BLOCKED|alarm": {
+   "FOLLOW_SIGN:SIGNED": 1,
+   "MOVE_TO:FAMILIAR": 4,
+   "MOVE_TO:LEAST_CROWDED": 3,
+   "MOVE_TO:NEAREST": 61,
+   "WAIT:": 3
+  },
+  "BLOCKED|alarm|busy": {
+   "MOVE_TO:FAMILIAR": 4,
+   "MOVE_TO:LEAST_CROWDED": 2,
+   "MOVE_TO:NEAREST": 23
+  },
+  "BLOCKED|alarm|busy|hold|low|F": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|alarm|busy|hold|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST,MOVE_TO:OTHER,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|busy|hold|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|busy|none|high|F": {
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|alarm|busy|none|high|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|alarm|busy|none|high|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:LEAST_CROWDED": 1
+  },
+  "BLOCKED|alarm|busy|none|low|F": {
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 16
+  },
+  "BLOCKED|alarm|busy|none|low|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:NEAREST": 5
+  },
+  "BLOCKED|alarm|busy|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 10
+  },
+  "BLOCKED|alarm|busy|none|low|F#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|busy|none|low|U": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "BLOCKED|alarm|busy|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|busy|none|low|U#MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|alarm|light": {
+   "FOLLOW_SIGN:SIGNED": 1,
+   "MOVE_TO:NEAREST": 6
+  },
+  "BLOCKED|alarm|light|hold|high|U": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|light|hold|high|U#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|light|lockdown|low|F": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "BLOCKED|alarm|light|lockdown|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "BLOCKED|alarm|light|none|high|F": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|alarm|light|none|high|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|alarm|light|none|low|F": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|alarm|light|none|low|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|alarm|light|none|low|U": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|light|none|low|U#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|packed": {
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 32,
+   "WAIT:": 3
+  },
+  "BLOCKED|alarm|packed|hold|high|F": {
+   "MOVE_TO:NEAREST": 4,
+   "WAIT:": 1
+  },
+  "BLOCKED|alarm|packed|hold|high|F#FOLLOW_GROUP:,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|packed|hold|high|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|packed|hold|high|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|packed|hold|high|F#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1,
+   "WAIT:": 1
+  },
+  "BLOCKED|alarm|packed|hold|high|U": {
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 4,
+   "WAIT:": 2
+  },
+  "BLOCKED|alarm|packed|hold|high|U#GO_BACK:OTHER,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|packed|hold|high|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 1,
+   "WAIT:": 1
+  },
+  "BLOCKED|alarm|packed|hold|high|U#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 2,
+   "WAIT:": 1
+  },
+  "BLOCKED|alarm|packed|none|high|F": {
+   "MOVE_TO:NEAREST": 13
+  },
+  "BLOCKED|alarm|packed|none|high|F#MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|packed|none|high|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 4
+  },
+  "BLOCKED|alarm|packed|none|high|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 5
+  },
+  "BLOCKED|alarm|packed|none|high|F#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "BLOCKED|alarm|packed|none|high|U": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|alarm|packed|none|high|U#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|packed|none|high|U#MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|packed|none|low|F": {
+   "MOVE_TO:NEAREST": 8
+  },
+  "BLOCKED|alarm|packed|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 6
+  },
+  "BLOCKED|alarm|packed|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|packed|none|low|F#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|packed|none|low|U": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|alarm|packed|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|none": {
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 8,
+   "WAIT:": 1
+  },
+  "BLOCKED|none|busy": {
+   "MOVE_TO:NEAREST": 4
+  },
+  "BLOCKED|none|busy|none|low|F": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "BLOCKED|none|busy|none|low|F#HELP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|none|busy|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|none|busy|none|low|U": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|none|busy|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|none|packed": {
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 4,
+   "WAIT:": 1
+  },
+  "BLOCKED|none|packed|none|low|F": {
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 2,
+   "WAIT:": 1
+  },
+  "BLOCKED|none|packed|none|low|F#GO_BACK:NEAREST,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "WAIT:": 1
+  },
+  "BLOCKED|none|packed|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|none|packed|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|none|packed|none|low|U": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|none|packed|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "BLOCKED|smoke": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:FAMILIAR+HAZARD": 1,
+   "MOVE_TO:NEAREST": 1,
+   "MOVE_TO:NEAREST+HAZARD": 2
+  },
+  "BLOCKED|smoke|busy": {
+   "MOVE_TO:NEAREST": 1,
+   "MOVE_TO:NEAREST+HAZARD": 2
+  },
+  "BLOCKED|smoke|busy|hold|high|U": {
+   "MOVE_TO:NEAREST+HAZARD": 2
+  },
+  "BLOCKED|smoke|busy|hold|high|U#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST+HAZARD,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST+HAZARD": 1
+  },
+  "BLOCKED|smoke|busy|hold|high|U#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST+HAZARD": 1
+  },
+  "BLOCKED|smoke|busy|none|high|F": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|smoke|busy|none|high|F#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|smoke|light": {
+   "FOLLOW_GROUP:": 1
+  },
+  "BLOCKED|smoke|light|none|high|U": {
+   "FOLLOW_GROUP:": 1
+  },
+  "BLOCKED|smoke|light|none|high|U#FOLLOW_GROUP:,GO_BACK:OTHER+HAZARD,MOVE_TO:NEAREST+HAZARD,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "BLOCKED|smoke|packed": {
+   "MOVE_TO:FAMILIAR+HAZARD": 1
+  },
+  "BLOCKED|smoke|packed|hold|high|F": {
+   "MOVE_TO:FAMILIAR+HAZARD": 1
+  },
+  "BLOCKED|smoke|packed|hold|high|F#MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST+HAZARD,WAIT:": {
+   "MOVE_TO:FAMILIAR+HAZARD": 1
+  },
+  "BLOCKED|threat": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|threat|busy": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|threat|busy|none|low|F": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "BLOCKED|threat|busy|none|low|F#MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING": {
+   "FOLLOW_SIGN:SIGNED": 1,
+   "GO_BACK:FAMILIAR": 1,
+   "MOVE_TO:FAMILIAR": 8,
+   "MOVE_TO:MAJORITY": 1,
+   "MOVE_TO:NEAREST": 18,
+   "MOVE_TO:NEAREST+HAZARD": 1,
+   "WAIT:": 6
+  },
+  "GROUP_MEMBER_MISSING|alarm": {
+   "GO_BACK:FAMILIAR": 1,
+   "MOVE_TO:FAMILIAR": 7,
+   "MOVE_TO:MAJORITY": 1,
+   "MOVE_TO:NEAREST": 15,
+   "WAIT:": 2
+  },
+  "GROUP_MEMBER_MISSING|alarm|busy": {
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 4
+  },
+  "GROUP_MEMBER_MISSING|alarm|busy|none|high|F": {
+   "MOVE_TO:FAMILIAR": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|busy|none|high|F#GO_BACK:FAMILIAR,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|busy|none|high|U": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|busy|none|high|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|busy|none|low|F": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "GROUP_MEMBER_MISSING|alarm|busy|none|low|F#GO_BACK:FAMILIAR,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|busy|none|low|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|busy|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|light": {
+   "MOVE_TO:FAMILIAR": 6,
+   "MOVE_TO:MAJORITY": 1,
+   "MOVE_TO:NEAREST": 9,
+   "WAIT:": 2
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|hold|low|U": {
+   "WAIT:": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|hold|low|U#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "WAIT:": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|none|high|F": {
+   "MOVE_TO:FAMILIAR": 3,
+   "MOVE_TO:NEAREST": 3,
+   "WAIT:": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|none|high|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 3,
+   "MOVE_TO:NEAREST": 3
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|none|high|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "WAIT:": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|none|high|U": {
+   "MOVE_TO:MAJORITY": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|none|high|U#MOVE_TO:MAJORITY,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:MAJORITY": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|none|low|F": {
+   "MOVE_TO:FAMILIAR": 3,
+   "MOVE_TO:NEAREST": 5
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|none|low|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 3,
+   "MOVE_TO:NEAREST": 3
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|none|low|U": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|light|none|low|U#MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|packed": {
+   "GO_BACK:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 2
+  },
+  "GROUP_MEMBER_MISSING|alarm|packed|none|high|F": {
+   "GO_BACK:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|packed|none|high|F#GO_BACK:FAMILIAR,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "GO_BACK:FAMILIAR": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|packed|none|high|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|packed|none|high|U": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|alarm|packed|none|high|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|none": {
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 2,
+   "WAIT:": 4
+  },
+  "GROUP_MEMBER_MISSING|none|light": {
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 2,
+   "WAIT:": 4
+  },
+  "GROUP_MEMBER_MISSING|none|light|none|low|F": {
+   "MOVE_TO:FAMILIAR": 1,
+   "WAIT:": 4
+  },
+  "GROUP_MEMBER_MISSING|none|light|none|low|F#GO_BACK:FAMILIAR,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "WAIT:": 1
+  },
+  "GROUP_MEMBER_MISSING|none|light|none|low|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 1,
+   "WAIT:": 3
+  },
+  "GROUP_MEMBER_MISSING|none|light|none|low|U": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "GROUP_MEMBER_MISSING|none|light|none|low|U#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|none|light|none|low|U#MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|shaking": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|shaking|busy": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|shaking|busy|none|high|F": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|shaking|busy|none|high|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "GROUP_MEMBER_MISSING|smoke": {
+   "MOVE_TO:NEAREST+HAZARD": 1
+  },
+  "GROUP_MEMBER_MISSING|smoke|light": {
+   "MOVE_TO:NEAREST+HAZARD": 1
+  },
+  "GROUP_MEMBER_MISSING|smoke|light|hold|low|U": {
+   "MOVE_TO:NEAREST+HAZARD": 1
+  },
+  "GROUP_MEMBER_MISSING|smoke|light|hold|low|U#MOVE_TO:NEAREST+HAZARD,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST+HAZARD": 1
+  },
+  "GROUP_MEMBER_MISSING|threat": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "GROUP_MEMBER_MISSING|threat|light": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "GROUP_MEMBER_MISSING|threat|light|lockdown|low|F": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "GROUP_MEMBER_MISSING|threat|light|lockdown|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "JUNCTION": {
+   "FOLLOW_GROUP:": 28,
+   "FOLLOW_SIGN:SIGNED": 3,
+   "MOVE_TO:FAMILIAR": 9,
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:LEAST_CROWDED+HAZARD": 1,
+   "MOVE_TO:MAJORITY": 2,
+   "MOVE_TO:NEAREST": 154,
+   "MOVE_TO:NEAREST+HAZARD": 7,
+   "MOVE_TO:OTHER": 6,
+   "WAIT:": 20
+  },
+  "JUNCTION|alarm": {
+   "FOLLOW_GROUP:": 27,
+   "FOLLOW_SIGN:SIGNED": 3,
+   "MOVE_TO:FAMILIAR": 7,
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:MAJORITY": 2,
+   "MOVE_TO:NEAREST": 111,
+   "MOVE_TO:OTHER": 5,
+   "WAIT:": 10
+  },
+  "JUNCTION|alarm|busy": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:MAJORITY": 2,
+   "MOVE_TO:NEAREST": 21,
+   "MOVE_TO:OTHER": 1,
+   "WAIT:": 1
+  },
+  "JUNCTION|alarm|busy|hold|high|F": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "JUNCTION|alarm|busy|hold|high|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|busy|hold|high|F#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|busy|hold|high|U": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|busy|hold|high|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|busy|none|high|F": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:MAJORITY": 2,
+   "MOVE_TO:NEAREST": 8
+  },
+  "JUNCTION|alarm|busy|none|high|F#FOLLOW_GROUP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "JUNCTION|alarm|busy|none|high|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:MAJORITY": 2
+  },
+  "JUNCTION|alarm|busy|none|high|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 8
+  },
+  "JUNCTION|alarm|busy|none|high|U": {
+   "MOVE_TO:NEAREST": 4,
+   "WAIT:": 1
+  },
+  "JUNCTION|alarm|busy|none|high|U#FOLLOW_GROUP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|busy|none|high|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "JUNCTION|alarm|busy|none|high|U#MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1,
+   "WAIT:": 1
+  },
+  "JUNCTION|alarm|busy|none|low|F": {
+   "MOVE_TO:NEAREST": 4,
+   "MOVE_TO:OTHER": 1
+  },
+  "JUNCTION|alarm|busy|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 4,
+   "MOVE_TO:OTHER": 1
+  },
+  "JUNCTION|alarm|busy|none|low|U": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "JUNCTION|alarm|busy|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|busy|none|low|U#MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light": {
+   "FOLLOW_GROUP:": 25,
+   "FOLLOW_SIGN:SIGNED": 3,
+   "MOVE_TO:FAMILIAR": 7,
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 77,
+   "MOVE_TO:OTHER": 4,
+   "WAIT:": 8
+  },
+  "JUNCTION|alarm|light|hold|high|F": {
+   "FOLLOW_GROUP:": 7,
+   "FOLLOW_SIGN:SIGNED": 1,
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 5,
+   "WAIT:": 4
+  },
+  "JUNCTION|alarm|light|hold|high|F#FOLLOW_GROUP:,FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 5
+  },
+  "JUNCTION|alarm|light|hold|high|F#FOLLOW_GROUP:,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 2
+  },
+  "JUNCTION|alarm|light|hold|high|F#FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "JUNCTION|alarm|light|hold|high|F#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1,
+   "WAIT:": 1
+  },
+  "JUNCTION|alarm|light|hold|high|F#FOLLOW_SIGN:SIGNED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|hold|high|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 1,
+   "WAIT:": 3
+  },
+  "JUNCTION|alarm|light|hold|high|F#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "JUNCTION|alarm|light|hold|high|U": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "JUNCTION|alarm|light|hold|high|U#MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "JUNCTION|alarm|light|hold|low|F": {
+   "FOLLOW_GROUP:": 2,
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:NEAREST": 7
+  },
+  "JUNCTION|alarm|light|hold|low|F#FOLLOW_GROUP:,FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 2,
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|hold|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST,MOVE_TO:OTHER,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|hold|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|hold|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:NEAREST,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|hold|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:NEAREST,MOVE_TO:OTHER,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|hold|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|hold|low|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 2
+  },
+  "JUNCTION|alarm|light|hold|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|hold|low|U": {
+   "FOLLOW_SIGN:SIGNED": 1,
+   "MOVE_TO:NEAREST": 3,
+   "WAIT:": 4
+  },
+  "JUNCTION|alarm|light|hold|low|U#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 1,
+   "MOVE_TO:NEAREST": 1,
+   "WAIT:": 1
+  },
+  "JUNCTION|alarm|light|hold|low|U#FOLLOW_SIGN:SIGNED,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|hold|low|U#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 1,
+   "WAIT:": 2
+  },
+  "JUNCTION|alarm|light|hold|low|U#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST,WAIT:": {
+   "WAIT:": 1
+  },
+  "JUNCTION|alarm|light|lockdown|low|F": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "JUNCTION|alarm|light|lockdown|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "JUNCTION|alarm|light|none|high|F": {
+   "FOLLOW_GROUP:": 6,
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:NEAREST": 18,
+   "MOVE_TO:OTHER": 1
+  },
+  "JUNCTION|alarm|light|none|high|F#FOLLOW_GROUP:,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 4,
+   "MOVE_TO:FAMILIAR": 2
+  },
+  "JUNCTION|alarm|light|none|high|F#FOLLOW_GROUP:,MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST,MOVE_TO:OTHER,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|none|high|F#FOLLOW_GROUP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "JUNCTION|alarm|light|none|high|F#FOLLOW_GROUP:,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|none|high|F#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "JUNCTION|alarm|light|none|high|F#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST,MOVE_TO:OTHER,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|none|high|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 6
+  },
+  "JUNCTION|alarm|light|none|high|F#MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "JUNCTION|alarm|light|none|high|F#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 5,
+   "MOVE_TO:OTHER": 1
+  },
+  "JUNCTION|alarm|light|none|high|U": {
+   "MOVE_TO:NEAREST": 8
+  },
+  "JUNCTION|alarm|light|none|high|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|none|high|U#MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 7
+  },
+  "JUNCTION|alarm|light|none|low|F": {
+   "FOLLOW_GROUP:": 5,
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 25,
+   "MOVE_TO:OTHER": 3
+  },
+  "JUNCTION|alarm|light|none|low|F#FOLLOW_GROUP:,MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST+HAZARD,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "JUNCTION|alarm|light|none|low|F#FOLLOW_GROUP:,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 4,
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:NEAREST": 4
+  },
+  "JUNCTION|alarm|light|none|low|F#HELP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:OTHER": 1
+  },
+  "JUNCTION|alarm|light|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:LEAST_CROWDED": 1,
+   "MOVE_TO:NEAREST": 20,
+   "MOVE_TO:OTHER": 1
+  },
+  "JUNCTION|alarm|light|none|low|F#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1,
+   "MOVE_TO:OTHER": 1
+  },
+  "JUNCTION|alarm|light|none|low|U": {
+   "FOLLOW_GROUP:": 5,
+   "MOVE_TO:NEAREST": 8
+  },
+  "JUNCTION|alarm|light|none|low|U#FOLLOW_GROUP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:MAJORITY+HAZARD,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "JUNCTION|alarm|light|none|low|U#FOLLOW_GROUP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "JUNCTION|alarm|light|none|low|U#FOLLOW_GROUP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "JUNCTION|alarm|light|none|low|U#FOLLOW_GROUP:,MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "JUNCTION|alarm|light|none|low|U#FOLLOW_GROUP:,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "JUNCTION|alarm|light|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|none|low|U#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|light|none|low|U#MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 6
+  },
+  "JUNCTION|alarm|packed": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:NEAREST": 13,
+   "WAIT:": 1
+  },
+  "JUNCTION|alarm|packed|hold|high|F": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:NEAREST": 2
+  },
+  "JUNCTION|alarm|packed|hold|high|F#FOLLOW_GROUP:,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "FOLLOW_GROUP:": 1
+  },
+  "JUNCTION|alarm|packed|hold|high|F#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "JUNCTION|alarm|packed|hold|high|U": {
+   "MOVE_TO:NEAREST": 2,
+   "WAIT:": 1
+  },
+  "JUNCTION|alarm|packed|hold|high|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "WAIT:": 1
+  },
+  "JUNCTION|alarm|packed|hold|high|U#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "JUNCTION|alarm|packed|hold|low|F": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|packed|hold|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|packed|none|high|F": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "JUNCTION|alarm|packed|none|high|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "JUNCTION|alarm|packed|none|low|F": {
+   "MOVE_TO:NEAREST": 4
+  },
+  "JUNCTION|alarm|packed|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "JUNCTION|alarm|packed|none|low|F#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|packed|none|low|U": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|alarm|packed|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|none": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:NEAREST": 41,
+   "MOVE_TO:OTHER": 1,
+   "WAIT:": 10
+  },
+  "JUNCTION|none|busy": {
+   "MOVE_TO:NEAREST": 12,
+   "WAIT:": 3
+  },
+  "JUNCTION|none|busy|none|low|F": {
+   "MOVE_TO:NEAREST": 9,
+   "WAIT:": 3
+  },
+  "JUNCTION|none|busy|none|low|F#FOLLOW_GROUP:,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|none|busy|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 8,
+   "WAIT:": 3
+  },
+  "JUNCTION|none|busy|none|low|U": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "JUNCTION|none|busy|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "JUNCTION|none|light": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:NEAREST": 26,
+   "MOVE_TO:OTHER": 1,
+   "WAIT:": 7
+  },
+  "JUNCTION|none|light|none|high|F": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|none|light|none|high|F#GO_BACK:NEAREST,MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|none|light|none|low|F": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:FAMILIAR": 2,
+   "MOVE_TO:NEAREST": 20,
+   "WAIT:": 1
+  },
+  "JUNCTION|none|light|none|low|F#FOLLOW_GROUP:,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_GROUP:": 1,
+   "MOVE_TO:FAMILIAR": 1
+  },
+  "JUNCTION|none|light|none|low|F#GO_BACK:FAMILIAR,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|none|light|none|low|F#MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:FAMILIAR": 1,
+   "MOVE_TO:NEAREST": 5
+  },
+  "JUNCTION|none|light|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 13,
+   "WAIT:": 1
+  },
+  "JUNCTION|none|light|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|none|light|none|low|U": {
+   "MOVE_TO:NEAREST": 5,
+   "MOVE_TO:OTHER": 1,
+   "WAIT:": 6
+  },
+  "JUNCTION|none|light|none|low|U#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1,
+   "MOVE_TO:OTHER": 1,
+   "WAIT:": 5
+  },
+  "JUNCTION|none|light|none|low|U#MOVE_TO:MAJORITY,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|none|light|none|low|U#MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 1,
+   "WAIT:": 1
+  },
+  "JUNCTION|none|light|none|low|U#MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "JUNCTION|none|packed": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "JUNCTION|none|packed|none|low|F": {
+   "MOVE_TO:NEAREST": 3
+  },
+  "JUNCTION|none|packed|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,MOVE_TO:OTHER,WAIT:": {
+   "MOVE_TO:NEAREST": 2
+  },
+  "JUNCTION|none|packed|none|low|F#MOVE_TO:LEAST_CROWDED,MOVE_TO:NEAREST,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|smoke": {
+   "MOVE_TO:LEAST_CROWDED+HAZARD": 1,
+   "MOVE_TO:NEAREST": 2,
+   "MOVE_TO:NEAREST+HAZARD": 7
+  },
+  "JUNCTION|smoke|light": {
+   "MOVE_TO:LEAST_CROWDED+HAZARD": 1,
+   "MOVE_TO:NEAREST": 2,
+   "MOVE_TO:NEAREST+HAZARD": 7
+  },
+  "JUNCTION|smoke|light|hold|high|F": {
+   "MOVE_TO:NEAREST": 1,
+   "MOVE_TO:NEAREST+HAZARD": 4
+  },
+  "JUNCTION|smoke|light|hold|high|F#FOLLOW_SIGN:SIGNED,MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|smoke|light|hold|high|F#MOVE_TO:FAMILIAR+HAZARD,MOVE_TO:NEAREST+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST+HAZARD": 2
+  },
+  "JUNCTION|smoke|light|hold|high|F#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST+HAZARD": 2
+  },
+  "JUNCTION|smoke|light|hold|high|U": {
+   "MOVE_TO:NEAREST": 1,
+   "MOVE_TO:NEAREST+HAZARD": 2
+  },
+  "JUNCTION|smoke|light|hold|high|U#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST+HAZARD,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST+HAZARD": 1
+  },
+  "JUNCTION|smoke|light|hold|high|U#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST+HAZARD": 1
+  },
+  "JUNCTION|smoke|light|hold|high|U#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST": 1
+  },
+  "JUNCTION|smoke|light|hold|low|U": {
+   "MOVE_TO:LEAST_CROWDED+HAZARD": 1
+  },
+  "JUNCTION|smoke|light|hold|low|U#MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:MAJORITY+HAZARD,MOVE_TO:NEAREST+HAZARD,WAIT:": {
+   "MOVE_TO:LEAST_CROWDED+HAZARD": 1
+  },
+  "JUNCTION|smoke|light|none|high|U": {
+   "MOVE_TO:NEAREST+HAZARD": 1
+  },
+  "JUNCTION|smoke|light|none|high|U#FOLLOW_GROUP:,GO_BACK:OTHER+HAZARD,MOVE_TO:LEAST_CROWDED+HAZARD,MOVE_TO:NEAREST+HAZARD,MOVE_TO:OTHER+HAZARD,WAIT:": {
+   "MOVE_TO:NEAREST+HAZARD": 1
+  },
+  "SIGN_SEEN": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "SIGN_SEEN|alarm": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "SIGN_SEEN|alarm|light": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "SIGN_SEEN|alarm|light|route|low|F": {
+   "FOLLOW_SIGN:SIGNED": 1
+  },
+  "SIGN_SEEN|alarm|light|route|low|F#FOLLOW_SIGN:SIGNED,MOVE_TO:FAMILIAR,MOVE_TO:NEAREST,WAIT:": {
+   "FOLLOW_SIGN:SIGNED": 1
+  }
+ }
+}

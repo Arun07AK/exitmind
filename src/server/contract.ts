@@ -193,6 +193,7 @@ export interface RatingResult {
   layout: string;
   cells: RatingCell[];
   disclaimer: string;
+  criterion?: string;
 }
 export interface PlaybookEntry {
   id: string;

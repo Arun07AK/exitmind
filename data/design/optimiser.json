@@ -1,0 +1,109 @@
+{
+ "hazard": "fire",
+ "profile": "college",
+ "budget": 60,
+ "spent": 18,
+ "costTable": "config/optimiser.costs.json (illustrative units, not estimates)",
+ "steps": [
+  {
+   "edit": {
+    "kind": "strategy",
+    "target": "building",
+    "protocol": "PHASED_EVACUATION"
+   },
+   "label": "strategy: PHASED_EVACUATION",
+   "cost": 1,
+   "feasible": true,
+   "worstBefore": 110000.5,
+   "worstAfter": 62987.1,
+   "accepted": true,
+   "tradeoffs": [
+    "cost 1 units (illustrative)",
+    "47013.4 ± 14220.0 badness improvement on the archived worst cases",
+    "changes the response plan, not the building; needs staff training and announcements",
+    "new adversary worst case on the edited layout: badness 95415.4"
+   ]
+  },
+  {
+   "edit": {
+    "kind": "widen_exit",
+    "target": "EX-S",
+    "amount": 6
+   },
+   "label": "widen exit EX-S by 6 in",
+   "cost": 5,
+   "feasible": true,
+   "worstBefore": 71852.9,
+   "worstAfter": 42553.8,
+   "accepted": true,
+   "tradeoffs": [
+    "cost 5 units (illustrative)",
+    "29299.2 ± 16713.6 badness improvement on the archived worst cases",
+    "new adversary worst case on the edited layout: badness 49555.4"
+   ]
+  },
+  {
+   "edit": {
+    "kind": "refuge",
+    "target": "ST-B@F2"
+   },
+   "label": "area of refuge at ST-B@F2",
+   "cost": 6,
+   "feasible": true,
+   "worstBefore": 42553.8,
+   "worstAfter": 42537.2,
+   "accepted": true,
+   "tradeoffs": [
+    "cost 6 units (illustrative)",
+    "16.6 ± 6.3 badness improvement on the archived worst cases",
+    "new adversary worst case on the edited layout: badness 51158.9"
+   ]
+  },
+  {
+   "edit": {
+    "kind": "refuge",
+    "target": "ST-A@F3"
+   },
+   "label": "area of refuge at ST-A@F3",
+   "cost": 6,
+   "feasible": true,
+   "worstBefore": 42537.2,
+   "worstAfter": 42532.5,
+   "accepted": true,
+   "tradeoffs": [
+    "cost 6 units (illustrative)",
+    "4.7 ± 3.4 badness improvement on the archived worst cases",
+    "new adversary worst case on the edited layout: badness 49567.2"
+   ]
+  }
+ ],
+ "original": {
+  "clearance95Sec": 796,
+  "remainingAtTarget": 91,
+  "densityDangerPS": 13499.1,
+  "smokeExposurePS": 40852.7,
+  "gridlock": false,
+  "badness": 90160.8,
+  "ref": "original layout: worst of the fresh attack pool (top 3 scenarios from attacks on both layouts), 8 fresh seeds"
+ },
+ "optimised": {
+  "clearance95Sec": 373.2,
+  "remainingAtTarget": 35.6,
+  "densityDangerPS": 1215.4,
+  "smokeExposurePS": 27553,
+  "gridlock": false,
+  "badness": 56443.2,
+  "ref": "optimised layout: worst of the same attack pool, same 8 fresh seeds"
+ },
+ "seeds": [
+  88000,
+  88001,
+  88002,
+  88003,
+  88004,
+  88005,
+  88006,
+  88007
+ ],
+ "codeLimitsOk": true
+}

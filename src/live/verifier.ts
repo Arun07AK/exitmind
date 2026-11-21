@@ -5,6 +5,7 @@ import type { HazardSpec, ProfileId, Protocol, RoutePolicy, Scenario } from "../
 import type { RuntimeConfig } from "../shared/runtime.ts";
 import type { Estimate, Outcome } from "../server/contract.ts";
 import { stopwatch } from "../log/clock.ts";
+import { targetSec } from "../sim/run.ts";
 import { damagedFromEstimate } from "./sentinel.ts";
 
 export const WORST_CASE_BEHAVIOUR = (profile: ProfileId): Record<string, number> => ({
@@ -89,9 +90,14 @@ export async function verify(ev: Evaluator, inp: VerifyInput, ref: string): Prom
   if (predicted.gridlock) reasons.push(`gridlock in ${plan.filter((r) => r.metrics.gridlock).length} of ${plan.length} roll-forwards: people remain and no exit passes anyone for 60 s`);
   if (worstCase.gridlock) reasons.push("gridlock in the adversarial worst case");
   const remainingPlan = predicted.remainingAtTarget;
-  if (!holdProtocol && remainingPlan > 0) reasons.push(`${remainingPlan} people (mean of 3 seeds) not yet out at the ${inp.runtime.design.clearanceTargetSec} s clearance target`);
-  if (predicted.badness > doNothing.badness * 1.05 + 1) reasons.push(`worse than doing nothing (badness ${predicted.badness} vs ${doNothing.badness})`);
-  const verdict = predicted.gridlock || worstCase.gridlock || predicted.badness > doNothing.badness * 1.05 + 1 ? "FAIL" : "PASS";
+  if (!holdProtocol && remainingPlan > 0) reasons.push(`${remainingPlan} people (mean of 3 seeds) not yet out at the ${targetSec(inp.runtime, hazard.kind)} s clearance target (${hazard.kind})`);
+  const diffs = plan.map((r, i) => r.badness - nothing[i]!.badness);
+  const meanDiff = diffs.reduce((a, b) => a + b, 0) / diffs.length;
+  const se = Math.sqrt(diffs.reduce((a, d) => a + (d - meanDiff) ** 2, 0) / Math.max(1, diffs.length - 1) / diffs.length);
+  const worse = meanDiff > doNothing.badness * 0.05 + 1 && meanDiff > 2 * se;
+  if (worse) reasons.push(`worse than doing nothing (badness ${predicted.badness} vs ${doNothing.badness}; paired difference ${meanDiff.toFixed(1)} ± ${(2 * se).toFixed(1)} over ${diffs.length} seeds)`);
+  else if (meanDiff > 0) reasons.push(`not clearly better than doing nothing (badness ${predicted.badness} vs ${doNothing.badness}; the difference is within seed-to-seed noise)`);
+  const verdict = predicted.gridlock || worstCase.gridlock || worse ? "FAIL" : "PASS";
   if (verdict === "PASS") reasons.unshift(`no gridlock in ${plan.length + worst.length} roll-forwards; badness ${predicted.badness} vs do-nothing ${doNothing.badness}`);
   return { verdict, predicted, worstCase, doNothing, reasons, runs: res.length, ms: elapsedMs(), worstScenario: worstTasks[worstIdx]!.scenario };
 }

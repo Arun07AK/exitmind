@@ -69,8 +69,13 @@ export interface DecisionPolicy {
   decide(ctx: DecisionContext, rng: import("../shared/rng.ts").Rng): Decision | Promise<Decision>;
 }
 
+const PRIMARY: readonly RoleTag[] = ["SIGNED", "NEAREST", "FAMILIAR", "MAJORITY", "LEAST_CROWDED"];
+
+/** Coarse, reusable description of an option: its action, its most salient role, and whether the hazard is on the way. */
 export function signature(o: Pick<DecisionOption, "action" | "roles">): string {
-  return `${o.action}:${[...o.roles].sort().join("+")}`;
+  if (o.action !== "MOVE_TO" && o.action !== "GO_BACK" && o.action !== "FOLLOW_SIGN") return `${o.action}:`;
+  const primary = PRIMARY.find((r) => o.roles.includes(r)) ?? "OTHER";
+  return `${o.action}:${primary}${o.roles.includes("HAZARD_ON_ROUTE") ? "+HAZARD" : ""}`;
 }
 
 export function situationKey(point: DecisionPoint, p: Persona, s: Situation): string {

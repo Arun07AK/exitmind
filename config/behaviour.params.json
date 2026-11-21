@@ -1,4 +1,16 @@
 {
+  "announce.premoveFactor": {
+    "value": 0.5,
+    "min": 0.3,
+    "max": 1.0,
+    "unit": "ratio",
+    "cite": [
+      "purser2001",
+      "assumption"
+    ],
+    "locator": "pre-movement time remaining after a clear voice announcement, relative to the alarm-only time (voice messages shorten pre-movement; the size of the effect is a modelling assumption)",
+    "verified": false
+  },
   "announce.reachShare": {
     "value": 0.7,
     "min": 0.3,
@@ -8,6 +20,17 @@
       "assumption"
     ],
     "locator": "share of a zone that registers a public-address announcement",
+    "verified": false
+  },
+  "assist.elevatorTripSec": {
+    "value": 90,
+    "min": 45,
+    "max": 240,
+    "unit": "s",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "time per assisted elevator trip for one person waiting at a stair (the A107 code summary lists one elevator as the accessible means of egress in this sprinklered building); not used after an earthquake",
     "verified": false
   },
   "assist.evacChair.stairSpeed": {
@@ -80,14 +103,14 @@
     "verified": false
   },
   "crush.recoverDensity": {
-    "value": 3.5,
+    "value": 4.5,
     "min": 2.5,
     "max": 4.5,
     "unit": "persons/m2",
     "cite": [
       "assumption"
     ],
-    "locator": "density below which collapsed cells recover",
+    "locator": "mean density across a doorway below which collapsed flow recovers; set at the top of its range because calm queues in the model sit at 3.8-4.5 p/m2, so a lower value could never be reached while any queue remained (collapse onset still uses the peak density, crush.density)",
     "verified": false
   },
   "crush.sustainSec": {

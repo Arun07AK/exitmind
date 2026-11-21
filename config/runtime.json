@@ -11,7 +11,7 @@
     "thinkingTicksMax": 12
   },
   "persona": {
-    "deadlineMs": 2500,
+    "deadlineMs": 6000,
     "jevTimeoutMs": 2000
   },
   "gate": {
@@ -21,7 +21,7 @@
     "windowSec": 60
   },
   "design": {
-    "clearanceTargetSec": 360,
+    "clearanceTargetSec": 600,
     "capSec": 900,
     "badness": {
       "w1": 0.5,
@@ -37,7 +37,15 @@
     "rating": {
       "scenarios": 24
     },
-    "workers": 8
+    "workers": 8,
+    "targets": {
+      "none": 600,
+      "fire": 600,
+      "crush": 600,
+      "quake": 720,
+      "threat": 300,
+      "medical": 600
+    }
   },
   "live": {
     "sensorHz": 1,

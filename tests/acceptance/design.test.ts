@@ -33,7 +33,7 @@ describe("design mode mechanics on the mini test building (Rinker results are pr
   }, 240_000);
 
   it("the optimiser improves the worst case within budget and code limits", async () => {
-    const r = await optimise(env, pool, { hazard: "quake", profile: "college", seed: 5, adversaryBudget: { population: 6, generations: 2, seeds: 1 }, archiveSize: 2 });
+    const r = await optimise(env, pool, { hazard: "fire", profile: "college", seed: 5, adversaryBudget: { population: 6, generations: 2, seeds: 1 }, archiveSize: 2 });
     console.log(`optimiser: ${r.steps.map((s) => s.label).join("; ")} | original ${r.original.badness} -> optimised ${r.optimised.badness}, spent ${r.spent}/${r.budget}`);
     expect(r.spent).toBeLessThanOrEqual(r.budget);
     expect(r.codeLimitsOk).toBe(true);

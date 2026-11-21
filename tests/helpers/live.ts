@@ -9,7 +9,7 @@ export const MINI_CFG: DemoConfig = { profile: "college", occupancy: "uniform", 
 const env = loadEnv(miniBuilding());
 
 export function miniSession(o: { claude?: ClaudeLike; approvalWindowSec?: number; failMode?: "block_with_override" | "warn" } = {}): LiveSession {
-  return new LiveSession({ simEnv: env, evaluator: new InlineEvaluator(env), claude: o.claude ?? new StubClaude("down"), cfg: MINI_CFG, sessionId: "T1", wallClock: () => "2026-01-01T00:00:00.000Z", ...(o.approvalWindowSec ? { approvalWindowSec: o.approvalWindowSec } : {}), ...(o.failMode ? { failMode: o.failMode } : {}) });
+  return new LiveSession({ simEnv: env, evaluator: new InlineEvaluator(env), claude: o.claude ?? new StubClaude("down"), cfg: MINI_CFG, sessionId: "T1", playbook: [], distilled: null, wallClock: () => "2026-01-01T00:00:00.000Z", ...(o.approvalWindowSec ? { approvalWindowSec: o.approvalWindowSec } : {}), ...(o.failMode ? { failMode: o.failMode } : {}) });
 }
 
 export async function stepUntil(s: LiveSession, pred: () => boolean, maxTicks = 4000): Promise<boolean> {

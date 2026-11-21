@@ -45,7 +45,7 @@ export class HaikuPersona implements DecisionPolicy {
 
   decide(ctx: DecisionContext, rng: Rng): Promise<Decision> {
     const opts = shuffledOptions(ctx, rng);
-    const ids = opts.map((o) => o.id);
+    const ids = opts.map((o) => o.id).sort();
     const schema = {
       type: "object",
       properties: { optionId: { type: "string", enum: ids }, reason: { type: "string" } },
@@ -57,7 +57,7 @@ export class HaikuPersona implements DecisionPolicy {
     this.calls++;
     return this.#sem.run(() => this.#claude.json({
       role: "persona", model: this.#model, system: SYSTEM, user, schema,
-      parse: z.object({ optionId: z.string(), reason: z.string() }), maxTokens: 120, timeoutMs: this.#timeoutMs,
+      parse: z.object({ optionId: z.string(), reason: z.string() }), maxTokens: 500, timeoutMs: this.#timeoutMs, effort: "low",
     })).then((r) => ({ optionId: r.optionId, source: "llm:haiku" as const, latencyMs: elapsed(), note: r.reason.slice(0, 160) }));
   }
 }
