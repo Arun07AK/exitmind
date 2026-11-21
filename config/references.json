@@ -1,0 +1,214 @@
+{
+  "weidmann1993": {
+    "authors": "Weidmann, U.",
+    "year": 1993,
+    "title": "Transporttechnik der Fussgänger (Schriftenreihe des IVT Nr. 90)",
+    "venue": "ETH Zürich, Institut für Verkehrsplanung, Transporttechnik, Strassen- und Eisenbahnbau",
+    "doi": null,
+    "openalex": "W2795190887",
+    "note": "OpenAlex lists 1992 (first edition); the second edition is 1993."
+  },
+  "sfpe2016": {
+    "authors": "Gwynne, S. M. V.; Rosenbaum, E. R.",
+    "year": 2016,
+    "title": "Employing the Hydraulic Model in Assessing Emergency Movement",
+    "venue": "SFPE Handbook of Fire Protection Engineering, 5th ed. (Springer)",
+    "doi": "10.1007/978-1-4939-2565-0_59",
+    "openalex": "W2462620863",
+    "note": "OpenAlex match 'likely' (p = 0.75); OpenAlex lists 2015."
+  },
+  "helbing1995": {
+    "authors": "Helbing, D.; Molnár, P.",
+    "year": 1995,
+    "title": "Social force model for pedestrian dynamics",
+    "venue": "Physical Review E",
+    "doi": "10.1103/physreve.51.4282",
+    "openalex": "W2167052694"
+  },
+  "helbing2000": {
+    "authors": "Helbing, D.; Farkas, I.; Vicsek, T.",
+    "year": 2000,
+    "title": "Simulating dynamical features of escape panic",
+    "venue": "Nature",
+    "doi": "10.1038/35035023",
+    "openalex": "W1888172398"
+  },
+  "helbing2007": {
+    "authors": "Helbing, D.; Johansson, A.; Al-Abideen, H. Z.",
+    "year": 2007,
+    "title": "Dynamics of crowd disasters: An empirical study",
+    "venue": "Physical Review E",
+    "doi": "10.1103/physreve.75.046109",
+    "openalex": "W2003152501"
+  },
+  "seyfried2005": {
+    "authors": "Seyfried, A.; Steffen, B.; Klingsch, W.; Boltes, M.",
+    "year": 2005,
+    "title": "The fundamental diagram of pedestrian movement revisited",
+    "venue": "Journal of Statistical Mechanics: Theory and Experiment",
+    "doi": "10.1088/1742-5468/2005/10/p10002",
+    "openalex": "W2154573618"
+  },
+  "seyfried2009": {
+    "authors": "Seyfried, A.; Passon, O.; Steffen, B.; Boltes, M.; Rupprecht, T.; Klingsch, W.",
+    "year": 2009,
+    "title": "New Insights into Pedestrian Flow Through Bottlenecks",
+    "venue": "Transportation Science",
+    "doi": "10.1287/trsc.1090.0263",
+    "openalex": "W2047908296"
+  },
+  "kretz2006": {
+    "authors": "Kretz, T.; Grünebohm, A.; Schreckenberg, M.",
+    "year": 2006,
+    "title": "Experimental study of pedestrian flow through a bottleneck",
+    "venue": "Journal of Statistical Mechanics: Theory and Experiment",
+    "doi": "10.1088/1742-5468/2006/10/p10014",
+    "openalex": "W1984606118"
+  },
+  "boyce1999a": {
+    "authors": "Boyce, K. E.; Shields, T. J.; Silcock, G. W. H.",
+    "year": 1999,
+    "title": "Toward the Characterization of Building Occupancies for Fire Safety Engineering: Capabilities of Disabled People Moving Horizontally and on an Incline",
+    "venue": "Fire Technology",
+    "doi": "10.1023/a:1015339216366",
+    "openalex": "W2285579354"
+  },
+  "boyce1999b": {
+    "authors": "Boyce, K. E.; Shields, T. J.; Silcock, G. W. H.",
+    "year": 1999,
+    "title": "Toward the Characterization of Building Occupancies for Fire Safety Engineering: Capability of Disabled People to Negotiate Doors",
+    "venue": "Fire Technology",
+    "doi": "10.1023/a:1015391217275",
+    "openalex": "W1553176154"
+  },
+  "kuligowski2013": {
+    "authors": "Kuligowski, E. D.; Peacock, R. D.; Wiess, E.; Hoskins, B. L.",
+    "year": 2013,
+    "title": "Stair evacuation of older adults and people with mobility impairments",
+    "venue": "Fire Safety Journal",
+    "doi": "10.1016/j.firesaf.2013.09.027",
+    "openalex": "W2003292261"
+  },
+  "hunt2013": {
+    "authors": "Hunt, A. L. E.; Galea, E. R.; Lawrence, P. J.",
+    "year": 2013,
+    "title": "An analysis and numerical simulation of the performance of trained hospital staff using movement assist devices to evacuate people with reduced mobility",
+    "venue": "Fire and Materials",
+    "doi": "10.1002/fam.2215",
+    "openalex": "W2166312836"
+  },
+  "larusdottir2010": {
+    "authors": "Larusdottir, A. R.; Dederichs, A. S.",
+    "year": 2010,
+    "title": "Evacuation of Children: Movement on Stairs and on Horizontal Plane",
+    "venue": "Fire Technology",
+    "doi": "10.1007/s10694-010-0177-6",
+    "openalex": "W2017443920"
+  },
+  "sime1985": {
+    "authors": "Sime, J. D.",
+    "year": 1985,
+    "title": "Movement toward the Familiar: Person and Place Affiliation in a Fire Entrapment Setting",
+    "venue": "Environment and Behavior",
+    "doi": "10.1177/0013916585176003",
+    "openalex": "W2072187108"
+  },
+  "kinateder2018": {
+    "authors": "Kinateder, M. T.; Comunale, B.; Warren, W. H.",
+    "year": 2018,
+    "title": "Exit choice in an emergency evacuation scenario is influenced by exit familiarity and neighbor behavior",
+    "venue": "Safety Science",
+    "doi": "10.1016/j.ssci.2018.03.015",
+    "openalex": "W2791143113"
+  },
+  "haghani2019": {
+    "authors": "Haghani, M.; Sarvi, M.",
+    "year": 2019,
+    "title": "'Herding' in direction choice-making during collective escape of crowds: How likely is it and what moderates it?",
+    "venue": "Safety Science",
+    "doi": "10.1016/j.ssci.2019.02.034",
+    "openalex": "W2920719291"
+  },
+  "moussaid2010": {
+    "authors": "Moussaïd, M.; Perozo, N.; Garnier, S.; Helbing, D.; Theraulaz, G.",
+    "year": 2010,
+    "title": "The Walking Behaviour of Pedestrian Social Groups and Its Impact on Crowd Dynamics",
+    "venue": "PLoS ONE",
+    "doi": "10.1371/journal.pone.0010047",
+    "openalex": "W2089584121"
+  },
+  "purser2001": {
+    "authors": "Purser, D. A.; Bensilum, M.",
+    "year": 2001,
+    "title": "Quantification of behaviour for engineering design standards and escape time calculations",
+    "venue": "Safety Science",
+    "doi": "10.1016/s0925-7535(00)00066-7",
+    "openalex": "W2011577169"
+  },
+  "lovreglio2019": {
+    "authors": "Lovreglio, R.; Kuligowski, E. D.; Gwynne, S.; Boyce, K. E.",
+    "year": 2019,
+    "title": "A pre-evacuation database for use in egress simulations",
+    "venue": "Fire Safety Journal",
+    "doi": "10.1016/j.firesaf.2018.12.009",
+    "openalex": "W2910492112"
+  },
+  "xie2011": {
+    "authors": "Xie, H.; Filippidis, L.; Galea, E. R.; Blackshields, D.; Lawrence, P. J.",
+    "year": 2011,
+    "title": "Experimental analysis of the effectiveness of emergency signage and its implementation in evacuation simulation",
+    "venue": "Fire and Materials",
+    "doi": "10.1002/fam.1095",
+    "openalex": "W1556811402"
+  },
+  "galea2014": {
+    "authors": "Galea, E. R.; Xie, H.; Lawrence, P. J.",
+    "year": 2014,
+    "title": "Experimental and Survey Studies on the Effectiveness of Dynamic Signage Systems",
+    "venue": "Fire Safety Science",
+    "doi": "10.3801/iafss.fss.11-1129",
+    "openalex": "W1694230887"
+  },
+  "fridolf2013": {
+    "authors": "Fridolf, K.; Ronchi, E.; Nilsson, D.; Frantzich, H.",
+    "year": 2013,
+    "title": "Movement speed and exit choice in smoke-filled rail tunnels",
+    "venue": "Fire Safety Journal",
+    "doi": "10.1016/j.firesaf.2013.03.007",
+    "openalex": "W2076178095"
+  },
+  "jin1978": {
+    "authors": "Jin, T.",
+    "year": 1978,
+    "title": "Visibility through fire smoke",
+    "venue": "Journal of Fire and Flammability",
+    "doi": null,
+    "openalex": "W2224338880"
+  },
+  "bernardini2016": {
+    "authors": "Bernardini, G.; Quagliarini, E.; D'Orazio, M.",
+    "year": 2016,
+    "title": "Towards creating a combined database for earthquake pedestrians' evacuation models",
+    "venue": "Safety Science",
+    "doi": "10.1016/j.ssci.2015.09.001",
+    "openalex": "W1815798410",
+    "note": "OpenAlex lists 2015 (online first)."
+  },
+  "park2023": {
+    "authors": "Park, J. S.; O'Brien, J.; Cai, C. J.; Morris, M. R.; Liang, P.; Bernstein, M. S.",
+    "year": 2023,
+    "title": "Generative Agents: Interactive Simulacra of Human Behavior",
+    "venue": "ACM Symposium on User Interface Software and Technology (UIST)",
+    "doi": "10.1145/3586183.3606763",
+    "openalex": "W4387835442"
+  },
+  "assumption": {
+    "authors": "EXITMIND",
+    "year": 2026,
+    "title": "EXITMIND modelling assumption: range chosen by the modellers, not taken from an empirical source",
+    "venue": "this repository",
+    "doi": null,
+    "openalex": null,
+    "note": "Parameters citing this key are listed as assumptions in the README and marked in the UI."
+  }
+}

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+runs/
+data/sheets/
+docs/verification/overlays/
+test-results/
+playwright-report/
+.env
+.DS_Store
+*.log

@@ -1,0 +1,7 @@
+{
+  "sim": { "dtSec": 0.25, "cellM": 0.4, "checkpointEveryTicks": 40 },
+  "showcase": { "livePersonas": 12, "maxInFlight": 8, "thinkingTicksMin": 4, "thinkingTicksMax": 12 },
+  "persona": { "deadlineMs": 2500, "jevTimeoutMs": 2000 },
+  "gate": { "failMode": "block_with_override" },
+  "approval": { "windowSec": 60 }
+}

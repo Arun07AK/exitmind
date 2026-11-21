@@ -1,0 +1,685 @@
+{
+  "announce.reachShare": {
+    "value": 0.7,
+    "min": 0.3,
+    "max": 1.0,
+    "unit": "share",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "share of a zone that registers a public-address announcement",
+    "verified": false
+  },
+  "assist.evacChair.stairSpeed": {
+    "value": 0.6,
+    "min": 0.3,
+    "max": 0.9,
+    "unit": "m/s",
+    "cite": [
+      "hunt2013"
+    ],
+    "locator": "stair descent speed with an evacuation chair",
+    "verified": false
+  },
+  "assist.horizontalSpeed": {
+    "value": 0.9,
+    "min": 0.5,
+    "max": 1.3,
+    "unit": "m/s",
+    "cite": [
+      "hunt2013"
+    ],
+    "locator": "horizontal speed of staff moving a patient with an assist device",
+    "verified": false
+  },
+  "blocked.timeoutSec": {
+    "value": 8,
+    "min": 3,
+    "max": 20,
+    "unit": "s",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "no progress for this long raises a BLOCKED decision",
+    "verified": false
+  },
+  "crush.collapseFactor": {
+    "value": 0.2,
+    "min": 0.0,
+    "max": 0.5,
+    "unit": "ratio",
+    "cite": [
+      "helbing2000",
+      "assumption"
+    ],
+    "locator": "capacity multiplier while collapsed (qualitative: faster-is-slower clogging)",
+    "verified": false
+  },
+  "crush.density": {
+    "value": 5.0,
+    "min": 4.0,
+    "max": 6.0,
+    "unit": "persons/m2",
+    "cite": [
+      "helbing2007",
+      "assumption"
+    ],
+    "locator": "onset density for flow collapse in the model",
+    "verified": false
+  },
+  "crush.recoverDensity": {
+    "value": 3.5,
+    "min": 2.5,
+    "max": 4.5,
+    "unit": "persons/m2",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "density below which collapsed cells recover",
+    "verified": false
+  },
+  "crush.sustainSec": {
+    "value": 10,
+    "min": 5,
+    "max": 30,
+    "unit": "s",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "time above crush.density before collapse",
+    "verified": false
+  },
+  "density.calmTolerance": {
+    "value": 3.8,
+    "min": 3.0,
+    "max": 4.0,
+    "unit": "persons/m2",
+    "cite": [
+      "sfpe2016"
+    ],
+    "locator": "density at which movement stops in the hydraulic model",
+    "verified": false
+  },
+  "density.danger": {
+    "value": 4.0,
+    "min": 3.5,
+    "max": 5.0,
+    "unit": "persons/m2",
+    "cite": [
+      "helbing2007",
+      "assumption"
+    ],
+    "locator": "exposure threshold for dangerous density; add Fruin or Still as a direct source",
+    "verified": false
+  },
+  "density.pushTolerance": {
+    "value": 6.25,
+    "min": 5.0,
+    "max": 6.25,
+    "unit": "persons/m2",
+    "cite": [
+      "helbing2007"
+    ],
+    "locator": "densities above 6 persons/m2 reported in crowd disasters; 6.25 is also the grid limit of one agent per 0.4 m cell",
+    "verified": false
+  },
+  "familiarity.atriumEntryShare": {
+    "value": 0.5,
+    "min": 0.2,
+    "max": 0.8,
+    "unit": "share",
+    "cite": [
+      "sime1985",
+      "assumption"
+    ],
+    "locator": "share of unfamiliar upper-floor occupants who arrived by the open atrium stair",
+    "verified": false
+  },
+  "familiarity.betaSec": {
+    "value": 20,
+    "min": 0,
+    "max": 60,
+    "unit": "s (utility)",
+    "cite": [
+      "sime1985",
+      "kinateder2018"
+    ],
+    "locator": "preference for the familiar exit, as equivalent extra walking time",
+    "verified": false
+  },
+  "flow.a": {
+    "value": 0.266,
+    "min": 0.266,
+    "max": 0.266,
+    "unit": "m2/person",
+    "cite": [
+      "sfpe2016"
+    ],
+    "locator": "constant a in S = k(1 - aD), D in persons/m2",
+    "verified": false
+  },
+  "flow.boundary.corridor": {
+    "value": 0.2,
+    "min": 0.2,
+    "max": 0.2,
+    "unit": "m",
+    "cite": [
+      "sfpe2016"
+    ],
+    "locator": "boundary layer, corridor and ramp walls",
+    "verified": false
+  },
+  "flow.boundary.door": {
+    "value": 0.15,
+    "min": 0.15,
+    "max": 0.15,
+    "unit": "m",
+    "cite": [
+      "sfpe2016"
+    ],
+    "locator": "boundary layer, doors and archways",
+    "verified": false
+  },
+  "flow.boundary.stair": {
+    "value": 0.15,
+    "min": 0.15,
+    "max": 0.15,
+    "unit": "m",
+    "cite": [
+      "sfpe2016"
+    ],
+    "locator": "boundary layer, stairway walls",
+    "verified": false
+  },
+  "flow.corridor.FsMax": {
+    "value": 1.3,
+    "min": 1.0,
+    "max": 1.9,
+    "unit": "persons/s/m",
+    "cite": [
+      "sfpe2016"
+    ],
+    "locator": "maximum specific flow, corridors, aisles, ramps",
+    "verified": false
+  },
+  "flow.door.FsMax": {
+    "value": 1.3,
+    "min": 1.0,
+    "max": 1.9,
+    "unit": "persons/s/m",
+    "cite": [
+      "sfpe2016"
+    ],
+    "locator": "maximum specific flow, doorways (upper bound from seyfried2009 bottleneck data)",
+    "verified": false
+  },
+  "flow.freeDensityMax": {
+    "value": 0.54,
+    "min": 0.54,
+    "max": 0.54,
+    "unit": "persons/m2",
+    "cite": [
+      "sfpe2016"
+    ],
+    "locator": "density below which speed is independent of density",
+    "verified": false
+  },
+  "flow.stair.FsMax": {
+    "value": 1.01,
+    "min": 0.94,
+    "max": 1.16,
+    "unit": "persons/s/m",
+    "cite": [
+      "sfpe2016"
+    ],
+    "locator": "maximum specific flow, stair 7 in riser / 11 in tread (table row range 0.94-1.16)",
+    "verified": false
+  },
+  "flow.stair.k": {
+    "value": 1.08,
+    "min": 1.0,
+    "max": 1.23,
+    "unit": "m/s",
+    "cite": [
+      "sfpe2016"
+    ],
+    "locator": "speed constant k, stair 7 in riser / 11 in tread (table row range 1.00-1.23)",
+    "verified": false
+  },
+  "group.fraction": {
+    "value": 0.4,
+    "min": 0.1,
+    "max": 0.7,
+    "unit": "share",
+    "cite": [
+      "moussaid2010"
+    ],
+    "locator": "share of occupants walking in social groups",
+    "verified": false
+  },
+  "group.separationDistM": {
+    "value": 5,
+    "min": 2,
+    "max": 10,
+    "unit": "m",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "distance at which a group member counts as missing",
+    "verified": false
+  },
+  "herding.betaSec": {
+    "value": 15,
+    "min": 0,
+    "max": 40,
+    "unit": "s (utility)",
+    "cite": [
+      "haghani2019",
+      "helbing2000"
+    ],
+    "locator": "pull toward the option most visible neighbours take, as equivalent time",
+    "verified": false
+  },
+  "mobility.door.delaySec": {
+    "value": 3,
+    "min": 0,
+    "max": 10,
+    "unit": "s",
+    "cite": [
+      "boyce1999b"
+    ],
+    "locator": "extra time for impaired occupants to negotiate a door",
+    "verified": false
+  },
+  "mobility.speedFactor.crutches": {
+    "value": 0.75,
+    "min": 0.5,
+    "max": 0.85,
+    "unit": "ratio",
+    "cite": [
+      "boyce1999a"
+    ],
+    "locator": "horizontal speed with crutches relative to unimpaired",
+    "verified": false
+  },
+  "mobility.speedFactor.slow": {
+    "value": 0.65,
+    "min": 0.45,
+    "max": 0.8,
+    "unit": "ratio",
+    "cite": [
+      "boyce1999a",
+      "kuligowski2013"
+    ],
+    "locator": "horizontal speed, mobility impaired without aid, relative to unimpaired",
+    "verified": false
+  },
+  "mobility.speedFactor.wheelchair": {
+    "value": 0.56,
+    "min": 0.45,
+    "max": 0.75,
+    "unit": "ratio",
+    "cite": [
+      "boyce1999a"
+    ],
+    "locator": "horizontal speed, manual wheelchair, relative to unimpaired",
+    "verified": false
+  },
+  "premove.medianSec.college": {
+    "value": 45,
+    "min": 10,
+    "max": 180,
+    "unit": "s",
+    "cite": [
+      "lovreglio2019",
+      "purser2001"
+    ],
+    "locator": "median pre-movement time, college-like occupancy",
+    "verified": false
+  },
+  "premove.medianSec.hospital": {
+    "value": 90,
+    "min": 30,
+    "max": 600,
+    "unit": "s",
+    "cite": [
+      "lovreglio2019",
+      "purser2001"
+    ],
+    "locator": "median pre-movement time, hospital-like occupancy",
+    "verified": false
+  },
+  "premove.medianSec.mall": {
+    "value": 60,
+    "min": 15,
+    "max": 300,
+    "unit": "s",
+    "cite": [
+      "lovreglio2019",
+      "purser2001"
+    ],
+    "locator": "median pre-movement time, mall-like occupancy",
+    "verified": false
+  },
+  "premove.medianSec.school": {
+    "value": 30,
+    "min": 10,
+    "max": 120,
+    "unit": "s",
+    "cite": [
+      "lovreglio2019",
+      "purser2001"
+    ],
+    "locator": "median pre-movement time, school-like occupancy",
+    "verified": false
+  },
+  "premove.sigma.college": {
+    "value": 0.6,
+    "min": 0.3,
+    "max": 1.2,
+    "unit": "log-s",
+    "cite": [
+      "lovreglio2019",
+      "purser2001"
+    ],
+    "locator": "lognormal shape of pre-movement time, college-like occupancy",
+    "verified": false
+  },
+  "premove.sigma.hospital": {
+    "value": 0.6,
+    "min": 0.3,
+    "max": 1.2,
+    "unit": "log-s",
+    "cite": [
+      "lovreglio2019",
+      "purser2001"
+    ],
+    "locator": "lognormal shape of pre-movement time, hospital-like occupancy",
+    "verified": false
+  },
+  "premove.sigma.mall": {
+    "value": 0.6,
+    "min": 0.3,
+    "max": 1.2,
+    "unit": "log-s",
+    "cite": [
+      "lovreglio2019",
+      "purser2001"
+    ],
+    "locator": "lognormal shape of pre-movement time, mall-like occupancy",
+    "verified": false
+  },
+  "premove.sigma.school": {
+    "value": 0.6,
+    "min": 0.3,
+    "max": 1.2,
+    "unit": "log-s",
+    "cite": [
+      "lovreglio2019",
+      "purser2001"
+    ],
+    "locator": "lognormal shape of pre-movement time, school-like occupancy",
+    "verified": false
+  },
+  "quake.earlyLeaverShare": {
+    "value": 0.1,
+    "min": 0.0,
+    "max": 0.3,
+    "unit": "share",
+    "cite": [
+      "bernardini2016"
+    ],
+    "locator": "share who start moving before shaking stops",
+    "verified": false
+  },
+  "quake.postShakeDelaySec": {
+    "value": 20,
+    "min": 5,
+    "max": 90,
+    "unit": "s",
+    "cite": [
+      "bernardini2016"
+    ],
+    "locator": "delay before moving once shaking stops",
+    "verified": false
+  },
+  "route.hazardBetaSec": {
+    "value": 60,
+    "min": 0,
+    "max": 180,
+    "unit": "s (utility)",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "penalty for an option with a hazard on the route",
+    "verified": false
+  },
+  "route.noiseSec": {
+    "value": 5,
+    "min": 0,
+    "max": 20,
+    "unit": "s",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "route-choice noise scale (Gumbel) when calm",
+    "verified": false
+  },
+  "route.noiseStressGain": {
+    "value": 3,
+    "min": 1,
+    "max": 6,
+    "unit": "ratio",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "noise multiplier at full stress",
+    "verified": false
+  },
+  "route.queueBeta": {
+    "value": 1.0,
+    "min": 0.5,
+    "max": 2.0,
+    "unit": "s per s",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "weight on expected queue wait",
+    "verified": false
+  },
+  "sign.compliance.base": {
+    "value": 0.9,
+    "min": 0.6,
+    "max": 1.0,
+    "unit": "probability",
+    "cite": [
+      "xie2011",
+      "galea2014"
+    ],
+    "locator": "probability a noticed sign is followed",
+    "verified": false
+  },
+  "sign.compliance.staffBoost": {
+    "value": 0.1,
+    "min": 0.0,
+    "max": 0.3,
+    "unit": "probability",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "added compliance when staff are nearby",
+    "verified": false
+  },
+  "sign.compliance.stressGamma": {
+    "value": 0.3,
+    "min": 0.0,
+    "max": 0.6,
+    "unit": "ratio",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "reduction in compliance at full stress",
+    "verified": false
+  },
+  "sign.detect.dynamic": {
+    "value": 0.77,
+    "min": 0.5,
+    "max": 0.95,
+    "unit": "probability",
+    "cite": [
+      "galea2014"
+    ],
+    "locator": "probability a dynamic sign is noticed",
+    "verified": false
+  },
+  "sign.detect.static": {
+    "value": 0.38,
+    "min": 0.2,
+    "max": 0.6,
+    "unit": "probability",
+    "cite": [
+      "xie2011"
+    ],
+    "locator": "probability a static exit sign is noticed",
+    "verified": false
+  },
+  "smoke.speedFactor.min": {
+    "value": 0.3,
+    "min": 0.2,
+    "max": 0.6,
+    "unit": "ratio",
+    "cite": [
+      "jin1978",
+      "fridolf2013"
+    ],
+    "locator": "walking speed in dense smoke relative to free speed",
+    "verified": false
+  },
+  "stair.mergeRatio": {
+    "value": 0.5,
+    "min": 0.3,
+    "max": 0.7,
+    "unit": "share",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "share of next-flight capacity given to flow from above at a landing; add a merging-flow source",
+    "verified": false
+  },
+  "stress.decayPerSec": {
+    "value": 0.03,
+    "min": 0.0,
+    "max": 0.1,
+    "unit": "per s",
+    "cite": [
+      "assumption"
+    ],
+    "locator": "stress decay per second without cues",
+    "verified": false
+  },
+  "stress.doorGamma": {
+    "value": 0.3,
+    "min": 0.0,
+    "max": 0.6,
+    "unit": "ratio",
+    "cite": [
+      "helbing2000",
+      "assumption"
+    ],
+    "locator": "loss of door capacity at full mean stress (faster-is-slower)",
+    "verified": false
+  },
+  "stress.gain.blocked": {
+    "value": 0.1,
+    "min": 0.0,
+    "max": 0.3,
+    "unit": "per s",
+    "cite": [
+      "helbing2000",
+      "assumption"
+    ],
+    "locator": "stress rise per second while blocked",
+    "verified": false
+  },
+  "stress.gain.contagion": {
+    "value": 0.05,
+    "min": 0.0,
+    "max": 0.2,
+    "unit": "per s",
+    "cite": [
+      "helbing2000",
+      "assumption"
+    ],
+    "locator": "stress rise per second from stressed neighbours",
+    "verified": false
+  },
+  "stress.gain.density": {
+    "value": 0.05,
+    "min": 0.0,
+    "max": 0.2,
+    "unit": "per s",
+    "cite": [
+      "helbing2000",
+      "assumption"
+    ],
+    "locator": "stress rise per second above calm density",
+    "verified": false
+  },
+  "stress.gain.hazard": {
+    "value": 0.15,
+    "min": 0.0,
+    "max": 0.4,
+    "unit": "per s",
+    "cite": [
+      "helbing2000",
+      "assumption"
+    ],
+    "locator": "stress rise per second of hazard cue",
+    "verified": false
+  },
+  "stress.speedCap": {
+    "value": 1.25,
+    "min": 1.0,
+    "max": 1.25,
+    "unit": "ratio",
+    "cite": [
+      "helbing2000",
+      "assumption"
+    ],
+    "locator": "maximum speed multiplier at full stress",
+    "verified": false
+  },
+  "walk.child.speedFactor": {
+    "value": 0.9,
+    "min": 0.7,
+    "max": 1.1,
+    "unit": "ratio",
+    "cite": [
+      "larusdottir2010"
+    ],
+    "locator": "children's horizontal speed relative to adults",
+    "verified": false
+  },
+  "walk.freeSpeed.mean": {
+    "value": 1.34,
+    "min": 1.0,
+    "max": 1.6,
+    "unit": "m/s",
+    "cite": [
+      "weidmann1993"
+    ],
+    "locator": "mean free walking speed of adults on level ground",
+    "verified": false
+  },
+  "walk.freeSpeed.sd": {
+    "value": 0.26,
+    "min": 0.1,
+    "max": 0.4,
+    "unit": "m/s",
+    "cite": [
+      "weidmann1993"
+    ],
+    "locator": "standard deviation of free walking speed",
+    "verified": false
+  }
+}
