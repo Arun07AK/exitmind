@@ -50,8 +50,9 @@ export const ScenarioSchema = z.strictObject({
   dynamicMounts: z.array(z.string()).optional(),
   zoneCounts: z.record(z.string(), z.number().int().min(0).max(2000)).optional(),
   edits: z.array(z.strictObject({
-    kind: z.enum(["widen_corridor", "widen_stair", "widen_exit", "add_exit", "add_stair", "evac_chairs", "refuge", "accessible_exit", "strategy"]),
+    kind: z.enum(["widen_corridor", "widen_stair", "widen_exit", "add_exit", "add_stair", "evac_chairs", "refuge", "accessible_exit", "strategy", "geometry"]),
     target: z.string(), amount: z.number().optional(), protocol: z.enum(PROTOCOLS).optional(),
+    patch: z.record(z.string(), z.unknown()).optional(),
   })).optional(),
   seed: z.number().int().min(0).max(2 ** 31),
   maxSec: z.number().min(10).max(3600),

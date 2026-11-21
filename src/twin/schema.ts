@@ -161,3 +161,16 @@ export interface VenueMeta {
   staffGates: string[];
   assumptions: string[];
 }
+
+/** A concrete change to a twin: what to build, remove or modify. Applied by applyEdits (src/twin/edit.ts). */
+export interface GeometryPatch {
+  addSpaces?: Space[];
+  addPortals?: Portal[];
+  addExits?: Exit[];
+  addStairs?: Stair[];
+  removePortals?: string[];
+  updateSpaces?: { id: string; kind?: SpaceKind; use?: SpaceUse; occupiable?: boolean }[];
+  updatePortals?: { id: string; clearWidthIn?: number; accessible?: boolean; a?: Pt; b?: Pt; kind?: Portal["kind"] }[];
+  /** openings through wall barriers (uploaded plans, where walls are voids): a gap of widthFt centred on `at` */
+  cutVoids?: { floor: FloorId; at: Pt; widthFt: number }[];
+}
