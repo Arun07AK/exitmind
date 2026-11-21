@@ -696,7 +696,7 @@ export class World {
         if (b >= 0) this.closedMask[a] = this.closedMask[a]! | (1 << b);
       }
       const e = resolveElement(m, arrow.toward, fi);
-      if (e < 0) return;
+      if (e < 0 || (this.closedMask[a]! >> e) & 1) return;
       this.knownMask[a] = this.knownMask[a]! | (1 << e);
       if (s.kind === "STATIC_DEFAULT" && this.target[a]! >= 0) return;
       this.instrKind[a] = INSTR.ROUTE; this.instrTarget[a] = e;

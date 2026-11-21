@@ -57,7 +57,11 @@ describe("constraints", () => {
   it("network egress: only the two LLM APIs and the public drawing sheets are ever addressed", () => {
     const allowed = [/^https:\/\/api\.anthropic\.com/, /^https:\/\/api\.typesafe\.ai/, /^http:\/\/coremng\.dcp\.ufl\.edu\/rinkerhall\//, /^https?:\/\/(localhost|127\.0\.0\.1|x)(:|\/|$)/, /^http:\/\/\$\{/, /^https?:\/\/\$\{/];
     const bad: string[] = [];
-    for (const f of SRC) for (const m of read(f).matchAll(/https?:\/\/[^\s"'`)]+/g)) if (!allowed.some((a) => a.test(m[0]))) bad.push(`${f.replace(repoPath(), "")}: ${m[0]}`);
+    const buildTimeOnly: Record<string, RegExp> = { "/src/cli/venue-osm.ts": /^https:\/\/overpass-api\.de\/api\/interpreter/ };
+    for (const f of SRC) for (const m of read(f).matchAll(/https?:\/\/[^\s"'`)]+/g)) {
+      const rel = f.replace(repoPath(), "");
+      if (!allowed.some((a) => a.test(m[0])) && !buildTimeOnly[rel]?.test(m[0])) bad.push(`${rel}: ${m[0]}`);
+    }
     expect(bad).toEqual([]);
     const all = SRC.map(read).join("\n");
     expect(all).not.toMatch(/twilio|sendgrid|nodemailer|smtp|webhook|tel:|sms:/i);

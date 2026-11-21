@@ -57,7 +57,7 @@ export function buildContext(w: World, a: number, point: DecisionPoint): Decisio
   const herd = herdShares(w, a);
   const instr = w.instrKind[a]!;
   const it = w.instrTarget[a]!;
-  const signedEl = (instr === INSTR.ROUTE || instr === INSTR.HOLD) && it >= 0 && m.elements[it]!.floor === fi ? it : -1;
+  const signedEl = (instr === INSTR.ROUTE || instr === INSTR.HOLD) && it >= 0 && m.elements[it]!.floor === fi && !((w.closedMask[a]! >> it) & 1) ? it : -1;
   const reachable = m.elementsByFloor[fi]!.filter((ei) => w.fields[ei]![c]! < Infinity);
   let cand = reachable.filter((ei) => (known >> ei) & 1 && !((w.closedMask[a]! >> ei) & 1) && !((w.avoidMask[a]! >> ei) & 1));
   if (!cand.length) cand = reachable.filter((ei) => !((w.closedMask[a]! >> ei) & 1));
