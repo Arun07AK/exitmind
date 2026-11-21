@@ -8,29 +8,33 @@ EXITMIND: building-egress design platform plus an agentic live-incident system. 
 
 ## How work is run
 
-- The build is split into phases 0–8 (blueprint section 14). Work on **one phase at a time**.
-- At the end of each phase:
-  1. `npm test` passes (type-check plus all tests).
-  2. `docs/PROGRESS.md` is updated: status, what was built, the evidence (command + actual output), deviations from the blueprint, and open items.
-  3. One commit for the phase.
-  4. **Stop and wait for Arun's go** before starting the next phase.
-- Small fixes inside the current phase do not need approval. New scope does.
-- Blueprint decisions (section 2.1) are final. If one turns out to be impossible, stop and say why; do not substitute silently.
-- OPEN items (blueprint section 2.2) are Arun's to decide. Never decide them.
+- The build is split into phases 0–8 (blueprint section 14). Phases 0–7 are built; Phase 8 (stretch) is not started and Arun has parked it.
+- Arun asked for the remaining phases to run without stopping at phase boundaries. Still, at the end of each chunk of work:
+  1. `npm test` passes (type-check, vitest, Playwright).
+  2. `docs/PROGRESS.md` is updated: status, what changed, the evidence (command + actual output), deviations from the blueprint, and open items.
+  3. One commit per chunk. Do not push unless asked.
+- Blueprint decisions (section 2.1) are final. If one turns out to be impossible, say why; do not substitute silently.
+- OPEN items (blueprint section 2.2) are Arun's to decide. O1 is decided (block unless overridden with a reason). O3 (default persona backend) is still open and needs a TypeSafe key.
 - If something is skipped or fails, say so plainly. A test that cannot run (missing key, no phones) is reported as skipped with the reason, never as passed.
-- Before starting a long pipeline (bulk persona collection, rating matrix, playbook generation), write its plan and a progress ledger to `runs/<name>/ledger.json` and put the exact resume command in `docs/PROGRESS.md`.
+- Before starting a long pipeline, write its plan and a progress ledger to `runs/<name>/ledger.json` and put the exact resume command in `docs/PROGRESS.md`.
+- When a result looks too good or too bad (a rating of 0/24, a plan worse than doing nothing), find out which agents cause it before changing a threshold. Several real simulator bugs were found this way; see the PROGRESS log.
 
 ## Commands
 
-| Command | What it does | Status |
-|---|---|---|
-| `npm install` | install pinned dependencies | available |
-| `npm test` | `tsc --noEmit` then `vitest run` (Playwright is added to this script in Phase 2, when the first e2e test exists) | available |
-| `npm run typecheck` | type-check only | available |
-| `npx vitest run tests/unit/<file>` | run one test file | available |
-| `npm run sheets:fetch`, `twin:build`, `twin:overlay`, `dev`, `demo`, … | see blueprint section 4.5 | added in later phases |
+| Command | What it does |
+|---|---|
+| `npm test` | **all tests**: `tsc --noEmit`, `vitest run` (unit + acceptance), `playwright test` (3 browser specs; starts its own server on :8090 with `EXITMIND_OFFLINE=1`) |
+| `npm run test:unit` / `npx vitest run tests/acceptance/<file>` | vitest only / one file |
+| `npm run demo` | **the demo**: builds `dist/web` if missing, serves on `0.0.0.0:8080`, prints LAN URLs and sign QR codes |
+| `npm run dev` + `npm run dev:web` | API server on :8080 and the Vite dev server (proxies `/api`, `/ws`) |
+| `npm run llm:check` | verifies the keys in `.env` without printing them |
+| `npm run sheets:fetch`, `twin:build`, `twin:overlay` | sheets into `data/sheets/` (ignored); build + validate the twin; overlays into `docs/verification/overlays/` (ignored) |
+| `npm run sim -- --hazard fire --seed 1` | one run on the command line, with timing |
+| `npm run bottlenecks`, `adversary -- --hazard fire --seeds 1,2,3`, `optimise -- --hazard fire --seeds 1,2,3`, `rate`, `playbook` | design pipelines; write `data/design/*.json` and `data/playbook/rinker.playbook.json`. Add `--policy rule` to force the rule-based crowd. |
+| `npm run personas:collect` (`-- --instructed`, `-- --table`), `distill`, `bakeoff`, `results:table` | persona logs into `data/fixtures/` (needs a key), distilled policy, comparison docs in `docs/verification/` |
+| `npm run replay -- <log.jsonl>` | replay a showcase log or a live session log (`runs/live/*.jsonl`) and compare state hashes |
 
-Verification for any change: run `npm test` and paste the tail of its output as evidence.
+Verification for any change: run `npm test` and paste the tail of its output as evidence. After changing anything in `src/sim` or `config/*.json`, the design outputs in `data/design/`, the playbook and the distilled policy are stale: re-run the pipelines (about 15 minutes in total) and the persona replays (`for f in data/fixtures/*.jsonl; do node src/cli/replay.ts $f; done`). A simulator change breaks replay of recorded persona logs unless the decision points stay identical; re-collect if replays report MISMATCH.
 
 ## Code conventions
 
@@ -57,20 +61,42 @@ Verification for any change: run `npm test` and paste the tail of its output as 
 ## Secrets and data
 
 - API keys go in `.env` (git-ignored); `.env.example` lists the variables. Never print or commit a key.
-- Arun currently has an Anthropic key only. TypeSafe/Jev tests run against recorded fixtures until a TypeSafe key exists, and are labelled "fixture".
+- `.env` holds Arun's Anthropic key. There is no TypeSafe key, so the Jev adapter has only been tested against a stub (`tests/helpers/stubs.ts`); never describe it as tested live.
+- Claude structured output: keep `max_tokens` generous (persona calls were silently truncated at 120) and keep schemas few and stable, because each distinct schema is compiled on first use.
 - The Rinker Hall sheets carry an ownership notice: keep them in `data/sheets/` (git-ignored), never commit them or overlay images derived from them. Commit only our own traced twin data.
 
 ## Repo map (current)
 
 ```
-config/        behaviour.params.json  references.json  runtime.json
-src/shared/    rng.ts  hash.ts  ids.ts  units.ts  paths.ts  params.ts  runtime.ts
-src/log/       events.ts  eventlog.ts
-tests/unit/    rng, hash, eventlog, params, determinism-scan (+ fixtures/rng-worker.ts)
-docs/          BLUEPRINT.md  PROGRESS.md
+config/        behaviour.params.json  hazards.json  profiles.json  runtime.json  templates.json
+               optimiser.costs.json  demo.json  references.json
+data/twin/     rinker/*.ts (traced sources, frames.json)  rinker.twin.json (built)
+data/design/   bottlenecks, adversary(-fire/-quake), optimiser, rating, playbook (.json, generated)
+data/playbook/ rinker.playbook.json      data/policy/ distilled.policy.json
+data/fixtures/ recorded Haiku persona logs (showcase_*, table_hybrid_*), decision_points.json
+src/shared/    rng hash ids units paths params runtime env geom
+src/log/       events eventlog clock
+src/twin/      schema build validate raster augment edit candidates synthetic (test buildings)
+src/sim/       types constants model fields hazards population world run scenario
+src/policy/    types context rule personas (Haiku, Jev) distilled replay showcase
+src/llm/       claude typesafe guard (allow-list, deadlines, call records)
+src/design/    codecheck protocols prepare evaluate worker pool space adversary bottleneck
+               optimiser rating playbook nl2params
+src/live/      sensors sentinel planner verifier gate signcompiler signs liaison historian session
+src/server/    index (REST + WS) contract (shared types with web/) frames channels simrunner live
+src/cli/       one file per npm script
+web/           React app (Design, Live, Report), Plan2D + Building3D on one store, sign page (no React)
+tests/         unit/  acceptance/  e2e/  helpers/
+tools/         Python helpers for grid registration and overlays
+docs/          BLUEPRINT.md  PROGRESS.md  verification/ (spot check, bake-off, results table)
 ```
 
-The full target layout is in blueprint section 4.4. Update this map at each phase boundary.
+Key facts for anyone changing the simulator:
+
+- `World` (`src/sim/world.ts`) is one class with typed arrays per agent; `step()` order is fixed. Door and stair capacity are token buckets, which is why the flow tests match the configured relation.
+- Decisions go through `buildContext` -> a `DecisionPolicy` (rule, distilled, LLM, replay) -> `#apply`. Options are listed by the simulator; a policy can only pick an option id.
+- Only `src/live/gate.ts` may append `gate.published`. `SignHub` reads sign states from those records. A test scans for this.
+- The live session's ground-truth world consumes exactly four event types (`demo.control`, `gate.published`, `sign.online`, `sign.offline`), which is what makes a session replayable.
 
 ## Working with Arun
 

@@ -23,7 +23,8 @@ for (const [i, hazard] of (["fire", "quake", "none"] as const).entries()) {
 const points = Rng.stream(1, "bakeoff").shuffled(ctxs).slice(0, n);
 writeJson(["data", "fixtures", "decision_points.json"], points);
 const rt = simEnv.runtime;
-const haiku = new ClaudeClient(), jev = new TypeSafeAdapter();
+const callMs: Record<string, number[]> = { haiku: [], jev: [] };
+const haiku = new ClaudeClient({ sink: (r) => { if (r.outcome === "ok") callMs.haiku!.push(r.latencyMs); } }), jev = new TypeSafeAdapter({ sink: (r) => { if (r.outcome === "ok") callMs.jev!.push(r.latencyMs); } });
 const lines = [`# Persona backend bake-off (O3)`, "", `Decision points: ${points.length} (from rule-based runs on Rinker Hall: fire, earthquake, drill), saved to data/fixtures/decision_points.json.`, ""];
 const status = { haiku: haiku.available() ? "run" : `not run (${envVar("EXITMIND_OFFLINE") === "1" ? "offline" : "ANTHROPIC_API_KEY missing"})`, jev: jev.available() ? "run" : `not run (${envVar("EXITMIND_OFFLINE") === "1" ? "offline" : "TYPESAFE_API_KEY missing"})` };
 lines.push(`| Backend | Status |`, `|---|---|`, `| Claude Haiku (${envVar("PERSONA_HAIKU_MODEL") ?? "claude-haiku-5-5"}) | ${status.haiku} |`, `| TypeSafe Jev (${envVar("JEV_MODEL") ?? "jev-1.14.0"}) | ${status.jev} |`, "");
@@ -41,12 +42,14 @@ for (const [name, pol] of [["haiku", haiku.available() ? new HaikuPersona(haiku,
 }
 for (const [name, rs] of Object.entries(results)) {
   const ok = rs.filter((r): r is NonNullable<R> => !!r);
-  const ms = ok.map((r) => r.ms).sort((x, y) => x - y);
-  lines.push(`## ${name}`, "", `- answered: ${ok.length}/${rs.length}; valid option ids: ${ok.filter((r) => r.valid).length}`, `- latency median ${ms[Math.floor(ms.length / 2)] ?? "n/a"} ms, p90 ${ms[Math.floor(ms.length * 0.9)] ?? "n/a"} ms`, "");
+  const ms = [...(callMs[name] ?? [])].sort((x, y) => x - y);
+  const dist: Record<string, number> = {};
+  for (const r of ok) dist[r.sig] = (dist[r.sig] ?? 0) + 1;
+  lines.push(`## ${name}`, "", `- answered: ${ok.length}/${rs.length}; valid option ids: ${ok.filter((r) => r.valid).length}`, `- latency per API call (4 in flight): median ${ms[Math.floor(ms.length / 2)] ?? "n/a"} ms, p90 ${ms[Math.floor(ms.length * 0.9)] ?? "n/a"} ms`, `- chosen option roles: ${Object.entries(dist).sort((x, y) => y[1] - x[1]).map(([k, v]) => `${k} ${v}`).join(", ")}`, "");
 }
 if (results.haiku && results.jev) {
   const agree = points.filter((_, i) => results.haiku![i] && results.jev![i] && results.haiku![i]!.sig === results.jev![i]!.sig).length;
   lines.push(`Agreement on the chosen option role: ${agree}/${points.length}.`, "", "Decision for O3 is Arun's; this table is the evidence.");
-} else lines.push("The side-by-side comparison could not run because at least one provider key is missing. The adapters are tested against stubs in tests/acceptance/personas.test.ts.");
+} else lines.push("The side-by-side comparison could not run because at least one provider key is missing, so O3 (default persona backend) stays undecided. The missing adapter is tested against stubs in tests/acceptance/personas.test.ts.");
 writeFileSync(repoPath("docs", "verification", "bakeoff.md"), `${lines.join("\n")}\n`);
 console.log(lines.join("\n"));

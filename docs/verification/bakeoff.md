@@ -10,6 +10,7 @@ Decision points: 40 (from rule-based runs on Rinker Hall: fire, earthquake, dril
 ## haiku
 
 - answered: 40/40; valid option ids: 40
-- latency median 8859 ms, p90 14697 ms
+- latency per API call (4 in flight): median 1477 ms, p90 1657 ms
+- chosen option roles: MOVE_TO:NEAREST 18, FOLLOW_GROUP: 10, WAIT: 6, MOVE_TO:FAMILIAR 2, MOVE_TO:OTHER 2, FOLLOW_SIGN:SIGNED 2
 
-The side-by-side comparison could not run because at least one provider key is missing. The adapters are tested against stubs in tests/acceptance/personas.test.ts.
+The side-by-side comparison could not run because at least one provider key is missing, so O3 (default persona backend) stays undecided. The missing adapter is tested against stubs in tests/acceptance/personas.test.ts.

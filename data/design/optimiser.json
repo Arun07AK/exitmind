@@ -1,8 +1,9 @@
 {
  "hazard": "fire",
  "profile": "college",
+ "seed": 1,
  "budget": 60,
- "spent": 18,
+ "spent": 11,
  "costTable": "config/optimiser.costs.json (illustrative units, not estimates)",
  "steps": [
   {
@@ -14,14 +15,14 @@
    "label": "strategy: PHASED_EVACUATION",
    "cost": 1,
    "feasible": true,
-   "worstBefore": 110000.5,
-   "worstAfter": 62987.1,
+   "worstBefore": 113827.9,
+   "worstAfter": 89049.6,
    "accepted": true,
    "tradeoffs": [
     "cost 1 units (illustrative)",
-    "47013.4 ± 14220.0 badness improvement on the archived worst cases",
+    "24778.3 ± 16834.9 badness improvement on the archived worst cases",
     "changes the response plan, not the building; needs staff training and announcements",
-    "new adversary worst case on the edited layout: badness 95415.4"
+    "new adversary worst case on the edited layout: badness 113877.4"
    ]
   },
   {
@@ -33,66 +34,50 @@
    "label": "widen exit EX-S by 6 in",
    "cost": 5,
    "feasible": true,
-   "worstBefore": 71852.9,
-   "worstAfter": 42553.8,
+   "worstBefore": 105897,
+   "worstAfter": 36364.3,
    "accepted": true,
    "tradeoffs": [
     "cost 5 units (illustrative)",
-    "29299.2 ± 16713.6 badness improvement on the archived worst cases",
-    "new adversary worst case on the edited layout: badness 49555.4"
+    "69532.7 ± 13670.9 badness improvement on the archived worst cases",
+    "new adversary worst case on the edited layout: badness 32680.1"
    ]
   },
   {
    "edit": {
-    "kind": "refuge",
-    "target": "ST-B@F2"
+    "kind": "widen_exit",
+    "target": "EX-E1",
+    "amount": 6
    },
-   "label": "area of refuge at ST-B@F2",
-   "cost": 6,
+   "label": "widen exit EX-E1 by 6 in",
+   "cost": 5,
    "feasible": true,
-   "worstBefore": 42553.8,
-   "worstAfter": 42537.2,
+   "worstBefore": 36364.3,
+   "worstAfter": 36341.4,
    "accepted": true,
    "tradeoffs": [
-    "cost 6 units (illustrative)",
-    "16.6 ± 6.3 badness improvement on the archived worst cases",
-    "new adversary worst case on the edited layout: badness 51158.9"
-   ]
-  },
-  {
-   "edit": {
-    "kind": "refuge",
-    "target": "ST-A@F3"
-   },
-   "label": "area of refuge at ST-A@F3",
-   "cost": 6,
-   "feasible": true,
-   "worstBefore": 42537.2,
-   "worstAfter": 42532.5,
-   "accepted": true,
-   "tradeoffs": [
-    "cost 6 units (illustrative)",
-    "4.7 ± 3.4 badness improvement on the archived worst cases",
-    "new adversary worst case on the edited layout: badness 49567.2"
+    "cost 5 units (illustrative)",
+    "22.9 ± 20.0 badness improvement on the archived worst cases",
+    "new adversary worst case on the edited layout: badness 42524"
    ]
   }
  ],
  "original": {
-  "clearance95Sec": 796,
-  "remainingAtTarget": 91,
-  "densityDangerPS": 13499.1,
-  "smokeExposurePS": 40852.7,
+  "clearance95Sec": null,
+  "remainingAtTarget": 77.3,
+  "densityDangerPS": 20433,
+  "smokeExposurePS": 44439.3,
   "gridlock": false,
-  "badness": 90160.8,
+  "badness": 100727.2,
   "ref": "original layout: worst of the fresh attack pool (top 3 scenarios from attacks on both layouts), 8 fresh seeds"
  },
  "optimised": {
-  "clearance95Sec": 373.2,
-  "remainingAtTarget": 35.6,
-  "densityDangerPS": 1215.4,
-  "smokeExposurePS": 27553,
+  "clearance95Sec": 334.5,
+  "remainingAtTarget": 0,
+  "densityDangerPS": 3204.4,
+  "smokeExposurePS": 26368.7,
   "gridlock": false,
-  "badness": 56443.2,
+  "badness": 54674.1,
   "ref": "optimised layout: worst of the same attack pool, same 8 fresh seeds"
  },
  "seeds": [
@@ -105,5 +90,44 @@
   88006,
   88007
  ],
- "codeLimitsOk": true
+ "codeLimitsOk": true,
+ "perSeed": [
+  {
+   "seed": 1,
+   "original": 100727.2,
+   "optimised": 54674.1,
+   "spent": 11,
+   "steps": [
+    "strategy: PHASED_EVACUATION",
+    "widen exit EX-S by 6 in",
+    "widen exit EX-E1 by 6 in"
+   ],
+   "codeLimitsOk": true
+  },
+  {
+   "seed": 2,
+   "original": 74583.5,
+   "optimised": 51088.7,
+   "spent": 20,
+   "steps": [
+    "strategy: PHASED_EVACUATION",
+    "widen exit EX-S by 6 in",
+    "widen exit EX-S by 6 in",
+    "strategy: HOLD_THEN_EVACUATE",
+    "widen corridor C399C by 1 ft"
+   ],
+   "codeLimitsOk": true
+  },
+  {
+   "seed": 3,
+   "original": 94937.9,
+   "optimised": 59960.7,
+   "spent": 6,
+   "steps": [
+    "strategy: PHASED_EVACUATION",
+    "widen exit EX-S by 6 in"
+   ],
+   "codeLimitsOk": true
+  }
+ ]
 }

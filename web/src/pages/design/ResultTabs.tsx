@@ -207,6 +207,7 @@ export function RatingTab({ onReplay }: { onReplay: Replay }) {
                 </tbody>
               </table>
               {d.disclaimer && d.disclaimer !== RATING_DISCLAIMER ? <p className="mt-2 text-xs text-slate-400">{d.disclaimer}</p> : null}
+              {d.criterion ? <p className="mt-2 text-xs text-slate-300" data-testid="rating-criterion">{d.criterion}</p> : null}
               <p className="mt-1 text-xs text-slate-500">{ASSUMPTIONS}</p>
             </Card>
           );

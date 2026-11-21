@@ -1,12 +1,12 @@
 {
  "layout": "as drawn",
  "baseline": {
-  "clearance95Sec": 225.2,
-  "remainingAtTarget": 1.4,
-  "densityDangerPS": 0.5,
-  "smokeExposurePS": 442.1,
+  "clearance95Sec": 217.1,
+  "remainingAtTarget": 0,
+  "densityDangerPS": 0.2,
+  "smokeExposurePS": 353.5,
   "gridlock": false,
-  "badness": 1123.6,
+  "badness": 924.3,
   "ref": "baseline",
   "scenario": {
    "id": "baseline-fire-college",
@@ -37,18 +37,18 @@
     "loadFactor": 1,
     "occupancy": "uniform",
     "protocol": "EVACUATE",
-    "seed": 50002,
+    "seed": 50001,
     "maxSec": 900
    }
   }
  },
  "worst": {
   "clearance95Sec": null,
-  "remainingAtTarget": 130.3,
-  "densityDangerPS": 16586.9,
-  "smokeExposurePS": 53003.9,
+  "remainingAtTarget": 89.6,
+  "densityDangerPS": 18062.8,
+  "smokeExposurePS": 54773,
   "gridlock": false,
-  "badness": 116494.4,
+  "badness": 120359.3,
   "ref": "worst",
   "scenario": {
    "id": "worst-fire-college",
@@ -64,85 +64,85 @@
       65.9
      ],
      "overrides": {
-      "fire.smokeFrontSpeed": 0.5
+      "fire.smokeFrontSpeed": 0.443
      }
     },
     "behaviour": {
-     "profile.college.familiarShare": 0.822,
-     "premove.medianSec.college": 134.644,
-     "sign.compliance.base": 0.822,
-     "herding.betaSec": 22.379,
-     "stress.gain.hazard": 0.187,
-     "profile.college.share.wheelchair": 0.018,
-     "profile.college.groupFraction": 0.457
+     "profile.college.familiarShare": 0.617,
+     "premove.medianSec.college": 178.694,
+     "sign.compliance.base": 0.782,
+     "herding.betaSec": 22.634,
+     "stress.gain.hazard": 0.313,
+     "profile.college.share.wheelchair": 0.015,
+     "profile.college.groupFraction": 0.375
     },
-    "loadFactor": 1.244,
+    "loadFactor": 1.183,
     "occupancy": "classes_full",
     "protocol": "EVACUATE",
-    "seed": 50002,
+    "seed": 50001,
     "maxSec": 900
    }
   }
  },
  "explanation": [
-  "Worst scenario badness 116494.4 ± 5926.0 vs default crowd 1123.6 ± 307.5 on 10 fresh seeds (difference 115370.8).",
-  "Resetting \"pre-movement delay (median)\" to its default changes badness by -88181.1 (mean of 3 seeds).",
-  "Resetting \"hazard origin zone\" to its default changes badness by -84819.6 (mean of 3 seeds).",
-  "Resetting \"smoke spread speed\" to its default changes badness by -59491.1 (mean of 3 seeds).",
-  "Resetting \"where people are\" to its default changes badness by -28682.3 (mean of 3 seeds).",
-  "Longest queue in the worst run: X-F1-3 with 2325.75 person-seconds of waiting.",
-  "Exit shares in the worst run: EX-N 44%, EX-W 6%, EX-S 32%, EX-E1 8%, EX-E2 11%.",
-  "Worst scenario: share who know the building: 0.822 (default 0.75, range 0.5-0.95)",
-  "Worst scenario: pre-movement delay (median): 135 (default 45, range 10-180)",
-  "Worst scenario: sign compliance: 0.822 (default 0.9, range 0.6-1)",
-  "Worst scenario: herding pull: 22 (default 15, range 0-40)",
-  "Worst scenario: stress from hazard cues: 0.187 (default 0.15, range 0-0.4)",
-  "Worst scenario: wheelchair users: 0.018 (default 0.005, range 0-0.02)",
-  "Worst scenario: share moving in groups: 0.457 (default 0.35, range 0.1-0.6)",
-  "Worst scenario: load relative to the printed occupant load: 1.244 (default 1, range 0.8-1.3)",
-  "Worst scenario: smoke spread speed: 0.500 (default 0.25, range 0.1-0.5)",
+  "Worst scenario badness 120359.3 ± 16081.4 vs default crowd 924.3 ± 185.8 on 10 fresh seeds (difference 119435.0).",
+  "Resetting \"hazard origin zone\" to its default changes badness by -96331.9 (mean of 3 seeds).",
+  "Resetting \"pre-movement delay (median)\" to its default changes badness by -56059.4 (mean of 3 seeds).",
+  "Resetting \"where people are\" to its default changes badness by -36294.1 (mean of 3 seeds).",
+  "Resetting \"smoke spread speed\" to its default changes badness by -31728.4 (mean of 3 seeds).",
+  "Longest queue in the worst run: X-F1-3 with 2335 person-seconds of waiting.",
+  "Exit shares in the worst run: EX-N 36%, EX-W 8%, EX-S 36%, EX-E1 10%, EX-E2 9%, ELEVATOR 1%.",
+  "Worst scenario: share who know the building: 0.617 (default 0.75, range 0.5-0.95)",
+  "Worst scenario: pre-movement delay (median): 179 (default 45, range 10-180)",
+  "Worst scenario: sign compliance: 0.782 (default 0.9, range 0.6-1)",
+  "Worst scenario: herding pull: 23 (default 15, range 0-40)",
+  "Worst scenario: stress from hazard cues: 0.313 (default 0.15, range 0-0.4)",
+  "Worst scenario: wheelchair users: 0.015 (default 0.005, range 0-0.02)",
+  "Worst scenario: share moving in groups: 0.375 (default 0.35, range 0.1-0.6)",
+  "Worst scenario: load relative to the printed occupant load: 1.183 (default 1, range 0.8-1.3)",
+  "Worst scenario: smoke spread speed: 0.443 (default 0.25, range 0.1-0.5)",
   "Worst scenario: hazard origin zone: Z1N (default Z2C)",
   "Worst scenario: where people are: classes_full (default uniform)"
  ],
  "history": [
   {
    "generation": 0,
-   "best": 39553.7,
-   "mean": 11273.8
+   "best": 76682.6,
+   "mean": 14125.3
   },
   {
    "generation": 1,
-   "best": 97328.7,
-   "mean": 21252.3
+   "best": 100371.9,
+   "mean": 30452.8
   },
   {
    "generation": 2,
-   "best": 65917.3,
-   "mean": 24186.7
+   "best": 112474.4,
+   "mean": 53070.3
   },
   {
    "generation": 3,
-   "best": 101533.5,
-   "mean": 50324
+   "best": 109634.2,
+   "mean": 65504
   },
   {
    "generation": 4,
-   "best": 117637.6,
-   "mean": 66776
+   "best": 114524.4,
+   "mean": 76322.1
   }
  ],
  "evaluations": 293,
  "seeds": [
-  50002,
-  50015,
-  50028,
-  50041,
-  50054,
-  50067,
-  50080,
-  50093,
-  50106,
-  50119
+  50001,
+  50014,
+  50027,
+  50040,
+  50053,
+  50066,
+  50079,
+  50092,
+  50105,
+  50118
  ],
  "seedsRun": [
   1,
@@ -152,89 +152,89 @@
  "perSeed": [
   {
    "seed": 1,
-   "baseline": 907.5,
-   "worst": 115964.3,
+   "baseline": 924.3,
+   "worst": 120359.3,
    "baselineFresh": [
-    779.81,
-    845.24,
-    898.89,
-    850.01,
-    798.22,
-    1033.06,
-    677,
-    999.93,
-    1411.26,
-    781.66
+    649.49,
+    842.85,
+    982.62,
+    1320.92,
+    829.25,
+    848.74,
+    835.73,
+    1112.05,
+    979.5,
+    841.67
    ],
    "worstFresh": [
-    108357.64,
-    103318.93,
-    115787.2,
-    121102.22,
-    131929.79,
-    115585.2,
-    119234.17,
-    98593.93,
-    130967.86,
-    114766.03
+    125772.52,
+    152154.45,
+    125205.39,
+    105795.51,
+    135797.32,
+    111223.81,
+    97157.3,
+    107709.65,
+    125223.55,
+    117553.16
    ]
   },
   {
    "seed": 2,
-   "baseline": 1123.6,
-   "worst": 116494.4,
+   "baseline": 1001.2,
+   "worst": 110090.1,
    "baselineFresh": [
-    1013.17,
-    852.44,
-    1290.15,
-    1324.62,
-    957.98,
-    667.93,
-    1093.95,
-    1219.45,
-    1789.03,
-    1027.7
+    1079.15,
+    899.48,
+    1218.85,
+    737.36,
+    1029.15,
+    788.75,
+    998.99,
+    1107.96,
+    1465.86,
+    686.86
    ],
    "worstFresh": [
-    110251.88,
-    106913.02,
-    111771.11,
-    110883.29,
-    122102.06,
-    123312,
-    122067.17,
-    119252.06,
-    119593.59,
-    118797.76
+    103548.86,
+    109452.89,
+    93184.22,
+    117699.17,
+    110430.34,
+    120453.89,
+    110295.28,
+    117548.97,
+    113634.07,
+    104653.49
    ]
   },
   {
    "seed": 3,
-   "baseline": 1060.8,
-   "worst": 60562.8,
+   "baseline": 915.1,
+   "worst": 87421.7,
    "baselineFresh": [
-    1010.44,
-    924.06,
-    1124.5,
-    2443.61,
-    867.19,
-    815.39,
-    898.22,
-    1103.99,
-    713.42,
-    706.9
+    865.41,
+    802.16,
+    870.95,
+    591.92,
+    770.8,
+    1593.46,
+    1013.99,
+    1264.02,
+    677.78,
+    700.31
    ],
    "worstFresh": [
-    51265.46,
-    35055.87,
-    65480.62,
-    81380.99,
-    53880.24,
-    64076.52,
-    72071.08,
-    71871.19,
-    65770.89,
-    44775.52
+    79185.29,
+    53682.06,
+    90976.29,
+    83068.78,
+    106991.04,
+    76140.72,
+    106290.84,
+    110602.95,
+    79300.38,
+    87978.25
    ]
   }
  ]

@@ -4,7 +4,7 @@ An AI-assisted building-safety design platform and agentic emergency system. It 
 
 No action reaches a person until three keys turn: **an AI agent decides, a simulation tries to break that decision, and a human approves it.**
 
-> **Status:** Phase 0 (foundations) of 9. The simulator, twin, agents and UI are not built yet. See [`docs/PROGRESS.md`](docs/PROGRESS.md) for the phase ledger and [`docs/BLUEPRINT.md`](docs/BLUEPRINT.md) for the full design.
+> **Status:** Phases 0-7 are built. Phase 8 (open-ground event layout, stretch) is not started. Results, evidence, deviations and known gaps are in [`docs/PROGRESS.md`](docs/PROGRESS.md); the design is in [`docs/BLUEPRINT.md`](docs/BLUEPRINT.md).
 
 ## What EXITMIND is, and is not
 
@@ -17,16 +17,30 @@ No action reaches a person until three keys turn: **an AI agent decides, a simul
 
 ## Run it
 
-Requires Node.js 24 or later (TypeScript runs natively; there is no build step for server code).
+Requires Node.js 24 or later (TypeScript runs natively; there is no build step for server code), Python 3 with Pillow for the drawing overlays, and `pdftoppm` (poppler) for the sheets.
 
 ```bash
 npm install
-npm test          # type-check + all tests
+npx playwright install chromium   # once, for the browser tests
+cp .env.example .env              # optional: paste API keys; without them every LLM path uses its fallback
+npm test                          # ALL tests: type-check, vitest (unit + acceptance), Playwright (browser + simulated phones)
+npm run demo                      # THE demo: builds the web app, serves on 0.0.0.0:8080, prints LAN URLs and sign QR codes
 ```
 
-Commands for the sheets, twin, simulator and demo are added phase by phase; the planned list is in `docs/BLUEPRINT.md` section 4.5.
+`EXITMIND_OFFLINE=1 npm run demo` runs the whole demo with no network: personas use the distilled policy, the Planner uses the playbook, briefs use templates.
 
-Copy `.env.example` to `.env` for API keys. `.env` is git-ignored.
+| Command | What it does |
+|---|---|
+| `npm run llm:check` | checks the API keys in `.env` with three tiny calls (never prints a key) |
+| `npm run sheets:fetch` | downloads the six drawing sheets into the git-ignored `data/sheets/` |
+| `npm run twin:build` / `twin:overlay` | builds and validates `data/twin/rinker.twin.json`; draws the twin over the sheets (git-ignored output) |
+| `npm run sim -- --hazard fire` | one simulation run from the command line |
+| `npm run bottlenecks` / `adversary` / `optimise` / `rate` / `playbook` | design-mode pipelines; results go to `data/design/` and show in the Design tabs |
+| `npm run personas:collect` / `distill` | record live LLM persona runs (needs a key), then distil them into `data/policy/distilled.policy.json` |
+| `npm run bakeoff` / `results:table` | persona backend comparison and the rule-only / hybrid / distilled table, written to `docs/verification/` |
+| `npm run replay -- <log.jsonl>` | replays a recorded showcase run or live session and checks the final state is identical |
+
+Demo script (3 minutes): `/live` -> Start fire -> read the decision card -> Approve -> phones change -> Inject bad plan (FAIL, needs an override reason) -> Fail a sensor (confidence drops, signs hold) -> Reset -> Start earthquake (a different protocol) -> Approve -> All clear -> `/report`.
 
 ## Libraries
 
@@ -52,14 +66,14 @@ Copy `.env.example` to `.env` for API keys. `.env` is git-ignored.
 | `typescript` | 7.0.2 | type-checking only (dev) |
 | `@types/node` 24.19.2, `@types/react` 19.3.0, `@types/react-dom` 19.3.0, `@types/ws` 8.18.2, `@types/express` 5.0.6, `@types/qrcode` 1.5.6, `@types/three` 0.187.0 | — | type definitions (dev) |
 
-Versions are pinned exactly. Every version was published at least 7 days before it was added. External tool used by scripts: `pdftoppm` (poppler) for rasterising the drawing sheets.
+Versions are pinned exactly. Every version was published at least 7 days before it was added. External tools used by scripts: `pdftoppm` (poppler) for rasterising the drawing sheets, and Python 3 with Pillow (`tools/*.py`) for grid registration and the overlay images.
 
 ## APIs
 
 | API | Used for | Without a key or network |
 |---|---|---|
 | Claude API (Anthropic), `api.anthropic.com` | Planner and Liaison agents, Haiku persona backend, plain-language parsing | playbook, templates, distilled policy, keyword lexicon |
-| TypeSafe System One API, `api.typesafe.ai` | Jev persona backend (typed choices with probabilities), plain-language scores, brief line checks | distilled policy; Haiku backend |
+| TypeSafe System One API, `api.typesafe.ai` | Jev persona backend (typed choices with probabilities). **Not exercised against the live API in this build: no TypeSafe key was available; the adapter is tested against a stub only.** | distilled policy; Haiku backend |
 
 The server's outbound HTTP is restricted to these two hosts.
 
@@ -84,7 +98,7 @@ Code basis printed on sheet A107: 1997 Standard Building Code and 1994 ANSI/NFPA
 
 Every behaviour parameter the simulator reads lives in [`config/behaviour.params.json`](config/behaviour.params.json) with a value, a bounded range, a unit and a citation key from [`config/references.json`](config/references.json). Values outside the range are refused.
 
-- **All parameters are currently `verified: false`.** Their values were seeded from the literature from memory during planning and must still be checked against each source.
+- **All parameters are currently `verified: false`.** Their values were seeded from the literature from memory during planning and have NOT been checked against each source. Treat every number as provisional.
 - Parameters citing the key `assumption` are modelling assumptions with ranges chosen by this project, not taken from a source.
 
 All references below were resolved against OpenAlex on 2026-11-21.
@@ -117,7 +131,17 @@ All references below were resolved against OpenAlex on 2026-11-21.
 | `bernardini2016` | Bernardini, G.; Quagliarini, E.; D'Orazio, M. (2016). Towards creating a combined database for earthquake pedestrians' evacuation models. *Safety Science* | [10.1016/j.ssci.2015.09.001](https://doi.org/10.1016/j.ssci.2015.09.001) |
 | `park2023` | Park, J. S.; O'Brien, J.; Cai, C. J.; Morris, M. R.; Liang, P.; Bernstein, M. S. (2023). Generative Agents: Interactive Simulacra of Human Behavior. *ACM Symposium on User Interface Software and Technology (UIST)* | [10.1145/3586183.3606763](https://doi.org/10.1145/3586183.3606763) |
 
-## Modelling assumptions (to be filled in as they are introduced)
+## Modelling assumptions
 
-- Interior door widths are not on the six permitted sheets; 34" clear per leaf is assumed and tagged `basis: "assumed"`.
-- Sign mount positions, candidate edit sites for the optimiser, the hospital compartment line, hazard spread ranges, optimiser costs and clearance targets are EXITMIND assumptions and are labelled as such wherever they appear.
+These are EXITMIND's own choices, not facts about the building or findings from the literature. Each is labelled where it appears in the app.
+
+- **Interior door widths** are not on the six permitted sheets; 34" clear per leaf is assumed and tagged `basis: "assumed"`. Code-check rows that depend on them are shown as information, not pass/fail.
+- **Occupant loads.** The college profile uses the loads printed on the egress sheets (154 / 157 / 151). School, mall and hospital profiles use an assumed area per person, which puts far more people in the building than its exits were sized for.
+- **Hazards** (`config/hazards.json`) are simple spreading zones, not physics. Smoke slows people and makes routes costly; only the fire core is impassable. An earthquake damages chosen stairs or exits, and people who move during an assumed aftershock window count as exposed.
+- **Dangerous density** is counted above 5 persons/m2; a doorway's flow collapses after 10 s above that and recovers below 4.5.
+- **Announcements** are assumed to halve the remaining pre-movement delay for people who hear them.
+- **Assisted evacuation.** People who cannot use stairs wait beside the stair. One assisted elevator trip every 90 s takes one of them out (the A107 code summary lists the elevator as the accessible means of egress); the elevator is not used after an earthquake.
+- **Clearance targets** (`config/runtime.json`): 600 s for fire and crush, 720 s for earthquake, 300 s for a threat. They are reviewer settings and every rating depends on them.
+- **Sign mount positions, zones (north / central / south bands), optimiser costs and the badness weights** are EXITMIND defaults. Optimiser costs are illustrative units, not estimates.
+- **Sensors** are simulated. The fire alarm panel is modelled as an input EXITMIND can only read.
+- **Persona behaviour** is modelled behaviour, not validated against real evacuations. The distilled policy is built from 596 Claude Haiku decisions on Rinker Hall scenarios.
