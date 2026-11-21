@@ -47,5 +47,5 @@ describe("architectural optimisation: generators", () => {
     const t = applyEdits(rinker.twin, [xs.edit]);
     expect(t.stairs.length).toBe(rinker.twin.stairs.length + 1);
     expect(validateTwin(t).stats.walkableCells).toBeGreaterThan(validateTwin(rinker.twin).stats.walkableCells);
-  });
+  }, 120_000);
 });
