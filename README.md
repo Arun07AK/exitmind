@@ -4,7 +4,7 @@ An AI-assisted building-safety design platform and agentic emergency system. It 
 
 No action reaches a person until three keys turn: **an AI agent decides, a simulation tries to break that decision, and a human approves it.**
 
-> **Demo video:** [2-minute captioned walkthrough](docs/demo/exitmind-demo.webm) of the three demos (Simulate, Optimise, Live), recorded in offline mode with `docs/demo/record-demo.mjs`.
+> **Demo video (57 s):** [watch](https://arun07ak.github.io/exitmind/demo/) or [download](docs/demo/exitmind-demo.mp4). Real screen recordings (live Opus scenario agent, live Haiku crowd brain, optimiser, three-key gate), captured with `docs/demo/capture.mjs` and cut with the source in `docs/demo/film/`.
 
 > **Status:** Phases 0-7 are built. Phase 8 (open-ground event layout, stretch) is not started. Results, evidence, deviations and known gaps are in [`docs/PROGRESS.md`](docs/PROGRESS.md); the design is in [`docs/BLUEPRINT.md`](docs/BLUEPRINT.md).
 

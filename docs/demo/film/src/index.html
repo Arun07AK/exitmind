@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>EXITMIND in 60 seconds</title>
+<style>
+  @font-face { font-family: "IBM Plex Sans"; font-weight: 500; src: url(../assets/fonts/ibm-plex-sans-latin-500-normal.woff2) format("woff2"); }
+  @font-face { font-family: "IBM Plex Sans"; font-weight: 600; src: url(../assets/fonts/ibm-plex-sans-latin-600-normal.woff2) format("woff2"); }
+  @font-face { font-family: "IBM Plex Mono"; font-weight: 500; src: url(../assets/fonts/ibm-plex-mono-latin-500-normal.woff2) format("woff2"); }
+  @font-face { font-family: "IBM Plex Mono"; font-weight: 600; src: url(../assets/fonts/ibm-plex-mono-latin-600-normal.woff2) format("woff2"); }
+  body { margin: 0; overflow: hidden; background: #000; }
+  #stage { position: relative; overflow: hidden; background: var(--paper); color: var(--ink); font-family: var(--font-label); }
+  #world, #hud { position: absolute; left: 0; top: 0; width: var(--W); height: var(--H); transform-origin: 0 0; }
+  .a { position: absolute; left: 0; top: 0; }
+  .full { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; object-fit: cover; opacity: 0; }
+  #vScenBg { filter: blur(14px) brightness(0.32) saturate(0.8); transform: scale(1.06); }
+  #vFete2 { filter: brightness(0.42) saturate(0.85); }
+  #vLive { filter: blur(10px) brightness(0.3); transform: scale(1.05); }
+  #optWrap { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; opacity: 0; }
+  #optWrap video { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; }
+  #scrimL { position: absolute; left: 0; top: 0; width: 1500px; height: 1080px; background: linear-gradient(90deg, rgba(14,16,19,.93) 0%, rgba(14,16,19,.86) 55%, rgba(14,16,19,0) 100%); opacity: 0; }
+  .card { position: absolute; left: 0; top: 0; overflow: hidden; border-radius: 18px; background: #fff; box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.08); opacity: 0; }
+  #card, #card2 { width: 500px; height: 1080px; }
+  #card3 { width: 440px; height: 880px; }
+  .card video { position: absolute; width: 1920px; height: 1080px; }
+  #vScenCrop, #vFeed { left: -1420px; top: 0; }
+  #vLiveCrop { left: -1466px; top: -200px; }
+  .hi { position: absolute; border: 4px solid var(--accent); border-radius: 10px; opacity: 0; box-shadow: 0 0 0 9999px rgba(14,16,19,0); }
+  .hi.cool { border-color: var(--cool); }
+  .hi.green { border-color: var(--green); }
+  .k { width: 1000px; }
+  .kick { font: 600 22px var(--font-label); letter-spacing: .22em; color: var(--green); text-transform: uppercase; margin-bottom: 14px; }
+  .kick.cool { color: #B9A4F2; }
+  .head { font: 700 96px/0.95 var(--font-display); letter-spacing: .01em; text-transform: uppercase; color: var(--ink); }
+  .head.mid { font-size: 76px; }
+  .head.red { color: var(--accent); }
+  .sub { font: 500 34px/1.3 var(--font-label); color: #D9D5CC; margin-top: 16px; }
+  .chip { font: 600 34px var(--font-mono); color: var(--ink); background: rgba(242,238,230,.08); border: 2px solid rgba(242,238,230,.22); border-radius: 12px; padding: 10px 20px; white-space: nowrap; }
+  .chip b { color: var(--green); font-weight: 600; }
+  .chip.purple { border-color: rgba(126,94,204,.7); }
+  #cnt { font: 600 150px/1 var(--font-mono); color: var(--ink); white-space: nowrap; }
+  .cap { font: 600 190px/1 var(--font-mono); white-space: nowrap; }
+  #capFrom { color: #9AA0A8; }
+  #capTo { color: var(--green); }
+  #capArrow { font: 600 120px var(--font-mono); color: #9AA0A8; }
+  #ringH1 { width: 150px; height: 150px; border-radius: 50%; border: 6px solid var(--accent); opacity: 0; }
+  #stamp { text-transform: uppercase; font: 700 150px var(--font-display); color: var(--accent); border: 10px solid var(--accent); border-radius: 18px; padding: 8px 34px 0; letter-spacing: .04em; opacity: 0; background: rgba(14,16,19,.55); }
+  #title { font: 700 210px var(--font-display); letter-spacing: .02em; color: var(--ink); white-space: nowrap; }
+  #tag { font: 700 76px var(--font-display); color: var(--accent); letter-spacing: .03em; white-space: nowrap; }
+  #team { font: 600 34px var(--font-label); color: #B9B4AA; letter-spacing: .08em; white-space: nowrap; }
+  .kl { font: 600 40px var(--font-label); color: var(--ink); white-space: nowrap; }
+  .kl i { font-style: normal; display: inline-block; width: 58px; height: 58px; line-height: 58px; text-align: center; border-radius: 50%; background: var(--green); color: #0E1013; font: 600 32px var(--font-mono); margin-right: 22px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="world">
+    <video id="vFete" class="full" src="../assets/footage/fete.mp4" muted preload="auto"></video>
+    <video id="vFete2" class="full" src="../assets/footage/fete.mp4" muted preload="auto"></video>
+    <video id="vFlow" class="full" src="../assets/footage/fete.mp4" muted preload="auto"></video>
+    <video id="vScenBg" class="full" src="../assets/footage/scenario.mp4" muted preload="auto"></video>
+    <video id="vLive" class="full" src="../assets/footage/live.mp4" muted preload="auto"></video>
+    <div id="optWrap"><video id="vOpt" src="../assets/footage/optimise.mp4" muted preload="auto"></video><div id="ringH1" class="a"></div></div>
+    <div id="scrimL"></div>
+    <div id="card" class="card a"><video id="vScenCrop" src="../assets/footage/scenario.mp4" muted preload="auto"></video><div id="hiOpus" class="hi"></div></div>
+    <div id="card2" class="card a"><video id="vFeed" src="../assets/footage/scenario.mp4" muted preload="auto"></video>
+      <div id="hiHaiku"><div class="hi cool hh"></div><div class="hi cool hh"></div><div class="hi cool hh"></div><div class="hi cool hh"></div><div class="hi cool hh"></div></div>
+      <div id="hiRow" class="hi"></div></div>
+    <div id="card3" class="card a"><video id="vLiveCrop" src="../assets/footage/live.mp4" muted preload="auto"></video>
+      <div id="hiK1" class="hi green"></div><div id="hiK2" class="hi green"></div><div id="hiK3" class="hi green"></div><div id="hiFail" class="hi"></div></div>
+  </div>
+  <div id="hud">
+    <div id="hl1" class="a k"><div class="head">Safety checks count doors.</div></div>
+    <div id="hl2" class="a k"><div class="head red">Not people.</div></div>
+    <div id="k1" class="a k"><div class="kick">Scenario agent · Claude Opus 5.5</div><div class="head">One sentence in.</div></div>
+    <div id="k2" class="a k"><div class="head mid">Opus asks for what is missing,</div><div class="sub">then builds the crowd:</div></div>
+    <div id="c1" class="a chip">Ages <b>18–21</b></div>
+    <div id="c2" class="a chip"><b>95%</b> students · <b>5%</b> staff</div>
+    <div id="c3" class="a chip">Familiarity <b>80%</b> · staff <b>95%</b></div>
+    <div id="c4" class="a chip"><b>2%</b> slow · <b>0.5%</b> wheelchair</div>
+    <div id="k3" class="a k"><div class="kick cool">Crowd brain · live Claude Haiku</div><div class="head">Every group decides.</div><div class="sub">Each person: age, role, mobility, familiarity, the gate they came in through.</div></div>
+    <div id="k5" class="a k"><div class="head mid red">Unfamiliar → the gate they came in through</div></div>
+    <div id="cnt" class="a">8,004</div>
+    <div id="k6" class="a k"><div class="sub">Haiku decisions in one recorded run · 1,500 people</div><div class="kick cool" style="margin-top:18px">16x replay of the live Haiku run</div></div>
+    <div id="k7" class="a k"><div class="kick">Optimiser · Rinker Hall</div><div class="head">It attacks the building.</div></div>
+    <div id="k8" class="a k"><div class="sub"><b style="color:#E2432A">Worst fire found:</b> 82.5 of 547 people still inside at 10 minutes</div></div>
+    <div id="k9" class="a k"><div class="head mid red">One door: 68% of all waiting</div></div>
+    <div id="c5" class="a chip"><b>49</b> alternatives</div>
+    <div id="c6" class="a chip"><b>392</b> simulations</div>
+    <div id="c7" class="a chip purple"><b>8</b> Opus concepts · <b>6</b> built</div>
+    <div id="capLbl" class="a kick">Safe capacity · everyone out in all 8 test runs</div>
+    <div id="capFrom" class="a cap">362</div>
+    <div id="capArrow" class="a">→</div>
+    <div id="capTo" class="a cap">556</div>
+    <div id="k10" class="a k"><div class="kick">Live · on the night</div><div class="head">Three keys.</div></div>
+    <div id="kl1" class="a kl"><i>1</i>AI decides</div>
+    <div id="kl2" class="a kl"><i>2</i>Simulation tries to break it</div>
+    <div id="kl3" class="a kl"><i>3</i>Human approves</div>
+    <div id="stamp" class="a">Blocked</div>
+    <div id="title" class="a">EXITMIND</div>
+    <div id="tag" class="a">Everyone goes home.</div>
+    <div id="team" class="a">TEAM PIED PIPER · SATHACK · SATURNALIA '26 · GITHUB.COM/ARUN07AK/EXITMIND</div>
+  </div>
+</div>
+<script src="../build/timeline.js"></script>
+<script src="../build/studio.js"></script>
+<script src="scene.js"></script>
+</body>
+</html>
